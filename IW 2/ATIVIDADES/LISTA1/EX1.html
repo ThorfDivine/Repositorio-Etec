@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <p>digite a nota 1:   </p> <br>
+    <input type="number" id="n1">
+    <p>digite a nota 2:   </p> <br>
+    <input type="number" id="n2">
+    <p>digite a nota 3:   </p> <br>
+    <input type="number" id="n3">
+    <button type="button" onclick="calcular()">calcular</button>
+    <p>aqui esta a media</p>
+    <p id="t"></p>
+    
+
+    <script>
+        function calcular() {
+        var n1 = document.getElementById('n1').value;
+        var n2 = document.getElementById('n2').value;
+        var n3 = document.getElementById('n3').value;
+        var nota = (parseFloat(n1) + parseFloat(n2) + parseFloat(n3))/3
+
+        document.getElementById('t').innerHTML = nota;
+    
+        }
+        
+    </script>
+
+</body>
+</html>

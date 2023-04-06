@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex1</title>
+</head>
+<body>
+    
+    <script>
+
+        function calc() {
+            
+            var txt = document.getElementById('txt').value;
+
+            if ( parseFloat(txt) > 50) {
+                
+                var AM = (parseFloat(txt) - 50)*4
+                alert("teve excesso, o valor total da multa foi de: R$" +AM+ "... verificação concluida")
+
+
+            }else{
+                alert("sem excesso ... verificação concluida")
+            }
+
+        }
+
+
+    </script>
+
+    <h1>escreva o peso do peixe João</h1>
+
+    <input type="number" name="txt" id="txt">
+    <button type="button" onclick="calc()">enviar</button>
+
+</body>
+</html>

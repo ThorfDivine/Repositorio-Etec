@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex1</title>
+</head>
+<body>
+    
+    <script>
+
+        function calc() {
+            
+            var txt = document.getElementById('txt').value;
+            var txt2 = document.getElementById('txt2').value;
+
+            if( parseFloat(txt2) <=50 ){
+                var SB = txt2 * 10;
+                alert(SB)
+            }else{
+
+
+                if (parseFloat(txt2) > 50) {
+                
+                
+
+                var SB = txt2 * 10;    
+                var sub = (txt2 - 50)* 10; 
+                var SE = ((txt2 - 50)*20) - sub;
+
+                var ST = SE + SB; 
+
+                alert('obrigado pelo seu otimo trabalho!!, seu sario total foi de: R$' + ST)
+
+            }
+
+            }
+            
+
+            
+
+        }
+
+
+    </script>
+
+    <h1>escreva seu codigo, e o total de horas trabalhadas</h1>
+
+    <input type="number" name="txt" id="txt">
+    <input type="number" name="txt2" id="txt2">
+    <button type="button" onclick="calc()">enviar</button>
+
+</body>
+</html>

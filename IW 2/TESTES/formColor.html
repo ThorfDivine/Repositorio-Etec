@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pegaCor</title>
+
+    <style>
+
+        .mostraCor{
+
+            width : 180px;
+            height: 180px;
+            border-radius: 90px;
+
+        }
+    </style>
+
+</head>
+<body>
+    
+    <script>
+
+        function pegaCor() {
+            var cor = document.getElementById('pegaCor').value;
+            var div = document.getElementById('mostraCor');
+            div.style.backgroundColor = cor;       
+        }
+
+    </script>
+
+
+
+    <h1>selecione sua cor desejada: </h1> 
+    <input type="color" name="nomeCor" id="pegaCor" onChange="pegaCor()"; style="border-radius: 15px; width: 30px; height:30px;";/>
+    <h2>você selecionou a cor : </h2> 
+    <div class = "mostraCor" id = "mostraCor"></div>
+
+</body>
+</html>

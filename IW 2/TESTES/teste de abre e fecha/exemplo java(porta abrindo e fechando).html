@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        .cadeado {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+
+    <script>
+        var cont = 0;
+        var trancar = 0;
+    </script>
+
+    <h1 id="title">clique nos cadeados para trancar e destrancar a porta, e bata para entrar</h1>
+    <img src="portaFechada.png" alt="" id="porta" onclick="cont = cont +1; mudar();"> <br>
+    <br>
+
+
+
+    <img src="cadeadoAberto.png" class="cadeado" onclick="trancar = 0; mudar();">
+    <img src="cadeadoFechado.png" class="cadeado" onclick="trancar = 1; mudar(); ">
+    <H3 id="ed"></H3>
+
+    <script>
+
+
+        function mudar() {
+
+            if (trancar == 0) {
+                document.getElementById('ed').innerHTML = null;
+                document.getElementById('title').innerHTML = 'clique nos cadeados para abrir a porta ou fechar, ou simplesmente bata para entrar';
+
+                if (cont == 2) {
+                    document.getElementById('porta').src = 'portaAberta.png';
+                    document.getElementById('ed').innerHTML = 'obrigado pela educação!';
+                    document.getElementById('title').innerHTML = 'clique mais uma vez para fechar';
+
+                } if (trancar == 1 && cont >= 3) {
+                    document.getElementById('title').innerHTML = 'porta trancada, clique no cadeado aberto para destrancar';
+                    document.getElementById('ed').innerHTML = null;
+                }if (cont >= 3) {
+                    document.getElementById('porta').src = 'portaFechada.png';
+                    cont = 0;
+                    document.getElementById('ed').innerHTML = 'obrigado pela fechar a porta!';
+                    document.getElementById('title').innerHTML = 'clique nos cadeados para abrir a porta ou fechar, ou simplesmente bata para entrar';
+                }
+            }
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

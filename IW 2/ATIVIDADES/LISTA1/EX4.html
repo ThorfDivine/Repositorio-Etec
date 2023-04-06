@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p>digite o total de km percorridos: </p>
+    <input type="number" id="n1">
+    <p>digite quanta gasosa gastou: </p>
+    <input type="number" id="n2">
+    <button type="button" onclick=" calc()"> calc</button>
+    <p>seu consumo medio é: </p>
+    <p id="text"></p>
+
+    <script>
+        function calc() {
+
+            var n1 = document.getElementById('n1').value;
+            var n2 = document.getElementById('n2').value;
+            var n3 = parseFloat(n1) / parseFloat(n2);
+
+
+
+
+            if (n3 == Infinity || n2 == 0 || n1 ==0 ) {
+
+                document.getElementById('text').innerHTML = 'não funfo, Pois não é póssivel dividir um numero por zero';
+                document.getElementById('text').style.color = 'red';
+                
+
+            }
+            
+            else {
+            
+                document.getElementById('text').innerHTML = n3;
+            }
+        }
+    </script>
+</body>
+
+</html>

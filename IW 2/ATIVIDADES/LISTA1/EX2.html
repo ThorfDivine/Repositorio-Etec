@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+   
+
+    <input type="number" id="n1">
+    +
+    <input type="number" id="n2">
+    =
+    <p id="texto"> </p>
+
+    <button type= "button" onclick="teste()">faça a treta</button>
+    
+    <script>
+
+        function teste() {
+            var n1 = document.getElementById('n1').value;
+            var n2 = document.getElementById('n2').value;
+            var n3 = (parseInt(n1)**2) + (parseInt(n2)**2) ;
+
+            //parseFloat aceita numeros fracionados
+            document.getElementById('texto').innerHTML = n3;
+
+        }
+
+    </script>   
+</html>

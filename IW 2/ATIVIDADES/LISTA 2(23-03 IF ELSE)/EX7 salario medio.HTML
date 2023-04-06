@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex1</title>
+</head>
+<body>
+    
+    <script>
+
+        function calc(){
+            
+            var txt = document.getElementById('txt').value;
+            var txt2 = document.getElementById('txt2').value;
+            var media = (parseFloat(txt) + parseFloat(txt2))/2;
+
+            if( parseFloat(media) >= 2000){
+                alert("seu salario em média é de: R$" + media);
+            }else{
+                alert("seu valor é menor que 2000, logo n vou mostrar")
+            }
+
+        }
+
+
+    </script>
+
+    <h1>escreva algum numero</h1>
+
+    <input type="number" name="txt" id="txt">
+    <input type="number2" name="txt" id="txt2">
+    <button type="button" onclick="calc()">enviar</button>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex1</title>
+</head>
+<body>
+    
+    <script>
+
+        function calc() {
+            
+            var txt = document.getElementById('txt').value;
+            var txt2 = document.getElementById('txt2').value;
+            var ttl = txt + txt2;
+
+
+            if ( ttl >= 20) {
+
+                alert("a soma deu mais de vinte, ate pq os números dados foram: "+txt + " e "+txt2);
+            }else{
+                alert("seu valor é menor que 20, logo eu n vou mostrar nada")
+            }
+
+        }
+
+
+    </script>
+
+    <h1>escreva 2 numeros</h1>
+
+    <input type="number" name="txt" id="txt">
+    <input type="number" name="txt" id="txt2">
+    <button type="button" onclick="calc()">enviar</button>
+
+</body>
+</html>
