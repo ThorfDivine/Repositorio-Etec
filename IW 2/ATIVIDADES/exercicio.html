@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        function calculo(){
+            var sexo = Document.getElementById('sexo').value;
+
+            var alt = parseFloat(document.getElementById('alt').value);
+            var PS;
+
+            switch (sexo) {
+                case "M":
+                    PS = (72.7*alt)-58   
+                    break;
+                case "F": 
+                    PS = (62.1*alt)-44.7
+                break;
+            }
+            document.getElementById('resp').innerHTML = "seu peso ideal é: "+alt;
+            
+        }
+        
+        
+    </script>
+
+    <h1>IMC</h1>
+    <h3>escreva seu sexo(M ou F): </h3><br>
+    <input type="text" name="sexo" id="sexo">
+    <h3>escreva sua altura(substitua virgula por ".")): </h3> <br>
+    <input type="number" name="alt" id="alt">
+    <h3>seu peso ideal é: </h3>
+    <h4 id="resp"></h4>
+
+    <button onclick="calculo()">calcular</button>
+</body>
+</html>

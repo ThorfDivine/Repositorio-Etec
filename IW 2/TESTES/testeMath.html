@@ -1,0 +1,84 @@
+
+<!--testes da biblioteca Math
+    Gustavo B.
+    13/04/2023--> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>teste math</title>
+</head>
+<body>
+    <script>
+        function calculos(){
+            //criando
+            var N;
+            var seno;
+            var cos;
+            var tan;
+            var elevado;
+            var N1;
+            //iniciando
+            N = 0;
+            N1 = 0;
+            seno = 0;
+            cos = 0;
+            tan = 0;
+            elevado = 0;
+            //dando valor
+            N= parseFloat(document.getElementById('N1').value);
+            N1= parseFloat(document.getElementById('N').value);
+            seno = Math.sin(N);
+            cos = Math.cos(N);
+            tan = Math.tan(N);
+            elevado = Math.pow(N,2);
+            //mostrando
+            if (!(N == null || N ==0 || N1 == null || N1 == 0 )){
+              switch (N1) {
+                case 1:
+                document.getElementById('resp').innerHTML = seno;
+                    break;
+                case 2:
+                document.getElementById('resp').innerHTML = cos;
+                    break;
+                case 3:
+                document.getElementById('resp').innerHTML = tan;
+                    break;
+                case 4:
+                document.getElementById('resp').innerHTML = elevado;    
+                    break;
+                default:
+                document.getElementById('resp').innerHTML = "opção invalida";    
+            }  
+            }
+            
+   
+
+
+        }
+    </script>
+
+        <h3> digite um número: </h3>
+        <input type="number" name="N1" id="N1">
+        <h3> digite a opção: </h3>
+        <input type="number" id="N">
+        <h3>opções</h3>
+        <ol>
+            <li>seno</li>
+            <li>cos</li>
+            <li>tan</li>
+            <li>elevado ao quadrado</li>
+        </ol>
+
+        <h3> Resultado: </h3><h4 id="resp"></h4>
+        <br>
+        <button type="button" onclick="calculos();">calcular</button>
+        <p id="s1"></p>
+        <p id="s2"></p>
+        <p id="s3"></p>
+        <p id="s4"></p>
+</body>
+</html>

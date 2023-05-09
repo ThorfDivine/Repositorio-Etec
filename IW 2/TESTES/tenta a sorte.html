@@ -1,0 +1,68 @@
+<!--Tente acertar o número
+    Gustavo B.
+    13/04/2023
+    -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <SCRipt>
+
+        function tentar(){
+            //criando
+            var random;
+            var N1;
+            var tentativa;
+            var txt;
+            //iniciando
+            if(random == null) {random = 0;}
+            N1=0;
+            if (tentativa == null){tentativa = 0}
+            txt = document.getElementById('tentativa');
+            
+            //dando valor
+            if(random == 0){
+            random = Math.floor( Math.random()*10);}
+            N1 = document.getElementById('N1').value
+            //calculando e mostrando
+            if (!(N1 == null || N1 == 0)) {
+                if (N1 < random){
+                    document.getElementById('txt').style.color = "red";
+                    document.getElementById('txt').innerHTML = "seu número foi menor, tente denovo";
+                    tentativa++;
+                    txt.innerHTML = "voce tentou "+tentativa+"x até agora"
+                }if (N1 > random) {
+                    document.getElementById('txt').style.color = "red";
+                    document.getElementById('txt').innerHTML = "seu número foi maior, tente denovo";
+                    tentativa++;
+                    txt.innerHTML = "voce tentou "+tentativa+"x até agora"
+                }if (N1 == random) {
+                    document.getElementById('txt').style.color = "green";
+                    document.getElementById('txt').innerHTML = "seu número foi exato! parabens";
+                    tentativa++;
+                    if (tentativa == 1) {txt.innerHTML = "voce tentou "+tentativa+" vez"}
+                    else{txt.innerHTML = "voce tentou "+tentativa+" vezes"}
+                }      
+            }if(N1 == null || N1 == 0){
+                    document.getElementById('txt').innerHTML = "digite um número";
+            }
+        }
+
+    </SCRipt>
+
+    <h1>tente acertar o número: </h1>
+    <h1 id="tentativa"></h1>
+    <input type="number" id="N1">
+    <button type="button" onclick="tentar();">tentar</button>
+    <h4 id="txt"></h4>
+
+
+</body>
+</html>

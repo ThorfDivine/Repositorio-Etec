@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="menu2.css">
+    <script src="menu2.js"></script>
+    <title>site do gustavo</title>
+</head>
+<body onload="openPage()">
+    <script > 
+    //var responsavel por abrir e fachar o menu
+    let n1;
+    //lógica por tras da var    
+function alterador(){
+        
+        if(n1 == null){
+        n1 = 0
+        console.log('n1 era nulo, agora é zero')}
+        if(n1 != null){
+            n1++;
+            console.log('n1 era 0, agora é 1')
+        }
+        if (n1 > 1) {
+            console.log('ele é maior que 1')
+        }
+        if (n1 == 1) {
+            navegacaoabrir();
+            console.log('n1 era 1, então abri') 
+        }
+        if (n1 == 2) {
+            navegacaofechar();
+            console.log('n1 era 2, então fechei ')  
+        }
+
+    }
+    //lógica bruta da aparecia do menu(abrir)
+function navegacaoabrir(){
+    let nav = document.getElementById('nav-list');
+    let op1 = document.getElementById('op1');
+    let op2 = document.getElementById('op2');
+    let op3 = document.getElementById('op3');
+    
+        op1.innerHTML = "Início"
+        op2.innerHTML = "GitHub"
+        op3.innerHTML = "sair"
+        nav.style.height = "10em";  
+
+    }
+    //lógica bruta de fechar o menu
+function navegacaofechar(){
+    let nav = document.getElementById('nav-list');
+    let op1 = document.getElementById('op1');
+    let op2 = document.getElementById('op2');
+    let op3 = document.getElementById('op3');
+
+    
+    op1.innerHTML = ""
+    op2.innerHTML = ""
+    op3.innerHTML = ""
+    nav.style.height = "0";
+    n1 = 0;
+    console.log('declarei ele como 0')
+    
+    }
+
+function cs1() {
+    let headerMenu = document.getElementById('headerMenu');
+    let triangulo1 = document.getElementById('triangulo1');
+    let Menu1 = document.getElementById('Menu1');
+    let MenuThorfDivine = document.getElementById('MenuThorfDivine');
+    let triangulo2 = document.getElementById('triangulo2');
+    let nav = document.getElementById('nav-list');
+
+    headerMenu.style.transition = "0.5s";
+    headerMenu.style.padding = "0 0 0 0";
+    Menu1.style.width = "100%"
+    if (Menu1.style.width == "100%") {
+        triangulo1.style.display = "none";
+        triangulo2.style.display = "none";
+    }
+
+    setTimeout(function() {
+    window.location.href = "site do gustavo.html";
+    }, 350);
+}
+function cs2() {
+    let headerMenu = document.getElementById('headerMenu');
+    let triangulo1 = document.getElementById('triangulo1');
+    let Menu1 = document.getElementById('Menu1');
+    let MenuThorfDivine = document.getElementById('MenuThorfDivine');
+    let triangulo2 = document.getElementById('triangulo2');
+    let nav = document.getElementById('nav-list');
+
+}
+function cs3() {
+    let headerMenu = document.getElementById('headerMenu');
+    let triangulo1 = document.getElementById('triangulo1');
+    let Menu1 = document.getElementById('Menu1');
+    let MenuThorfDivine = document.getElementById('MenuThorfDivine');
+    let triangulo2 = document.getElementById('triangulo2');
+    let nav = document.getElementById('nav-list');
+
+}
+
+    </script>
+    <!--menu-->
+    <header class="headerMenu" id="headerMenu" >
+        <div class="triangulo1" id="triangulo1"></div>
+        <div class="Menu1" id="Menu1" onmouseenter="ThorfDivineOpen()" onmouseleave="ThorfDivineClose()"onclick=" alterador()" >
+            <h1 class="MenuThorfDivine" id="ThorfDivine" >ThorfDivine</h1>
+            
+        </div>
+        <div class="triangulo2" id="triangulo2"></div>
+    </header>
+    <!--mini-menu-->
+    <ul class="nav-list" id="nav-list" >
+        <li><p class="opcao" id="op1" onclick="cs1()"></p></li>
+        <li><a href="" class="opcao" id="op2" onclick="cs2()"></a></li>
+        <li><a href="" class="opcao" id="op3" onclick="cs3()"></a></li>
+    </ul>
+    <!--restante-->
+    <div class="pai" id="pai">
+    <!--titulo-->
+        <h1 class=" titlepage">materias:</h1>
+    <!--materias-->
+        
+
+
+    </div>
+
+
+
+</body>
+</html>

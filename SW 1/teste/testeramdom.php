@@ -1,11 +1,9 @@
 <?php
 
-$cor = azul;
-$outra = cor;
+$cor = "azul";
+$outra = "cor";
 
 echo $outra;
 
 ?>
-asgdfiyua
-asfas
-fdasfasf
+

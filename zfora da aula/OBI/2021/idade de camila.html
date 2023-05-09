@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        //gustavo b
+        //mostrar idade da do meio
+        //13/04/2023
+        function calc() {
+             //criando
+        var n1;
+        var n2;
+        var n3;
+        var suaidd;
+        //iniciando
+        n1 = 0;
+        n2 = 0;
+        n3 = 0;
+        //dando valores
+
+        n1 = document.getElementById('n1').value;
+        n2 = document.getElementById('n2').value;
+        n3 = document.getElementById('n3').value;
+
+        //calculando
+
+        if ( n1 < n2 && n2 < n3) {
+            suaidd = n2;
+        }if ( n2 < n1 && n1 < n3) {
+            suaidd = n1;
+        }if ( n1 < n3 && n3 < n2) {
+            suaidd = n3;
+        }
+        document.getElementById('suaidd').innerHTML ="a sua idade é : "+suaidd;
+        }
+       
+
+
+    </script>
+
+    <label for="">escreva o 1° número: </label> <input type="number" name="n1" id="n1"><br>
+    <label for="">escreva o 2° número: </label> <input type="number" name="n2" id="n2"><br>
+    <label for="">escreva o 3° número: </label> <input type="number" name="n3" id="n3"><br>
+    <button onclick="calc()">mostrar idade</button>
+    <h2 id="suaidd"></h2>
+</body>
+</html>

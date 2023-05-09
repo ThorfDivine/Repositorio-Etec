@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        function SP() {
+            var est = "SP"
+            res(est)
+           
+        }function MG() {
+            var est = "MG"+
+            res(est)
+           
+        }function RJ() {
+            var est = "RJ"
+            res(est)
+        
+        }
+
+        function res(est) {
+            est = est;
+            
+
+            switch (est) {
+                case "SP":
+                document.getElementById('resp').innerHTML = "você é Paulista";
+                    break;
+                case "MG":
+                document.getElementById('resp').innerHTML = "você é Carioca";
+                break;
+                case "RJ":
+                document.getElementById('resp').innerHTML = "você é Mineiro";
+                    break;
+                default:
+                document.getElementById('resp').innerHTML = "você é.. sla o que vc é kkkk";
+                    break;
+            }
+
+            
+        }
+    </script>
+
+    <label>diga seu estado(geografico): </label> <br>
+    <label >SP</label><input type="radio" name="est" onclick="SP()">
+    <label >MG</label><input type="radio" name="est" onclick="MG()">
+    <label >RJ</label><input type="radio" name="est" onclick="RJ()">
+    
+    <h3 id="resp"></h3>
+</body>
+</html>

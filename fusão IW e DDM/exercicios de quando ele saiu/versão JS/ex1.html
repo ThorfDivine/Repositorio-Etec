@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        function M() {
+            var sex 
+            var ideal
+            var alt = parseFloat(document.getElementById('alt').value);
+            if (sex == null) {
+                sex = 1;
+            }if (sex == 0) {
+                sex = 1;
+            }if (sex ==1) {
+                ideal = (72.7*alt) - 58;
+            }
+            resp(ideal);
+        }
+        function F(){
+            var sex
+            var ideal
+            var alt = parseFloat(document.getElementById('alt').value);
+            if (sex == null) {
+                sex = 0;
+            }if (sex == 1) {
+                sex = 0;
+            }if (sex ==0) {
+                ideal = (62.1*alt) - 44.7;
+            }
+            resp(ideal)
+        }
+        function resp(ideal) {
+            ideal = ideal;
+            document.getElementById('res').innerHTML = "seu peso ideal é: "+ideal;
+        }
+    </script>
+    <label> qual sua altura? </label>
+    <input type="number" name="alt" id="alt"> <br>
+    <label >qual seu sexo? </label> <br>
+    <label for="M">M</label><input type="radio" name="sex" id="M" value="M" onclick="M();">
+    <label for="F">F</label><input type="radio" name="sex" id="F" value="F" onclick="F();">  <br>
+    <button type="button" onclick="criaralt();resp()">enviar</button>
+    <h3 id="res"></h3>
+
+
+</body>
+</html>
