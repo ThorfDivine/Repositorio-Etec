@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .obj1{
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <script>
@@ -14,15 +19,15 @@
             let carros = ['fusca', 'Uno', 'Jetta', 'Ferrari']
 
             res.innerHTML = carros[Math.floor(Math.random() * (5 - 1))];
-
         }
+
         function vet2() {
             let res = document.getElementById('res');
             let carros = new Array('Fusca', 'Uno', 'Gol', 'Porshe');
 
             res.innerHTML = carros[Math.floor(Math.random() * (5 - 1))];
-
         }
+
         function vet3() {
             let res = document.getElementById('res');
             let carros = [];
@@ -32,9 +37,12 @@
             carros[3] = 'Civic';
             
             res.innerHTML = carros[Math.floor(Math.random() * (5 - 1))];
-
-
-
+        }
+        function obj() {
+            let pessoa = { primeiroNome: "Gustavo", sobrenome: "Batista", idade:16}
+            var m = document.getElementsByClassName("obj1").style;
+            m.display = "block";
+            res.innerHTML = pessoa.sobrenome;
         }
 
     </script>
@@ -44,6 +52,11 @@
     <button onclick="vet1()">vet1</button>
     <button onclick="vet2()">vet2</button>
     <button onclick="vet3()">vet3</button>
+    <button onclick="obj()">obj</button>
+    <label class="obj1">digite seu primero nome: </label><input class="obj1" type="text" id="primeiroNome">
+    <label class="obj1">digite seu sobrenome: </label><input class="obj1" type="text" id="sobrenome">
+    <label class="obj1">qual sua idade: </label><input class="obj1" type="number" id="number">
+    <button class="obj1" onclick="obj()">enviar</button>
 
 </body>
 </html>
