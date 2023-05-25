@@ -8,7 +8,13 @@
 </head>
 <body>
     <script>
-        function cdds() {
+        function cdds(){
+            let RM = document.getElementById('RM').value;
+            let RM2 = parseInt(RM)+5;
+                while (RM2>9) {
+                    RM2 = RM2 - 10}
+              
+           
             let cdds = [ 
             document.getElementById('cdd1').value,
             document.getElementById('cdd2').value,
@@ -21,35 +27,27 @@
             document.getElementById('cdd9').value,
             document.getElementById('cdd10').value
             ]
-            for (let index = 0; index < array.length; index++) {
-                
-            }
+            
             
             let cdd11 = document.getElementById('cdd11');
-            let cdd22 = document.getElementById('cdd22');
-            let cdd33 = document.getElementById('cdd33');
-            let cdd44 = document.getElementById('cdd44');
-            let cdd55 = document.getElementById('cdd55');
-
-            cdd11.innerHTML = "a primeira cidade digi";
+            console.log("valor RM: "+RM+" e o RM2: "+RM2)
+            cdd11.innerHTML = "a cidade1 é: "+ cdds[RM]+" e a cidade2 é: "+ cdds[RM2];
         }
     </script>
-    <label>sigite o nome de uma cidade: </label> <input type="text" id="cdd1">
-    <label>sigite o nome da próxima cidade: </label> <input type="text" id="cdd2">
-    <label>sigite o nome da próxima cidade: </label> <input type="text" id="cdd3">
-    <label>sigite o nome da próxima cidade: </label> <input type="text" id="cdd4">
-    <label>sigite o nome da próxima cidade: </label> <input type="text" id="cdd5">
-    <label>sigite o nome da próxima cidade: </label> <input type="text" id="cdd6">
-    <label>sigite o nome da próxima cidade: </label> <input type="text" id="cdd7">
-    <label>sigite o nome da próxima cidade: </label> <input type="text" id="cdd8">
-    <label>sigite o nome da próxima cidade: </label> <input type="text" id="cdd9">
-    <label>sigite o nome da ultima cidade: </label> <input type="text" id="cdd10">
-    <button onclick="cdds()">enviar</button>
-    <h4 class="cdd11"></h4>
-    <h4 class="cdd22"></h4>
-    <h4 class="cdd33"></h4>
-    <h4 class="cdd44"></h4>
-    <h4 class="cdd55"></h4>
+    <h1>EX1</h1>
+    <label>sigite o nome de uma cidade: </label> <input type="text" id="cdd1"> <BR>
+    <label>sigite o nome da próxima cidade: </label> <input type="text" id="cdd2"><BR>
+    <label>sigite o nome da próxima cidade: </label> <input type="text" id="cdd3"><BR>
+    <label>sigite o nome da próxima cidade: </label> <input type="text" id="cdd4"><BR>
+    <label>sigite o nome da próxima cidade: </label> <input type="text" id="cdd5"><BR>
+    <label>sigite o nome da próxima cidade: </label> <input type="text" id="cdd6"><BR>
+    <label>sigite o nome da próxima cidade: </label> <input type="text" id="cdd7"><BR>
+    <label>sigite o nome da próxima cidade: </label> <input type="text" id="cdd8"><BR>
+    <label>sigite o nome da próxima cidade: </label> <input type="text" id="cdd9"><BR>
+    <label>sigite o nome da ultima cidade: </label> <input type="text" id="cdd10"><BR>
+    <label>digite o ultimo número do seu RM: </label> <input type="number" id="RM">
+    <button onclick="cdds()">enviar</button><BR>
+    <h3 id="cdd11"></h3><BR>
     
 </body>
 </html>

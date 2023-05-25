@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <SCRipt>
+        function logn(){
+            let login = {
+                pessoa1: {
+                    nome: document.getElementById('id1').value,
+                    gmail: document.getElementById('gmail1').value,
+                    senha: document.getElementById('senha1').value
+                },
+                pessoa2: {
+                    nome: document.getElementById('id2').value,
+                    gmail: document.getElementById('gmail2').value,
+                    senha: document.getElementById('senha2').value
+                },
+                pessoa3: {
+                    nome: document.getElementById('id3').value,
+                    gmail: document.getElementById('gmail3').value,
+                    senha: document.getElementById('senha3').value
+                },
+                pessoa4: {
+                    nome: document.getElementById('id4').value,
+                    gmail: document.getElementById('gmail4').value,
+                    senha: document.getElementById('senha4').value
+                },
+                pessoa5: {
+                    nome: document.getElementById('id5').value,
+                    gmail: document.getElementById('gmail5').value,
+                    senha: document.getElementById('senha5').value
+                }
+            }
+            
+            let myJSON1 = JSON.stringify(login.pessoa1);
+            let myJSON2 = JSON.stringify(login.pessoa2);
+            let myJSON3 = JSON.stringify(login.pessoa3);
+            let myJSON4 = JSON.stringify(login.pessoa4);
+            let myJSON5 = JSON.stringify(login.pessoa5);
+            alert("dados da pessoa1: "+myJSON1)
+            alert("dados da pessoa2: "+myJSON2)
+            alert("dados da pessoa3: "+myJSON3)
+            alert("dados da pessoa4: "+myJSON4)
+            alert("dados da pessoa5: "+myJSON5)
+        }
+    </SCRipt>
+    <h1>EX3</h1>
+    <h1>bem vindo a tela de login, preciso que voce se inscreva e inscreva +4 pessoas: </h1><br>
+    <hr>
+    pessoa1 <br/>
+    <label>nome: </label><input type="text" id="id1"> <br/>
+    <label>gmail: </label><input type="text" id="gmail1"> <br/>
+    <label>senha: </label><input type="password" id="senha1"><br/>
+    <hr>
+    pessoa 2 <br/>
+    <label>nome: </label><input type="text" id="id2"> <br/>
+    <label>gmail: </label><input type="text" id="gmail2"> <br/>
+    <label>senha: </label><input type="password" id="senha2"><br/>
+    <hr>
+    pessoa 3 <br/>
+    <label>nome: </label><input type="text" id="id3"> <br/>
+    <label>gmail: </label><input type="text" id="gmail3"> <br/>
+    <label>senha: </label><input type="password" id="senha3"><br/>
+    <hr>
+    pessoa 4 <br/>
+    <label>nome: </label><input type="text" id="id4"> <br/>
+    <label>gmail: </label><input type="text" id="gmail4"> <br/>
+    <label>senha: </label><input type="password" id="senha4"><br/>
+    <hr>
+    pessoa 5 <br/>
+    <label>nome: </label><input type="text" id="id5"> <br/>
+    <label>gmail: </label><input type="text" id="gmail5"> <br/>
+    <label>senha: </label><input type="password" id="senha5"><br/>
+    <button type="button" onclick="logn()">enviar</button>
+</body>
+</html>

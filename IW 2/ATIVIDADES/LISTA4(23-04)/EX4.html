@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function notas() {
+        let alun1 = document.getElementById('name1').value;
+        let alun2 = document.getElementById('name2').value;
+        let alun3 = document.getElementById('name3').value;
+        let alun4 = document.getElementById('name4').value;
+        let alun5 = document.getElementById('name5').value;
+        
+        let boletim = {
+            alun1:{
+                nota: document.getElementById('nota1').value
+            },        
+            alun2:{
+                nota: document.getElementById('nota2').value},
+            alun3:{
+                nota: document.getElementById('nota3').value},
+            alun4:{
+                nota: document.getElementById('nota4').value},
+            alun5:{
+                nota: document.getElementById('nota5').value}
+            }
+
+            console.log(boletim.alun1.nota)
+            alert('a nota do aluno: '+alun1+' foi: '+boletim.alun1.nota)
+            alert('a nota do aluno: '+alun2+' foi: '+boletim.alun2.nota)
+            alert('a nota do aluno: '+alun3+' foi: '+boletim.alun3.nota)
+            alert('a nota do aluno: '+alun4+' foi: '+boletim.alun4.nota)
+            alert('a nota do aluno: '+alun5+' foi: '+boletim.alun5.nota)
+                }
+                
+        let myJSON = JSON.stringify(boletim)
+        console.log(myJSON)
+          
+            
+
+        
+    </script>
+    <h1 for="">bem vindo a tela de boletim, indique os nomes, e suas devidas notas: </h1><br>
+    <hr>
+    pessoa1 <br/>
+    <label>nome: </label><input type="text" id="name1"> <br/>
+    <label>nota: </label><input type="text" id="nota1"> <br/>
+    <hr>
+    pessoa 2 <br/>
+    <label>nome: </label><input type="text" id="name2"> <br/>
+    <label>nota: </label><input type="text" id="nota2"> <br/>
+    <hr>
+    pessoa 3 <br/>
+    <label>nome: </label><input type="text" id="name3"> <br/>
+    <label>nota: </label><input type="text" id="nota3"> <br/>
+    <hr>
+    pessoa 4 <br/>
+    <label>nome: </label><input type="text" id="name4"> <br/>
+    <label>nota: </label><input type="text" id="nota4"> <br/>
+    <hr>
+    pessoa 5 <br/>
+    <label>nome: </label><input type="text" id="name5"> <br/>
+    <label>nota: </label><input type="text" id="nota5"> <br/>
+    <button type="button" onclick="notas()">enviar</button>
+</body>
+</html>
