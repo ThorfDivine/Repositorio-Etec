@@ -1,14 +1,254 @@
+</html>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/> <!--conectando o materialize(css)-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="menu2.css">
+    <style>
+        
+    </style>
+    <title>site do gustavo</title>
 </head>
-<body>
-    <script>
-        function notas() {
+<body onload="openPage()" >
+
+    <!--<script type="text/javascript" src="js/materialize.min.js"></script>-->     
+    <script src="menu2.js"></script>
+    <script> 
+
+
+
+    //var responsavel por abrir e fachar o menu
+    let n1;
+    let n2;
+    //lógica por tras da var    
+
+function alterador() {
+        
+        if(n1 == null){
+        n1 = 0
+        console.log('n1 era nulo, agora é zero')}
+        if(n1 != null){
+            n1++;
+            console.log('n1 era 0, agora é 1')
+        }
+        if (n1 > 1) {
+            console.log('ele é maior que 1')
+        }
+        if (n1 == 1) {
+            navegacaoabrir();
+            console.log('n1 era 1, então abri') 
+        }
+        if (n1 == 2) {
+            navegacaofechar();
+            console.log('n1 era 2, então fechei ')  
+        }
+
+    }
+    function alterador2(){
+    if(n2 == null){
+        n2 = 0
+        console.log('n1 era nulo, agora é zero 2')}
+        if(n2 != null){
+            n2++;
+            console.log('n1 era 0, agora é 1 2')
+        }
+        if (n2 > 1) {
+            console.log('ele é maior que 1  2')
+        }
+        if (n2 == 1) {
+            navegacaoabrir2();
+            console.log('n1 era 1, então abri2') 
+        }
+        if (n2 == 2) {
+            navegacaofechar2();
+            console.log('n1 era 2, então fechei 2')  
+        }
+        }
+
+    function navegacaoabrir2(){
+    let nav = document.getElementById('nav-list');
+    let opcaomat1 = document.getElementById('opcaomat1');
+    let opcaomat2 = document.getElementById('opcaomat2');
+    let opcaomat3 = document.getElementById('opcaomat3');
+    
+    opcaomat3.style.display = "block";
+    opcaomat2.style.display = "block";
+    opcaomat1.style.display = "block";
+
+    }
+    //lógica bruta de fechar o menu
+function navegacaofechar2(){
+    let nav = document.getElementById('nav-list');
+    let opcaomat1 = document.getElementById('opcaomat1');
+    let opcaomat2 = document.getElementById('opcaomat2');
+    let opcaomat3 = document.getElementById('opcaomat3');
+
+    
+    opcaomat3.style.display = "none";
+    opcaomat2.style.display = "none";
+    opcaomat1.style.display = "none";
+    console.log('declarei ele como 0 2')
+    n2 = 0;
+    }
+
+
+    //lógica bruta da aparecia do menu(abrir)
+function navegacaoabrir(){
+    let nav = document.getElementById('nav-list');
+    let op1 = document.getElementById('op1');
+    let op2 = document.getElementById('op2');
+    let op3 = document.getElementById('op3');
+    let opcaomat1 = document.getElementById('opcaomat1');
+    let opcaomat2 = document.getElementById('opcaomat2');
+    let opcaomat3 = document.getElementById('opcaomat3');
+
+
+        op1.innerHTML = "matérias"
+        op2.innerHTML = "GitHub"
+        op3.innerHTML = "sair"
+
+        nav.style.height = "10em";  
+
+    }
+    //lógica bruta de fechar o menu
+function navegacaofechar(){
+    let nav = document.getElementById('nav-list');
+    let op1 = document.getElementById('op1');
+    let op2 = document.getElementById('op2');
+    let op3 = document.getElementById('op3');
+
+    opcaomat3.style.display = "none";
+    opcaomat2.style.display = "none";
+    opcaomat1.style.display = "none";
+    op1.innerHTML = ""
+    op2.innerHTML = ""
+    op3.innerHTML = ""
+    nav.style.height = "0";
+    n1 = 0;
+    n2 = 0;
+    console.log('declarei ele como 0')
+    
+    }
+
+function cs1() {
+    let headerMenu = document.getElementById('headerMenu');
+    let triangulo1 = document.getElementById('triangulo1');
+    let Menu1 = document.getElementById('Menu1');
+    let MenuThorfDivine = document.getElementById('MenuThorfDivine');
+    let triangulo2 = document.getElementById('triangulo2');
+    let nav = document.getElementById('nav-list');
+    let opcaomat1 = document.getElementById('opcaomat1');
+    let opcaomat2 = document.getElementById('opcaomat2');
+    let opcaomat3 = document.getElementById('opcaomat3');
+
+    headerMenu.style.transition = "0.5s";
+
+    opcaomat3.style.display = "block";
+    opcaomat2.style.display = "block";
+    opcaomat1.style.display = "block";
+
+    nav.style.height = "11em";
+
+
+}
+function cs11(){
+    let headerMenu = document.getElementById('headerMenu');
+    let triangulo1 = document.getElementById('triangulo1');
+    let Menu1 = document.getElementById('Menu1');
+    let MenuThorfDivine = document.getElementById('MenuThorfDivine');
+    let triangulo2 = document.getElementById('triangulo2');
+    let nav = document.getElementById('nav-list');
+    let opcaomat1 = document.getElementById('opcaomat1');
+    let opcaomat2 = document.getElementById('opcaomat2');
+    let opcaomat3 = document.getElementById('opcaomat3');
+
+    headerMenu.style.padding = "0 0 0 0";
+    Menu1.style.width = "100%"
+    if (Menu1.style.width == "100%") {
+       triangulo1.style.display = "none";
+        triangulo2.style.display = "none";
+     }
+
+    setTimeout(function() {
+    window.location.href = "materias/iw.html";
+    }, 350);
+}
+function cs2() {
+    let headerMenu = document.getElementById('headerMenu');
+    let triangulo1 = document.getElementById('triangulo1');
+    let Menu1 = document.getElementById('Menu1');
+    let MenuThorfDivine = document.getElementById('MenuThorfDivine');
+    let triangulo2 = document.getElementById('triangulo2');
+    let nav = document.getElementById('nav-list');
+    let opcaomat1 = document.getElementById('opcaomat1');
+    let opcaomat2 = document.getElementById('opcaomat2');
+    let opcaomat3 = document.getElementById('opcaomat3');
+
+    headerMenu.style.padding = "0 0 0 0";
+    Menu1.style.width = "100%"
+    if (Menu1.style.width == "100%") {
+       triangulo1.style.display = "none";
+        triangulo2.style.display = "none";
+     }
+
+    setTimeout(function() {
+    window.location.href = "materias/sw.html";
+    }, 350);
+
+}
+function cs3() {
+    let headerMenu = document.getElementById('headerMenu');
+    let triangulo1 = document.getElementById('triangulo1');
+    let Menu1 = document.getElementById('Menu1');
+    let MenuThorfDivine = document.getElementById('MenuThorfDivine');
+    let triangulo2 = document.getElementById('triangulo2');
+    let nav = document.getElementById('nav-list');
+    let opcaomat1 = document.getElementById('opcaomat1');
+    let opcaomat2 = document.getElementById('opcaomat2');
+    let opcaomat3 = document.getElementById('opcaomat3');
+
+    headerMenu.style.padding = "0 0 0 0";
+    Menu1.style.width = "100%"
+    if (Menu1.style.width == "100%") {
+       triangulo1.style.display = "none";
+        triangulo2.style.display = "none";
+     }
+
+    setTimeout(function() {
+    window.location.href = "materias/gcw.html";
+    }, 350);
+}
+
+function cdds(){
+            let RM = document.getElementById('RM').value;
+            let RM2 = parseInt(RM)+5;
+                while (RM2>9) {
+                    RM2 = RM2 - 10}
+              
+           
+            let cdds = [ 
+            document.getElementById('cdd1').value,
+            document.getElementById('cdd2').value,
+            document.getElementById('cdd3').value,
+            document.getElementById('cdd4').value,
+            document.getElementById('cdd5').value,
+            document.getElementById('cdd6').value,
+            document.getElementById('cdd7').value,
+            document.getElementById('cdd8').value,
+            document.getElementById('cdd9').value,
+            document.getElementById('cdd10').value
+            ]
+            
+            
+            let cdd11 = document.getElementById('cdd11');
+            console.log("valor RM: "+RM+" e o RM2: "+RM2)
+            cdd11.innerHTML = "a cidade1 é: "+ cdds[RM]+" e a cidade2 é: "+ cdds[RM2];
+        }
+function notas() {
         let alun1 = document.getElementById('name1').value;
         let alun2 = document.getElementById('name2').value;
         let alun3 = document.getElementById('name3').value;
@@ -16,19 +256,20 @@
         let alun5 = document.getElementById('name5').value;
         
         let boletim = {
-            alun1:{
+            'alun1':{
                 nota: document.getElementById('nota1').value
             },        
-            alun2:{
+            'alun2':{
                 nota: document.getElementById('nota2').value},
-            alun3:{
+            'alun3':{
                 nota: document.getElementById('nota3').value},
-            alun4:{
+            'alun4':{
                 nota: document.getElementById('nota4').value},
-            alun5:{
+            'alun5':{
                 nota: document.getElementById('nota5').value}
             }
-
+            let myJSON = JSON.stringify(boletim)
+            console.log(myJSON)
             console.log(boletim.alun1.nota)
             alert('a nota do aluno: '+alun1+' foi: '+boletim.alun1.nota)
             alert('a nota do aluno: '+alun2+' foi: '+boletim.alun2.nota)
@@ -36,35 +277,50 @@
             alert('a nota do aluno: '+alun4+' foi: '+boletim.alun4.nota)
             alert('a nota do aluno: '+alun5+' foi: '+boletim.alun5.nota)
                 }
-                
-        let myJSON = JSON.stringify(boletim)
-        console.log(myJSON)
-          
-            
-
-        
     </script>
-    <h1 for="">bem vindo a tela de boletim, indique os nomes, e suas devidas notas: </h1><br>
-    <hr>
-    pessoa1 <br/>
-    <label>nome: </label><input type="text" id="name1"> <br/>
-    <label>nota: </label><input type="text" id="nota1"> <br/>
-    <hr>
-    pessoa 2 <br/>
-    <label>nome: </label><input type="text" id="name2"> <br/>
-    <label>nota: </label><input type="text" id="nota2"> <br/>
-    <hr>
-    pessoa 3 <br/>
-    <label>nome: </label><input type="text" id="name3"> <br/>
-    <label>nota: </label><input type="text" id="nota3"> <br/>
-    <hr>
-    pessoa 4 <br/>
-    <label>nome: </label><input type="text" id="name4"> <br/>
-    <label>nota: </label><input type="text" id="nota4"> <br/>
-    <hr>
-    pessoa 5 <br/>
-    <label>nome: </label><input type="text" id="name5"> <br/>
-    <label>nota: </label><input type="text" id="nota5"> <br/>
-    <button type="button" onclick="notas()">enviar</button>
+    <!--menu-->
+    <header class="headerMenu" id="headerMenu" >
+        <div class="triangulo1" id="triangulo1"></div>
+        <div class="Menu1" id="Menu1" onmouseenter="ThorfDivineOpen()" onmouseleave="ThorfDivineClose()"onclick=" alterador()" >
+            <h1 class="MenuThorfDivine" id="ThorfDivine" >ThorfDivine</h1>
+            
+        </div>
+        <div class="triangulo2" id="triangulo2"></div>
+    </header>
+    <!--mini-menu-->
+    <ul class="nav-list" id="nav-list" >
+        <li><p class="opcao" id="op1" onclick="cs1() ,alterador2();"></p>
+            <p class="opcaomat" id="opcaomat1" onclick="cs11()">iW</p>
+            <p class="opcaomat" id="opcaomat2" onclick="cs12()">SW</p>
+            <p class="opcaomat" id="opcaomat3" onclick="cs13()">gcW</p>
+            </li>
+        <li><a href="" class="opcao" id="op2" onclick="cs2()"></a></li>
+        <li><a href="" class="opcao" id="op3" onclick="cs3()"></a></li>
+    </ul>
+    <!--restante-->
+    <div class="pai" id="pai">
+        <h1 for="">bem vindo a tela de boletim, indique os nomes, e suas devidas notas: </h1><br>
+        <hr>
+        pessoa1 <br/>
+        <label>nome: </label><input type="text" id="name1"> <br/>
+        <label>nota: </label><input type="text" id="nota1"> <br/>
+        <hr>
+        pessoa 2 <br/>
+        <label>nome: </label><input type="text" id="name2"> <br/>
+        <label>nota: </label><input type="text" id="nota2"> <br/>
+        <hr>
+        pessoa 3 <br/>
+        <label>nome: </label><input type="text" id="name3"> <br/>
+        <label>nota: </label><input type="text" id="nota3"> <br/>
+        <hr>
+        pessoa 4 <br/>
+        <label>nome: </label><input type="text" id="name4"> <br/>
+        <label>nota: </label><input type="text" id="nota4"> <br/>
+        <hr>
+        pessoa 5 <br/>
+        <label>nome: </label><input type="text" id="name5"> <br/>
+        <label>nota: </label><input type="text" id="nota5"> <br/>
+        <button type="button" onclick="notas()">enviar</button>
+    </div>   
 </body>
 </html>
