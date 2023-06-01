@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="menu inicial.js">
+    <title>Fight!</title>
+    <script src='menu inicial.js'></script>
+    <style>
+        .log {
+            height: 260px;
+            width: 300px;
+            background: url("botões/logo.png");
+            background-position: 0 0;
+            margin: 0 auto;
+        }
+
+        .body {
+            background-color: black;
+        }
+
+        .logo {
+            width: 100%;
+
+            float: left;
+            background-color: black;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+
+        .logo.img {
+            padding-left: 0 42.7% 0 auto;
+        }
+
+        .pai {
+            width: 100%;
+            height: 80%;
+            float: left;
+        }
+
+        .botoes {
+            float: left;
+        }
+
+        .menu {
+            width: 100%;
+        }
+
+        .paiplay {
+            width: 100%;
+            height: 62px;
+            float: left;
+        }
+
+        .paioptions {
+            width: 100%;
+            height: 62px;
+            float: left;
+        }
+
+        .paiexit {
+            width: 100%;
+            height: 62px;
+            float: left;
+        }
+
+        .play {
+            margin-left: 45%;
+            margin-top: 5.5px;
+            cursor: pointer;
+        }
+
+        .options {
+            margin-left: 45%;
+            margin-top: 5.5px;
+            cursor: pointer;
+        }
+
+        .exit {
+            margin-left: 45%;
+            margin-top: 5.5px;
+            cursor: pointer;
+        }
+
+        .sure {
+            width: 150px;
+            float: left;
+            margin: 0 45%;
+            display: none;
+        }
+
+        .ss {
+            color: white;
+            text-align: center;
+            font-size: larger;
+            font-weight: 300;
+            width: 30px;
+            height: 30px;
+            background-color: rgb(8, 102, 23);
+            float: left;
+            margin: 2px;
+            margin-left: 43px;
+            border-radius: 15px;
+            border-color: gray;
+            cursor: pointer;
+        }
+
+        .nn {
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            font-size: larger;
+            width: 30px;
+            height: 30px;
+            background-color: rgb(102, 8, 8);
+            margin: 2px;
+            border-radius: 15px;
+            margin-left: 5px;
+            float: left;
+            cursor: pointer;
+        }
+
+        .ctr {
+            width: 300px;
+            height: 500px;
+            float: left;
+            margin: 0 45%;
+            display: none;
+        }
+
+        .cntrl{
+            color: white;
+            text-align: center;
+            width: 300px;
+            height: 100px;
+            border: 5px;
+            border-color: darkgray;
+            border-radius: 3px;
+            float: unset;
+            margin: 0px;
+        }
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                height: 40px;
+            }
+
+            td {
+                color: white;
+                border: 1px solid #461717;
+                text-align: left;
+                padding: 8px;
+                text-align: center;
+            }
+
+        .nope{
+            border-left: 0px;
+            border-right: 0px;
+            border-top: 0px;
+        }
+        .x{
+            border: 0px;
+            border-radius: 2px;
+            background-color: transparent;
+            color: #461717;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+
+<body class="body" >
+
+
+    <div class="logo">
+
+        <div class="log"></div>
+
+    </div>
+
+    <div class="pai">
+
+        <div class="menu">
+
+            <div class="paiplay">
+                <img src="botões/play-removebg-preview.png" alt="play" class="botoes play" id="play"
+                    onclick="audio.play(); redirect() " onmouseenter="playchange()" onmouseout="playChange2(play)">
+            </div>
+            <div class="paioptions">
+                <img src="botões/options-removebg-preview.png" alt="options" class="botoes options" id="options"
+                    onmouseenter="optionschange()" onclick="audio.play(); controles();" onmouseout="optionsChange2(options)">
+
+
+            </div>
+            <div class="paiexit">
+                <img src="botões/exit-removebg-preview (1).png" alt="options" class="botoes exit" id="exit"
+                    onclick="audio.play(); choose()" onmouseenter="exitchange()" onmouseout="exitChange2(exit)">
+            </div>
+
+            <div class="sure" id="sure">
+                <div class="ss" onclick="audio.play(); certeza()">✔</div>
+                <div class="nn" onclick="audio.play(); cancela()">X</div>
+            </div>
+            <!--Display dos controles-->
+            <div class="ctr" id="controles">
+                <table>
+                    <tr class="nope">
+                        <td class="nope"></td>
+                        <td class="nope"></td>
+                        <td style="border: 0px;">
+                            <button class="x" onclick="fechar(); audio.play()">
+                                X
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="color: red; border: 0px;">
+                            Controles do player1:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>D</strong>
+                        </td>
+                        <td>
+                            Move para direita
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>A</strong>
+                        </td>
+                        <td>
+                            Move para esquerda
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>W</strong>
+                        </td>
+                        <td>
+                            Pula
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>S</strong>
+                        </td>
+                        <td>
+                            Ataca
+                        </td>
+                    </tr>
+		    <tr>
+                        <td>
+                            <strong>R</strong>
+                        </td>
+                        <td>
+                            reset
+                        </td>
+                    </tr>
+
+<!--========================================================================================================================================-->
+
+                    <tr>
+                        <td style="color: blue; border: 0px;">
+                            Controles do player2:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>←</strong>
+                        </td>
+                        <td>
+                            Move para direita
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>→</strong>
+                        </td>
+                        <td>
+                            Move para esquerda
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>↑</strong>
+                        </td>
+                        <td>
+                            Pula
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>↓</strong>
+                        </td>
+                        <td>
+                            Ataca
+                        </td>
+                    </tr>
+		    <tr>
+                        <td>
+                            <strong>R</strong>
+                        </td>
+                        <td>
+                            reset
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+</body>
+
+</html>
