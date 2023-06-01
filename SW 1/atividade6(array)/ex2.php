@@ -1,10 +1,9 @@
 <?php
 $arrayName = array('BRA' =>'Brasil' , 'ING' => 'Inglaterra', 'EUA' => 'Estados Unidos Da America');
 
-
-    echo $arrayName['BRA']."<BR/>";
-    echo $arrayName['ING']."<BR/>";
-    echo $arrayName['EUA']."<BR/>";
+ foreach ($arrayName as $key => $value) {
+    echo "Sigla: ". $key." Valores: ".$value."<BR/>";
+ }
 
 
 ?>
