@@ -190,5 +190,8 @@
     float: left;
 }
 .peca:hover{
+    width: 19rem;
+    height: 19rem;
+    margin: 1rem;
     cursor: pointer;
 }
