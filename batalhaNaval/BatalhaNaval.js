@@ -7,9 +7,9 @@ function openPage() {
     let triangulo3 = document.getElementById('triangulo3');
     let nav = document.getElementById('nav-list');
     let matris = {
-        a:[],
-        b:[],
-        c:[],
+        a:[ document.getElementById('a1'), document.getElementById('a2'),document.getElementById('a3')],
+        b:[ document.getElementById('b1'), document.getElementById('b2'),document.getElementById('b3')],
+        c:[ document.getElementById('c1'), document.getElementById('c2'),document.getElementById('c3')],
     }
 
     headerMenu.style.transition = "0.5s";
