@@ -6,12 +6,7 @@ function openPage() {
     let triangulo2 = document.getElementById('triangulo2');
     let rand = parseInt(Math.random() * 8); 
     let nav = document.getElementById('nav-list');
-    
-    let matris = {
-        a:[ document.getElementById('a1'), document.getElementById('a2'),document.getElementById('a3')],
-        b:[ document.getElementById('b1'), document.getElementById('b2'),document.getElementById('b3')],
-        c:[ document.getElementById('c1'), document.getElementById('c2'),document.getElementById('c3')],
-    }
+
     switch (rand) {
         case 0:
             console.log("a1");
@@ -98,3 +93,75 @@ function ThorfDivineClose(){
 
 //---------------------------jogo--------------------------------------------//
 
+function mudarpimg1(){
+    if (rand==1) {
+    document.getElementById('result').innerHTML=" VOCÊ PERDEU!"
+    document.getElementById('a1').innerHTML = " <img src='imgs/boom.png' alt='Figura' style='width: 20rem; height: 20rem;'>"   
+    }
+    else{
+    document.getElementById('a1').innerHTML = " <img src='imgs/X.png' alt='Figura' style='width: 20rem; height: 20rem;'>"}
+}
+function mudarpimg2(){
+    if (rand==2){
+        document.getElementById('result').innerHTML=" VOCÊ PERDEU!"
+        document.getElementById('a2').innerHTML = " <img src='imgs/boom.png' alt='Figura' style='width: 20rem; height: 20rem;'>"   
+        }
+        else{
+        document.getElementById('a2').innerHTML = " <img src='imgs/X.png' alt='Figura' style='width: 20rem; height: 20rem;'>"}
+}3
+function mudarpimg3(){
+    if (rand==3) {
+        document.getElementById('result').innerHTML=" VOCÊ PERDEU!"
+        document.getElementById('a3').innerHTML = " <img src='imgs/boom.png' alt='Figura' style='width: 20rem; height: 20rem;'>"   
+        }
+        else{
+        document.getElementById('a3').innerHTML = " <img src='imgs/X.png' alt='Figura' style='width: 20rem; height: 20rem;'>"}
+}
+function mudarpimg4(){
+    if (rand==4) {
+        document.getElementById('result').innerHTML=" VOCÊ PERDEU!"
+        document.getElementById('b1').innerHTML = " <img src='imgs/boom.png' alt='Figura' style='width: 20rem; height: 20rem;'>"   
+        }
+        else{
+        document.getElementById('b1').innerHTML = " <img src='imgs/X.png' alt='Figura' style='width: 20rem; height: 20rem;'>"}
+}
+function mudarpimg5(){
+    if (rand==5) {
+        document.getElementById('result').innerHTML=" VOCÊ PERDEU!"
+        document.getElementById('b2').innerHTML = " <img src='imgs/boom.png' alt='Figura' style='width: 20rem; height: 20rem;'>"   
+        }
+        else{
+        document.getElementById('b2').innerHTML = " <img src='imgs/X.png' alt='Figura' style='width: 20rem; height: 20rem;'>"}
+}
+function mudarpimg6(){
+    if (rand==6) {
+        document.getElementById('result').innerHTML=" VOCÊ PERDEU!"
+        document.getElementById('b3').innerHTML = " <img src='imgs/boom.png' alt='Figura' style='width: 20rem; height: 20rem;'>"   
+        }
+        else{
+        document.getElementById('b3').innerHTML = " <img src='imgs/X.png' alt='Figura' style='width: 20rem; height: 20rem;'>"}
+}
+function mudarpimg7(){
+    if (rand==7) {
+        document.getElementById('result').innerHTML=" VOCÊ PERDEU!"
+        document.getElementById('c1').innerHTML = " <img src='imgs/boom.png' alt='Figura' style='width: 20rem; height: 20rem;'>"   
+        }
+        else{
+        document.getElementById('c1').innerHTML = " <img src='imgs/X.png' alt='Figura' style='width: 20rem; height: 20rem;'>"}
+}
+function mudarpimg8(){
+    if (rand==8) {
+        document.getElementById('result').innerHTML=" VOCÊ PERDEU!"
+        document.getElementById('c2').innerHTML = " <img src='imgs/boom.png' alt='Figura' style='width: 20rem; height: 20rem;'>"   
+        }
+        else{
+        document.getElementById('c2').innerHTML = " <img src='imgs/X.png' alt='Figura' style='width: 20rem; height: 20rem;'>"}
+}
+function mudarpimg9(){
+    if (rand==9) {
+        document.getElementById('result').innerHTML=" VOCÊ PERDEU!"
+        document.getElementById('c3').innerHTML = " <img src='imgs/boom.png' alt='Figura' style='width: 20rem; height: 20rem;'>"   
+        }
+        else{
+        document.getElementById('c3').innerHTML = " <img src='imgs/X.png' alt='Figura' style='width: 20rem; height: 20rem;'>"}
+}
