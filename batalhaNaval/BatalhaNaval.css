@@ -176,8 +176,8 @@
 }
 
 .tabuleiro{
-    width: 65rem;
-    height: 65rem;
+    width: 66rem;
+    height: 66rem;
     padding-left: 1rem;
     background-color: rgb(0, 0, 0);
 
@@ -188,6 +188,11 @@
     background-color: rgba(14, 175, 14, 0.904);
     margin: 0.5rem;
     float: left;
+}
+.peca:hover{
+    width: 19rem;
+    height: 19rem;
+    margin: 1rem;
 }
 .peca:hover{
     cursor: pointer;
