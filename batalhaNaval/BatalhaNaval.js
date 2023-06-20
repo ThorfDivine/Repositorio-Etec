@@ -83,6 +83,7 @@ function ThorfDivineClose(){
     let triangulo2 = document.getElementById('triangulo2');
     let nav = document.getElementById('nav-list');
 
+
     headerMenu.style.transition = "0.5s";
     headerMenu.style.padding = "0 0 0 27%";
     Menu1.style.width = "20em";
@@ -94,74 +95,117 @@ function ThorfDivineClose(){
 //---------------------------jogo--------------------------------------------//
 
 function mudarpimg1(){
-    if (rand==1) {
+    vitoria++;
+    if (vitoria >=8) {
+        document.getElementById('result').innerHTML=" VOCÊ GANHOU!"
+    }
+    else if (rand==1) {
     document.getElementById('result').innerHTML=" VOCÊ PERDEU!"
     document.getElementById('a1').innerHTML = " <img src='imgs/boom.png' alt='Figura' style='width: 20rem; height: 20rem;'>"   
     }
     else{
     document.getElementById('a1').innerHTML = " <img src='imgs/X.png' alt='Figura' style='width: 20rem; height: 20rem;'>"}
+    
 }
 function mudarpimg2(){
+    vitoria++;
     if (rand==2){
         document.getElementById('result').innerHTML=" VOCÊ PERDEU!"
         document.getElementById('a2').innerHTML = " <img src='imgs/boom.png' alt='Figura' style='width: 20rem; height: 20rem;'>"   
         }
         else{
         document.getElementById('a2').innerHTML = " <img src='imgs/X.png' alt='Figura' style='width: 20rem; height: 20rem;'>"}
-}3
+   
+}
 function mudarpimg3(){
-    if (rand==3) {
+    vitoria++;
+    if (vitoria >=8) {
+        document.getElementById('result').innerHTML=" VOCÊ GANHOU!"
+    }
+    else if (rand==3) {
         document.getElementById('result').innerHTML=" VOCÊ PERDEU!"
         document.getElementById('a3').innerHTML = " <img src='imgs/boom.png' alt='Figura' style='width: 20rem; height: 20rem;'>"   
         }
         else{
         document.getElementById('a3').innerHTML = " <img src='imgs/X.png' alt='Figura' style='width: 20rem; height: 20rem;'>"}
+        vitoria++;
 }
 function mudarpimg4(){
-    if (rand==4) {
+    vitoria++;
+    if (vitoria >=8) {
+        document.getElementById('result').innerHTML=" VOCÊ GANHOU!"
+    }
+    else if (rand==4) {
         document.getElementById('result').innerHTML=" VOCÊ PERDEU!"
         document.getElementById('b1').innerHTML = " <img src='imgs/boom.png' alt='Figura' style='width: 20rem; height: 20rem;'>"   
         }
         else{
         document.getElementById('b1').innerHTML = " <img src='imgs/X.png' alt='Figura' style='width: 20rem; height: 20rem;'>"}
+        vitoria++;
 }
 function mudarpimg5(){
-    if (rand==5) {
+    vitoria++;
+    if (vitoria >=8) {
+        document.getElementById('result').innerHTML=" VOCÊ GANHOU!"
+    }
+    else if (rand==5) {
         document.getElementById('result').innerHTML=" VOCÊ PERDEU!"
         document.getElementById('b2').innerHTML = " <img src='imgs/boom.png' alt='Figura' style='width: 20rem; height: 20rem;'>"   
         }
         else{
         document.getElementById('b2').innerHTML = " <img src='imgs/X.png' alt='Figura' style='width: 20rem; height: 20rem;'>"}
+        vitoria++;
 }
 function mudarpimg6(){
-    if (rand==6) {
+    vitoria++;
+    if (vitoria >=8) {
+        document.getElementById('result').innerHTML=" VOCÊ GANHOU!"
+    }
+    else if (rand==6) {
         document.getElementById('result').innerHTML=" VOCÊ PERDEU!"
         document.getElementById('b3').innerHTML = " <img src='imgs/boom.png' alt='Figura' style='width: 20rem; height: 20rem;'>"   
         }
         else{
         document.getElementById('b3').innerHTML = " <img src='imgs/X.png' alt='Figura' style='width: 20rem; height: 20rem;'>"}
+        vitoria++;
 }
 function mudarpimg7(){
-    if (rand==7) {
+    vitoria++;
+    if (vitoria >=8) {
+        document.getElementById('result').innerHTML=" VOCÊ GANHOU!"
+    }
+    else if (rand==7) {
+        vitoria++;
         document.getElementById('result').innerHTML=" VOCÊ PERDEU!"
         document.getElementById('c1').innerHTML = " <img src='imgs/boom.png' alt='Figura' style='width: 20rem; height: 20rem;'>"   
         }
         else{
         document.getElementById('c1').innerHTML = " <img src='imgs/X.png' alt='Figura' style='width: 20rem; height: 20rem;'>"}
+        vitoria++;
 }
 function mudarpimg8(){
-    if (rand==8) {
+    vitoria++;
+    if (vitoria >=8) {
+        document.getElementById('result').innerHTML=" VOCÊ GANHOU!"
+    }
+    else if (rand==8) {
         document.getElementById('result').innerHTML=" VOCÊ PERDEU!"
         document.getElementById('c2').innerHTML = " <img src='imgs/boom.png' alt='Figura' style='width: 20rem; height: 20rem;'>"   
         }
         else{
         document.getElementById('c2').innerHTML = " <img src='imgs/X.png' alt='Figura' style='width: 20rem; height: 20rem;'>"}
+        vitoria++;
 }
 function mudarpimg9(){
-    if (rand==9) {
+    vitoria++;
+    if (vitoria >=8) {
+        document.getElementById('result').innerHTML=" VOCÊ GANHOU!"
+    }
+    else if (rand==9) {
         document.getElementById('result').innerHTML=" VOCÊ PERDEU!"
         document.getElementById('c3').innerHTML = " <img src='imgs/boom.png' alt='Figura' style='width: 20rem; height: 20rem;'>"   
         }
         else{
         document.getElementById('c3').innerHTML = " <img src='imgs/X.png' alt='Figura' style='width: 20rem; height: 20rem;'>"}
+        vitoria++;
 }

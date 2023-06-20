@@ -1,0 +1,117 @@
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="menu2.css">
+     <script src="menu2.js"></script>
+    <style>
+        
+    </style>
+    <title>site do gustavo</title>
+</head>
+<body onload="openPage()" >
+
+   
+    <script> 
+
+
+
+    //var responsavel por abrir e fachar o menu
+    let n1;
+    let n2;
+    //lógica por tras da var    
+
+
+function notas() {
+        let mostrar = document.getElementById("mostrar");
+        let boletim = {
+            'alun1':{
+                alun: document.getElementById('name1').value,
+                nota: document.getElementById('nota1').value
+            },        
+            'alun2':{
+                alun : document.getElementById('name2').value,
+                nota: document.getElementById('nota2').value},
+            'alun3':{
+                alun : document.getElementById('name3').value,
+                nota: document.getElementById('nota3').value},
+            'alun4':{
+                alun : document.getElementById('name4').value,
+                nota: document.getElementById('nota4').value},
+            'alun5':{
+                alun : document.getElementById('name5').value,
+                nota: document.getElementById('nota5').value}
+            }
+
+            let myJSON = JSON.stringify(boletim)
+
+            console.log(myJSON)
+            console.log(boletim.alun1.nota)
+
+            Object.keys(boletim).forEach(key =>{ 
+
+                mostrar.innerHTML+=  "pessoa1: <BR>" 
+                let chave = key;
+
+                    Object.keys(chave).forEach(key =>{
+
+                        console.log("olha quem chegou")
+                        
+                        mostrar.innerHTML +=  chave[key]+"<BR>";
+
+                    })
+        })
+
+                }
+    </script>
+    <!--menu-->
+    <header class="headerMenu" id="headerMenu" >
+        <div class="triangulo1" id="triangulo1"></div>
+        <div class="Menu1" id="Menu1" onmouseenter="ThorfDivineOpen()" onmouseleave="ThorfDivineClose()"onclick=" alterador()" >
+            <h1 class="MenuThorfDivine" id="ThorfDivine" >ThorfDivine</h1>
+            
+        </div>
+        <div class="triangulo2" id="triangulo2"></div>
+    </header>
+    <!--mini-menu-->
+    <ul class="nav-list" id="nav-list" >
+        <li><p class="opcao" id="op1" onclick="cs1() ,alterador2();"></p>
+            <p class="opcaomat" id="opcaomat1" onclick="cs11()">iW</p>
+            <p class="opcaomat" id="opcaomat2" onclick="cs12()">SW</p>
+            <p class="opcaomat" id="opcaomat3" onclick="cs13()">gcW</p>
+            </li>
+        <li><a href="" class="opcao" id="op2" onclick="cs2()"></a></li>
+        <li><a href="" class="opcao" id="op3" onclick="cs3()"></a></li>
+    </ul>
+    <!--restante-->
+    <div class="pai" id="pai">
+        <h1 for="">bem vindo a tela de boletim, indique os nomes, e suas devidas notas: </h1><br>
+        <hr>
+        pessoa1 <br/>
+        <label>nome: </label><input type="text" id="name1"> <br/>
+        <label>nota: </label><input type="text" id="nota1"> <br/>
+        <hr>
+        pessoa 2 <br/>
+        <label>nome: </label><input type="text" id="name2"> <br/>
+        <label>nota: </label><input type="text" id="nota2"> <br/>
+        <hr>
+        pessoa 3 <br/>
+        <label>nome: </label><input type="text" id="name3"> <br/>
+        <label>nota: </label><input type="text" id="nota3"> <br/>
+        <hr>
+        pessoa 4 <br/>
+        <label>nome: </label><input type="text" id="name4"> <br/>
+        <label>nota: </label><input type="text" id="nota4"> <br/>
+        <hr>
+        pessoa 5 <br/>
+        <label>nome: </label><input type="text" id="name5"> <br/>
+        <label>nota: </label><input type="text" id="nota5"> <br/>
+        <button type="button" onclick="notas()">enviar</button>
+        <h3 id="mostrar"></h3>
+    </div>   
+</body>
+</html>

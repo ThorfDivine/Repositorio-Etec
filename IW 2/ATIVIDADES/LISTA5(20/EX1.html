@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/> <!--conectando o materialize(css)-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="menu2.css">   
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="menu2.js"></script>
+    <title>site do gustavo</title>
+</head>
+<body onload="openPage()" >
+
+    
+ 
+    <script> 
+    //var responsavel por abrir e fachar o menu
+    let n1;
+    let n2;
+    //lógica por tras da var    
+
+function cdds(){
+            let cdd11 = document.getElementById('cdd11');
+                        
+           
+            let cdds = { 
+            cidade1: document.getElementById('cdd1').value,
+            cidade2: document.getElementById('cdd2').value,
+            cidade3: document.getElementById('cdd3').value,
+            cidade4: document.getElementById('cdd4').value,
+            cidade5: document.getElementById('cdd5').value,
+            cidade6: document.getElementById('cdd6').value,
+            cidade7: document.getElementById('cdd7').value,
+            cidade8: document.getElementById('cdd8').value,
+            cidade9: document.getElementById('cdd9').value,
+            cidade10: document.getElementById('cdd10').value
+            };
+            
+            Object.keys(cdds).forEach(key =>{document.getElementById("cdd11").innerHTML+= "A cidade é: "+ cdds[key] +"<br/>"})
+        }
+    </script>
+    <!--menu-->
+    <header class="headerMenu" id="headerMenu" >
+        <div class="triangulo1" id="triangulo1"></div>
+        <div class="Menu1" id="Menu1" onmouseenter="ThorfDivineOpen()" onmouseleave="ThorfDivineClose()"onclick=" alterador()" >
+            <h1 class="MenuThorfDivine" id="ThorfDivine" >ThorfDivine</h1>
+            
+        </div>
+        <div class="triangulo2" id="triangulo2"></div>
+    </header>
+    <!--mini-menu-->
+    <ul class="nav-list" id="nav-list" >
+        <li><p class="opcao" id="op1" onclick="cs1() ,alterador2();"></p>
+            <p class="opcaomat" id="opcaomat1" onclick="cs11()">iW</p>
+            <p class="opcaomat" id="opcaomat2" onclick="cs12()">SW</p>
+            <p class="opcaomat" id="opcaomat3" onclick="cs13()">gcW</p>
+            </li>
+        <li><a href="" class="opcao" id="op2" onclick="cs2()"></a></li>
+        <li><a href="" class="opcao" id="op3" onclick="cs3()"></a></li>
+    </ul>
+    <!--restante-->
+    <div class="pai" id="pai">
+
+    <h1>EX1</h1>
+    <label>digite o nome da primeira cidade:</label> <input type="text" id="cdd1"> <BR>
+    <label>digite o nome da próxima cidade:</label> <input type="text" id="cdd2"><BR>
+    <label>digite o nome da próxima cidade:</label> <input type="text" id="cdd3"><BR>
+    <label>digite o nome da próxima cidade:</label> <input type="text" id="cdd4"><BR>
+    <label>digite o nome da próxima cidade:</label> <input type="text" id="cdd5"><BR>
+    <label>digite o nome da próxima cidade:</label> <input type="text" id="cdd6"><BR>
+    <label>digite o nome da próxima cidade:</label> <input type="text" id="cdd7"><BR>
+    <label>digite o nome da próxima cidade:</label> <input type="text" id="cdd8"><BR>
+    <label>digite o nome da próxima cidade:</label> <input type="text" id="cdd9"><BR>
+    <label>digite o nome da ultima cidade :</label> <input type="text" id="cdd10"><BR>
+    <button onclick="cdds()">enviar</button><BR>
+    </div>
+    <h3 id="cdd11"></h3><BR>
+
+
+</body>
+</html>

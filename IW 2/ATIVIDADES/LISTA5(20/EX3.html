@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/> <!--conectando o materialize(css)-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="menu2.css">
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="menu2.js"></script>
+    <style>
+        
+    </style>
+    <title>site do gustavo</title>
+</head>
+<body onload="openPage(), jj()" >
+
+    
+    <script> 
+
+
+
+    //var responsavel por abrir e fachar o menu
+    let n1;
+    let n2;
+    //lógica por tras da var    
+        function logn(){
+            mostrar = document.getElementById('mostrar')
+            let pessoa1= {
+                    nome: document.getElementById('id1').value,
+                    gmail: document.getElementById('gmail1').value,
+                    senha: document.getElementById('senha1').value
+                }
+                Object.keys(pessoa1).forEach(key =>{mostrar.innerHTML+= pessoa1[key] +"<br/>"})
+
+            
+            
+            
+        }
+    </script>
+    <!--menu-->
+    <header class="headerMenu" id="headerMenu" >
+        <div class="triangulo1" id="triangulo1"></div>
+        <div class="Menu1" id="Menu1" onmouseenter="ThorfDivineOpen()" onmouseleave="ThorfDivineClose()"onclick=" alterador()" >
+            <h1 class="MenuThorfDivine" id="ThorfDivine" >ThorfDivine</h1>
+            
+        </div>
+        <div class="triangulo2" id="triangulo2"></div>
+    </header>
+    <!--mini-menu-->
+    <ul class="nav-list" id="nav-list" >
+        <li><p class="opcao" id="op1" onclick="cs1() ,alterador2();"></p>
+            <p class="opcaomat" id="opcaomat1" onclick="cs11()">iW</p>
+            <p class="opcaomat" id="opcaomat2" onclick="cs12()">SW</p>
+            <p class="opcaomat" id="opcaomat3" onclick="cs13()">gcW</p>
+            </li>
+        <li><a href="" class="opcao" id="op2" onclick="cs2()"></a></li>
+        <li><a href="" class="opcao" id="op3" onclick="cs3()"></a></li>
+    </ul>
+    <!--restante-->
+    <div class="pai" id="pai">
+        <h1>EX3</h1>
+        <h1>bem vindo a tela de login, preciso que voce se inscreva e inscreva +4 pessoas: </h1><br>
+        <hr>
+        pessoa1 <br/>
+        <label>nome: </label><input type="text" id="id1"> <br/>
+        <label>gmail: </label><input type="text" id="gmail1"> <br/>
+        <label>senha: </label><input type="password" id="senha1"><br/>
+        <button type="button" onclick="logn()">enviar</button>
+        <hr>
+        <h4 id="mostrar"></h4>
+    </div>   
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!--<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/> <!--conectando o materialize(css)-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="menu2.css">
+    <script src="menu2.js"></script>
+    <title>site do gustavo</title>
+</head>
+<body onload="openPage()" >
+
+    <!--<script type="text/javascript" src="js/materialize.min.js"></script>-->
+    
+    <script> 
+
+
+
+    //var responsavel por abrir e fachar o menu
+    let mostrar = document.getElementById("resp")
+    let n1;
+    let n2;
+    //lógica por tras da var    
+
+
+function chevrolet(){
+    
+    let chevrole=["camaro", "cruze", "onix", "opala" ]
+    Object.keys(chevrole).forEach(key =>{document.getElementById("resp").innerHTML += chevrole[key] +"<br/>"})}
+
+
+
+function fiat(){
+
+    let fiat=["uno", "cronos", "Fastback", "argo"]
+    Object.keys(fiat).forEach(key =>{document.getElementById("resp").innerHTML +=  fiat[key] +"<br/>"})}
+
+
+function vw() {
+
+
+    let vw=["jetta", "golf", "voyage", "fusca"]
+    Object.keys(vw).forEach(key =>{document.getElementById("resp").innerHTML +=  vw[key] +"<br/>"})}
+
+    
+
+
+function ford() {
+    
+    let ford=["ka", "mustang", "raptor", "gt"]
+    Object.keys(ford).forEach(key =>{document.getElementById("resp").innerHTML += ford[key] +"<br/>"})
+
+    }
+
+    </script>
+    <!--menu-->
+    <header class="headerMenu" id="headerMenu" >
+        <div class="triangulo1" id="triangulo1"></div>
+        <div class="Menu1" id="Menu1" onmouseenter="ThorfDivineOpen()" onmouseleave="ThorfDivineClose()"onclick=" alterador()" >
+            <h1 class="MenuThorfDivine" id="ThorfDivine" >ThorfDivine</h1>
+            
+        </div>
+        <div class="triangulo2" id="triangulo2"></div>
+    </header>
+    <!--mini-menu-->
+    <ul class="nav-list" id="nav-list" >
+        <li><p class="opcao" id="op1" onclick="cs1() ,alterador2();"></p>
+            <p class="opcaomat" id="opcaomat1" onclick="cs11()">iW</p>
+            <p class="opcaomat" id="opcaomat2" onclick="cs12()">SW</p>
+            <p class="opcaomat" id="opcaomat3" onclick="cs13()">gcW</p>
+            </li>
+        <li><a href="" class="opcao" id="op2" onclick="cs2()"></a></li>
+        <li><a href="" class="opcao" id="op3" onclick="cs3()"></a></li>
+    </ul>
+    <!--restante-->
+    <div class="pai" id="pai">
+        <img src="imgs/chevrolet.png" class="rectangle" onclick="chevrolet()">
+        <img src="imgs/fiat.png" class="circle" onclick="fiat()">
+        <img src="imgs/vw.png" class="circle" onclick="vw()">
+        <img src="imgs/ford.png" class="rectangle" onclick="ford()"> 
+
+    </div>
+    <div class="carros">
+        <p id="resp"></p>
+    </div>
+    
+
+
+
+</body>
+</html>
