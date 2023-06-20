@@ -57,11 +57,11 @@ function notas() {
                 mostrar.innerHTML+=  "pessoa1: <BR>" 
                 let chave = key;
 
-                    Object.keys(chave).forEach(key =>{
+                    Object.values(chave).forEach(value =>{
 
                         console.log("olha quem chegou")
-                        
-                        mostrar.innerHTML +=  chave[key]+"<BR>";
+
+                        mostrar.innerHTML +=  chave.value+"<BR>";
 
                     })
         })
