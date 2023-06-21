@@ -252,27 +252,53 @@ function ThorfDivineClose(){
     nav.style.width = "20em"
 
 }
-function fugir(fuga){
+function fugir(){
+    let valor = document.getElementById("n1").value;
     let sim = document.getElementById("tnt");
+    console.log(valor)
+    if (valor == null || valor == " "|| valor == "" && nFuga == 1 ) {
     if (fuga == null) {
         fuga = 1;
+        console.log("chegou null");
+    }
+    else{
+        fuga++;
+        console.log("deu ++: "+fuga)
     }
     if (fuga == 1){
         sim.style.float = "left";
-        sim.style.margin = "0";
-        fuga ++;
-        console.log("a fuga era 1 agora foi pra esquerda e definida como 2"+ fuga);
+        console.log("a fuga era 1 agora foi pra esquerda e definida como 2 :"+ fuga);
+        sim.style.margin = "0 10px 0 0px";
     }
-    else if(fuga ==2 ){
+    if(fuga ==2 ){
         sim.style.float = "right";
-        sim.style.margin = "600";
         console.log("a fuga era 1 agora é 2, e foi pra direita e definido como 0");
-        fuga ++;
+        sim.style.margin = "0 10px 0 400px";
     }
     if (fuga >=3) {
-        fuga =1;
-        fugir(fuga);
-    }
-    
+        console.log("fuga era maior de 2 e voltou a zero");
+        fuga =0;
+        fugir()
+    }    }
+    else if(nFuga == 0){
+
+    } 
 }
+function ver(nFuga) {
+    let valor = document.getElementById("n1").value;
+    let img = document.getElementById("luffy");
+    let randon = Math.floor(Math.random() * (10 -1)+1)
+
+    if (randon == valor) {
+        alert("acertou!!")
+        luffy.src = "imgs/acertou.jpg"
+        luffy.style.borderColor = "rgba(14, 175, 14, 0.904)";
+        nFuga = 1;
+    }else if(randon != valor){
+        alert("errou!")
+        luffy.src = "imgs/errou.jpg"
+        luffy.style.borderColor = "rgba(141, 20, 4, 0.904)";
+    }
+}
+    
 

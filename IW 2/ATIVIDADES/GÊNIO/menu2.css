@@ -195,8 +195,13 @@ body{
 #img{
     width: 400px;
 }
+.tentar{
+    width: 650px;
+    float: left;
+}
 
 .botaotnt{
+
     color: black;
     background-color: rgba(14, 175, 14, 0.904);
 }
@@ -206,7 +211,7 @@ body{
     margin-top: 10px;
     margin-left: 262px;
     padding: 7px;
-    transition: 0.5s ease-in-out;
+    transition: 0.2s ease-in-out;
 }
 .dst{
     cursor: pointer;
