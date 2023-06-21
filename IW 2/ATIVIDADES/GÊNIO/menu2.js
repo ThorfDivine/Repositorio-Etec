@@ -252,11 +252,14 @@ function ThorfDivineClose(){
     nav.style.width = "20em"
 
 }
-function fugir(){
+function fugir(nFuga){
     let valor = document.getElementById("n1").value;
     let sim = document.getElementById("tnt");
-    console.log(valor)
-    if (valor == null || valor == " "|| valor == "" && nFuga == 1 ) {
+    if (nFuga == null || nFuga == " "|| nFuga == " ") {
+        nFuga = 0
+    }
+    console.log(nFuga)
+    if (valor == null || valor == " "|| valor == "" || nFuga != 1) {
     if (fuga == null) {
         fuga = 1;
         console.log("chegou null");
@@ -279,11 +282,10 @@ function fugir(){
         console.log("fuga era maior de 2 e voltou a zero");
         fuga =0;
         fugir()
-    }    }
-    else if(nFuga == 0){
-
-    } 
+    }   }
+   
 }
+
 function ver(nFuga) {
     let valor = document.getElementById("n1").value;
     let img = document.getElementById("luffy");
@@ -298,6 +300,7 @@ function ver(nFuga) {
         alert("errou!")
         luffy.src = "imgs/errou.jpg"
         luffy.style.borderColor = "rgba(141, 20, 4, 0.904)";
+        nFuga = 0;
     }
 }
     
