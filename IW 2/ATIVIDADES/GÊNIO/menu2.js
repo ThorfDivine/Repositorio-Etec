@@ -252,14 +252,10 @@ function ThorfDivineClose(){
     nav.style.width = "20em"
 
 }
-function fugir(nFuga){
+function fugir(){
     let valor = document.getElementById("n1").value;
     let sim = document.getElementById("tnt");
-    if (nFuga == null || nFuga == " "|| nFuga == " ") {
-        nFuga = 0
-    }
-    console.log(nFuga)
-    if (valor == null || valor == " "|| valor == "" || nFuga != 1) {
+    if (valor == null || valor == " "|| valor == "" || nFuga == 1) {
     if (fuga == null) {
         fuga = 1;
         console.log("chegou null");
@@ -286,22 +282,43 @@ function fugir(nFuga){
    
 }
 
-function ver(nFuga) {
+function ver() {
     let valor = document.getElementById("n1").value;
+    let v = document.getElementById("n1");
     let img = document.getElementById("luffy");
-    let randon = Math.floor(Math.random() * (10 -1)+1)
-
+    let tnt = document.getElementById("tnt");
+    if (rand == null) {
+        rand = randon
+    }
     if (randon == valor) {
-        alert("acertou!!")
         luffy.src = "imgs/acertou.jpg"
         luffy.style.borderColor = "rgba(14, 175, 14, 0.904)";
+        document.getElementById("title").innerHTML = "PARABENS! VENDCEDOR! ACERTOU!!! ";
+        tnt.disabled = true;
+        v.disabled = true; 
         nFuga = 1;
     }else if(randon != valor){
-        alert("errou!")
+        if (valor > randon) {
+            alert("errou! seu número é maior que o escolhido")
+        }if (valor < randon) {
+            alert("errou! seu número é menor que o escolhido")
+        }
         luffy.src = "imgs/errou.jpg"
+        document.getElementById("title").innerHTML = "TENTE ADIVINHAR O NÚMERO! ";
         luffy.style.borderColor = "rgba(141, 20, 4, 0.904)";
         nFuga = 0;
     }
+}
+function desistir(){
+    let sim = document.getElementById("tnt");
+    let title = document.getElementById("title");
+    let img = document.getElementById("luffy")
+    document.getElementById("n1").disabled = true;
+    title.innerHTML = "Fraco! Desistiu! aperte F5 para tentar novamente";
+    sim.style.display = "none";
+    img.style.borderColor = "black";
+    img.src = "imgs/desistiu.jpg"
+
 }
     
 
