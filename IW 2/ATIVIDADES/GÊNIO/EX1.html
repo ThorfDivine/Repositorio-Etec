@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/> <!--conectando o materialize(css)-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="menu2.css">   
     <script src="menu2.js"></script>
@@ -18,7 +17,9 @@
     let n1;
     let n2;
     let fuga;
+    let rand;
     let nFuga = 0;
+    let randon = Math.floor(Math.random() * (10 -1)+1)
     //lógica por tras da var    
 
     </script>
@@ -44,18 +45,18 @@
     <!--restante-->
     <div class="pai" id="pai">
 
-        <h1>TENTE ADIVINHAR O NÚMERO!</h1>
+        <h1 id="title">TENTE ADIVINHAR O NÚMERO!</h1>
         <img src="imgs/try.jpg" alt="" class="luffy" id="luffy"> 
         <input type="number" name="n1" id="n1" class="n1">
         
         <div class="decisao" id="decisao">
             <div class="tentar">
-                <button type="button" id="tnt" class="botaotnt tnt" onmouseenter="fugir(fuga)">
+                <button type="button" id="tnt" class="botaotnt tnt" onmouseenter="fugir(fuga)" onclick="ver()">
                     tentar
                 </button>
             </div>
             <div class="desistir">
-                <button type="button" class="botaotnt dst">
+                <button type="button" class="botaotnt dst" onclick="desistir()">
                     desistir
                 </button>
             </div>
