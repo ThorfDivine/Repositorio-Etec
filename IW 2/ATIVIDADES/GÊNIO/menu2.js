@@ -306,7 +306,7 @@ function fugir2(){
         if (fuga2 >=3) {
             console.log("fuga2 era maior de 2 e voltou a zero");
             fuga2 =0;
-            fugir()
+            fugir2()
         }
     }
 }
