@@ -255,6 +255,7 @@ function ThorfDivineClose(){
 function fugir(){
     let valor = document.getElementById("n1").value;
     let sim = document.getElementById("tnt");
+
     if (valor == null || valor == " "|| valor == "" || nFuga == 1) {
     if (fuga == null) {
         fuga = 1;
@@ -281,7 +282,34 @@ function fugir(){
     }   }
    
 }
-
+function fugir2(){
+    let dst = document.getElementById("dst");
+    if (nFuga2 == 1) {
+        if (fuga2 == null) {
+            fuga2 = 1;
+            console.log("chegou null");
+        }
+        else{
+            fuga2++;
+            console.log("deu ++: "+fuga2)
+        }
+        if (fuga2 == 1){
+            dst.style.float = "left";
+            console.log("a fuga2 era 1 agora foi pra esquerda e definida como 2 :"+ fuga2);
+            dst.style.margin = "0 10px 0 0px";
+        }
+        if(fuga2 == 2 ){
+            dst.style.float = "right";
+            console.log("a fuga2 era 1 agora é 2, e foi pra direita e definido como 0");
+            dst.style.margin = "0 10px 0 400px";
+        }
+        if (fuga2 >=3) {
+            console.log("fuga2 era maior de 2 e voltou a zero");
+            fuga2 =0;
+            fugir()
+        }
+    }
+}
 function ver() {
     let valor = document.getElementById("n1").value;
     let v = document.getElementById("n1");
@@ -290,13 +318,16 @@ function ver() {
     if (rand == null) {
         rand = randon
     }
+    if(nFuga != 1){
     if (randon == valor) {
         luffy.src = "imgs/acertou.jpg"
         luffy.style.borderColor = "rgba(14, 175, 14, 0.904)";
         document.getElementById("title").innerHTML = "PARABENS! VENDCEDOR! ACERTOU!!! ";
-        tnt.disabled = true;
         v.disabled = true; 
         nFuga = 1;
+        nFuga2 = 1;
+        fugir();
+        console.log("nFuga2 = "+nFuga2)
     }else if(randon != valor){
         if (valor > randon) {
             alert("errou! seu número é maior que o escolhido")
@@ -306,10 +337,12 @@ function ver() {
         luffy.src = "imgs/errou.jpg"
         document.getElementById("title").innerHTML = "TENTE ADIVINHAR O NÚMERO! ";
         luffy.style.borderColor = "rgba(141, 20, 4, 0.904)";
-        nFuga = 0;
-    }
+        //nFuga = 0;
+    }}
 }
 function desistir(){
+    if (nFuga !=1) {
+    
     let sim = document.getElementById("tnt");
     let title = document.getElementById("title");
     let img = document.getElementById("luffy")
@@ -318,7 +351,7 @@ function desistir(){
     sim.style.display = "none";
     img.style.borderColor = "black";
     img.src = "imgs/desistiu.jpg"
-
+    }
 }
     
 

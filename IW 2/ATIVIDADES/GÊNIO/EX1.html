@@ -17,8 +17,10 @@
     let n1;
     let n2;
     let fuga;
+    let fuga2;
     let rand;
     let nFuga = 0;
+    let nFuga2 = 0;
     let randon = Math.floor(Math.random() * (10 -1)+1)
     //lógica por tras da var    
 
@@ -51,12 +53,12 @@
         
         <div class="decisao" id="decisao">
             <div class="tentar">
-                <button type="button" id="tnt" class="botaotnt tnt" onmouseenter="fugir(fuga)" onclick="ver()">
+                <button type="button" id="tnt" class="botaotnt tnt" onmouseenter="fugir(); console.log('nFuga: '+nFuga)" onclick="ver()">
                     tentar
                 </button>
             </div>
             <div class="desistir">
-                <button type="button" class="botaotnt dst" onclick="desistir()">
+                <button type="button" class="botaotnt dst" id="dst" onclick="desistir();" onmouseenter="fugir2(); console.log('nFuga2: '+nFuga2)">
                     desistir
                 </button>
             </div>

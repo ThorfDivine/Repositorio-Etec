@@ -199,6 +199,11 @@ body{
     width: 650px;
     float: left;
 }
+.desistir{
+    padding-top: 10px;
+    width: 650px;
+    float: left;
+}
 
 .botaotnt{
 
@@ -219,4 +224,5 @@ body{
     margin-top: 10px;
     margin-left: 258px;
     padding: 7px;    
+    transition: 0.2s ease-in-out;
 }
