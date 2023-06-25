@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="menu2.css">
+    <script src="menu2.js"></script>
+    <title>site do gustavo</title>
+</head>
+<body onload="openPage()/*, trocar()*/" >
+
+ 
+    <script> 
+    //var responsavel por abrir e fachar o menu
+    let n1;
+    let n2;
+    let trocSo = 0;
+    let trocador = 0;
+   // let timerId1;
+    //setar um intervalo que aumenta o trocaSo, ai quando o trocarSo atinge um certo número, ele troca
+    //assim, posso manipular pra que quando troco de pagina o trocaSo volta a 0 automatico
+    
+    </script>
+    <!--menu-->
+    <header class="headerMenu" id="headerMenu">
+        <div class="triangulo1" id="triangulo1"></div>
+        <div class="Menu1" id="Menu1" onmouseenter="ThorfDivineOpen()" onmouseleave="ThorfDivineClose()"onclick=" alterador()" >
+            <h1 class="MenuThorfDivine" id="ThorfDivine" >ThorfDivine</h1>
+            
+        </div>
+        <div class="triangulo2" id="triangulo2"></div>
+    </header>
+    <!--mini-menu-->
+    <ul class="nav-list" id="nav-list" >
+        <li><p class="opcao" id="op1" onclick="cs1() ,alterador2();"></p>
+            <p class="opcaomat" id="opcaomat1" onclick="cs11()">iW</p>
+            <p class="opcaomat" id="opcaomat2" onclick="cs12()">SW</p>
+            <p class="opcaomat" id="opcaomat3" onclick="cs13()">gcW</p>
+            </li>
+        <li><a href="" class="opcao" id="op2" onclick="cs2()"></a></li>
+        <li><a href="" class="opcao" id="op3" onclick="cs3()"></a></li>
+    </ul>
+    <!--restante-->
+    <div class="pai" id="pai">
+        <div class="carrossel" id="carrossel">
+            <div class="setDireita" onclick="trocarDireita()">></div>
+            <div class="setEsquerda" onclick="trocarEsquerda()"><</div>
+            <div class="bolas" id="bolas">
+                <div class="bolinha" id="bolinha1" onclick="mudar1()"></div>
+                <div class="bolinha" id="bolinha2" onclick="mudar2()"></div>
+                <div class="bolinha" id="bolinha3" onclick="mudar3()"></div>
+                <div class="bolinha" id="bolinha4" onclick="mudar4()"></div>
+            </div>
+            <div class="car1 car" id="car1"></div>
+            <div class="car2 car" id="car2"></div>
+            <div class="car3 car" id="car3"></div>
+            <div class="car4 car" id="car4"></div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

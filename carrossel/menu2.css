@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
+*{
+    padding: 0;
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Bruno Ace SC', cursive;
+}
+/*header*/
+.headerMenu{
+    width: 100%;
+    height: 80px;
+    float: left;
+    background-color: rgba(4, 117, 4, 0.904);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 0 0;
+}
+/*triangulo esquerda*/
+.triangulo1{
+    width: 0;
+    height: 0;
+    border-left: 78px solid transparent;
+    border-right: 0px solid transparent;
+    border-top: 80px solid black;
+    float: left;
+    transition: 1s;
+    display: none;
+}
+/*div preta que esta no topo em que esta o nome ThorfDivine*/
+.Menu1{
+    width: 100%;
+    height: 100%;
+    float: left;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    transition: 0.5s;
+}
+/*nome no centro(ThorfDivine)*/
+.MenuThorfDivine{
+    font-family: 'Bruno Ace SC', cursive;
+    position: relative;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bolder;
+    margin-top: 20px;
+    color: white;
+    transition: 0.5s;
+}
+/* altera o tamanho da div preta central com triangulos*/
+.Menu1:hover{
+    width: 28em;
+}
+/*meche no ThorfDivine*/
+.MenuThorfDivine{
+    position: relative;
+}
+/*linha debaixo do nome*/
+.MenuThorfDivine::after{
+    content: " ";
+    width: 0%;
+    height: 0.01em;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    bottom:0;
+    left: 50%;
+    transition: 0.5s ease-in-out;
+}
+/*crescendo a linha de baixo do nome*/
+.MenuThorfDivine:hover::after{
+    width: 100%;
+    left: 0;
+}
+/* altera a distancia entre as letras do nome ThorfDivine*/
+.Menu1:hover .MenuThorfDivine{
+    cursor: pointer;
+    letter-spacing: 0.25em;
+}
+/*triangulo direita*/
+.triangulo2{
+    width: 0;
+    height: 0;
+    border-left: 0px solid transparent;
+    border-right: 78px solid transparent;
+    border-top: 80px solid black;
+    float: left;
+    display: none;
+}
+/*altera as letras do menu superior*/
+.MenuWord{
+    float: right;
+    color: white;
+}
+/*configurando as materias dentro do menu*/
+.opcaomat{
+    display:none;
+}
+/*configurando os links*/
+.opcao{
+    color: rgb(255, 255, 255);
+    font-weight: 100;
+    text-decoration: none;
+    transition: 0.3;
+    cursor: pointer;
+}
+/*colocando o brilho sobre os links*/
+.opcao:hover{
+    text-shadow: 0 0 35px rgba(14, 175, 14, 0.904);
+    color: white;
+    cursor: pointer;
+}
+/*1° configuração da caixa de li*/
+.nav-list{
+    list-style: none;
+    display: flex;
+    color: white;
+}
+/*configurandodiretamente a li*/
+.nav-list li{
+    letter-spacing: 0.2em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 1em;
+}
+
+/*configuração final da caixa de li*/
+.nav-list{
+    float: left;
+    top: 5em;
+    position: absolute;
+    text-align: center;
+    width: 24.11em;
+    height: 0;
+    background: rgb(0, 0, 0);
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 0 0 31.01%;
+    transition: 0.35s ease-in-out;
+}
+/*colocando o dedinho aonde fica as metarias*/
+.opcaomat:hover{
+    cursor: pointer;
+}
+
+
+/*---------------------------------------------------------------------------------*/
+.pai img{
+    width: 100%;
+    height: 99%;
+}
+
+.titlepage{
+    padding: 0 40%;
+}
+
+.carrossel{
+    width: 100%;
+    height: 30em;
+    background-color: rgb(77, 75, 75);
+    float: left;
+}
+
+.car{
+    height: 100%;
+    width: 0%;
+    transition: 0.2s ease-in-out;
+}
+.setDireita{
+    height: 24.99em;
+    width: 2.5em;
+    position: absolute;
+    padding-top: 10em;
+    margin-left: 96.5%;
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+    opacity: 0.2;
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
+}
+    
+.setEsquerda{
+    height: 24.99em;
+    width: 2.5em;
+    position: absolute;
+    padding-top: 10em;
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+    opacity: 0.2;
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
+}
+.setDireita:hover{
+    opacity: 1;
+    background-color: rgba(74, 78, 74, 0.418);
+
+}
+.setEsquerda:hover{
+    opacity: 1;
+    background-color: rgba(74, 78, 74, 0.418);
+}
+.bolas{
+    position: absolute;
+    margin-top: 27em;
+    margin-left: 42%;
+    width: 6em;
+    height: 1.5em;
+    border-radius: 2em;
+    background-color:rgba(74, 78, 74, 0.418);
+    
+}
+.bolinha{
+    float: left;
+    margin-left: 0.4em;
+    margin-top: 0.25em;
+    width: 1em;
+    height: 1em;
+    background-color:rgba(240, 255, 240, 0.418);
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+#bolinha1{
+    background-Color : rgba(255, 255, 255, 1);
+}
+.car1{
+    background-color: red;
+    width: 100%;
+    float: left;
+}
+.car2{
+    background-color: green;
+    width: 0;
+    float: left;
+}
+.car3{
+    background-color: blue;
+    width: 0;
+    float: left;
+}
+.car4{
+    background-color: yellow;
+    width: 0;
+    float: left;
+}
