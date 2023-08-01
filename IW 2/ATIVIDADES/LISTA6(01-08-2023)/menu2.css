@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
+*{
+    padding: 0;
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Bruno Ace SC', cursive;
+}
+body{
+    background-color:  rgb(37, 36, 36);;
+}
+/*header*/
+.headerMenu{
+    width: 100%;
+    height: 80px;
+    float: left;
+    background-color: rgba(4, 117, 4, 0.904);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 0 0;
+}
+/*triangulo esquerda*/
+.triangulo1{
+    width: 0;
+    height: 0;
+    border-left: 78px solid transparent;
+    border-right: 0px solid transparent;
+    border-top: 80px solid black;
+    float: left;
+    transition: 1s;
+    display: none;
+}
+/*div preta que esta no topo em que esta o nome ThorfDivine*/
+.Menu1{
+    width: 100%;
+    height: 100%;
+    float: left;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    transition: 0.5s;
+}
+/*nome no centro(ThorfDivine)*/
+.MenuThorfDivine{
+    font-family: 'Bruno Ace SC', cursive;
+    position: relative;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bolder;
+    margin-top: 20px;
+    color: white;
+    transition: 0.5s;
+}
+/* altera o tamanho da div preta central com triangulos*/
+.Menu1:hover{
+    width: 28em;
+}
+/*meche no ThorfDivine*/
+.MenuThorfDivine{
+    position: relative;
+}
+/*linha debaixo do nome*/
+.MenuThorfDivine::after{
+    content: " ";
+    width: 0%;
+    height: 0.01em;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    bottom:0;
+    left: 50%;
+    transition: 0.5s ease-in-out;
+}
+/*crescendo a linha de baixo do nome*/
+.MenuThorfDivine:hover::after{
+    width: 100%;
+    left: 0;
+}
+/* altera a distancia entre as letras do nome ThorfDivine*/
+.Menu1:hover .MenuThorfDivine{
+    cursor: pointer;
+    letter-spacing: 0.25em;
+}
+/*triangulo direita*/
+.triangulo2{
+    width: 0;
+    height: 0;
+    border-left: 0px solid transparent;
+    border-right: 78px solid transparent;
+    border-top: 80px solid black;
+    float: left;
+    display: none;
+}
+/*altera as letras do menu superior*/
+.MenuWord{
+    float: right;
+    color: white;
+}
+/*configurando as materias dentro do menu*/
+.opcaomat{
+    display:none;
+}
+/*configurando os links*/
+.opcao{
+    color: rgb(255, 255, 255);
+    font-weight: 100;
+    text-decoration: none;
+    transition: 0.3;
+    cursor: pointer;
+}
+/*colocando o brilho sobre os links*/
+.opcao:hover{
+    text-shadow: 0 0 35px rgba(14, 175, 14, 0.904);
+    color: white;
+    cursor: pointer;
+}
+/*1° configuração da caixa de li*/
+.nav-list{
+    list-style: none;
+    display: flex;
+    color: white;
+}
+/*configurandodiretamente a li*/
+.nav-list li{
+    letter-spacing: 0.2em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 1em;
+}
+
+/*configuração final da caixa de li*/
+.nav-list{
+    float: left;
+    top: 5em;
+    position: absolute;
+    text-align: center;
+    width: 24.11em;
+    height: 0;
+    background: rgb(0, 0, 0);
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 0 0 31.01%;
+    transition: 0.35s ease-in-out;
+}
+/*colocando o dedinho aonde fica as metarias*/
+.opcaomat:hover{
+    cursor: pointer;
+}
+
+
+/*---------------------------------------------------------------------------------*/
+.circle{
+    float: left;
+    padding: 1px;
+    width: 100px;
+    height: 100px;
+}
+.rectangle{
+    float: left;
+    margin-top: 10px;
+    width: 150px;
+    height: 75px;
+}
+.pai{
+    color: white;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 0 0 25%;
+}
+.titlepage{
+    padding: 0 40%;
+}
+#cdd1{
+    margin-left: 1.4%;
+}
+#cdd10{
+    margin-left: 3.2%;
+}
+ input{
+    margin-left: 2%;
+    border: 1px black;
+ }
+.lbl11{
+    margin-left: 291px ;
+    color: white;
+}
+#RM{
+    margin-left: 1%;
+}
+#cdd11{
+
+    margin-left: 25%;
+    color: white;
+}
+.carros{
+    width: 100%;
+    padding-left: 30%;
+    float: left;
+    color: white;
+}
+#img{
+    width: 400px;
+}
