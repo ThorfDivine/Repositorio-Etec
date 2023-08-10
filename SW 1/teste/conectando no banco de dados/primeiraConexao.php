@@ -14,8 +14,12 @@
         //mostra se tem erro e qual o erro
     }else {
         echo "conexão bem sucedida";
-        mysqli_query($conexao, "insert into usuario(usarname, gmail, senha) values('$username', '$gmail', '$senha')" );
-        
+        $gravar = mysqli_query($conexao, "insert into usuario(usarname, gmail, senha) values('$username', '$gmail', '$senha')" );
+        if ($gravar){
+            echo "<br/>gravação bem sucedida";
+        }else{
+            echo "<br/> erro de gravação";
+        }
     }
 
     ?>
