@@ -1,19 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="#" method="POST">
-        <label for="">username: </label> <input type="text" name="username" id="username"> <BR/>
-        <label for="">gmail: </label> <input type="text" name="gmail" id="gmail"> <br/>
-        <label for="">senha: </label> <input type="text" name="senha" id="senha"> <BR/>
-        <input type="button" value="enviar">
-    </form>
-    
-    <?php
+
+<?php
     
     @$username = $_POST["username"];
     @$gmail = $_POST["gmail"];
@@ -28,9 +14,8 @@
         //mostra se tem erro e qual o erro
     }else {
         echo "conexão bem sucedida";
+        mysqli_query($conexao, "insert into usuario(usarname, gmail, senha) values('$username', '$gmail', '$senha')" );
+        
     }
 
     ?>
-
-</body>
-</html>
