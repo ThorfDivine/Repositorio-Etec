@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/> <!--conectando o materialize(css)-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="menu2.css">
     <script src="menu2.js"></script>
@@ -11,26 +10,25 @@
 </head>
 <body onload="openPage()" >
 
-    <script type="text/javascript" src="js/materialize.min.js"></script>
- 
     <script> 
-
-
-
     //var responsavel por abrir e fachar o menu
     let n1;
     let n2;
     //lógica por tras da var    
     </script>
+
+    
+<div class="super-pai">
+
     <!--menu-->
     <header class="headerMenu" id="headerMenu" >
         <div class="triangulo1" id="triangulo1"></div>
         <div class="Menu1" id="Menu1" onmouseenter="ThorfDivineOpen()" onmouseleave="ThorfDivineClose()"onclick=" alterador()" >
-            <h1 class="MenuThorfDivine" id="ThorfDivine" >ThorfDivine</h1>
-            
+            <h1 class="MenuThorfDivine" id="ThorfDivine">ThorfDivine</h1>
         </div>
-        <div class="triangulo2" id="triangulo2"></div>
+        <div class="triangulo2" id="triangulo2"/></div>
     </header>
+
     <!--mini-menu-->
     <ul class="nav-list" id="nav-list" >
         <li><p class="opcao" id="op1" onclick="cs1() ,alterador2();"></p>
@@ -41,11 +39,32 @@
         <li><a href="" class="opcao" id="op2" onclick="cs2()"></a></li>
         <li><a href="" class="opcao" id="op3" onclick="cs3()"></a></li>
     </ul>
+
     <!--restante-->
     <div class="pai" id="pai">
 
+        <div class="port">
+
+            <h2>Gustavo Batista</h2>
+            <p>16 anos <br> gustavobatistabos.td@gmail.com</p>
+
+            <div class="linguagens">
+            
+                    <div class="bloco_js">JS</div>
+                    <div class="bloco_php"><p>PHP</p></div>
+                    <div class="bloco_sql">SQL</div> <br>
+                    <div class="bloco_java">JAVA</div>
+                    <div class="bloco_c">C#</div>
+
+            </div>
+            
+            
+            
+        </div>
+        
     </div>
 
+</div>
 
 
 </body>
