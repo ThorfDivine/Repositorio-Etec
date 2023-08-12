@@ -17,6 +17,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content:space-between;
 }
 
 /*header*/
@@ -161,13 +162,25 @@
 
 /*---------------------------------------------------------------------------------*/
 .pai{
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height:1000px;
     background-color: var(--cinza-claro);
+    align-items: center;
 }
 
 .titlepage{
     padding: 0 40%;
+}
+
+@keyframes textoSurge{
+    from{
+        opacity: 0.1;
+    }
+    to{ 
+        opacity: 1;
+    }
 }
 
 .port{
@@ -176,7 +189,9 @@
     height: 20vh;
     border-radius: 20px;
     padding: 1vh 0 0 1vh;
-    margin: 2vh 0 0 2vh;
+    margin-top: 2vh;
+    opacity: 0.1;
+    animation: textoSurge 0.5s 0s both;
 }
 
 .port h2{
@@ -234,4 +249,144 @@
     border-radius: 0.75rem;
     padding: 0.3vh 0.3vw;
     background-color: blueviolet;
+}
+
+.materias_corpo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 40vh;
+}
+.triangulo_preto{
+    width: 0;
+    height: 0;
+    border-left: 0px solid transparent;
+    border-right: 78px solid transparent;
+    border-top: 9.5vh solid black;
+    float: left;
+    transition: 1s;
+    display: block;
+}
+
+/*----------------sw---------------*/
+.sw_div_big{
+    display: flex;
+    width: 100%;
+    height: 9.5vh;
+    background-color: var(--verde-pricipal);
+    justify-content: initial;
+}
+.sw_div_small{
+    display: flex;
+    width: 7vw;
+    height: 9.5vh;
+    background-color: black;
+    align-items: center;
+    transition: ease-in-out 0.3s;
+}
+.sw_div_small:hover{
+    width: 9vw;
+}
+.sw_div_small h1{
+    color: white;
+    position: relative;
+}
+.sw:hover{
+    cursor: pointer;
+}
+.sw::after{
+    content: " ";
+    width: 0%;
+    height: 0.01em;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    bottom:0;
+    left: 50%;
+    transition: 0.5s ease-in-out;
+}
+.sw:hover::after{
+    width: 100%;
+    left: 0;
+}
+/*----------------iw---------------*/
+.iw_div_big{
+    display: flex;
+    width: 100%;
+    height: 9.5vh;
+    background-color: var(--verde-pricipal);
+    align-items: center;
+}
+.iw_div_small{
+    display: flex;
+    width: 7vw;
+    height: 9.5vh;
+    background-color: black;
+    align-items: center;
+    transition: ease-in-out 0.3s;
+}
+.iw_div_small:hover{
+    width: 9vw;
+}
+.iw_div_small h1{
+    color: white;
+    position: relative;
+}
+.iw:hover{
+    cursor: pointer;
+}
+.iw::after{
+    content: " ";
+    width: 0%;
+    height: 0.01em;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    bottom:0;
+    left: 50%;
+    transition: 0.5s ease-in-out;
+}
+.iw:hover::after{
+    width: 100%;
+    left: 0;
+}
+
+/*----------------gcw---------------*/
+.gcw_div_big{
+    display: flex;
+    width: 100%;
+    height: 9.5vh;
+    background-color: var(--verde-pricipal);
+    align-items: center;
+}
+.gcw_div_small{
+    display: flex;
+    width: 7vw;
+    height: 9.5vh;
+    background-color: black;
+    align-items: center;
+    transition: ease-in-out 0.3s;
+}
+.gcw_div_small:hover{
+    width: 9vw;
+}
+.gcw_div_small h1{
+    color: white;
+    position: relative;
+}
+.gcw:hover{
+    cursor: pointer;
+}
+.gcw::after{
+    content: " ";
+    width: 0%;
+    height: 0.01em;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    bottom:0;
+    left: 50%;
+    transition: 0.5s ease-in-out;
+}
+.gcw:hover::after{
+    width: 100%;
+    left: 0;
 }

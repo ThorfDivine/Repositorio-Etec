@@ -20,30 +20,31 @@
     
 <div class="super-pai">
 
+    <div class="menu" id="menu">
     <!--menu-->
-    <header class="headerMenu" id="headerMenu" >
-        <div class="triangulo1" id="triangulo1"></div>
-        <div class="Menu1" id="Menu1" onmouseenter="ThorfDivineOpen()" onmouseleave="ThorfDivineClose()"onclick=" alterador()" >
-            <h1 class="MenuThorfDivine" id="ThorfDivine">ThorfDivine</h1>
-        </div>
-        <div class="triangulo2" id="triangulo2"/></div>
-    </header>
+        <header class="headerMenu" id="headerMenu" >
+            <div class="triangulo1" id="triangulo1"></div>
+            <div class="Menu1" id="Menu1" onmouseenter="ThorfDivineOpen()" onmouseleave="ThorfDivineClose()"onclick=" alterador()" >
+                <h1 class="MenuThorfDivine" id="ThorfDivine">ThorfDivine</h1>
+            </div>
+            <div class="triangulo2" id="triangulo2"/></div>
+        </header>
 
     <!--mini-menu-->
-    <ul class="nav-list" id="nav-list" >
-        <li><p class="opcao" id="op1" onclick="cs1() ,alterador2();"></p>
-            <p class="opcaomat" id="opcaomat1" onclick="cs11()">iW</p>
-            <p class="opcaomat" id="opcaomat2" onclick="cs12()">SW</p>
-            <p class="opcaomat" id="opcaomat3" onclick="cs13()">gcW</p>
+        <ul class="nav-list" id="nav-list" >
+            <li><p class="opcao" id="op1" onclick="cs1() ,alterador2();"></p>
+                <p class="opcaomat" id="opcaomat1" onclick="cs11()">iW</p>
+                <p class="opcaomat" id="opcaomat2" onclick="cs12()">SW</p>
+                <p class="opcaomat" id="opcaomat3" onclick="cs13()">gcW</p>
             </li>
-        <li><a href="" class="opcao" id="op2" onclick="cs2()"></a></li>
-        <li><a href="" class="opcao" id="op3" onclick="cs3()"></a></li>
-    </ul>
-
+            <li><a href="https://github.com/ThorfDivine" class="opcao" id="op2" onclick="cs2()"></a></li>
+            <li><a href="" class="opcao" id="op3" onclick="cs3()"></a></li>
+        </ul>
+    </div>
     <!--restante-->
     <div class="pai" id="pai">
 
-        <div class="port">
+        <div class="port" id="port">
 
             <h2>Gustavo Batista</h2>
             <p>16 anos <br> gustavobatistabos.td@gmail.com</p>
@@ -52,14 +53,22 @@
             
                     <div class="bloco_js">JS</div>
                     <div class="bloco_php"><p>PHP</p></div>
-                    <div class="bloco_sql">SQL</div> <br>
+                    <div class="bloco_sql">SQL</div> 
                     <div class="bloco_java">JAVA</div>
                     <div class="bloco_c">C#</div>
 
             </div>
             
-            
-            
+        </div>
+        
+        <h2 style="margin: 3vh 0 ;">materias: </h2>
+
+        <div class="materias_corpo">
+
+            <div class="sw_div_big" ><div class="sw_div_small" ><h1 class="sw">SW</h1></div><div class="triangulo_preto"></div></div>
+            <div class="iw_div_big" ><div class="iw_div_small" ><h1 class="iw">IW</h1></div><div class="triangulo_preto"></div></div>
+            <div class="gcw_div_big" ><div class="gcw_div_small" ><h1 class="gcw">GCW</h1></div><div class="triangulo_preto"></div></div>  
+
         </div>
         
     </div>
