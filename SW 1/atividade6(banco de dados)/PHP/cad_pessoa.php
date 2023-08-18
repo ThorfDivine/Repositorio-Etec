@@ -2,9 +2,9 @@
     
     include('conexaoBD.php');
 
-    @$nome = $_POST["nome"];
-    @$sobrenome = $_POST["sobrenome"];
-    @$tipo = $_POST["tipo"];
+    @$nome = strtolower($_POST["nome"]);
+    @$sobrenome = strtolower($_POST["sobrenome"]);
+    @$tipo = strtolower($_POST["tipo"]);
         //gravando no banco
         $gravar = mysqli_query($conexao, "insert into usuario(nome, sobrenome, tipo) values('$nome', '$sobrenome', '$tipo')" );
         if ($gravar){
