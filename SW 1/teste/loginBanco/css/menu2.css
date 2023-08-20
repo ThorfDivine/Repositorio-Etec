@@ -169,224 +169,98 @@
     background-color: var(--cinza-claro);
     align-items: center;
 }
-
-.titlepage{
-    padding: 0 40%;
-}
-
-@keyframes textoSurge{
-    from{
-        opacity: 0.1;
-    }
-    to{ 
-        opacity: 1;
-    }
-}
-
-.port{
-    background-color: var(--cinza-pouco-escuro);
-    width: 50vw;
-    height: 20vh;
-    border-radius: 20px;
-    padding: 1vh 0 0 1vh;
-    margin-top: 2vh;
-    opacity: 0.1;
-    animation: textoSurge 0.5s 0s both;
-}
-
-.port h2{
-    color: white;
-    font-size: 2.5rem;
-}
-
-.port p{
-    font-size: 0.7rem;
-    color: white;
-    margin: 0 0 0 1vw;
-}
-
-.linguagens{
-    width: 30vw;
-    height: 10vh;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    font-size: 1.5rem;
-    justify-content: space-around;
-    align-content: space-around;
-}
-
-.bloco_js{
-    border-radius: 0.75rem;
-    padding: 0.3vh 0.3vw;
-    background-color: yellow;
-}
-.bloco_php{
-    border-radius: 0.75rem;
-    background-color: #7A86B8;
-}
-
-.bloco_php p{
-    color: black;
-    font-size: 1.5rem;
-    margin: 0.3vh 0.3vw;
-    -webkit-text-stroke: 0.05rem white;
-}
-.bloco_sql{
-    color: white;
-    border-radius: 0.75rem;
-    padding: 0.3vh 0.3vw;
-    background-color: blue;
-}
-.bloco_java{
-    border-radius: 0.75rem;
-    padding: 0.3vh 0.3vw;
-    background-color: white;
-    color: red;
-}
-.bloco_c{
-    color: white;
-    border-radius: 0.75rem;
-    padding: 0.3vh 0.3vw;
-    background-color: blueviolet;
-}
-
-.materias_corpo{
+/*-----------------------------------------login/cadastro----------------------------------------*/
+.form_logar{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
-    height: 40vh;
+    justify-content: center;
+    align-items: center;
 }
-.triangulo_preto{
-    width: 0;
-    height: 0;
-    border-left: 0px solid transparent;
-    border-right: 78px solid transparent;
-    border-top: 9.5vh solid black;
-    float: left;
-    transition: 1s;
-    display: block;
+.form_logar p{
+    color: white;
+}
+.form_logar label{
+    color: white;
+}
+.form_logar input{
+    color: white;
+}
+.form_logar ul,li{
+    color: red;
+    margin-left: 2.5vw;
 }
 
-/*----------------sw---------------*/
-.sw_div_big{
-    display: flex;
-    width: 100%;
-    height: 9.5vh;
-    background-color: var(--verde-pricipal);
-    justify-content: initial;
-}
-.sw_div_small{
-    display: flex;
-    width: 7vw;
-    height: 9.5vh;
+.login{
+    width: 45vw;
+    height: 80vh;
+    margin-top: 1vh;
     background-color: black;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    transition: ease-in-out 0.3s;
 }
-.sw_div_small:hover{
-    width: 9vw;
-}
-.sw_div_small h1{
+.title_login{
     color: white;
-    position: relative;
-}
-.sw:hover{
-    cursor: pointer;
-}
-.sw::after{
-    content: " ";
-    width: 0%;
-    height: 0.01em;
-    background-color: rgb(255, 255, 255);
-    position: absolute;
-    bottom:0;
-    left: 50%;
-    transition: 0.5s ease-in-out;
-}
-.sw:hover::after{
     width: 100%;
-    left: 0;
-}
-/*----------------iw---------------*/
-.iw_div_big{
+    height: 10vh;
     display: flex;
-    width: 100%;
-    height: 9.5vh;
-    background-color: var(--verde-pricipal);
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+.title_login h2{
+    font-size: xx-large;
+}
+.title_login p{
+    font-size:smaller 
+}
+.rainbow{
+    width: 26.3vw;
+    height: 3.3vh;
+    background: linear-gradient(45deg,#ffff00,#00ff00,#0099ff,#001aff,#a200ff,#ff0055,#ff0000,
+    #ffff00,#00ff00,#0099ff,#001aff,#a200ff);
+    display: flex;
     align-items: center;
+    justify-content: center;
+    border-radius: 1.65vh;
 }
-.iw_div_small{
-    display: flex;
-    width: 7vw;
-    height: 9.5vh;
+.input_login{
+    text-align: center;
+    width: 26vw;
+    height: 3vh;
+    border-radius: 1.5vh;
     background-color: black;
-    align-items: center;
-    transition: ease-in-out 0.3s;
 }
-.iw_div_small:hover{
-    width: 9vw;
-}
-.iw_div_small h1{
+.esqueceu {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    text-align: center;
     color: white;
-    position: relative;
+    font-size:smaller 
 }
-.iw:hover{
-    cursor: pointer;
-}
-.iw::after{
-    content: " ";
-    width: 0%;
-    height: 0.01em;
-    background-color: rgb(255, 255, 255);
-    position: absolute;
-    bottom:0;
-    left: 50%;
-    transition: 0.5s ease-in-out;
-}
-.iw:hover::after{
-    width: 100%;
-    left: 0;
-}
-
-/*----------------gcw---------------*/
-.gcw_div_big{
+.logar_div{
     display: flex;
-    width: 100%;
-    height: 9.5vh;
-    background-color: var(--verde-pricipal);
+    justify-content: center;
     align-items: center;
+    width: 27vw;
+    height: 4vh;
 }
-.gcw_div_small{
+.rainbow2{
+    margin-top: 5vh;
+    width: 10.3vw;
+    height: 4.3vh;
+    background: var(--verde-pricipal);
     display: flex;
-    width: 7vw;
-    height: 9.5vh;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2vh;
+}
+.logar{
+    color: white;
     background-color: black;
-    align-items: center;
-    transition: ease-in-out 0.3s;
-}
-.gcw_div_small:hover{
-    width: 9vw;
-}
-.gcw_div_small h1{
-    color: white;
-    position: relative;
-}
-.gcw:hover{
-    cursor: pointer;
-}
-.gcw::after{
-    content: " ";
-    width: 0%;
-    height: 0.01em;
-    background-color: rgb(255, 255, 255);
-    position: absolute;
-    bottom:0;
-    left: 50%;
-    transition: 0.5s ease-in-out;
-}
-.gcw:hover::after{
-    width: 100%;
-    left: 0;
+    width: 10vw;
+    height: 4vh;
+    border-radius: 2vh;
 }

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="menu2.css">
-    <script src="menu2.js"></script>
+    <meta name="author" content="Gustavo batisat de Oliveira Santos">
+    <link rel="stylesheet" href="../css/menu2.css">
+    <script src="../js/menu2.js"></script>
     <title>site do gustavo</title>
 </head>
 <body onload="openPage()" >
@@ -44,12 +45,18 @@
     <!--restante-->
     <div class="pai" id="pai">
 
-       <div>
-        <form action="primeiraConexao(inserindo).php">
-            <label for="">gmail: </label> <input type="email" name="gmail" id="">
-            <label for="">senha: </label> <input type="password" name="senha">
+       <div class="login">
+        <form action="../php/primeiraConexao(inserindo).php" class="form_logar">
+            <div class="title_login"><h2>login</h2> <p>por favor insira seus dados</p></div>
+            <div clas="login">
+                <div class="rainbow"><input type="email" name="gmail" placeholder="gmail" class="input_login"></div><br>
+                <div class="rainbow"><input type="password" name="senha" placeholder="senha" class="input_login"></div>    
+            </div>
+            <div class="esqueceu">
+                <p>esqueceu a senha?</p><a href="cadastro.html"><p>não é cadastrado?</p></a>
+            </div>
+            <div class="rainbow2"><input class="logar" type="submit" value="cadastrar"></div>
             </form>
-
        </div>
         
     </div>
