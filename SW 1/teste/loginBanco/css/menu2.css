@@ -192,6 +192,15 @@
 
 .login{
     width: 45vw;
+    height: 35vh;
+    margin-top: 1vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.login2{
+    width: 45vw;
     height: 80vh;
     margin-top: 1vh;
     background-color: black;
@@ -231,6 +240,19 @@
     height: 3vh;
     border-radius: 1.5vh;
     background-color: black;
+    display: flex;
+}
+.input_login_senha{
+    text-align: center;
+    width: 23vw;
+    height: 3vh;
+    border-radius: 1.5vh 0 0 1.5vh ;
+    background-color: black;
+}
+.zoro{
+    width: 3vw;
+    height: 3vh;
+    border-radius: 0 1.5vh 1.5vh 0;
 }
 .esqueceu {
     display: flex;

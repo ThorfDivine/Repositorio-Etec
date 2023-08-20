@@ -1,21 +1,6 @@
-function cpfMask(){
-    let input = document.getElementById('cpf')
-
-    let inputLenght = input.value.length;
-
-    console.log(inputLenght);
-
-    if(inputLenght === 3){
-        input.value += '.';
-    }
-    if(inputLenght === 7){
-        input.value += '.';
-    }
-    if(inputLenght === 11){
-        input.value += '-';
-    }
-}
 const senhaFato = document.getElementById('senhae');
+
+
 
 
 senhaFato.onkeyup = (event) =>{
@@ -86,3 +71,4 @@ senhaFato.onkeyup = (event) =>{
     }
     
 }
+

@@ -18,7 +18,37 @@
     let n1;
     let n2;
     //lógica por tras da var    
+    function abrindo(){
+    let inputS1 = document.getElementById('senhae');
+
+    let eye1 = document.getElementById('zoro');
+
+    inputS1.type = 'text';
+
+    eye1.src = '../IMG/zoio_zoro_open.jpg';
+
+    eye1.setAttribute('onclick','fechando()');
+
+}
+
+function fechando(){
+
+        let inputS1;
+
+            inputS1 = document.getElementById('senhae');
+
+        let eye1;
+
+            eye1 = document.getElementById('zoro');
+
+        inputS1.type = 'password';
+
+        eye1.src = '../IMG/zoio_zoro_close.jpg';
+
+        eye1.setAttribute('onclick','abrindo()');
+}
     </script>
+
 
     
 <div class="super-pai">
@@ -46,8 +76,8 @@
     </div>
     <!--restante-->
     <div class="pai" id="pai">
-       <div class="login">
-            <form action="../php/primeiraConexao(inserindo).php" class="form_logar">
+       <div class="login2">
+            <form action="../php/cadastro.php" method="POST" class="form_logar">
 
                 <div class="title_login">
                     <h2>cadastro</h2> 
@@ -58,15 +88,20 @@
                     <label for="nome">nome:</label>
                         <div class="rainbow"><input type="text" name="nome" maxlength="50" class="input_login input_login_nome"></div><br>
                     <label>cpf:</label>
-                        <div class="rainbow"><input type="text" onkeyup="cpfMask()" maxlength="14" id="cpf" name="cpf" class="input_login"></div><br>
+                        <div class="rainbow"><input type="text" name="cpf" maxlength="14" id="cpf" class="input_login"></div><br>
                     <label>data de nascimento: </label>
                         <div class="rainbow"><input type="date" name="nascimento" class="input_login"></div><br>
                     <label>telefone: </label>
-                        <div class="rainbow"><input type="text" maxlength="14" onkeydown="" id="telefone" name="telefone" class="input_login"></div> <br>
+                        <div class="rainbow"><input type="text" name="telefone" maxlength="14"  id="telefone" class="input_login"></div> <br>
                     <label>email: </label>
-                        <div class="rainbow"><input type="email" maxlength="50" name="gmail" class="input_login"></div><br>
+                        <div class="rainbow"><input type="text" name="gmail" maxlength="50" class="input_login"></div><br>
                     <label>senha:</label>
-                        <div class="rainbow"><input type="password" maxlength="20" id="senhae" name="senha" class="input_login"></div> <br>
+                        <div class="rainbow">
+                            <div class="input_login">
+                                <input type="password" maxlength="20" id="senhae" name="senha" class="input_login_senha">
+                                <img src="../IMG/zoio_zoro_close.jpg" class="zoro" id="zoro" onclick="abrindo()" >
+                            </div>
+                        </div> <br>
                     <p>
                         para sua segurança, a sua senha deverá possuir : 
                     </p>
