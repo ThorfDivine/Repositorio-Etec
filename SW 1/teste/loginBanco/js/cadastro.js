@@ -72,3 +72,33 @@ senhaFato.onkeyup = (event) =>{
     
 }
 
+function abrindo(){
+    let inputS1 = document.getElementById('senhae');
+
+    let eye1 = document.getElementById('zoro');
+
+    inputS1.type = 'text';
+
+    eye1.src = '../IMG/zoio zoro.jpg';
+
+    eye1.setAttribute('onclick','fechando()');
+
+}
+
+function fechando(){
+
+        let inputS1;
+
+            inputS1 = document.getElementById('senhae');
+
+        let eye1;
+
+            eye1 = document.getElementById('zoro');
+
+        inputS1.type = 'password';
+
+        eye1.src = '../IMG/zoio_zoro_close.jpg';
+
+        eye1.setAttribute('onclick','abrindo()');
+}
+
