@@ -46,11 +46,16 @@
     <div class="pai" id="pai">
 
        <div class="login">
-        <form action="../php/cadastro.php" class="form_logar">
+        <form action="../php/logar.php" class="form_logar">
             <div class="title_login"><h2>login</h2> <p>por favor insira seus dados</p></div>
             <div clas="login">
                 <div class="rainbow"><input type="email" name="gmail" placeholder="gmail" class="input_login"></div><br>
-                <div class="rainbow"><input type="password" name="senha" placeholder="senha" class="input_login"></div>    
+                <label>senha:</label>
+                        <div class="rainbow">
+                            <div class="input_login">
+                                <input type="password" maxlength="20" id="senhae" name="senha" class="input_login_senha">
+                                <img src="../IMG/zoio_zoro_close.jpg" class="zoro" id="zoro" onclick="abrindo()" >
+                            </div> 
             </div>
             <div class="esqueceu">
                 <p>esqueceu a senha?</p><a href="cadastro.html"><p>não é cadastrado?</p></a>
