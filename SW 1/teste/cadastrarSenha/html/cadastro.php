@@ -8,8 +8,16 @@ $nascimento = $_POST['nascimento'];
 $telefone = $_POST['telefone'];
 $senha = $_POST['senha'];
 
-$insert = mysqli_query($conexao, "insert into usuario(cpf, nome, gmail, senha, data_nascimento, telefone) values('$cpf', '$name', '$email','$senha','$nascimento','$telefone')" );
+$senhaCripto = base64_encode($senha);
 
+$busca = mysqli_query($conexao, "select * from usuario where cpf = '$cpf' or gmail = '$email'");
+
+    if(mysqli_num_rows($busca)>0){
+        echo "<script>alert('CPF ou email ja cadastrado!'); window.location.href = '../html/cadastro.html'</script>";
+    }else{
+        $gravar = mysqli_query($conexao, "insert into usuario(cpf, nome, gmail, senha, data_nascimento, telefone) values('$cpf', '$name', '$email','$senha','$nascimento','$telefone')" );
+        header("location: ../html/site_do_gustavo.html");
+    }
 }
 ?>
 
@@ -72,19 +80,19 @@ $insert = mysqli_query($conexao, "insert into usuario(cpf, nome, gmail, senha, d
 
                 <div clas="cadastro">
                     <label for="nome">nome:</label>
-                        <div class="rainbow"><input type="text" name="nome" maxlength="50" class="input_login input_login_nome"></div><br>
+                        <div class="rainbow"><input type="text" name="nome" maxlength="50" class="input_login input_login_nome" required></div><br>
                     <label>cpf:</label>
-                        <div class="rainbow"><input type="text" name="cpf" maxlength="14" id="cpf" class="input_login"></div><br>
+                        <div class="rainbow"><input type="text" name="cpf" maxlength="14" id="cpf" class="input_login" required></div><br>
                     <label>data de nascimento: </label>
-                        <div class="rainbow"><input type="date" name="nascimento" class="input_login"></div><br>
+                        <div class="rainbow"><input type="date" name="nascimento" class="input_login" required></div><br>
                     <label>telefone: </label>
-                        <div class="rainbow"><input type="text" name="telefone" maxlength="14"  id="telefone" class="input_login"></div> <br>
+                        <div class="rainbow"><input type="text" name="telefone" maxlength="14"  id="telefone" class="input_login" required></div> <br>
                     <label>email: </label>
-                        <div class="rainbow"><input type="text" name="gmail" maxlength="50" class="input_login"></div><br>
+                        <div class="rainbow"><input type="text" name="gmail" maxlength="50" class="input_login" required></div><br>
                     <label>senha:</label>
                         <div class="rainbow">
                             <div class="input_login">
-                                <input type="password" maxlength="20" id="senhae" name="senha" class="input_login_senha">
+                                <input type="password" maxlength="20" id="senhae" name="senha" class="input_login_senha" required>
                                 <img src="../IMG/zoio_zoro_close.jpg" class="zoro" id="zoro" onclick="abrindo()" >
                             </div>
                         </div> <br>

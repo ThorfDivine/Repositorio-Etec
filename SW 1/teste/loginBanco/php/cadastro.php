@@ -11,7 +11,8 @@
     $telefone = $_POST["telefone"];
     $tipoErro = "";
     $permicao = 1;
-    
+    $senhaCripto = base64_encode($senha);
+
         //gravando no banco
         
     $busca = mysqli_query($conexao, "select * from usuario where cpf = '$cpf'");
@@ -19,7 +20,7 @@
     if(mysqli_num_rows($busca)>0){
         echo "<script>alert('CPF ja cadastrado!'); window.location.href = '../html/cadastro.html'</script>";
     }else{
-        $gravar = mysqli_query($conexao, "insert into usuario(cpf, nome, gmail, senha, data_nascimento, telefone) values('$cpf', '$name', '$email','$senha','$nascimento','$telefone')" );
+        $gravar = mysqli_query($conexao, "insert into usuario(cpf, nome, gmail, senha, data_nascimento, telefone) values('$cpf', '$name', '$email','$senhaCripto','$nascimento','$telefone')" );
         header("location: ../html/site_do_gustavo.html");
     }
     
