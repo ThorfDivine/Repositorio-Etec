@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
+*{
+    padding: 0;
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Bruno Ace SC', cursive;
+}
+:root{
+    --verde-pricipal: rgba(14, 175, 14, 0.904);
+    --cinza-claro: rgb(172, 168, 168);
+    --cinza-pouco-escuro: rgb(107, 106, 106);
+}
+/*só pro flex*/
+.super-pai{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+}
+
+/*header*/
+.headerMenu{
+    width: 100%;
+    height: 80px;
+    background-color: var(--verde-pricipal);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 0 0;
+}
+/*triangulo esquerda*/
+.triangulo1{
+    width: 0;
+    height: 0;
+    border-left: 78px solid transparent;
+    border-right: 0px solid transparent;
+    border-top: 80px solid black;
+    float: left;
+    transition: 1s;
+    display: none;
+}
+/*div preta que esta no topo em que esta o nome ThorfDivine*/
+.Menu1{
+    width: 100%;
+    height: 100%;
+    float: left;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    transition: 0.5s;
+}
+/*nome no centro(ThorfDivine)*/
+.MenuThorfDivine{
+    font-size: 2em;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bolder;
+    margin-top: 20px;
+    color: white;
+    transition: 0.5s;
+}
+/* altera o tamanho da div preta central com triangulos*/
+.Menu1:hover{
+    width: 28em;
+}
+/*meche no ThorfDivine*/
+.MenuThorfDivine{
+    position: relative;
+}
+/*linha debaixo do nome*/
+.MenuThorfDivine::after{
+    content: " ";
+    width: 0%;
+    height: 0.01em;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    bottom:0;
+    left: 50%;
+    transition: 0.5s ease-in-out;
+}
+/*crescendo a linha de baixo do nome*/
+.MenuThorfDivine:hover::after{
+    width: 100%;
+    left: 0;
+}
+/* altera a distancia entre as letras do nome ThorfDivine*/
+.Menu1:hover .MenuThorfDivine{
+    cursor: pointer;
+    letter-spacing: 0.25em;
+}
+/*triangulo direita*/
+.triangulo2{
+    width: 0;
+    height: 0;
+    border-left: 0px solid transparent;
+    border-right: 78px solid transparent;
+    border-top: 80px solid black;
+    float: left;
+    display: none;
+}
+/*altera as letras do menu superior*/
+.MenuWord{
+    float: right;
+    color: white;
+}
+/*configurando as materias dentro do menu*/
+.opcaomat{
+    display:none;
+}
+/*configurando os links*/
+.opcao{
+    color: rgb(255, 255, 255);
+    font-weight: 100;
+    text-decoration: none;
+    transition: 0.3;
+    cursor: pointer;
+}
+/*colocando o brilho sobre os links*/
+.opcao:hover{
+    text-shadow: 0 0 35px var(--verde-pricipal);
+    color: white;
+    cursor: pointer;
+}
+/*1° configuração da caixa de li*/
+.nav-list{
+    list-style: none;
+    display: flex;
+    color: white;
+}
+/*configurandodiretamente a li*/
+.nav-list li{
+    letter-spacing: 0.2em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 1em;
+}
+
+/*configuração final da caixa de li*/
+.nav-list{
+    float: left;
+    top: 5em;
+    position: absolute;
+    text-align: center;
+    width: 24.11em;
+    height: 0;
+    background: rgb(0, 0, 0);
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 0 0 31.01%;
+    transition: 0.35s ease-in-out;
+}
+/*colocando o dedinho aonde fica as metarias*/
+.opcaomat:hover{
+    cursor: pointer;
+}
+
+
+/*---------------------------------------------------------------------------------*/
+.pai{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height:1000px;
+    background-color: var(--cinza-claro);
+    align-items: center;
+}
+/*-----------------------------------------login/cadastro----------------------------------------*/
+.form_logar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.form_logar p{
+    color: white;
+}
+.form_logar label{
+    color: white;
+}
+.form_logar input{
+    color: white;
+}
+.form_logar ul,li{
+    color: red;
+    margin-left: 2.5vw;
+}
+
+.login{
+    width: 45vw;
+    height: 35vh;
+    margin-top: 1vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.login2{
+    width: 45vw;
+    height: 80vh;
+    margin-top: 1vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.title_login{
+    color: white;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+.title_login h2{
+    font-size: xx-large;
+}
+.title_login p{
+    font-size:smaller 
+}
+.rainbow{
+    width: 26.3vw;
+    height: 3.3vh;
+    background: linear-gradient(45deg,#ffff00,#00ff00,#0099ff,#001aff,#a200ff,#ff0055,#ff0000,
+    #ffff00,#00ff00,#0099ff,#001aff,#a200ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.65vh;
+}
+.input_login{
+    text-align: center;
+    width: 26vw;
+    height: 3vh;
+    border-radius: 1.5vh;
+    background-color: black;
+    display: flex;
+}
+.input_login_senha{
+    text-align: center;
+    width: 23vw;
+    height: 3vh;
+    border-radius: 1.5vh 0 0 1.5vh ;
+    background-color: black;
+}
+.zoro{
+    width: 3vw;
+    height: 3vh;
+    border-radius: 0 1.5vh 1.5vh 0;
+}
+.esqueceu {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    text-align: center;
+    color: white;
+    font-size:smaller 
+}
+.logar_div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 27vw;
+    height: 4vh;
+}
+.rainbow2{
+    margin-top: 5vh;
+    width: 10.3vw;
+    height: 4.3vh;
+    background: var(--verde-pricipal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2vh;
+}
+.logar{
+    color: white;
+    background-color: black;
+    width: 10vw;
+    height: 4vh;
+    border-radius: 2vh;
+}
