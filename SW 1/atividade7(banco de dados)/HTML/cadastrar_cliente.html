@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <style>
+        .portazoi{
+            display: flex;
+        }
+        .portazoi:hover{
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+ 
+function test(){
+
+let senha = document.getElementById('senha').value;
+let senhaLength = senha.length;
+let senhaCaracter = senha.split("");
+let alfa = /[a-z]/;
+let alfam = /[A-Z]/;
+let num1 = /[0-9]/;
+let especiais = /[! | " | # | $ | % | & | ' | ( | )| * | + | , | - | . | / | : | ; | < | = | > | ? | @ | [ |  | \] | ^ | _ | ` | { | { | | } | ~ ]/;
+let d6a10 = document.getElementById('d6a10');
+let min = document.getElementById("min"); 
+let mai = document.getElementById("mai"); 
+let num = document.getElementById("num");
+let esp = document.getElementById("esp");
+let m = false; 
+let M = false;
+let n = false; 
+let e = false; 
+let qtd = false;
+
+if (alfa.test(senha)) {
+    m = true
+    min.style.color = "green";
+
+}else{
+    m = false
+    min.style.color = "red";
+
+}
+if (alfam.test(senha)) {
+    M = true
+    mai.style.color = "green";
+}else{
+    M = false
+    mai.style.color = "red";
+}
+if (num1.test(senha)) {
+    n = true
+    num.style.color = "green";
+}else{
+    n = false
+    num.style.color = "red";
+}
+if (especiais.test(senha)) {
+    e = true
+    esp.style.color = "green"
+    
+}else{
+    
+    e = false
+    esp.style.color = "red";
+}
+if (senha.length>= 8) {
+    qtd = true
+    d6a10.style.color = "green"
+}else{
+    qtd = false
+    d6a10.style.color = "red"
+}
+if (m && M && n && e && qtd) {
+    document.getElementById("botao_cad").disabled = false;
+}else{
+    document.getElementById("botao_cad").disabled = true;
+}
+
+
+}
+    function abrindo(){
+        let inputS1 = document.getElementById('senha');
+
+        let eye1 = document.getElementById('zoio');
+
+        inputS1.type = 'text';
+
+        
+        eye1.innerHTML = 'visibility_off';
+
+    }
+
+    function fechando(){
+
+        let inputS1;
+
+            inputS1 = document.getElementById('senha');
+
+        let eye1;
+
+            eye1 = document.getElementById('zoio');
+
+        inputS1.type = 'password';
+
+        eye1.innerHTML = 'visibility';
+
+    }
+    </script>
+
+
+    <h1>buscar</h1>
+    <form action="../PHP/busca_filtro_pessoa.php" method="post">
+        <label for="">digite um nome para buscar; </label> <br>
+        <input type="text" name="valurBusca" id="">
+        <input type="submit" value="buscar">
+    </form>
+    <hr>
+    <h1>cadastrar cliente</h1>
+    <form action="../PHP/cad_cliente.php" method="POST">
+        <label >insira seu nome: </label> <br>
+        <input type="text" name="nome" id="" maxlength="30" required> <br>
+        <label >insira seu sobrenome: </label> <br>
+        <input type="text" name="sobrenome" id="" maxlength="50" required> <br>
+        <label >insira seu cpf: </label> <br>
+        <input type="number" name="cpf" id="" maxlength="20" required> <br>
+        <label >insira seu email</label> <br>
+        <input type="text" name="email" maxlength="100"  required> <br>
+        
+        <label >insira sua senha</label> <br>
+        <div class="portazoi">
+        <input type="password" name="senha" id="senha" maxlength="20" onkeyup="test()" required> 
+        <span class="material-symbols-outlined olho" id="zoio" onmousedown ="abrindo()" onmouseup="fechando()" >
+            visibility
+            </span></div> <br>
+
+        <ul>
+            <li id="d6a10"><p>De 6-10 caracteres</p></li>
+            <li id="mai"><p>Letras maiúsculas(A..Z)</p></li>
+            <li id="min"><p>Letras minúsculas(a..z)</p></li>
+            <li id="num"><p>Números(1..9)</p></li>
+            <li id="esp"><p>Caracter especial($, %, @, ...)</p></li>
+        </ul>
+
+        <input type="submit" value="cadastrar" id="botao_cad" disabled>
+
+    </form>
+
+    
+
+    
+</body>
+</html>
