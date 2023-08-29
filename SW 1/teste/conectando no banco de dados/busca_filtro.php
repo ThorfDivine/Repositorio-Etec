@@ -13,7 +13,10 @@
                 echo "<tr>";
                 echo "<td>".$resultado[0]."</td>";
                 echo "<td>".$resultado[1]."</td>";
-                echo "<td><a href='deletar.php'>Deletar</a></td>";
+                //passagem por link de variaveis
+                echo "<td><a href='deletar.php?id=".$resultado[0]."' onclick='return confirm(\"Desaja realmente excluir\")'><img style='height:25px;' src='lata-de-lixo.png'></a></td>";
+                //precisamos mandar a variavel pra esse outro php, se tivesse mais de um colocaria um &nomevar
+                //com o arquivo?variavel, tal "?" faz com que insira uma var logo na frente
                 echo "</tr>";
 
             }
@@ -23,11 +26,11 @@
             $busca = mysqli_query($conexao, "select * from usuario where username like '%$valor%'");
             $resultado;
 
-            while($resultado = mysqli_fetch_row($busca)){
+            while($resultado = mysqli_fetch_row($busca)){//mysqli_fetch_row retorna o numero de linhas
                 echo "<tr>";
                 echo "<td>".$resultado[0]."</td>";
                 echo "<td>".$resultado[1]."</td>";
-                echo "<td><a href='deletar.php'>Deletar</a></td>";
+                echo "<td><a href='deletar.php?id=".$resultado[0]."' onclick='return confirm(\"Desaja realmente excluir\")'><img style='height:25px;' src='lata-de-lixo.png'></a></td>";
                 echo "</tr>";
 
             }

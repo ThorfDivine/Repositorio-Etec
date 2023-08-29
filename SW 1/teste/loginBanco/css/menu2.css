@@ -190,6 +190,7 @@
     margin-left: 2.5vw;
 }
 
+ /*menu de login do login*/
 .login{
     width: 45vw;
     height: 35vh;
@@ -199,7 +200,8 @@
     flex-direction: column;
     align-items: center;
 }
-.login2{
+ /*menu de login do cadastro*/
+.login2{ 
     width: 45vw;
     height: 80vh;
     margin-top: 1vh;
@@ -208,6 +210,7 @@
     flex-direction: column;
     align-items: center;
 }
+/*tanto para login quanto para cadastro*/
 .title_login{
     color: white;
     width: 100%;
@@ -218,12 +221,15 @@
     justify-content: center;
     text-align: center;
 }
+/*tanto para login quanto para cadastro*/
 .title_login h2{
     font-size: xx-large;
 }
+/*tanto para login quanto para cadastro*/
 .title_login p{
     font-size:smaller 
 }
+/*tanto para login quanto para cadastro*/
 .rainbow{
     width: 26.3vw;
     height: 3.3vh;
@@ -234,6 +240,33 @@
     justify-content: center;
     border-radius: 1.65vh;
 }
+.rainbow2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5vh;
+    width: 10.3vw;
+    height: 4.3vh;
+    background: var(--verde-pricipal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2vh;
+}
+.rainbowBusc{
+    width: 20vw;
+    height: 3.3vh;
+    background: linear-gradient(45deg,#ffff00,#00ff00,#0099ff,#001aff,#a200ff,#ff0055,#ff0000,
+    #ffff00,#00ff00,#0099ff,#001aff,#a200ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.65vh;
+}
+.rainbowBusc .inBusca{
+    
+}
+/*menu de login do login*/
 .input_login{
     text-align: center;
     width: 26vw;
@@ -241,19 +274,24 @@
     border-radius: 1.5vh;
     background-color: black;
     display: flex;
+    color: white;
 }
+/*menu de login do login*/
 .input_login_senha{
     text-align: center;
+    padding-left: 3vw;
     width: 23vw;
     height: 3vh;
     border-radius: 1.5vh 0 0 1.5vh ;
     background-color: black;
 }
+/*tanto para login quanto para cadastro*/
 .zoro{
     width: 3vw;
     height: 3vh;
     border-radius: 0 1.5vh 1.5vh 0;
 }
+/*menu de login do login*/
 .esqueceu {
     display: flex;
     flex-direction: column;
@@ -269,20 +307,17 @@
     width: 27vw;
     height: 4vh;
 }
-.rainbow2{
-    margin-top: 5vh;
-    width: 10.3vw;
-    height: 4.3vh;
-    background: var(--verde-pricipal);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 2vh;
-}
+
 .logar{
     color: white;
     background-color: black;
     width: 10vw;
     height: 4vh;
     border-radius: 2vh;
+}
+.btns{
+    width:20vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
 }
