@@ -7,7 +7,7 @@
     @$gmail = $_POST["gmail"];
     @$senha = $_POST["senha"];
         //gravando no banco
-        $gravar = mysqli_query($conexao, "insert into usuario(usarname, gmail, senha) values('$username', '$gmail', '$senha')" );
+        $gravar = mysqli_query($conexao, "insert into usuario(username, gmail, senha) values('$username', '$gmail', '$senha')" );
         if ($gravar){
             echo "<br/>gravação bem sucedida";
         }else{
