@@ -14,10 +14,23 @@ $resultado=mysqli_fetch_array($busca);// guarda numa var
 </head>
 <body>
     <form action="#" method="POST">
-        <label>username: </label> <input type="text" name="username" value=<?php echo $resultado[1]?> id="username"> <BR/>
-        <label>gmail: </label> <input type="text" name="gmail" value=<?php echo $resultado[2]?>  id="gmail"> <br/>
-        <label>senha: </label> <input type="text" name="senha" value=<?php echo $resultado[3]?> id="senha"> <BR/>
+        <label>username: </label> <input type="text" name="username" value=<?php echo $resultado[1]?> id="username"> <br/>
+        <label>gmail: </label> <input type="text" name="gmail" value=<?php echo $resultado[2]?>  id="gmail"> <br>
+        <label>senha: </label> <input type="text" name="senha" value=<?php echo $resultado[3]?> id="senha"> <br/>
         <input type="submit"   value="enviar">
     </form>
 </body>
 </html>
+
+<?php
+    if(!empty($_POST)){
+    $username = $_POST['username'];
+    $gmail = $_POST['gmail'];
+    $senha = $_POST['senha'];
+
+    mysqli_query($conexao, "Update usuario set username = '$username', gmail = '$gmail', senha = 'senha' where idUser = '$id'");
+    echo "<script>alert('editado com sucesso'); window.location.href = 'formBusca.html';</script>";
+
+}
+
+?>

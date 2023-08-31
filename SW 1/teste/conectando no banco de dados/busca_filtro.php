@@ -23,8 +23,8 @@
             }
         }else{
 
-            $valor = strtolower($_POST['valurBusca']);
-            $busca = mysqli_query($conexao, "select * from usuario where username like '%$valor%'");
+            $valor = strtolower($_POST['valurBusca']); //pegando o dado digitado e transformando em minuscula
+            $busca = mysqli_query($conexao, "select * from usuario where username like '%$valor%'"); //esquema do banco de dados
             $resultado;
 
             while($resultado = mysqli_fetch_row($busca)){//mysqli_fetch_row retorna o numero de linhas
