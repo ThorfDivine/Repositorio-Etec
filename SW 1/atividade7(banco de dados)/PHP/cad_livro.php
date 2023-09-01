@@ -12,7 +12,7 @@
         //gravando no banco
         $gravar = mysqli_query($conexao, "insert into livro(ISBN, Titulo, autor, categoria, editora, paginas, descricao) values('$ISBN', '$Titulo', '$autor','$categoria','$editora','$paginas','$descricao')" );
         if ($gravar){
-            echo "<br/>gravação bem sucedida";
+            echo "<script>alert('cadastrado com sucesso'); window.location.href = '../HTML/home.html';</script>";
         }else{
             echo "<br/> erro de gravação";
         }

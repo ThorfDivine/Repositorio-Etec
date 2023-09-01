@@ -8,7 +8,7 @@
         //gravando no banco
         $gravar = mysqli_query($conexao, "insert into usuario(nome, sobrenome, tipo) values('$nome', '$sobrenome', '$tipo')" );
         if ($gravar){
-            echo "<br/>gravação bem sucedida";
+            echo "<script>alert('cadastrado com sucesso'); window.location.href = '../HTML/home.html';</script>";
         }else{
             echo "<br/> erro de gravação";
         } 
