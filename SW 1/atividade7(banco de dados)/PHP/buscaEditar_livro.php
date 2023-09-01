@@ -14,13 +14,13 @@ $resultado=mysqli_fetch_array($busca);// guarda numa var
 </head>
 <body>
     <form action="#" method="POST">
-        <label for="">ISBN do livro: </label> <input type="text" name="ISBN" value=<?php $resultado[0]?>> <br>
-        <label for="">Título:  </label> <input type="text" name="Titulo" value=<?php $resultado[1]?>> <br>
-        <label for="">Autor:  </label> <input type="text" name="autor" value=<?php $resultado[2]?>> <br>
-        <label for="">Categoria: </label> <input type="text" name="categoria" value=<?php $resultado[3]?>> <br>
-        <label for="">Editora: </label> <input type="text" name="editora" value=<?php $resultado[4]?>> <br>
-        <label for="">N° de Paginas: </label> <input type="number" name="paginas" value=<?php $resultado[5]?>> <br>
-        <label for="">Descrição: </label> <input type="text" name="descricao" value=<?php $resultado[6]?>> <br>
+        <label for="">ISBN do livro: </label> <input type="text" name="ISBN" value=<?php echo $resultado[0];?>> <br>
+        <label for="">Título:  </label> <input type="text" name="Titulo" value=<?php echo $resultado[1];?>> <br>
+        <label for="">Autor:  </label> <input type="text" name="autor" value=<?php echo $resultado[2];?>> <br>
+        <label for="">Categoria: </label> <input type="text" name="categoria" value=<?php echo $resultado[3];?>> <br>
+        <label for="">Editora: </label> <input type="text" name="editora" value=<?php echo $resultado[4];?>> <br>
+        <label for="">N° de Paginas: </label> <input type="number" name="paginas" value=<?php echo $resultado[5];?>> <br>
+        <label for="">Descrição: </label> <input type="text" name="descricao" value=<?php echo $resultado[6];?>> <br>
         <input type="submit" value="cadastrar">
     </form>
 </body>

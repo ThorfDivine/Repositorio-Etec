@@ -17,3 +17,11 @@ create table livro(
     Paginas int not null,
     Descricao text not null
 );
+
+create table cliente(
+    cpf varchar(15),
+    nome varchar(155),
+    sobrenome varchar(255),
+    email varchar(155),
+    senha varchar(80)
+);

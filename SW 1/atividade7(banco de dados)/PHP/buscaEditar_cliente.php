@@ -1,8 +1,8 @@
 <?php
 
-include('conectarPhp.php');
+include('conexaoBD.php');
 $id = $_GET['id'];//pega a variavel que esta no link
-$busca = mysqli_query($conexao, "select * from usuario where iduser = '$id'");//pega tudo 
+$busca = mysqli_query($conexao, "select * from cliente where cpf = '$id'");//pega tudo 
 $resultado=mysqli_fetch_array($busca);// guarda numa var
 ?>
 <!DOCTYPE html>
@@ -16,8 +16,8 @@ $resultado=mysqli_fetch_array($busca);// guarda numa var
     <form action="#" method="POST">
         <label>nome: </label> <input type="text" name="nome" value=<?php echo $resultado[0]?>> <br/>
         <label>sobrenome: </label> <input type="text" name="sobrenome" value=<?php echo $resultado[1]?>> <br>
-        <label>cpf: </label><input type="text" name="cpf" value=<?php $resultado[2]?>><br>
-        <label>email: </label><input type="text"name="gmail" value=<?php $resultado[3]?>>
+        <label>cpf: </label><input type="text" name="cpf" value=<?php echo $resultado[2]?>><br>
+        <label>email: </label><input type="text"name="gmail" value=<?php echo $resultado[3]?>> <br>
         <label>senha: </label> <input type="text" name="senha" value=<?php echo $resultado[4]?> id="senha"> <br/>
         <input type="submit"   value="enviar">
     </form>
@@ -33,7 +33,7 @@ $resultado=mysqli_fetch_array($busca);// guarda numa var
     $senha = $_POST['senha'];
 
     mysqli_query($conexao, "Update cliente set nome = '$nome',sobrenome='$sobrenome', cpf='$cpf', email = '$gmail', senha = '$senha' where cpf = '$id'");
-    echo "<script>alert('editado com sucesso'); window.location.href = 'formBusca.html';</script>";
+    echo "<script>alert('editado com sucesso'); window.location.href = '../HTML/home.html';</script>";
 
 }
 

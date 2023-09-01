@@ -10,7 +10,7 @@
     $criptoSenha = base64_encode($senha);
 
     //gravando no banco
-        $gravar = mysqli_query($conexao, "insert into cliente(nome, sobrenome, cpf, email, senha) values('$nome', '$sobrenome', '$cpf','$email','$criptoSenha')" );
+        $gravar = mysqli_query($conexao, "insert into cliente(cpf, nome, sobrenome, email, senha) values('$cpf', '$nome', '$sobrenome','$email','$criptoSenha')" );
         if ($gravar){
             echo "<script>alert('cadastrado com sucesso'); window.location.href = '../HTML/home.html';</script>";
         }else{
