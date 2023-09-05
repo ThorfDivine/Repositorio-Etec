@@ -300,30 +300,34 @@
 }
 .btns{
     width:20vw;
+    height: 8.3vh;
     display: flex;
     flex-direction: row;
-    justify-content: left;
+    justify-content: center;
+    align-items: center;
 }
-.poedireita{
+.poeDireita{
     display: flex;
     width: 45vw;
-    height: 2vh;
+    height: 3vh;
     justify-content: right;
 }
 .cadastrados{
     color: white;
     background-color: black;
     width: 8vw;
-    height: 2vh;
+    height: 3vh;
     border-radius: 1vh;
+    font-size: xx-small;
 }
 .rainbowcadastrados{
     width: 8.3vw;
-    height: 2.3vh;
+    height: 3.3vh;
     background: linear-gradient(45deg,#ffff00,#00ff00,#0099ff,#001aff,#a200ff,#ff0055,#ff0000,
     #ffff00,#00ff00,#0099ff,#001aff,#a200ff);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 1.15vh;
+    margin-right: 2px;
 }
