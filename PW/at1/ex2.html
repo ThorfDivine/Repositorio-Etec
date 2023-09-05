@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="ex2.js"></script>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .linha{
+            width: 40%;
+            height: 0.1vh;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Programa verifica velocidade</h1>
+    <div class="linha" ></div> <br>
+    <label>Velocidade permitida: </label><input type="text" id="VP"> <br>
+    <label>Velocidade do Condutor: </label><input type="text" id="V"> <br>
+    <button type="button" onclick="calcular()">calcular</button>
+    <h3 id="out"></h3>
+</body>
+</html>
