@@ -60,15 +60,35 @@
             
                     $resultado =  mysqli_fetch_row($busca);
 
-                    $data = '2020-08-15 15:09:10';
-                    $timestamp = strtotime($data);
-                    print_r("<br>".getdate($timestamp)."<br>");
-            
-                    while ($resultado=mysqli_fetch_row($busca)/*while automatizado para que cada vez que repita passe para a próxima linha tipo um for each para dados*/) {
+                    
+                    echo "<table border=1 >";
+
+                    while ($resultado=mysqli_fetch_row($busca)/*while automatizado para que cada vez que repita passe para a próxima linha tipo um for each para dados*/){
 
                         //$now = (new DateTime())->getTimestamp();
-                        //$data = (mysqli_query($conexao, "select data_nascimento from usuario where id_user = '$resultado[0]'")+"00:00:00")->getTimestamp();
+                        //$data = (mysqli_query($conexao, "select data_nascimento from usuario where id_user = '$resultado[0]'") + "00:00")->getTimestamp();
                         //$idade = getdate($now - $data);
+
+                        
+                    $data_mysql = mysqli_query($conexao, "select data_nascimento from usuario where id_user = '$resultado[0]'");
+                    $converter = mysqli_fetch_array($data_mysql);
+                    $timestamp = strtotime($converter[0]); 
+                    $hoje = strtotime(date('d/m/Y'));
+                    $idade = $hoje - $timestamp;
+
+                    echo "<br>";
+
+                    echo "<br>";
+                    echo $converter[0];
+                    echo "<br>";
+                    echo date("Y", $idade);
+                    echo "<br>";
+                    echo $timestamp;
+                    echo "<br>";
+                    echo $hoje;
+                    echo "<br>";
+                    echo $idade;
+
                     echo "<tr>";
                     echo "<td> id_user: ".$resultado[0]."</td>";
                     echo "<td> cpf: ".$resultado[1]."</td>";
@@ -79,6 +99,7 @@
                     echo "<td>".$resultado[6]."</td>";
                     echo "</tr>";
                 }
+                    echo "</table>";
                 ?>                
             
 
