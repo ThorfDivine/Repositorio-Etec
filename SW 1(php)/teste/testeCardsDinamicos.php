@@ -64,7 +64,6 @@
             <p class= "txt">
             <?php
             $aleatorio = rand(1, 5);
-            $aleatorio2 = rand(1, 3);
             switch ($aleatorio) {
                 case 1:
                     echo "Manuel gomes esta nos EUA";
