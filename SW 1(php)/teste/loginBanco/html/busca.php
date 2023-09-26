@@ -76,7 +76,7 @@
                     $hoje = strtotime(date('d/m/Y'));
                     $idade = $hoje - $timestamp;
 
-                    echo "<br>";
+                    /*echo "<br>";
 
                     echo "<br>";
                     echo $converter[0];
@@ -87,7 +87,7 @@
                     echo "<br>";
                     echo $hoje;
                     echo "<br>";
-                    echo $idade;
+                    echo $idade;*/
 
                     echo "<tr>";
                     echo "<td> id_user: ".$resultado[0]."</td>";

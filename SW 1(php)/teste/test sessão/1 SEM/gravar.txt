@@ -1,0 +1,14 @@
+    fetch('http://10.68.68.41:80/ricardo/mysql2b/gravar_react.php',{
+    method: 'post',
+    header:{
+      'Accept':'application/json',
+      'Content-type':'application/json'
+    },
+    body:JSON.stringify({
+      valor_nome: nome,
+    })})
+    .then((response)=> response.json())
+    .then((responseJson)=>{alert(responseJson);})
+    .catch((error)=>{alert(error);});
+
+  }
