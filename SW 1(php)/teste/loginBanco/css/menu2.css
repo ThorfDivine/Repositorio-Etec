@@ -331,3 +331,34 @@
     border-radius: 1.15vh;
     margin-right: 2px;
 }
+.userArea{
+    display: flex;
+    width: 27vw;
+    height: 8vh;
+    border: 0.1vh solid white;
+    margin: 2vh;
+    background-color: rgb(194, 194, 194);
+    align-items: center;
+}
+.userImg{
+    width: 5vw;
+    height: 5vh;
+    border-radius: 3.5vh;
+    margin-left: 0.5vw;
+}
+.btn_deslogar{
+    width: 5vw;
+    height: 2vh;
+    background-color: #ff0000;
+    color: white;
+    border-radius: 0.5vh;
+}
+.portaBotaoInfo{
+    padding-left: 1vw;
+}
+.portaCPFDeslog{
+    margin-top: 0.5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

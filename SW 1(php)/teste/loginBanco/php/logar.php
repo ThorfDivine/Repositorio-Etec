@@ -16,8 +16,13 @@
     $busca = mysqli_query($conexao, "select * from usuario where gmail = '$gmail' and senha ='$senhaCripto'");
 
     if(mysqli_num_rows($busca)>0){ // tem mais de uma linha de sql logo ele tem login
+
         $_SESSION['PUDIMLogado7w7']=1;
-        echo "<script>window.location.href = '../html/logado.php'</script>";
+        $result = mysqli_fetch_array($busca);
+        $_SESSION['usuario']=$result[2];
+        $_SESSION['cpf']=$result[1];
+
+        echo "<script>window.location.href = '../html/index.php'</script>";
     }else{ // não voltou nenhuma linha, logo não esta registrado!
         $_SESSION['PUDIMLogado7w7']=0;
        echo "<script>alert('Email ou senha não cadastrados'); window.location.href = '../html/login.php'</script>";

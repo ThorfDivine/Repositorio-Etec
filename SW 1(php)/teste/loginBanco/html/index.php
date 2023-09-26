@@ -1,5 +1,8 @@
 <?php
     session_start();
+    if (isset($_SESSION['PUDIMLogin7w7'])){
+        $_SESSION['PUDIMLogado7w7'] = 0;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -52,20 +55,39 @@
        <div class="login">
             <?php if ($_SESSION['PUDIMLogado7w7'] == 0) {?>
 
-            <h1 style="color: white">faça login!</h1>
+                <a href="login.php"><h1 style="color: white">faça login!</h1></a>
 
             <?php } else{ ?>
 
-            <h1 style="color: white">ola fulano! seja bem vindo!</h1>
+                <h1 style="color: white">ola <?php echo $_SESSION['usuario']; ?>! seja bem vindo!</h1>
 
-            <?php } ?>
+            <?php }?>
 
             <br>
-            <p style="color: white">este texto todos poderão ver, faça login!</p>
+
+            <p style="color: white">este texto todos poderão ver</p>
+
             <br>
             <?php if ($_SESSION['PUDIMLogado7w7'] == 1) {?>
 
-            <p style="color: white">este texto só os logados poderão ver</p>
+                <p style="color: white">este texto só os logados poderão ver</p>
+
+                <div class="userArea">
+                    <div class='portaImg'>
+                        <img src="../IMG/userImg.png" class= "userImg">
+                    </div>
+
+                    <div class='portaBotaoInfo'>
+                        <div>
+                            <h3><?php echo $_SESSION['usuario']; ?></h3>
+                        </div>
+
+                        <div class="portaCPFDeslog">
+                           <h5>cpf: <?php echo $_SESSION['cpf']; ?></h4> 
+                           <a href="../php/deslogar.php"><button class="btn_deslogar">deslogar</button></a>
+                        </div>
+                    </div>
+                </div>
 
             <?php } ?>
 
