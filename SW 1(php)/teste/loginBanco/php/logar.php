@@ -13,7 +13,7 @@
     $senhaCripto = base64_encode($senha);
 
 
-    $busca = mysqli_query($conexao, "select * from usuario where gmail = '$gmail' and senha ='$senhaCripto'");
+    $busca = mysqli_query($conexao, "select * from usuario where gmail = '$gmail' and senha ='$senhaCripto'"); //pega os resultados do banco
 
     if(mysqli_num_rows($busca)>0){ // tem mais de uma linha de sql logo ele tem login
 
