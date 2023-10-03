@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Material Icons -->
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <!-- End -->
+    <!-- ==================================================================================== -->
+        <!-- CSS -->
+            <link rel="stylesheet" href="../style/style.css">
+            <link rel="stylesheet" href="../style/cadastro.css">
+        <!-- End -->
+    <title>bartoHELP</title>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="#" alt="Ainda n temos . . . . .">
+        </div>
+    </header>
+
+    <section>
+        <form action="../php/cadastroEmpresa.php" method="post" class="formCadastro">
+            <div class="conteinerInputs">   
+                <div class="left">
+                    <div class="conteinerCad">
+                        <div>
+                            <label for="identity" id="identityLbl" class="leftSpace12px input">Nome completo: </label><br><br>
+                            <input type="text" name="identity" id="identity" class="inputPattern" placeholder="Seu nome">
+                        </div>
+
+                        <div id="div_Cnpj">
+                            <label for="cnpj" class="leftSpace12px input">Cnpj: </label><br><br>
+                                <input type="text" name="cnpj" id="cnpj" class="inputPattern" placeholder="213-5">
+                        </div>
+
+                        <div id="div_Cpf" style="display: none;">
+                            <label for="cpf" class="leftSpace12px input">Cpf: </label><br><br>
+                                <input type="text" name="cpf" id="cpf" class="inputPattern" placeholder="xxx.xxx.xxx-yy">
+                        </div>
+
+                        <div>
+                            <label for="cep" class="leftSpace12px input">Cep:</label><br><br>
+                            <input type="text" name="cep" id="cep" class="inputPattern" placeholder="12345-678">
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="right">
+                    <div class="conteinerCad">
+                        <help class="helpDropDown_0" style="display: none;">
+                            <div>
+                                <span id="p1" style="color: pink;">Ao menos 1 MAIUSCULA</span><br>
+                                <span id="p2" style="color: pink;">Ao menos 8 caracteres</span><br>
+                                <span id="p3" style="color: pink;">Ao menos 1 número</span><br>
+                                <span id="p4" style="color: pink;">Ao menos 1 símbolo</span>
+                            </div>
+                        </help>
+                        <label for="pass" class="leftSpace12px input">Senha: </label><br><br>
+                        <div class="olho">
+                            <span class="material-symbols-outlined" id="eye"> visibility </span> <!-- Eye -->
+                        </div>
+                        <input type="password" name="password" id="pass" class="inputPattern" placeholder="**********">
+                        <span class="material-symbols-outlined helpIcon" id="helpIcon">help</span>
+                        
+                        <div>
+                            <label for="email" class="leftSpace12px input">Email:</label><br><br>
+                            <input type="text" name="email" id="email" class="inputPattern" placeholder="exemplo@gmail.com">
+                        </div>
+
+                        <div id="birthDiv" style="display: none;">
+                            <label for="birth" class="leftSpace12px input">Data de nascimento:</label><br><br>
+                            <input type="date" name="birth" id="birth" class="inputPattern">
+                        </div>
+                            <!--  -->
+                        <div id="logoDiv" style="display: blobk;">
+                            <label for="" class="leftSpace12px input">Logo:</label><br><br>
+                            <label for="logo" class="inputPattern centralize lableFile">  _Selecionar arquivo_ </label>
+                            <input type="file" name="logo" id="logo" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="conteinerInputs centralize marginBtm23px">
+                <div>
+                    <label for="fone"><i class="marginRight12px">Telefone de Contato:</i>   +</label>
+                    <input type="number" name="local" id="local" class="inputPattern locatePhone" min="1">
+                    - 
+                    <input type="tel" name="fone" id="fone" class="inputPattern phone" pattern="[0-9]{4}-[0-9]{4}">
+                </div>
+            </div>
+
+            <div class="conteinerInputs centralize conteinerRadio">
+                    <input type="radio" name="category" id="trabalhador" class="inptRadio">
+                    <label for="trabalhador">Procurando Empregro</label>
+            </div>
+            <div class="centralize conteinerRadio">
+                <input type="radio" name="category" id="empresa" class="inptRadio" checked>
+                <label for="empresa">Procurando Funcionário</label>
+            </div>
+
+                <!-- <div class="g-recaptcha" data-sitekey="6LeGykMoAAAAAAIFpedHU3rZQR3sJx4XWwjMra2M"></div> ReCaptcha -->
+
+            <div>
+                <input type="button" value="..." id="btn" class="buttonPattern btnBlocked">
+            </div>
+        </form>
+        <div class="redirect">
+            <p>Ainda não possui conta? <a href="./login.html">Crie Uma</a>!</p>
+        </div>
+
+    </section>
+
+    <footer></footer>
+
+
+    <script src='https://www.google.com/recaptcha/api.js'></script> 
+</body>
+    <script src="../js/eye.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/helpOpen.js"></script>
+    <script src="../js/checkAll.js"></script>
+    <script src="../js/yearsCheck.js"></script>
+</html>
