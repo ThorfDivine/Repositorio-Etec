@@ -17,17 +17,17 @@
 
     <header>
         <div class="logo">
-            <img src="#" alt="Ainda n temos . . . . .">
+            <img src="../contents/logo/logo.png" alt="Ainda n temos . . . . .">
         </div>
     </header>
 
     <section>
-        <form action="../php/cadastroEmpresa.php" method="post" class="formCadastro">
+        <form action="../php/cadastro.php" method="post" class="formCadastro" enctype="multipart/form-data">
             <div class="conteinerInputs">   
                 <div class="left">
                     <div class="conteinerCad">
                         <div>
-                            <label for="identity" id="identityLbl" class="leftSpace12px input">Nome completo: </label><br><br>
+                            <label for="identity" id="identityLbl" class="leftSpace12px input">Nome da Empresa: </label><br><br>
                             <input type="text" name="identity" id="identity" class="inputPattern" placeholder="Seu nome">
                         </div>
 
@@ -70,15 +70,9 @@
                             <input type="text" name="email" id="email" class="inputPattern" placeholder="exemplo@gmail.com">
                         </div>
 
-                        <div id="birthDiv" style="display: none;">
+                        <div>
                             <label for="birth" class="leftSpace12px input">Data de nascimento:</label><br><br>
                             <input type="date" name="birth" id="birth" class="inputPattern">
-                        </div>
-                            <!--  -->
-                        <div id="logoDiv" style="display: blobk;">
-                            <label for="" class="leftSpace12px input">Logo:</label><br><br>
-                            <label for="logo" class="inputPattern centralize lableFile">  _Selecionar arquivo_ </label>
-                            <input type="file" name="logo" id="logo" style="display: none;">
                         </div>
                     </div>
                 </div>
@@ -89,39 +83,34 @@
                     <label for="fone"><i class="marginRight12px">Telefone de Contato:</i>   +</label>
                     <input type="number" name="local" id="local" class="inputPattern locatePhone" min="1">
                     - 
-                    <input type="tel" name="fone" id="fone" class="inputPattern phone" pattern="[0-9]{4}-[0-9]{4}">
+                    <input type="tel" name="fone" id="fone" class="inputPattern phone" pattern="[0-9]{5}-[0-9]{4}">
                 </div>
             </div>
 
             <div class="conteinerInputs centralize conteinerRadio">
-                    <input type="radio" name="category" id="trabalhador" class="inptRadio">
-                    <label for="trabalhador">Procurando Empregro</label>
+                <input type="radio" name="category" value="trabalhador" id="trabalhador" class="inptRadio">
+                <label for="trabalhador">Em Busca de Emprego</label>
             </div>
             <div class="centralize conteinerRadio">
-                <input type="radio" name="category" id="empresa" class="inptRadio" checked>
-                <label for="empresa">Procurando Funcionário</label>
+                <input type="radio" name="category" value="empresa" id="empresa" class="inptRadio" checked>
+                <label for="empresa">Em Busca de Empregado</label>
             </div>
-
-                <!-- <div class="g-recaptcha" data-sitekey="6LeGykMoAAAAAAIFpedHU3rZQR3sJx4XWwjMra2M"></div> ReCaptcha -->
-
             <div>
                 <input type="button" value="..." id="btn" class="buttonPattern btnBlocked">
             </div>
         </form>
+
         <div class="redirect">
-            <p>Ainda não possui conta? <a href="./login.html">Crie Uma</a>!</p>
+            <p>Já possui conta? <a href="./login.html">Entre agora</a>!</p>
         </div>
 
     </section>
 
     <footer></footer>
 
-
-    <script src='https://www.google.com/recaptcha/api.js'></script> 
 </body>
     <script src="../js/eye.js"></script>
     <script src="../js/footer.js"></script>
     <script src="../js/helpOpen.js"></script>
     <script src="../js/checkAll.js"></script>
-    <script src="../js/yearsCheck.js"></script>
 </html>

@@ -17,7 +17,6 @@
 
     --borderInput: rgb(190, 155, 155);
     --borderInputDenai: rgb(230, 81, 81);
-    --borderInputAcept: rgba(20, 187, 225, 0.898);
 
     --buttonBkgClr: rgb(60, 0, 0);
     --buttonClr: rgb(212, 179, 179);
@@ -26,9 +25,6 @@
         --buttonBkgClrBlkd: rgb(74, 74, 74);
         --buttonClrBlkd: rgb(209, 209, 209);
         --buttonSdwBlkd: -2px -4px 12px rgba(62, 3, 3, 0.826) inset;
-
-    --lableFile: rgb(199, 102, 152);
-    --lableFileHvr: rgb(174, 42, 110);
 
     --footerClr: rgb(50, 0, 0);
     --footerBkgClr: rgba(86, 0, 0, 0.264);
@@ -67,6 +63,18 @@ body{
                     margin-right: 15px;
                 }
 
+        }
+
+    /* End */
+
+    /* Header */
+
+        header{
+            width: 100%;
+            height: 8vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
     /* End */
@@ -152,10 +160,6 @@ a{
             margin-left: 5px;
             color: var(--borderInputDenai);
         }
-        .Acept{
-            border: 3px solid var(--borderInputAcept);
-        }
-
     .buttonPattern{
 
         border: 0px;
@@ -189,20 +193,6 @@ a{
 
         }
 
-        .lableFile{
-
-            width: 100%;
-            height: 3.5rem;
-            margin-left: 0;
-            cursor: pointer;
-            font-size: .9rem;
-            color: var(--lableFile);
-            transition: .7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-                &:hover{
-                    color: var(--lableFileHvr);
-                }
-        }
 
     /* Redirect:  login <-> Cadastro */
 
@@ -211,6 +201,7 @@ a{
 
             height: 4vh;
             display: flex;
+            font-size: 1.2rem;
             margin-top: 15px;
             border-radius: 7px;
             align-items: center;
@@ -218,6 +209,21 @@ a{
             width: calc(35% - 12px);
             border: 1px solid black;
     
+        }
+
+        .logo{
+
+            margin: 25px;
+            margin-top: 55px;
+            width: 25%;
+            height: 13vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+                & img{
+                    width: 100%;
+                    height: 100%;
+                }
         }
 
     /* End */

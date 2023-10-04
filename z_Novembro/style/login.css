@@ -17,13 +17,15 @@ header{
     .logo{
 
         margin: 25px;
-        width: 35%;
-        height: 10vh;
+        width: 25%;
+        height: 13vh;
         display: flex;
         justify-content: center;
         align-items: center;
-        border: 2.8px solid rgb(83, 83, 83);
-
+            & img{
+                width: 100%;
+                height: 100%;
+            }
     }
 section{
     width: 100%;
