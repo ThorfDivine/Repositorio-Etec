@@ -1,5 +1,3 @@
-
-
 const helpIcon = document.querySelectorAll('.helpIcon')
     for (let index = 0; index < helpIcon.length; index++) {
         const element = helpIcon[index];

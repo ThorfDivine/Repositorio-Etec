@@ -9,13 +9,8 @@
     <title>Document</title>
 </head>
 <body>
-    seja bem vindo 
-    <?php if (!isset($_SESSION)) {
+    seja bem vinda <?php if (!isset($_SESSION)) {
         echo "<Script> window.location.href='../HTML/login.html' </script>";
-    }
-    if ($_SESSION['cat']=="emp") {
-        echo "<img src=".$_SESSION['logo']." >";
-    }
-    echo $_SESSION['usuario']; ?>
+    }echo $_SESSION['usuario']; ?>
 </body>
 </html>

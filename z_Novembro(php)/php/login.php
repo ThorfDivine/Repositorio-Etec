@@ -14,35 +14,26 @@
         
        
 
-        
+        if ($category == "empresa") {
            
-        $query = mysqli_query($con, "SELECT * FROM empresa WHERE cnpj = '$identity' AND senha = '$passwordCdf'");
-        $result = mysqli_fetch_array($query);
-        
+            $query = mysqli_query($con, "SELECT * FROM empresa WHERE cnpj = '$identity' AND senha = '$passwordCdf'");
 
-        $count = mysqli_num_rows($query);
-
-        if ($count == 1) {
-            $_SESSION['logo'] = $result[5];
-            $_SESSION['cat'] = "emp";
         }
-
-        else{
+        else if($category == "desempregado"){
             
             $query = mysqli_query($con, "SELECT * FROM usuario WHERE cpf = '$identity' AND senha = '$passwordCdf'");
 
         }
 
         
-        
-        if($count == 1){
+        $count = mysqli_num_rows($query);
+
+            if($count == 1){
                         # se passou significa que a pessoa inceriu o cnpj e não o cpf
 
                 $result = mysqli_fetch_array($query);
 
-
                 $_SESSION['usuario'] = $result[1];
-                
 
                 $_SESSION['Pudim7w7'] = true;
 

@@ -60,7 +60,7 @@ create table if not exists `usuario`(
 	nascimento VARCHAR(12) NOT null,
 	
 	cep VARCHAR(10) NOT null,
-	bairro_cidade VARCHAR(255) NOT NULL,
+	bairro_cidade VARCHAR(255),
 	
 	experiencia INT,
 	escolaridade INT,
@@ -83,3 +83,6 @@ create table if not exists `interesse`(
 	FOREIGN KEY(id_usuario) REFERENCES `usuario`(cpf),
 	FOREIGN KEY(id_vaga) REFERENCES `vaga`(id_vaga)
 ); 
+
+
+INSERT INTO empresa VALUES('00112112000139', 'thorfDivine', 'thorfdivine@thorfdivine.com', '"."',"11959693284", NULL);

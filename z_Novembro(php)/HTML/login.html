@@ -15,18 +15,19 @@
 </head>
 <body>
 
+    <header class="centralize">
+        <div class="logo">
+            <img src="../contents/logo/logo.png" alt="Ainda n temos . . . . .">
+        </div>
+    </header>
+
     <div class="flexR">
         <div class="left">
-            <header>
-                <div class="logo">
-                    <img src="#" alt="Ainda n temos . . . . .">
-                </div>
-            </header>
             <section>
                 <form action="../php/login.php" method="post" class="formLogin">
                     <div class="conteinerInputs">
-                        <label for="identity" class="leftSpace12px input">Identificador: </label><br>
-                            <input type="text" name="identity" id="identity" class="inputPattern" placeholder="Seu nome"><br>
+                        <label for="identity" class="leftSpace12px input" id="identityInp">Identificador: </label><br>
+                            <input type="text" name="identity" id="identity" class="inputPattern" placeholder="Seu CNPJ"><br>
                         <div>
                             <label for="pass" class="leftSpace12px input">Senha: </label><br>
                                 <div class="olho">
@@ -36,6 +37,17 @@
                         </div>
                             
                     </div>
+
+                        <div class="conteinerInputs centralize conteinerRadio">
+                            <input type="radio" name="category" id="trabalhador" value="desempregado" class="inptRadio">
+                            <label for="trabalhador">Em Busca de Emprego</label>
+                        </div>
+                        <div class="centralize conteinerRadio">
+                            <input type="radio" name="category" id="empresa" value="empresa" class="inptRadio" checked>
+                            <label for="empresa">Em Busca de Empregado</label>
+                        </div>
+                        <br>
+
                     <input type="button" value="..." id="btn" class="buttonPattern btnBlocked">
                 </form>
                 
@@ -55,6 +67,8 @@
     <footer></footer>
 
 </body>
+
+    <script src="../js/checkRadio.js"></script>
     <script src="../js/confirm_login.js"></script>
     <script src="../js/footer.js"></script>
     <script src="../js/eye.js"></script>

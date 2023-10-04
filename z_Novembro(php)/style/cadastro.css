@@ -5,7 +5,7 @@ body{
 section{
 
     width: 100%;
-    height: 128vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -17,7 +17,7 @@ section{
 .formCadastro{
 
     width: 45%;
-    height: 100vh;
+    height: 85vh;
     display: flex;
     margin-top: 5vh;
     border-radius: 8px;
@@ -92,42 +92,18 @@ section{
     }
     
 .buttonPattern{
-    margin-top: 3vh;
+    margin-top: 45px;
 }
-
 /* responssive */
-
-    @media (max-width: 1500px) {
-
-        section{
-            height: 120vh;
-        }
-        help{
-            left: calc(100% - calc(10vw + 200px));
-        }
-        .formCadastro{
-            height: 98.5vh;
-        }
-        
-        .locatePhone, .phone{
-            margin-bottom: 0;
-        }
-
-    }
 
     @media (max-width: 1280px){
 
         section{
-            height: 135vh;
+            height: 150vh;
         }
 
         .formCadastro{
-            width: 46%;
-            height: 100vh;
-        }
-
-        help{
-            left: calc(100% - calc(10vw + 200px));
+            height: 130vh;
         }
 
         .locatePhone, .phone{
@@ -136,7 +112,7 @@ section{
         }
 
         .buttonPattern{
-            margin-top: 3vh;
+            margin-top: 45px;
         }
 
         .redirect p{
