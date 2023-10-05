@@ -31,8 +31,13 @@
         }else{
             echo $category."entrei empresa";
             $cnpj = $_POST["cnpj"];
-            $imgUploaded =  "../contents/imgs/logoEmpresa/".$_FILES["imagem"]["name"];
-            move_uploaded_file($_FILES["imagem"]["tmp_name"], $imgUploaded);     
+            if (isset($_FILES["logo"]) && !empty($_FILES["logo"])) {
+                $imgUploaded =  "../contents/imgs/logoEmpresa/".$_FILES["logo"]["name"];
+                move_uploaded_file($_FILES["logo"]["tmp_name"], $imgUploaded);}
+            else {
+                echo "<script>alert('a imagem não chegou nem a ser enviada')</script>";
+                $imgUploaded = "";
+            }     
 
             $gravar = mysqli_query($con, "insert into empresa(cnpj, nome, gmail, senha, telefone, logo) values('$cnpj', '$nome', '$email','$senhaCripto','$fone', '$imgUploaded')");
             

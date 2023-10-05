@@ -55,4 +55,8 @@
             }
     }
 
+    if (isset($_SESSION)) {
+        # code...
+    }
+
 ?>

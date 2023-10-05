@@ -16,6 +16,12 @@
     if ($_SESSION['cat']=="emp") {
         echo "<img src=".$_SESSION['logo']." >";
     }
+    if (isset($_SESSION) && !empty($_SESSION) ) {
+       echo "<script>
+        var ver = d
+        ver.value = 'logado';
+       </script>";
+    }
     echo $_SESSION['usuario']; ?>
 </body>
 </html>
