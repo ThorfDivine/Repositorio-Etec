@@ -41,7 +41,7 @@
                     if (xhr.status == 200) {
 
                         //alert(xhr.responseText);	   
-                        window.alert(xhr.responseText);
+                        window.alert(xhr.responseText);     
 
                     } else {
 
