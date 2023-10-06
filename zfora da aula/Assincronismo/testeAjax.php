@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css.css">
 </head>
 <body>
     <form>
 
-        <input type="text" id="email" onkeyup="book_suggestion()">
+        <input type="text" id="email" >
+        <button type="button"  onclick="adicionar()"> enviar </button>
 
-</form>
+    </form>
+    <div class="container" id="add">
+        <h1>adicionados: </h1> <br>
+    </div>
     <script>
-    function book_suggestion()
+    function adicionar()
     {
 
         var email = document.getElementById("email").value;
@@ -40,8 +45,12 @@
 
                     if (xhr.status == 200) {
 
-                        //alert(xhr.responseText);	   
-                        window.alert(xhr.responseText);     
+                        //alert(xhr.responseText);	 
+                        alert(xhr.responseText);
+                        let items = "";  
+                        items = xhr.responseText;
+                        console.log("items "+items);
+                        document.getElementById('add').innerHTML += "oi" ;     
 
                     } else {
 
