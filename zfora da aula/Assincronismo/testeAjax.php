@@ -6,11 +6,11 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css.css">
 </head>
-<body>
+<body onload="adicionar()" >
     <form>
 
-        <input type="text" id="email" >
-        <button type="button"  onclick="adicionar()"> enviar </button>
+        <!--<input type="text" id="email" >
+        <button type="button"  onclick=""> enviar </button>-->
 
     </form>
     <div class="container" id="add">
@@ -20,7 +20,7 @@
     function adicionar()
     {
 
-        var email = document.getElementById("email").value;
+        
         var xhr;
 
         if (window.XMLHttpRequest) { // Mozilla, Safari, ...
@@ -32,7 +32,7 @@
             xhr = new ActiveXObject("Microsoft.XMLHTTP");
         }
 
-        var data = "end_email=" + email;
+        var data = "";
 
             xhr.open("POST", "recebe.php", true); 
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
@@ -46,11 +46,10 @@
                     if (xhr.status == 200) {
 
                         //alert(xhr.responseText);	 
-                        alert(xhr.responseText);
                         let items = "";  
                         items = xhr.responseText;
                         console.log("items "+items);
-                        document.getElementById('add').innerHTML += "oi" ;     
+                        document.getElementById('add').innerHTML += items ;     
 
                     } else {
 
