@@ -7,19 +7,34 @@
     <link rel="stylesheet" href="./css.css">
 </head>
 <body onload="adicionar()" >
-    <form>
-
-        <!--<input type="text" id="email" >
-        <button type="button"  onclick=""> enviar </button>-->
-
-    </form>
+    <script> var number = 0 ;</script>
+    <h1>adicionados: </h1> <br>
     <div class="container" id="add">
-        <h1>adicionados: </h1> <br>
+        
+    </div>
+    <div class="altera">
+        <button class="esquerda" onclick="rmv() "><</button>
+        <button class="direita"  onclick="add()"> ></button>
     </div>
     <script>
+    function add(){
+        if(number>=0){
+            number++;
+            adicionar();    
+        }
+    }
+    function rmv(){
+        if(number>0){
+            number--;
+            adicionar();    
+        }
+    }
+    
     function adicionar()
     {
-
+        var data = "n=" + number;
+        console.log(data);
+        console.log("numero = "+number);
         
         var xhr;
 
@@ -32,7 +47,6 @@
             xhr = new ActiveXObject("Microsoft.XMLHTTP");
         }
 
-        var data = "";
 
             xhr.open("POST", "recebe.php", true); 
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
@@ -49,7 +63,7 @@
                         let items = "";  
                         items = xhr.responseText;
                         console.log("items "+items);
-                        document.getElementById('add').innerHTML += items ;     
+                        document.getElementById('add').innerHTML = items ;     
 
                     } else {
 

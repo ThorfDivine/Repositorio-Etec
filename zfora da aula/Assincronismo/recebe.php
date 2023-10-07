@@ -1,10 +1,11 @@
 <?php
 include("./conexao.php");
-$busca = mysqli_query($conexao, "select * from empresa");
+$num = $_POST['n'];
+$busca = mysqli_query($conexao, "select * from empresa LIMIT 1 OFFSET ".$num);
 $resultado;
                 
     while($resultado = mysqli_fetch_row($busca)){
-        echo "<div class= \"item\" >".
+        $res =  "<div class= \"item\" >".
        
              "<img src= \" ".$resultado[5]." \" class=\" imagemItem \" >".
 
@@ -18,7 +19,7 @@ $resultado;
          "</div>";
 
     }
-
+    echo $res;
 
 /* colocar lógica de banco */
 
