@@ -17,24 +17,11 @@
         <button class="direita"  onclick="add()"> ></button>
     </div>
     <script>
-    function add(){
-        if(number>=0){
-            number++;
-            adicionar();    
-        }
-    }
-    function rmv(){
-        if(number>0){
-            number--;
-            adicionar();    
-        }
-    }
+        var items = "";  
     
     function adicionar()
     {
         var data = "n=" + number;
-        console.log(data);
-        console.log("numero = "+number);
         
         var xhr;
 
@@ -60,10 +47,13 @@
                     if (xhr.status == 200) {
 
                         //alert(xhr.responseText);	 
-                        let items = "";  
+                        
                         items = xhr.responseText;
-                        console.log("items "+items);
-                        document.getElementById('add').innerHTML = items ;     
+                        if (items == "" || items == null || items == " ") {
+                            document.getElementById('add').innerHTML = "sem mais resultados.."
+                        }else{
+                            document.getElementById('add').innerHTML = items ;     
+                        }
 
                     } else {
 
@@ -74,6 +64,19 @@
             }
 
         //limit sql
+    }
+    function add(){
+        if(number>=0 && items != "" && items != null && items != " "){
+            number+=10;
+            
+            adicionar();    
+        }
+    }
+    function rmv(){
+        if(number>0){
+            number-=10;
+            adicionar();    
+        }
     }
     </script>
 </body>
