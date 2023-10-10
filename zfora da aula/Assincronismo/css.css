@@ -13,7 +13,6 @@ body{
     align-items: center;
     background-color: rgb(184, 184, 184);
     padding-top: 1vh;
-
 }
 
 button{
@@ -23,7 +22,6 @@ button{
 }
 
 .item{
-
     width: 90%;
     border-radius: 0.5vh;
     border-style: solid;
@@ -33,7 +31,7 @@ button{
     padding: 0.2vh;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
     background-color: white;
     align-items: center;
 }
@@ -74,5 +72,15 @@ button{
     align-items: center;
     background-color: rgb(233, 233, 233);
     margin-top: 0.3vh;
+    cursor: pointer;
+}
+
+.item3{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.item3 button{
     cursor: pointer;
 }

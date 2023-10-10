@@ -17,12 +17,19 @@ $res = "";
             $res = $res. 
                 "<div class= \"item\" >        
                         <img src= \" ".$resultado[5]." \" class=\" imagemItem \" >
+
                         <div class=\" item2 \">
                             <p> cnpj: ".$resultado[0]."<br/>
                             nome: ".$resultado[1]."<br/> 
                             gmail: ".$resultado[2]."<br/>
                             telefone: ".$resultado[4]."</p> <br/> 
                         </div>
+
+                        <div class=\" item3 \">
+                            <button onclick=\" cadastrarVaga() \" >cadastrar-se</button>
+                            <a href=\"detalhes.php?id=".$resultado[0]."\"><button>detalhes<button></a>
+                        </div>
+
                 </div> <br/>";
                 
             
