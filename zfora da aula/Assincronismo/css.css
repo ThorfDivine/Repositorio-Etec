@@ -39,9 +39,16 @@ button{
 }
 
 .imagemItem{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 3vw;
+    border-color: black;
+    border-width: 0.3vh;
+    border-style: solid;
     border-radius: 1.5vh;
     margin-left: 1vw;
+    margin-right: 2vw;
 }
 
 .item2{

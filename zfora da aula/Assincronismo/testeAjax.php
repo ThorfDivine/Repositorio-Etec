@@ -68,13 +68,14 @@
     function add(){
         if(number>=0 && items != "" && items != null && items != " "){
             number+=10;
-            
+            window.scrollTo(0, 0);
             adicionar();    
         }
     }
     function rmv(){
         if(number>0){
             number-=10;
+            window.scrollTo(window.scrollY, 0);
             adicionar();    
         }
     }
