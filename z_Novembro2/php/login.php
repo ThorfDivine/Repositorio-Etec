@@ -25,6 +25,7 @@
         if ($count == 1) {
             $_SESSION['logo'] = $result[5];
             $_SESSION['cat'] = "emp";
+
         }
 
         else{
@@ -42,7 +43,7 @@
 
 
                 $_SESSION['usuario'] = $result[1];
-                
+                $_SESSION['id'] = $result[0];
 
                 $_SESSION['Pudim7w7'] = true;
 

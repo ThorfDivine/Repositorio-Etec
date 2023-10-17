@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,7 +17,7 @@
             <link rel="stylesheet" href="../style/criarVagas.css">
         <!-- End -->
     <title>BartoHelp - Criar Vagas</title>
-</head>
+</head>     
 <body>
     
     <header></header>
