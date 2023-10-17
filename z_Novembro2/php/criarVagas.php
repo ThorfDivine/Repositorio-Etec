@@ -45,7 +45,7 @@ session_start();
                     </div>
                     <div class="flexC right alingCenter">
                         <div class="conteiner centralize">
-                            <input type="checkbox" name="home" id="home" style="display: none;">
+                            <input type="checkbox" name="home" value="home office" id="home" style="display: none;">
                             <label for="home" id="whereLable" style="cursor: pointer;"> Formato: Home officie <span class="material-symbols-outlined" id="whereSpan" style="font-size: 1.2rem;"> factory </span></label>
                         </div>
                         <div class="conteiner">

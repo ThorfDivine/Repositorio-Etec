@@ -25,6 +25,7 @@
         if ($count == 1) {
             $_SESSION['logo'] = $result[5];
             $_SESSION['cat'] = "emp";
+            $_SESSION['id'] = $result[0];
 
         }
 
@@ -43,11 +44,12 @@
 
 
                 $_SESSION['usuario'] = $result[1];
-                $_SESSION['id'] = $result[0];
+                $ID =  $_SESSION['id'];
+
 
                 $_SESSION['Pudim7w7'] = true;
 
-                echo "<script> window.location.href='../HTML/empresa.php'</script>";
+                echo "<script>alert('$ID'); window.location.href='../HTML/empresa/home.html'</script>";
             }else {
                 echo "<script> 
                         alert('não esta cadastrado'); 

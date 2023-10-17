@@ -63,7 +63,7 @@ let homeLnk
         linkWho = './areaDoUsuário.html'
         
         item1 = 'Criar anúncio'
-        LinkIt1 = '../../PHP/criarVagas.html' //Mudar pra ".php"
+        LinkIt1 = '../../PHP/criarVagas.php' //Mudar pra ".php"
 
         item3 = ''
     }else{
@@ -71,7 +71,7 @@ let homeLnk
         linkWho = './areaDoUsuário.html'
         
         item1 = 'Meus anúncios'
-        LinkIt1 = './vagas.html'
+        LinkIt1 = './vagas.php'
 
         item3 = ''
     }
