@@ -194,7 +194,7 @@
     }
 
     & .detalhes{
-        width: 37%;
+        width: 100%;
         font-size: .78rem;
         color: rgb(25, 25, 184);
         border: var(--detalhesBrd);

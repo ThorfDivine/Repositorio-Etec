@@ -32,7 +32,7 @@
             echo $category."entrei empresa";
             $cnpj = $_POST["cnpj"];
             if (isset($_FILES["logo"]) && !empty($_FILES["logo"])) {
-                $imgUploaded =  "../contents/imgs/logoEmpresa/".$_FILES["logo"]["name"];
+                $imgUploaded =  "../contents/logo/".$_FILES["logo"]["name"];
                 move_uploaded_file($_FILES["logo"]["tmp_name"], $imgUploaded);}
             else {
                 echo "<script>alert('a imagem não chegou nem a ser enviada')</script>";
