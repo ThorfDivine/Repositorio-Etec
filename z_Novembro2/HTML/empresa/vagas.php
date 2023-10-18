@@ -102,7 +102,7 @@ session_start();
             if (confirm("fechar vaga?") == true) {
                 
                 var xhr;
-                var confirm = "CONFIRM= true"
+                var confirmar= "CONFIRM=true"
 
                 if (window.XMLHttpRequest) { // Mozilla, Safari, ...
 
@@ -114,11 +114,14 @@ session_start();
                 }
 
 
-                    xhr.open("POST", "recebe.php", true); 
-                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
-                    xhr.send(confirm);                    
+                xhr.open("POST", "recebe.php", true); 
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+                xhr.send(confirmar);                    
 
-                } 
+            } 
+                else{
+                console.log("n foi ")
+            }
             }
     </script>
 </html>

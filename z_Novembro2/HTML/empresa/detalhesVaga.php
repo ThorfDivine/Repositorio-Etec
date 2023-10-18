@@ -29,7 +29,7 @@ $idVaga =  $_GET["idVaga"];
     </header>
 
     <section class="bigMarginTop">
-       
+       detalhes da vaga
     </div>
     
     <footer>
