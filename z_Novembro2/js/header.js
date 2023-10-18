@@ -43,16 +43,16 @@ let homeLnk
         logotipo = '../contents/logo/logo.png'
 
         item1 = 'Meus anúncios'
-        LinkIt1 = '../HTML/empresa/vagas.html'
+        LinkIt1 = '../HTML/empresa/vagas.php'
 
         item3 = ''
 
         search = ''
         desconectLnk = './desconectar.php'
-        homeLnk = '../HTML/empresa/home.html'
+        homeLnk = '../HTML/empresa/home.php'
 
         who = 'usuário'
-        linkWho = '../../html/empresa/areaDoUsuário.html'
+        linkWho = '../../html/empresa/areaDoUsuário.php'
 
     }else if(document.title == 'BartoHelp - Currículos'){
 
@@ -60,7 +60,7 @@ let homeLnk
 
     }else if(document.title == 'BartoHelp - Vagas'){
         who = 'usuário'
-        linkWho = './areaDoUsuário.html'
+        linkWho = './areaDoUsuário.php'
         
         item1 = 'Criar anúncio'
         LinkIt1 = '../../PHP/criarVagas.php' //Mudar pra ".php"
@@ -68,7 +68,7 @@ let homeLnk
         item3 = ''
     }else{
         who = 'usuário'
-        linkWho = './areaDoUsuário.html'
+        linkWho = './areaDoUsuário.php'
         
         item1 = 'Meus anúncios'
         LinkIt1 = './vagas.php'

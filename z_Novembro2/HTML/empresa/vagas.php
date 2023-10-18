@@ -14,20 +14,123 @@
         <!-- End -->
     <title>BartoHelp - Vagas</title>
 </head>
-<body>
+<body onload="adicionar()">
+    <script> var number = 0 ;</script>
     <header></header>
-
+    
+        <div class="vagas" id="vagas"></div>
         <section class="bigMarginTop bigMarginBotom centralize">
-                <div class="respostaElse">
-                    <!-- Essa div só deve ser criada (junto ao seu conteúdo) caso não haja anuncios 
-                         realizados previamente pelo usuário registrados no banco de dados -->
-                    <h1>Ao que parece você não possui anúncios de vagas</h1>
-                    <h3>Clique <a href="../../php/criarVagas.php">aqui</a> para iniciar sua jornada!</h3>
-                </div>
+                
+
         </section>
 
     <footer></footer>
 </body>
     <script src="../../js/header.js"></script>
     <script src="../../js/footer.js"></script>
+    <script>
+            var items = "";  
+        
+        function adicionar()
+        {
+            var data = "n=" + number;
+            
+            var xhr;
+
+            if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+
+                xhr = new XMLHttpRequest();
+
+            } else if (window.ActiveXObject) { // IE 8 and older
+
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+
+                xhr.open("POST", "../../php/Assincronismo.php", true); 
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+                xhr.send(data);
+                xhr.onreadystatechange = display_data;
+
+                function display_data() {
+
+                    if (xhr.readyState == 4) {
+
+                        if (xhr.status == 200) {
+
+                            //alert(xhr.responseText);	 
+                            
+                            items = xhr.responseText;
+                            if (items == "" || items == null || items == " ") {
+                                document.getElementById('add').innerHTML = "sem mais resultados.."
+                            }else{
+                                document.getElementById('vagas').innerHTML = items ;     
+                            }
+
+                        } else {
+
+                            alert('There was a problem with the request.');
+
+                        }
+                    }
+                }
+
+            //limit sql
+        }
+        function add(){
+            if(number>=0 && items != "" && items != null && items != " "){
+                number+=10;
+                window.scrollTo(0, 0);
+                adicionar();    
+            }
+        }
+        function rmv(){
+            if(number>0){
+                number-=10;
+                window.scrollTo(window.scrollY, 0);
+                adicionar();    
+            }
+        }
+        
+        function detalhes(){
+            
+            
+            var xhr;
+
+            if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+
+                xhr = new XMLHttpRequest();
+
+            } else if (window.ActiveXObject) { // IE 8 and older
+
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+
+                xhr.open("POST", "recebe.php", true); 
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+                xhr.send(data);
+                xhr.onreadystatechange = display_data;
+
+                function display_data() {
+
+                    if (xhr.readyState == 4) {
+
+                        if (xhr.status == 200) {
+
+                            //alert(xhr.responseText);	  
+                            items = xhr.responseText;
+                        
+                                
+                        
+
+                        } else {
+
+                            alert('There was a problem with the request.');
+
+                        }
+                    }
+                }
+        }
+    </script>
 </html>
