@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -92,45 +95,30 @@
             }
         }
         
-        function detalhes(){
-            
-            
-            var xhr;
+       
 
-            if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+        function fecharVaga(){
 
-                xhr = new XMLHttpRequest();
+            if (confirm("fechar vaga?") == true) {
+                
+                var xhr;
+                var confirm = "CONFIRM= true"
 
-            } else if (window.ActiveXObject) { // IE 8 and older
+                if (window.XMLHttpRequest) { // Mozilla, Safari, ...
 
-                xhr = new ActiveXObject("Microsoft.XMLHTTP");
-            }
+                    xhr = new XMLHttpRequest();
 
+                } else if (window.ActiveXObject) { // IE 8 and older
 
-                xhr.open("POST", "recebe.php", true); 
-                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
-                xhr.send(data);
-                xhr.onreadystatechange = display_data;
-
-                function display_data() {
-
-                    if (xhr.readyState == 4) {
-
-                        if (xhr.status == 200) {
-
-                            //alert(xhr.responseText);	  
-                            items = xhr.responseText;
-                        
-                                
-                        
-
-                        } else {
-
-                            alert('There was a problem with the request.');
-
-                        }
-                    }
+                    xhr = new ActiveXObject("Microsoft.XMLHTTP");
                 }
-        }
+
+
+                    xhr.open("POST", "recebe.php", true); 
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+                    xhr.send(confirm);                    
+
+                } 
+            }
     </script>
 </html>

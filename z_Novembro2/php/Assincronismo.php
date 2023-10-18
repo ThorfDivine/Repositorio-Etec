@@ -33,27 +33,50 @@
                 }else{
                     $aberto= "fechado";
                 }
+                
+                if($aberto=="aberto"){
 
-                $res = $res. 
-                    "<div class=\"cardVaga\">
-                        <div class=\"imgLogo img_conteiner\">
-                            <img src=\"".$buscaLogo[0]."\" alt=\"logo\">
-                        </div>
-                        <div class=\"informacoes_da_vaga\">
-                            <p><strong>".$resultado[1]."</strong></p><br>
-                            <div><p class=\"m1rem\">Status: <i>".$aberto."</i></p> <!----> <p style=\"margin-left: 25px;\"> | </p> <!----> <p style=\"margin-left: 25px;\"> N° <i>inscrições: ".$buscaInteressados."</i></p></div>
-                        </div>
-                        <div class=\"flexC botoes\">
-                            <button class=\"lixeira\"><span class=\"material-symbols-outlined\">delete</span></button>
-                            <button class=\"detalhes\">Detalhes</button>
-                        </div>
-                        <div>
-                            <div class=\"editar\">
-                                <span class=\"material-symbols-outlined\"> edit_note </span>
+                    $res = $res. 
+                        "<div class=\"cardVaga\">
+                            <div class=\"imgLogo img_conteiner\">
+                                <img src=\"".$buscaLogo[0]."\" alt=\"logo\">
                             </div>
-                        </div>
-                    </div>";
-                    
+                            <div class=\"informacoes_da_vaga\">
+                                <p><strong>".$resultado[1]."</strong></p><br>
+                                <div><p class=\"m1rem\">Status: <i>".$aberto."</i></p> <!----> <p style=\"margin-left: 25px;\"> | </p> <!----> <p style=\"margin-left: 25px;\"> N° <i>inscrições: ".$buscaInteressados."</i></p></div>
+                            </div>
+                            <div class=\"flexC botoes\">
+                                <button class=\"lixeira\" onclick=\"fecharVaga()\"><span class=\"material-symbols-outlined\">delete</span></button>
+                                <button class=\"detalhes\">Detalhes</button>
+                            </div>
+                            <div>
+                                <div class=\"editar\">
+                                    <span class=\"material-symbols-outlined\"> edit_note </span>
+                                </div>
+                            </div>
+                        </div>";
+                }
+                else{
+                    $res = $res. 
+                        "<div class=\"cardVaga\">
+                            <div class=\"imgLogo img_conteiner\">
+                                <img src=\"".$buscaLogo[0]."\" alt=\"logo\">
+                            </div>
+                            <div class=\"informacoes_da_vaga\">
+                                <p><strong>".$resultado[1]."</strong></p><br>
+                                <div><p class=\"m1rem\">Status: <i>".$aberto."</i></p> <!----> <p style=\"margin-left: 25px;\"> | </p> <!----> <p style=\"margin-left: 25px;\"> N° <i>inscrições: ".$buscaInteressados."</i></p></div>
+                            </div>
+                            <div class=\"flexC botoes\">
+                                <button class=\"lixeira\" onclick=\"fecharVaga()\"><span class=\"material-symbols-outlined\">delete</span></button>
+                                <a href=\"detalhesVaga.php?idVaga=".$resultado[0]."\"><button class=\"detalhes\">Detalhes</button></a>
+                            </div>
+                            <div>
+                                <div class=\"editar\">
+                                    <span class=\"material-symbols-outlined\"> edit_note </span>
+                                </div>
+                            </div>
+                        </div>";
+                }    
                 
             }
         }
