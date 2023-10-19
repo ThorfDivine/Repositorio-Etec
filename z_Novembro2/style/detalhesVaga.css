@@ -1,0 +1,27 @@
+.topo{
+    display: flex;
+    margin-top: 5vh;
+    margin-left: 5vw;
+    flex-direction: row;
+}
+.titulo{
+    display: flex;
+    flex-direction: column;
+}
+.img{
+    width: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logoEmp{
+    width: 12vh;
+    border-radius: 6vh;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+}
+.contedor{
+    padding-left: 10vh;
+    border-top: 2vh;
+}
