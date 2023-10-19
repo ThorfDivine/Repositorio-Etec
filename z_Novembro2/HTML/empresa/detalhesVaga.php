@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (!isset($_SESSION) || $_SESSION =="" || $_SESSION == null) {
+    header('Location: home.php');
+}else{
 include('../../php/conexao.php');
 
 $idVaga = $_GET['idVaga'];
@@ -21,7 +24,6 @@ if ($buscaLogo=="" || $buscaLogo==null || $buscaLogo == " ") {
 }
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -95,4 +97,4 @@ if ($buscaLogo=="" || $buscaLogo==null || $buscaLogo == " ") {
     <script src="../../js/header.js"></script>
     <script src="../../js/footer.js"></script>
     <script src="../../js/confirmDelet.js"></script>
-</html>
+</html> <?php } ?>
