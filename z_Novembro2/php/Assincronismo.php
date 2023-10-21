@@ -49,7 +49,7 @@
                             </div>
                             <div class=\"flexC botoes\">
                                 <button class=\"lixeira\" onclick=\"fecharVaga()\"><span class=\"material-symbols-outlined\">delete</span></button>
-                                <button class=\"detalhes\">Detalhes</button>
+                                <a href=\"detalhesVaga.php?idVaga=".$resultado[0]."\"><button class=\"detalhes\">Detalhes</button></a>
                             </div>
                             <div>
                                 <div class=\"editar\">

@@ -10,13 +10,13 @@ $idVaga = $_GET['idVaga'];
 $buscaVaga = mysqli_query($con, "SELECT * FROM vaga where id_vaga = '$idVaga'");
 $resultadoVaga = mysqli_fetch_row($buscaVaga);
 
-$cnpj = $resultadoVaga[9];
+$cnpj = $resultadoVaga[8];
 
 $buscaEmp = mysqli_query($con, "SELECT * FROM empresa where cnpj = '$cnpj'");
 $resultadoEmp = mysqli_fetch_row($buscaEmp);
 
 $buscaLogo = $resultadoEmp[5];
-$dataLimite = $resultadoVaga[7];
+$dataLimite = $resultadoVaga[6];
 
 $dataLimite = implode("/",array_reverse(explode("-",$dataLimite)));
 if ($buscaLogo=="" || $buscaLogo==null || $buscaLogo == " ") {
@@ -59,8 +59,8 @@ if ($buscaLogo=="" || $buscaLogo==null || $buscaLogo == " ") {
             <hr/>
             <h4> <?php echo $resultadoEmp[1]?></h4>
             <h4> <?php echo $resultadoVaga[10]?> </h4>
-            <h4> <?php echo $resultadoVaga[3]?> </h4>
-            <h4> <?php echo $resultadoVaga[6]." - ".$dataLimite;?> </h4>
+            <h4> <?php echo "R$ ".$resultadoVaga[9]?> </h4>
+            <h4> <?php echo $resultadoVaga[5]." - ".$dataLimite;?> </h4>
         </div>
         
     </div>
@@ -75,12 +75,16 @@ if ($buscaLogo=="" || $buscaLogo==null || $buscaLogo == " ") {
             <h1>
                 Requisitos
             </h1>
+            
         </div>
 
         <div>
             <h1>
-                Cargo
+                Responsabilidades
             </h1>
+            <h4> 
+                    <?php echo "<br/>".$resultadoVaga[3]?>;
+            </h4>
         </div>
 
         <div>
