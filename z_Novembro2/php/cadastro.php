@@ -1,7 +1,6 @@
 <?php
     session_start();
-    include('./conexao.php');
-    include('./upload.php');
+    include('./conexao.php');   
 
     if (!empty($_POST)) {
         # code...
@@ -31,12 +30,13 @@
         }else{
             echo $category."entrei empresa";
             $cnpj = $_POST["cnpj"];
-            if (isset($_FILES["logo"]) && !empty($_FILES["logo"])) {
+            if (isset($_FILES["logo"]) || !empty($_FILES["logo"])) {
                 $imgUploaded =  "../contents/logo/".$_FILES["logo"]["name"];
-                move_uploaded_file($_FILES["logo"]["tmp_name"], $imgUploaded);}
+                move_uploaded_file($_FILES["logo"]["tmp_name"], $imgUploaded);
+                $imgUploaded =  "../../contents/logo/".$_FILES["logo"]["name"];}
             else {
                 echo "<script>alert('a imagem não chegou nem a ser enviada')</script>";
-                $imgUploaded = "";
+                //$imgUploaded = "";
             }     
 
             $gravar = mysqli_query($con, "insert into empresa(cnpj, nome, gmail, senha, telefone, logo) values('$cnpj', '$nome', '$email','$senhaCripto','$fone', '$imgUploaded')");

@@ -49,7 +49,7 @@
 
                 $_SESSION['Pudim7w7'] = true;
 
-                echo "<script>alert('$ID'); window.location.href='../HTML/empresa/home.html'</script>";
+                echo "<script>alert('$ID'); window.location.href='../HTML/empresa/home.php'</script>";
             }else {
                 echo "<script> 
                         alert('não esta cadastrado'); 

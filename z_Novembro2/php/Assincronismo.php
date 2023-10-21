@@ -1,40 +1,42 @@
 <?php
-    
+    session_start();
     include("./conexao.php");
     $num = $_POST['n'];
-    $busca = mysqli_query($con, "select * from vaga LIMIT 6 OFFSET ".$num);
-    
+    $cnpj = $_SESSION['id'];
+    $busca = mysqli_query($con, "SELECT * FROM vaga WHERE cnpj_empresa = \"$cnpj\" LIMIT 6 OFFSET $num");
+    $resultado2 = mysqli_fetch_row($busca);
     $res = "";
     
-        if (empty($busca) || !$busca || $busca == "" || $busca == null) {
+        if (empty($resultado2) || !$resultado2 || $resultado2 == "" || $resultado2 == null || $resultado2 == " " && $num <=1) {
             $num = mysqli_num_rows($busca);
-            $res=
+            $res= $res.
             "<div class=\"respostaElse\">
                 <h1>Ao que parece você não possui anúncios de vagas</h1>
                 <h3>Clique <a href=\"../../php/criarVagas.php\">aqui</a> para iniciar sua jornada!</h3>
             </div>";
-            $busca;
         }
+        
         else{
+            $busca = mysqli_query($con, "SELECT * FROM vaga WHERE cnpj_empresa = \"$cnpj\" LIMIT 6 OFFSET $num");
+    
             $resultado;
-                        
+            
             while($resultado = mysqli_fetch_row($busca)){
-                $cnpj = $resultado[9];
+
+                $cnpj = $resultado[8];
                 $id_vaga = $resultado[0];
                 $buscaInteressados = mysqli_query($con, "SELECT * FROM interesse WHERE id_vaga = '$id_vaga'");
                 $buscaInteressados = mysqli_num_rows($buscaInteressados);
                 $buscaLogo1 = mysqli_query($con,"SELECT logo FROM empresa where cnpj ='$cnpj'");
                 $buscaLogo = mysqli_fetch_row($buscaLogo1);
 
-
-
-                if($resultado[8]==1){
+                if($resultado[7]==1){
                     $aberto = "aberta";
                 }else{
                     $aberto= "fechado";
                 }
                 
-                if($aberto=="aberto"){
+                if($aberto=="aberta"){
 
                     $res = $res. 
                         "<div class=\"cardVaga\">
@@ -79,7 +81,7 @@
                 }    
                 
             }
-        }
+       }
             
         
     

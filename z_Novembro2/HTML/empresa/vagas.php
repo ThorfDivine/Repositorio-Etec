@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (!isset($_SESSION) || $_SESSION == "" || $_SESSION == null) {
+    header('Location: ../login.html');
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -64,11 +67,12 @@ session_start();
                             //alert(xhr.responseText);	 
                             
                             items = xhr.responseText;
-                            if (items == "" || items == null || items == " ") {
-                                document.getElementById('add').innerHTML = "sem mais resultados.."
-                            }else{
-                                document.getElementById('vagas').innerHTML = items ;     
-                            }
+                            
+                                document.getElementById('vagas').innerHTML = items ; 
+                                console.log(items);    
+                                console.log($_SESSION['id']);
+
+                            
 
                         } else {
 

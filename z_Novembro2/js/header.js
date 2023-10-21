@@ -14,7 +14,7 @@ let logotipo
 let desconectLnk
     desconectLnk = '../../php/desconectar.php'
 let homeLnk
-    homeLnk = './home.html'
+    homeLnk = './home.php'
 
     if (document.title == 'BartoHelp - Candidato') {
 

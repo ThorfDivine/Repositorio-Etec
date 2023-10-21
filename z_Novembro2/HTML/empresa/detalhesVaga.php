@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION) || $_SESSION =="" || $_SESSION == null) {
-    header('Location: home.php');
+    header('Location: ../login.html');
 }else{
 include('../../php/conexao.php');
 

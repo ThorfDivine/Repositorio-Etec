@@ -22,7 +22,7 @@
     </header>
 
     <section>
-        <form action="../php/cadastro.php" method="post" class="formCadastro">
+        <form action="../php/cadastro.php" method="post" class="formCadastro" enctype="multipart/form-data">
             <div class="conteinerInputs">   
                 <div class="left">
                     <div class="conteinerCad">
@@ -91,8 +91,8 @@
                                 </div>
                             </help>
                             <label for="logo" class="leftSpace12px input">Logo:</label><br><br>
-                            <label for="logo" class="inputPattern centralize lableFile">  _Selecionar arquivo_  <span class="material-symbols-outlined helpIcon" id="helpIcon">help</span></label>
-                            <input type="file" name="logo" id="logo" accept="image/*"">
+                            <label for="logo" class="inputPattern centralize lableFile" id="labelLogo">  _Selecionar arquivo_  <span class="material-symbols-outlined helpIcon" id="helpIcon">help</span></label>
+                            <input type="file" name="logo" id="logo" accept="image/*" onchange="checkImg()">
                         </div>
                     </div>
                 </div>

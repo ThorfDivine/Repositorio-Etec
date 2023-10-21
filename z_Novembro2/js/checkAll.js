@@ -191,7 +191,14 @@ let requires
             
             return IsFull;
         }
+function checkImg() {
+    var logo = document.getElementById("logo");
+    var labelLogo = document.getElementById("labelLogo");
 
+    if (logo.files.length === 1) {
+        labelLogo.style.borderColor = "blue";
+    }
+}
 
 // ==================================== Check Pass strenth: ====================================
 function checkPass(){
