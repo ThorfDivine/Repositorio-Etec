@@ -121,7 +121,7 @@
                     document.getElementById('selecionados').innerHTML = valor; 
                     var habilidades = document.getElementById(\"habilidades\");
                     if(habilidades.options[habilidades.selectedIndex].value==$idRes){
-                        habilidades.options[habilidades.selectedIndex].innerHTML = habilidades.options[habilidades.selectedIndex].innerHTML+\"*\"
+                        habilidades.options[habilidades.selectedIndex].innerHTML = habilidades.options[habilidades.selectedIndex].innerHTML+\" * \"
                     }
                 </script>";
             }
@@ -137,14 +137,24 @@
             function verificaCompetencia(){
                     for (let index = 0; index <= itemsjs.length; index++) {
 
-                        if (itemsjs[index] == habilidades.options[habilidades.selectedIndex].value) {
-                            permicao = false;
-                            alert("ja cadastrado");
-                            console.log("entrei no while do js(itemsJs)");
-                            habilidades.options[habilidades.selectedIndex].innerHTML = habilidades.options[habilidades.selectedIndex].innerHTML+"*"
-                            break;
+                        if (itemsjs[index] == habilidades.options[habilidades.selectedIndex].value ) {
+                            
+                                console.log("entrei no while do js(itemsJs)");
+                                permicao = false;
+                                alert("ja cadastrado");
+                            
+                                const words = habilidades.options[habilidades.selectedIndex].innerHTML.split(' ');
+                                console.log("a segunda é: "+words[0]);
+
+                                if(words[1]!='*'){
+                                    habilidades.options[habilidades.selectedIndex].innerHTML = habilidades.options[habilidades.selectedIndex].innerHTML+" * ";
+                                }
+                                
+                                break;
+                                
                         }
                         else{
+                            console.log("entrei no true");
                             permicao = true;
                         }
                     }
@@ -158,7 +168,6 @@
                     var habilidade = "habilidade="+habilidades.options[habilidades.selectedIndex].value;
                     var idVaga = "idVaga="+document.getElementById("IdVaga").value;
                     console.log(idVaga);
-                    //------------------php-----------------------------//
 
 
                     //___________________js_____________________________//
