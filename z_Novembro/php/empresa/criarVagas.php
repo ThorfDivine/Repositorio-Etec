@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION) || $_SESSION =="" || $_SESSION == null) {
+    header('Location: ../../html/login.html');
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -19,7 +27,7 @@
     <header></header>
 
         <section class="bigMarginTop bigMarginBotom centralize">
-            <form action="#" class="flexC">
+            <form action="../cadastrarVaga.php" class="flexC" method="POST">
                 <div class="conteiner_form flexR">
                     <div class="flexC left alingCenter">
                         <div class="conteiner">
@@ -36,7 +44,7 @@
                         </div>
                         <div class="conteiner flexC mH_vagas">
                             <label for="titleVg" class="lable">Data limite: </label>
-                            <input type="date" name="titulo" id="titleVg" class="inputPattern">
+                            <input type="date" name="limit" id="titleVg" class="inputPattern">
                         </div>
                     </div>
                     <div class="flexC right alingCenter">

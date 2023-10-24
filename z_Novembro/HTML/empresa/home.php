@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION) || $_SESSION =="" || $_SESSION == null) {
+    header('Location: ../login.html');
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -86,7 +92,7 @@
             
         </div>
     </section>
-    <div class="mostrarMais bigMarginBotom spaceAround">
+    <div class="backTop bigMarginBotom spaceAround">
         <div></div>
         <div></div>
         <a href="#topo"><button>Mostrar mais</button></a>

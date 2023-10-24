@@ -1,3 +1,24 @@
+<?php
+    session_start();
+    include("../conexao.php");
+    if(!isset($_SESSION) || $_SESSION =="" || $_SESSION == null){header('Location: ../../html/login.html');}
+    
+    $id_vaga = $_GET['id'];
+    echo "<input type=\"text\" style=\"display:none\" value=\"$id_vaga\" id=\"IdVaga\"/> $id_vaga";
+
+
+
+        $busca = mysqli_query($con, "SELECT id_competencia from competencia_vaga where id_vaga = '$id_vaga'");
+        $res = mysqli_fetch_row($busca);
+        $id_competencia = $res[0];
+        $busca2 = mysqli_query($con, "SELECT * from  competencia where id_competencia = '$id_competencia'");
+
+        
+
+?>
+
+<script>var items="";</script>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -34,22 +55,23 @@
                     <input type="button" value="Adicionar" id="habilidadesBtn" class="btnAdicionar">
 
                     <select name="habilidades" id="habilidades" class="inputPattern">
-                        <option value="lider">Liderança</option>
-                        <option value="persuasao">Persuasão</option>
-                        <option value="tolerancia">Tolerância</option>
-                        <option value="negociacao">Negociação</option>
-                        <option value="Comunicacao">Comunicação</option>
-                        <option value="proatividade">Proatividade</option>
-                        <option value="planejamento">Planejamento</option>
-                        <option value="determinacao">Determinação</option>
-                        <option value="Criatividade">Criatividade</option>
-                        <option value="flexibilidade">Flexibilidade</option>
-                        <option value="autoconfiança">Autoconfiança</option>
-                        <option value="adaptabilidade">Adaptabilidade</option>
-                        <option value="pensamento">Pensamento crítico</option>
-                        <option value="intEmocional">Inteligência emocional</option>
-                        <option value="inerpessoal">Relacionamento inerpessoal</option>
-                        <option value="gerenciamentoRscs">Gerenciamento de riscos</option>
+                        <option value="1">Comunicação</option>
+                        <option value="2">Criatividade</option>
+                        <option value="3">Pensamento crítico</option>
+                        <option value="4">Flexibilidade</option>
+                        <option value="5">Autoconfiança</option>
+                        <option value="6">Liderança</option>
+                        <option value="7">Planejamento</option>
+                        <option value="8">Organização</option>
+                        <option value="9">Proatividade</option>
+                        <option value="10">Negociação</option>
+                        <option value="11">Determinação</option>
+                        <option value="12">Tolerância</option>
+                        <option value="13">Persuasão</option>
+                        <option value="14">Adaptabilidade</option>
+                        <option value="15">Relacionamento inerpessoal</option>
+                        <option value="16">Inteligência emocional</option>
+                        <option value="17">Gerenciamento de riscos</option>
                     </select>
                 </div>
             </div>
@@ -71,25 +93,138 @@
         <a href="../HTML/competencias.html" target="_blank"><span class="material-symbols-outlined helpIcon" id="helpIcon">help</span></a>
     </div>
 
-<div class="selecionados_Conteiner flexR marginTop23px bigMarginBotom">
-    <div class="selecionados flexC">
-        <div>
-            <h2>Liderança</h2>
-            <div class="explain">
-                <p>Agr é só pegar do banco! <br> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam, incidunt pariatur qui facilis a quibusdam beatae impedit itaque ab rerum at?</p>
-            </div>
-        </div>
-    </div>
-</div>
+<div class="selecionados_Conteiner flexR marginTop23px bigMarginBotom" id="selecionados"></div>
 
     <footer></footer>
 
+
 </body>
+<?php 
+        
+        if (!empty($busca2) || !$busca2 || $busca2 != "" || $busca2 != null){
+            
+            $res = "";
+            $resultado;
+                
+            while($resultado = mysqli_fetch_row($busca2)){
+                $res = $res."<div class=\"selecionados flexC\"><div id=\"containerRequisitos\"><h2>".$resultado[1]."</h2><div class=\"explain\"><p>".$resultado[2]."</p></div></div></div>
+
+                <script>console.log(\"entrei no while do php\")</script>";
+
+                $idRes = $resultado[0]; 
+
+                echo 
+                "<input type=\"text\" style=\"display:none\" value='$res' id=\"reses\"/>
+                <script>
+
+                    var valor = document.getElementById('reses').value;
+                    document.getElementById('selecionados').innerHTML = valor; 
+                    var habilidades = document.getElementById(\"habilidades\");
+                    if(habilidades.options[habilidades.selectedIndex].value==$idRes){
+                        habilidades.options[habilidades.selectedIndex].innerHTML = habilidades.options[habilidades.selectedIndex].innerHTML+\"*\"
+                    }
+                </script>";
+            }
+        } ?>
+        
+
 <script src="../../js/footer.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+            var itemsjs = [];
+            var permicao = false;
+
+            function verificaCompetencia(){
+                    for (let index = 0; index <= itemsjs.length; index++) {
+
+                        if (itemsjs[index] == habilidades.options[habilidades.selectedIndex].value) {
+                            permicao = false;
+                            alert("ja cadastrado");
+                            console.log("entrei no while do js(itemsJs)");
+                            habilidades.options[habilidades.selectedIndex].innerHTML = habilidades.options[habilidades.selectedIndex].innerHTML+"*"
+                            break;
+                        }
+                        else{
+                            permicao = true;
+                        }
+                    }
+
+            }   
+
+            $(function(){
+                $('#habilidadesBtn').on('click', function(){
+
+                    //------------------php-----------------------------//
+                    var habilidade = "habilidade="+habilidades.options[habilidades.selectedIndex].value;
+                    var idVaga = "idVaga="+document.getElementById("IdVaga").value;
+                    console.log(idVaga);
+                    //------------------php-----------------------------//
+
+
+                    //___________________js_____________________________//
+                    verificaCompetencia();
+
+                    if (permicao == true) {
+                        
+                            itemsjs.push(habilidades.options[habilidades.selectedIndex].value)
+                            habilidades.options[habilidades.selectedIndex].innerHTML = habilidades.options[habilidades.selectedIndex].innerHTML+"*";
+
+                            //------------------php-----------------------------//
+                                var xhr;
+                           
+                                if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+
+                                    xhr = new XMLHttpRequest();
+
+                                }
+                                
+                            
+                                else if (window.ActiveXObject) { // IE 8 and older
+
+                                    xhr = new ActiveXObject("Microsoft.XMLHTTP");
+
+                                }
+                                
+                                xhr.open("POST", "../AssincronismoRequisicaoVaga.php?"+idVaga, true); 
+                                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+                                xhr.send(habilidade);
+                                xhr.onreadystatechange = display_data;
+                                
+                                function display_data() {
+
+                                    if (xhr.readyState == 4) {
+
+                                        if (xhr.status == 200) {
+
+                                            items += xhr.responseText;
+
+                                            if (items == "" || items == null || items == " ") {
+
+                                                document.getElementById('containerRequisitos').innerHTML = "sem mais resultados.."
+                                            
+                                            }else{
+
+                                                document.getElementById('selecionados').innerHTML = items;   
+
+                                            }
+
+                                        }
+                                        else {
+
+                                            alert('There was a problem with the request.');
+
+                                        }
+                                    }
+                                }
+                                //------------------php-----------------------------//
+
+                        }
+                        
+                    //___________________js_____________________________//
+
+                    
+                });
+            });
+
+    </script>
 </html>
-
-<!-- <?php
-
-
-
-?> -->
