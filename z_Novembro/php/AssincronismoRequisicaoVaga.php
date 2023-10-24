@@ -9,7 +9,6 @@ $res = "";
 
 $gravar = mysqli_query($con, 
 "insert into competencia_vaga(id_vaga,id_competencia) values('$idVaga','$idHabilidade')");
-
 $busca = mysqli_query($con, "select * from competencia where id_competencia = ".$idHabilidade);
 
     if (empty($busca) || !$busca || $busca == "" || $busca == null) {

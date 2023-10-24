@@ -8,10 +8,9 @@
 
 
 
-        $busca = mysqli_query($con, "SELECT id_competencia from competencia_vaga where id_vaga = '$id_vaga'");
-        $res = mysqli_fetch_row($busca);
-        $id_competencia = $res[0];
-        $busca2 = mysqli_query($con, "SELECT * from  competencia where id_competencia = '$id_competencia'");
+        $busca = mysqli_query($con, "SELECT * from competencia_vaga where id_vaga = '$id_vaga'");
+        $res = "";
+        
 
         
 
@@ -105,25 +104,30 @@
             
             $res = "";
             $resultado;
+            while ($res=mysqli_fetch_row($busca)) {
                 
-            while($resultado = mysqli_fetch_row($busca2)){
-                $res = $res."<div class=\"selecionados flexC\"><div id=\"containerRequisitos\"><h2>".$resultado[1]."</h2><div class=\"explain\"><p>".$resultado[2]."</p></div></div></div>
+                $id_competencia = $res[0];
+                $busca2 = mysqli_query($con, "SELECT * from  competencia where id_competencia = '$id_competencia'");
 
-                <script>console.log(\"entrei no while do php\")</script>";
+                while($resultado = mysqli_fetch_row($busca2)){
+                    $res = $res."<div class=\"selecionados flexC\"><div id=\"containerRequisitos\"><h2>".$resultado[1]."</h2><div class=\"explain\"><p>".$resultado[2]."</p></div></div></div>
 
-                $idRes = $resultado[0]; 
+                    <script>console.log(\"entrei no while do php\")</script>";
 
-                echo 
-                "<input type=\"text\" style=\"display:none\" value='$res' id=\"reses\"/>
-                <script>
+                    $idRes = $resultado[0]; 
 
-                    var valor = document.getElementById('reses').value;
-                    document.getElementById('selecionados').innerHTML = valor; 
-                    var habilidades = document.getElementById(\"habilidades\");
-                    if(habilidades.options[habilidades.selectedIndex].value==$idRes){
-                        habilidades.options[habilidades.selectedIndex].innerHTML = habilidades.options[habilidades.selectedIndex].innerHTML+\" * \"
-                    }
-                </script>";
+                    echo 
+                    "<input type=\"text\" style=\"display:none\" value='$res' id=\"reses\"/>
+                    <script>
+
+                        var valor = document.getElementById('reses').value;
+                        document.getElementById('selecionados').innerHTML = valor; 
+                        var habilidades = document.getElementById(\"habilidades\");
+                        if(habilidades.options[habilidades.selectedIndex].value==$idRes){
+                            habilidades.options[habilidades.selectedIndex].innerHTML = habilidades.options[habilidades.selectedIndex].innerHTML+\" * \"
+                        }
+                    </script>";
+                }
             }
         } ?>
         
@@ -134,21 +138,33 @@
             var itemsjs = [];
             var permicao = false;
 
-            function verificaCompetencia(){
+            
+                    
+
+              
+
+            $(function(){
+                $('#habilidadesBtn').on('click', function(){
+
+                    //------------------php-----------------------------//
+                    var habilidade = "habilidade="+habilidades.options[habilidades.selectedIndex].value;
+                    var idVaga = "idVaga="+document.getElementById("IdVaga").value;
+                    const words = habilidades.options[habilidades.selectedIndex].innerHTML.split(' ');
+                    console.log(idVaga);
+
+
+                    //___________________js_____________________________//
                     for (let index = 0; index <= itemsjs.length; index++) {
 
-                        if (itemsjs[index] == habilidades.options[habilidades.selectedIndex].value ) {
+                        if (itemsjs[index] == habilidades.options[habilidades.selectedIndex].value || words[1] =='*') {
                             
                                 console.log("entrei no while do js(itemsJs)");
                                 permicao = false;
                                 alert("ja cadastrado");
                             
-                                const words = habilidades.options[habilidades.selectedIndex].innerHTML.split(' ');
-                                console.log("a segunda é: "+words[0]);
-
-                                if(words[1]!='*'){
-                                    habilidades.options[habilidades.selectedIndex].innerHTML = habilidades.options[habilidades.selectedIndex].innerHTML+" * ";
-                                }
+                                
+                                console.log("a segunda é: "+words[1]);
+                            
                                 
                                 break;
                                 
@@ -159,25 +175,13 @@
                         }
                     }
 
-            }   
-
-            $(function(){
-                $('#habilidadesBtn').on('click', function(){
-
-                    //------------------php-----------------------------//
-                    var habilidade = "habilidade="+habilidades.options[habilidades.selectedIndex].value;
-                    var idVaga = "idVaga="+document.getElementById("IdVaga").value;
-                    console.log(idVaga);
-
-
-                    //___________________js_____________________________//
-                    verificaCompetencia();
-
                     if (permicao == true) {
                         
                             itemsjs.push(habilidades.options[habilidades.selectedIndex].value)
-                            habilidades.options[habilidades.selectedIndex].innerHTML = habilidades.options[habilidades.selectedIndex].innerHTML+"*";
 
+                            if(words[1]!='*'){
+                                    habilidades.options[habilidades.selectedIndex].innerHTML = habilidades.options[habilidades.selectedIndex].innerHTML+" * ";
+                            }
                             //------------------php-----------------------------//
                                 var xhr;
                            
@@ -213,7 +217,7 @@
                                             
                                             }else{
 
-                                                document.getElementById('selecionados').innerHTML = items;   
+                                                document.getElementById('selecionados').innerHTML += items;   
 
                                             }
 
