@@ -52,9 +52,11 @@
                                 <a href=\"detalhesVaga.php?idVaga=".$resultado[0]."\"><button class=\"detalhes\">Detalhes</button></a>
                             </div>
                             <div>
-                                <div class=\"editar\">
-                                    <span class=\"material-symbols-outlined\"> edit_note </span>
-                                </div>
+                                <a href=\"./editarVaga\">
+                                    <div class=\"editar\">
+                                        <span class=\"material-symbols-outlined\"> edit_note </span>
+                                    </div>
+                                </a>
                             </div>
                         </div>";
                 }

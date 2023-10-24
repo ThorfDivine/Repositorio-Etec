@@ -223,7 +223,7 @@ let habilidd = false
             
             submit.type = 'button'
             
-            submitA.href = ''
+            submitA.href = './vagas.php'
             
             document.getElementById('enviar').setAttribute('onclick', '')
 

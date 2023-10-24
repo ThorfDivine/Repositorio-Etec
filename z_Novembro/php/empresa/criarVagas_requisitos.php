@@ -51,6 +51,8 @@
             <div class="conteiner_form flexR centralize">
                 <div class="conteiner">
                     <label for="habilidades" class="lable Habili_fontLow">Competências Requisitadas:</label>
+                    
+                    <input type="button" value="Remover" id="habilidadesBtnRmv" class="btnRemover">
                     <input type="button" value="Adicionar" id="habilidadesBtn" class="btnAdicionar">
 
                     <select name="habilidades" id="habilidades" class="inputPattern">
@@ -100,54 +102,13 @@
 </body>
 <script src="../../js/footer.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<?php 
-        
-        if (!empty($busca) || !$busca || $busca != "" || $busca != null){
-            
-            while ($resul=mysqli_fetch_row($busca)) {
-                
-                $id_competencia = $resul[2];
-                $busca2 = mysqli_query($con, "SELECT * from  competencia where id_competencia = '$id_competencia'");
-
-                while($resultado = mysqli_fetch_row($busca2)){
-                    $res = "<div class=\"selecionados flexC\"><div id=\"containerRequisitos\"><h2>".$resultado[1]."</h2><div class=\"explain\"><p>".$resultado[2]."</p></div></div></div>
-                     
-                    <script>console.log(\"entrei no while do php\")</script>";
-                    $idRes = $resultado[0];
-                    echo "
-                           <input type=\"text\" style=\"display:none\" value='$res' id=\"reses\"/>
-                           <script> 
-                           $(\"#Habilidades option\").each(function() {
-                                var habilidades = document.getElementById(\"habilidades\");
-                                if(habilidades.options[habilidades.selectedIndex].value == ".$idRes."){
-                                    habilidades.options[habilidades.selectedIndex].innerHTML = habilidades.options[habilidades.selectedIndex].innerHTML+\" * \"
-                                }
-                            })
-                           </script>";
-                     
-                    $res2= 
-                        "
-                        <script>
-
-                            valor += document.getElementById('reses').value;
-                            document.getElementById('selecionados').innerHTML = valor; 
-                            
-                        </script>";
-                }
-            }
-            echo $res2;
-        } ?>
-        
+       
 
 
 <script>
             var itemsjs = [];
             var permicao = false;
 
-            
-                    
-
-              
 
             $(function(){
                 $('#habilidadesBtn').on('click', function(){
