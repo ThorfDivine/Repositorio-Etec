@@ -38,7 +38,7 @@ let homeLnk
 
         // Cod
 
-    }else if(document.title == 'BartoHelp - Criar Vagas'){
+    }else if(document.title == 'BartoHelp - Criar Vagas'|| document.title == 'BartoHelp - Editar Vagas'){
 
         logotipo = '../contents/logo/logo.png'
 
@@ -58,7 +58,7 @@ let homeLnk
 
         // Cod
 
-    }else if(document.title == 'BartoHelp - Vagas'){
+    }else if(document.title == 'BartoHelp - Vagas' ){
         who = 'usuário'
         linkWho = './areaDoUsuário.php'
         

@@ -2,11 +2,14 @@
     display: flex;
     margin-top: 5vh;
     margin-left: 5vw;
+    width: 90%;
     flex-direction: row;
+    justify-content: space-between;
 }
 .titulo{
     display: flex;
     flex-direction: column;
+    width: 75%;
 }
 .img{
     width: 15vh;
@@ -24,4 +27,24 @@
 .contedor{
     padding-left: 10vh;
     border-top: 2vh;
+    
+    & div{
+        margin-bottom: 2vh; 
+    }
+}
+.editarVaga{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 0;
+    font-size: larger;
+    background-color: rgb( 220, 220, 220);
+    padding: 0.5vh 1.5vw;
+    cursor:pointer;
+    border-right: 1vw;
+    transition: 0.5s ease-in-out;
+
+    &:hover{
+        background-color: rgb( 200, 200, 200);
+    }
 }

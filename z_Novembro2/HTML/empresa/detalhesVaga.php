@@ -62,35 +62,50 @@ if ($buscaLogo=="" || $buscaLogo==null || $buscaLogo == " ") {
             <h4> <?php echo "R$ ".$resultadoVaga[9]?> </h4>
             <h4> <?php echo $resultadoVaga[5]." - ".$dataLimite;?> </h4>
         </div>
-        
+        <a <?php echo "href=\"../../php/editarVaga.php?id=".$resultadoVaga[0]."\"" ?> >
+            <button class="editarVaga">
+                editar        
+            </button>
+        </a>
+
     </div>
     <div class="contedor">
         <div>
             <h1>
                 Sobre a empresa
+                <hr style=" width:20vw; "/>
             </h1>
+            
         </div>
+        
 
         <div>
             <h1>
                 Requisitos
+                <hr style=" width:13vw; "/>
             </h1>
-            
         </div>
+        
 
         <div>
             <h1>
                 Responsabilidades
+                <hr style=" width:22vw; "/>
             </h1>
-            <h4> 
+
+            
                     <?php echo "<br/>".$resultadoVaga[3]?>;
-            </h4>
+                    <br/>
         </div>
+        
 
         <div>
             <h1>
                 Benefícios
+                <hr style=" width:13vw; "/>
             </h1>
+                    <?php echo "<br/>".$resultadoVaga[4]?>
+                    <br/>
         </div>
     </div>
    
