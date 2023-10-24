@@ -8,9 +8,9 @@
 
 
 
-        $busca = mysqli_query($con, "SELECT * from competencia_vaga where id_vaga = '$id_vaga'");
-        $res = "";
-        
+    $busca = mysqli_query($con, "SELECT * from competencia_vaga where id_vaga = '$id_vaga'");
+    $resul = "";
+    $res = "";
 
         
 
@@ -100,13 +100,13 @@
 </body>
 <?php 
         
-        if (!empty($busca2) || !$busca2 || $busca2 != "" || $busca2 != null){
+        if (!empty($busca) || !$busca || $busca != "" || $busca != null){
             
-            $res = "";
+            
             $resultado;
-            while ($res=mysqli_fetch_row($busca)) {
+            while ($resul=mysqli_fetch_row($busca)) {
                 
-                $id_competencia = $res[0];
+                $id_competencia = $resul[2];
                 $busca2 = mysqli_query($con, "SELECT * from  competencia where id_competencia = '$id_competencia'");
 
                 while($resultado = mysqli_fetch_row($busca2)){
@@ -151,7 +151,7 @@
                     var idVaga = "idVaga="+document.getElementById("IdVaga").value;
                     const words = habilidades.options[habilidades.selectedIndex].innerHTML.split(' ');
                     console.log(idVaga);
-
+                    document.getElementById('')
 
                     //___________________js_____________________________//
                     for (let index = 0; index <= itemsjs.length; index++) {

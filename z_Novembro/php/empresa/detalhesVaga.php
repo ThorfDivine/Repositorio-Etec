@@ -6,6 +6,8 @@ if (!isset($_SESSION) || $_SESSION =="" || $_SESSION == null) {
 else{
 include('../conexao.php');
 
+$resposta="";
+
 $idVaga = $_GET['idVaga'];
 
 $buscaVaga = mysqli_query($con, "SELECT * FROM vaga where id_vaga = '$idVaga'");
@@ -22,6 +24,20 @@ $dataLimite = $resultadoVaga[6];
 $dataLimite = implode("/",array_reverse(explode("-",$dataLimite)));
 if ($buscaLogo=="" || $buscaLogo==null || $buscaLogo == " ") {
     $buscaLogo = "../../contents/imgs/3106921.png";
+}
+
+$busca= mysqli_query($con, "SELECT * from competencia_vaga where id_vaga = '$idVaga'");
+$resultado="";
+$resultado2="";
+
+while($resultado = mysqli_fetch_row($busca)){
+    echo "<script>console.log('entrei no primeiro while')</script>";
+    $idComp = $resultado[2];
+    $busca2 = mysqli_query($con, "SELECT * from competencia where id_competencia = $idComp");
+    while($resultado2= mysqli_fetch_row($busca2)){
+        echo "<script>console.log('entrei no segundo while')</script>";
+        $resposta = $resposta."<a href=\"../../html/competencias.html\" target=\"_Blank\"><button>".$resultado2[1]."</button></a>";
+    }
 }
 
 ?>
@@ -77,16 +93,7 @@ if ($buscaLogo=="" || $buscaLogo==null || $buscaLogo == " ") {
                 <hr style=" width:20vw; "/>
             </h1>
             
-        </div>
-        
-
-        <div>
-            <h1>
-                Requisitos
-                <hr style=" width:13vw; "/>
-            </h1>
-        </div>
-        
+        </div>        
 
         <div>
             <h1>
@@ -108,6 +115,23 @@ if ($buscaLogo=="" || $buscaLogo==null || $buscaLogo == " ") {
                     <?php echo "<br/>".$resultadoVaga[4]?>
                     <br/>
         </div>
+
+                
+
+        <div>
+            <h1>
+                Requisitos
+                <hr style=" width:13vw; "/>
+            </h1>
+
+            <div id="requisitosCards">
+                <?php 
+                    echo $resposta;
+                ?>
+            </div>
+
+        </div>
+
     </div>
    
     <footer>
