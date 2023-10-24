@@ -20,7 +20,7 @@
             $birth =$_POST["birth"];
             
 
-            $gravar = mysqli_query($con, "insert into usuario(email, nome, senha, telefone,  cpf, nascimento, cep) values('$email','$nome', '$senhaCripto', '$fone','$cpf', '$birth', '$cep')");
+            $gravar = mysqli_query($con, "insert into usuario(email, nome, senha, telefone, cpf, nascimento, cep) values('$email','$nome', '$senhaCripto', '$fone','$cpf', '$birth', '$cep')");
             if ($gravar){
                 echo "<script>alert('cadastrado com sucesso'); window.location.href = '../HTML/login.html';</script>";
 

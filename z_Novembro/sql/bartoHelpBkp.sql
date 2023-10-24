@@ -71,14 +71,24 @@ CREATE TABLE IF NOT EXISTS `competencia_vaga` (
   KEY `id_competencia` (`id_competencia`),
   CONSTRAINT `competencia_vaga_ibfk_1` FOREIGN KEY (`id_vaga`) REFERENCES `vaga` (`id_vaga`),
   CONSTRAINT `competencia_vaga_ibfk_2` FOREIGN KEY (`id_competencia`) REFERENCES `competencia` (`id_competencia`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela bartohelp.competencia_vaga: ~4 rows (aproximadamente)
+-- Copiando dados para a tabela bartohelp.competencia_vaga: ~14 rows (aproximadamente)
 INSERT INTO `competencia_vaga` (`id_competencia_vaga`, `id_vaga`, `id_competencia`) VALUES
 	(1, 5, 1),
 	(37, 5, 3),
 	(38, 5, 4),
-	(39, 5, 2);
+	(39, 5, 2),
+	(40, 6, 1),
+	(41, 6, 1),
+	(42, 6, 2),
+	(43, 6, 2),
+	(44, 6, 4),
+	(45, 6, 3),
+	(46, 6, 4),
+	(47, 7, 1),
+	(48, 7, 3),
+	(49, 7, 2);
 
 -- Copiando estrutura para tabela bartohelp.empresa
 CREATE TABLE IF NOT EXISTS `empresa` (
@@ -92,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `empresa` (
   PRIMARY KEY (`cnpj`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela bartohelp.empresa: ~1 rows (aproximadamente)
+-- Copiando dados para a tabela bartohelp.empresa: ~0 rows (aproximadamente)
 INSERT INTO `empresa` (`cnpj`, `nome`, `gmail`, `senha`, `telefone`, `logo`, `descricao`) VALUES
 	('213-5', 'gustavo batista de oliveira santos ThorfDivine', 'gustavobatistabos.td@gmail.com', 'MTIzNDVHb2pvVVNvbGEkJA==', '93951-8083', '../../contents/logo/dell.png', NULL);
 
@@ -189,13 +199,15 @@ CREATE TABLE IF NOT EXISTS `vaga` (
   PRIMARY KEY (`id_vaga`),
   KEY `cnpj_empresa` (`cnpj_empresa`),
   CONSTRAINT `vaga_ibfk_1` FOREIGN KEY (`cnpj_empresa`) REFERENCES `empresa` (`cnpj`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela bartohelp.vaga: ~3 rows (aproximadamente)
+-- Copiando dados para a tabela bartohelp.vaga: ~4 rows (aproximadamente)
 INSERT INTO `vaga` (`id_vaga`, `titulo`, `requisitos`, `responsabilidades`, `beneficios`, `data_pub`, `data_max`, `aberta`, `cnpj_empresa`, `salario`, `cep`) VALUES
 	(1, 'Programador jr.', NULL, 'noções minimas  de: back-end, php, mysqli, ajax;', 'vale transportes, vale alimentação, saúde;', '21/10/2023', '2028-10-03', 1, '213-5', '2300', '06535160'),
-	(4, '2028-10-30', NULL, 'programar em php; programar em react;', 'vale transporte, vale saúde, vale alimentação', '24/10/2023', '', 1, '213-5', '2.800,00', '06535160'),
-	(5, 'Programador senior', NULL, 'programar em js; programar em php; programar em react;', 'varios vales', '24/10/2023', '2028-02-03', 1, '213-5', '3.500,00', '06535160');
+	(4, 'programador pleno', NULL, 'tudo', 'vale transporte, vale saúde, vale alimentação', '24/10/2023', '2029-12-03', 1, '213-5', '2.800,00', '06535160'),
+	(5, 'Programador senior', NULL, 'programar em js; programar em php; programar em react;', 'varios vales', '24/10/2023', '2028-02-03', 1, '213-5', '3.500,00', '06535160'),
+	(6, 'Auxiliar de logistica', NULL, 'carregar caixa', 'nada', '24/10/2023', '2024-10-03', 1, '213-5', '2.500', '06535160'),
+	(7, 'Auxiliar de RH', NULL, 'papelada', 'nenhum mesmo\r\n', '24/10/2023', '2029-10-03', 1, '213-5', '1.130,00', '06535160');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
