@@ -16,7 +16,7 @@
 
 ?>
 
-<script>var items="";</script>
+<script>var items="";var valor="";</script>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -92,48 +92,54 @@
         <a href="../HTML/competencias.html" target="_blank"><span class="material-symbols-outlined helpIcon" id="helpIcon">help</span></a>
     </div>
 
-<div class="selecionados_Conteiner flexR marginTop23px bigMarginBotom" id="selecionados"></div>
+<div class="selecionados_Conteiner flexR marginTop23px bigMarginBotom" id="selecionados"> </div>
 
     <footer></footer>
 
 
 </body>
+<script src="../../js/footer.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <?php 
         
         if (!empty($busca) || !$busca || $busca != "" || $busca != null){
             
-            
-            $resultado;
             while ($resul=mysqli_fetch_row($busca)) {
                 
                 $id_competencia = $resul[2];
                 $busca2 = mysqli_query($con, "SELECT * from  competencia where id_competencia = '$id_competencia'");
 
                 while($resultado = mysqli_fetch_row($busca2)){
-                    $res = $res."<div class=\"selecionados flexC\"><div id=\"containerRequisitos\"><h2>".$resultado[1]."</h2><div class=\"explain\"><p>".$resultado[2]."</p></div></div></div>
-
+                    $res = "<div class=\"selecionados flexC\"><div id=\"containerRequisitos\"><h2>".$resultado[1]."</h2><div class=\"explain\"><p>".$resultado[2]."</p></div></div></div>
+                     
                     <script>console.log(\"entrei no while do php\")</script>";
+                    $idRes = $resultado[0];
+                    echo "
+                           <input type=\"text\" style=\"display:none\" value='$res' id=\"reses\"/>
+                           <script> 
+                           $(\"#Habilidades option\").each(function() {
+                                var habilidades = document.getElementById(\"habilidades\");
+                                if(habilidades.options[habilidades.selectedIndex].value == ".$idRes."){
+                                    habilidades.options[habilidades.selectedIndex].innerHTML = habilidades.options[habilidades.selectedIndex].innerHTML+\" * \"
+                                }
+                            })
+                           </script>";
+                     
+                    $res2= 
+                        "
+                        <script>
 
-                    $idRes = $resultado[0]; 
-
-                    echo 
-                    "<input type=\"text\" style=\"display:none\" value='$res' id=\"reses\"/>
-                    <script>
-
-                        var valor = document.getElementById('reses').value;
-                        document.getElementById('selecionados').innerHTML = valor; 
-                        var habilidades = document.getElementById(\"habilidades\");
-                        if(habilidades.options[habilidades.selectedIndex].value==$idRes){
-                            habilidades.options[habilidades.selectedIndex].innerHTML = habilidades.options[habilidades.selectedIndex].innerHTML+\" * \"
-                        }
-                    </script>";
+                            valor += document.getElementById('reses').value;
+                            document.getElementById('selecionados').innerHTML = valor; 
+                            
+                        </script>";
                 }
             }
+            echo $res2;
         } ?>
         
 
-<script src="../../js/footer.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
 <script>
             var itemsjs = [];
             var permicao = false;
@@ -181,6 +187,8 @@
 
                             if(words[1]!='*'){
                                     habilidades.options[habilidades.selectedIndex].innerHTML = habilidades.options[habilidades.selectedIndex].innerHTML+" * ";
+                            }else if(words[1] == '*' && items==""){
+                                    items= valor;
                             }
                             //------------------php-----------------------------//
                                 var xhr;
@@ -217,7 +225,7 @@
                                             
                                             }else{
 
-                                                document.getElementById('selecionados').innerHTML += items;   
+                                                document.getElementById('selecionados').innerHTML = items;   
 
                                             }
 
