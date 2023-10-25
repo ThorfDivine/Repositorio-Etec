@@ -1,8 +1,16 @@
 <?php
 session_start();
-if (!isset($_SESSION) || $_SESSION =="" || $_SESSION == null) {
-    header('Location: ../../html/login.html');
-}
+    
+    if(
+        !isset($_SESSION) 
+        || $_SESSION =="" 
+        || $_SESSION == null 
+        || !isset($_SESSION['id']) 
+        ||  $_SESSION['id'] =="" 
+        || $_SESSION['id'] == null 
+        || empty($_SESSION['id']))
+            {header('Location: ../../html/login.html');}
+            include("../conexao.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

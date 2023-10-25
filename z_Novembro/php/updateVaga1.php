@@ -1,5 +1,20 @@
 <?php 
     session_start();
+
+    if(
+        !isset($_SESSION) 
+        || $_SESSION =="" 
+        || $_SESSION == null 
+        || !isset($_SESSION["id"]) 
+        || $_SESSION["id"] =="" 
+        || $_SESSION["id"] ==" " 
+        || $_SESSION["id"] == null 
+        || empty($_SESSION["id"])
+        || $_SESSION['Pudim7w7'] != true
+
+        ){  echo "to aqui";
+            header('Location: ../../html/login.html');}
+
     include('./conexao.php');
 
     
@@ -22,7 +37,7 @@
         "UPDATE vaga SET titulo = '$titulo', responsabilidades = '$cargo', salario = '$salario', beneficios = '$Beneficios', data_max = '$dataLimite', cep = '$cep' where id_vaga='$id_vaga'");
 
             if ($gravar) {
-                echo "<script>window.location.href='./empresa/vagas.php'</script>";
+                echo "<script>alert(\"so pra ver\");window.location.href='./empresa/editarVagas_requisitos.php?id=".$id_vaga."'</script>";
             }
         
 

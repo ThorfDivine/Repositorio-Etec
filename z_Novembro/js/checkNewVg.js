@@ -24,7 +24,9 @@ let limpar
 let submit
     submit   = document.querySelector('#enviar')
 let submitA
-    submitA   = document.querySelector('#enviarA')
+    submitA  = document.querySelector('#enviarA')
+let submitB  
+    submitB  = document.querySelector('#enviarB')
 
     // Variavies de confirmação
 let manyInps = 0
@@ -226,6 +228,7 @@ let habilidd = false
             submitA.href = './vagas.php'
             
             document.getElementById('enviar').setAttribute('onclick', '')
+
 
         }
     }

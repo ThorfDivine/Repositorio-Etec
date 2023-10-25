@@ -1,9 +1,21 @@
 <?php
 session_start();
-include("../conexao.php");
-if (!isset($_SESSION) || $_SESSION =="" || $_SESSION == null) {
-    header('Location: ../../html/login.html');
-}
+    
+if(
+    !isset($_SESSION) 
+    || $_SESSION =="" 
+    || $_SESSION == null 
+    || !isset($_SESSION['id']) 
+    ||  $_SESSION['id'] =="" 
+    || $_SESSION['id'] == null 
+    || empty($_SESSION['id'])
+    
+    )
+        {header('Location: ../../html/login.html');}
+       
+        include("../conexao.php");
+
+    
 $id_vaga = $_GET['id'];
 
 $busca = mysqli_query($con, "SELECT * FROM vaga WHERE id_vaga = '$id_vaga'");
@@ -32,7 +44,7 @@ $cargo = $resultadoVaga[3];
     <header></header>
 
         <section class="bigMarginTop bigMarginBotom centralize">
-            <form action="../updateVaga.php" class="flexC" method="POST">
+            <form action="../updateVaga1.php" class="flexC" method="POST">
                 <div class="conteiner_form flexR">
                     <div class="flexC left alingCenter">
                         <div class="conteiner">
@@ -61,31 +73,7 @@ $cargo = $resultadoVaga[3];
                             <label for="cep" class="lable">Cep: </label>
                             <input type="text" name="cep" id="cep" class="inputPattern" placeholder="ex: 14015-040" <?php echo "value=".$resultadoVaga[10]?>>
                         </div>
-                        <div class="conteiner">
-                            
-                            <label for="habilidades" class="lable Habili_fontLow">Habilidades Requisitadas:</label>
-                            <input type="button" value="Adicionar" class="btnAdicionar" id="adicionar" <?php echo "value=".$resultadoVaga[4]?>>
-
-                            <select name="habilidades" id="habilidades" class="inputPattern">
-                                <option value="lider">Liderança</option>
-                                <option value="persuasao">Persuasão</option>
-                                <option value="tolerancia">Tolerância</option>
-                                <option value="negociacao">Negociação</option>
-                                <option value="Comunicacao">Comunicação</option>
-                                <option value="proatividade">Proatividade</option>
-                                <option value="planejamento">Planejamento</option>
-                                <option value="determinacao">Determinação</option>
-                                <option value="Criatividade">Criatividade</option>
-                                <option value="flexibilidade">Flexibilidade</option>
-                                <option value="autoconfiança">Autoconfiança</option>
-                                <option value="adaptabilidade">Adaptabilidade</option>
-                                <option value="pensamento">Pensamento crítico</option>
-                                <option value="intEmocional">Inteligência emocional</option>
-                                <option value="inerpessoal">Relacionamento inerpessoal</option>
-                                <option value="gerenciamentoRscs">Gerenciamento de riscos</option>
-                            </select>
-
-                        </div>
+                       
                         <div class="conteiner">
                             <label for="beneficios" class="lable">Benefícios oferecidos:</label><br>
                             <textarea name="message" id="beneficios" class="inputPattern" placeholder="ex: Vale transporte, etc..."><?php echo $resultadoVaga[4]?></textarea>
@@ -117,9 +105,8 @@ $cargo = $resultadoVaga[3];
                     <div>
                         <input type="button" id="clear" value="Limpar Formulário" class="buttonPattern">
                     </div>
-                    <div>
-                        <input type="text" name="id_vaga" style="display:none" <?php echo "value='$resultadoVaga[0]'"?>>
-                        <input type="submit" id="enviar" value="..." class="buttonPattern btnBlocked">
+                    <div id="btnSbmtCntnr">
+                        <input type="submit" id="continuar" value="continuar" class="buttonPattern ">
                     </div>
                     <div></div>
                 </div>
