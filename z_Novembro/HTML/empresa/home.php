@@ -1,8 +1,10 @@
 <?php
+
 session_start();
-if (!isset($_SESSION) || $_SESSION =="" || $_SESSION == null) {
-    header('Location: ../login.html');
-}
+
+    if (!isset($_SESSION["id"]) || $_SESSION["id"] =="" || $_SESSION == null || !isset($_SESSION['id']) || empty($_SESSION)) {
+    echo "<script> alert(\" deslogado \"); window.location.href =  ../login.html </script>";
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

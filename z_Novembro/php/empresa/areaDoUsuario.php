@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION) || $_SESSION =="" || $_SESSION == null) {
+if (!isset($_SESSION['Pudim7w7']) || $_SESSION['Pudim7w7'] =="" || $_SESSION['Pudim7w7'] == null) {
     header('Location: ../../html/login.html');
 }?>
 

@@ -54,7 +54,7 @@ let redPoint
         
         item3 = ''
 
-    }else if(document.title == 'BartoHelp - Criar Vagas'){
+    }else if(document.title == 'BartoHelp - Criar Vagas' || document.title == 'BartoHelp - Editar Vagas'|| document.title == 'BartoHelp - Requisitos'|| document.title == 'BartoHelp - Detalhes' ){
 
         logotipo = '../../contents/logo/logo.png'
 
@@ -65,7 +65,7 @@ let redPoint
 
         search = ''
         desconectLnk = '../desconectar.php'
-        homeLnk = '../../HTML/empresa/home.html'
+        homeLnk = '../../HTML/empresa/home.php'
 
         who = 'usuário'
         linkWho = '../../html/empresa/areaDoUsuario.html'
@@ -102,7 +102,7 @@ let redPoint
 
         item3 = ''
 
-        homeLnk = '../../html/empresa/home.html'
+        homeLnk = '../../html/empresa/home.php'
 
     }else{
 

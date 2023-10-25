@@ -1,7 +1,10 @@
 <?php
     session_start();
     include("../conexao.php");
-    if(!isset($_SESSION) || $_SESSION =="" || $_SESSION == null){header('Location: ../../html/login.html');}
+    
+if (!isset($_SESSION['Pudim7w7']) || $_SESSION['Pudim7w7'] =="" || $_SESSION['Pudim7w7'] == null) {
+    header('Location: ../../html/login.html');
+}
     
     $id_vaga = $_GET['id'];
     echo "<input type=\"text\" style=\"display:none\" value=\"$id_vaga\" id=\"IdVaga\"/> $id_vaga";

@@ -1,5 +1,6 @@
 <?php
 session_start();
+<<<<<<< Updated upstream
     if(
         !isset($_SESSION) 
         && isset($_SESSION)
@@ -11,6 +12,12 @@ session_start();
         || empty($_SESSION['id']))
             {header('Location: ../../html/login.html');}
             include("../conexao.php");
+=======
+
+if (!isset($_SESSION['Pudim7w7']) || $_SESSION['Pudim7w7'] =="" || $_SESSION['Pudim7w7'] == null) {
+    header('Location: ../../html/login.html');
+}
+>>>>>>> Stashed changes
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

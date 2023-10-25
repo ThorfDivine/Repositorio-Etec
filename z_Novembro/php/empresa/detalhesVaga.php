@@ -1,8 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION) || $_SESSION =="" || $_SESSION == null) {
-    header('Location: ../../html/login.html');
-}
+if (!isset($_SESSION) || $_SESSION =="" || $_SESSION == null) {header('Location: ../../html/login.html');}
 else{
 include('../conexao.php');
 
@@ -58,7 +56,7 @@ while($resultado = mysqli_fetch_row($busca)){
             <link rel="stylesheet" href="../../style/home_empresa.css">
             <link rel="stylesheet" href="../../style/detalhesVaga.css">
         <!-- End -->
-    <title>BartoHelp - Empresa</title>
+    <title>BartoHelp - Detalhes</title>
 </head>
 <body>
     
