@@ -37,7 +37,7 @@ INSERT INTO `competencia` (`id_competencia`, `tipo`, `descricao`) VALUES
 	(6, 'Liderança', 'É a habilidade de comandar, motivar, orientar e inspirar pessoas de forma positiva em direção a uma meta compartilhada.'),
 	(7, 'Planejamento', 'Ela está relacionada à capacidade de pensar no futuro. '),
 	(8, 'Organização', 'Essas são habilidades que permitem que você use seus recursos de forma eficiente e eficaz.'),
-	(9, 'Proatividade', 'Geralmente, as pessoas proativas têm uma boa visão de futuro, identificando necessidades e antecipando problemas, o que confere vantagens para sua equipe e empresa.'),
+	(9, 'Proatividade', 'Geralmente, as pessoas provagaativas têm uma boa visão de futuro, identificando necessidades e antecipando problemas, o que confere vantagens para sua equipe e empresa.'),
 	(10, 'Negociação', 'Tem a ver com capacidades diversas como comunicação eficiente e assertiva, planejamento, organização, disciplina, determinação, inovação e flexibilidade.'),
 	(11, 'Determinação', 'É a capacidade de persistir em uma tarefa, mesmo quando ela é desafiadora, e de manter o foco naquilo que se deseja alcançar.'),
 	(12, 'Tolerância', 'Se relaciona ao controle de estresse em situações difíceis, como, por exemplo, ao ouvir feedbacks negativos.'),

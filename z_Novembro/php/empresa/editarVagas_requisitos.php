@@ -21,6 +21,7 @@
 
 
     $id_vaga = $_GET['id'];
+    echo $id_vaga;
     echo "<input type=\"text\" style=\"display:none\" value=\"$id_vaga\" id=\"IdVaga\"/> $id_vaga";
 
 
@@ -126,13 +127,28 @@
             var itemsjs = [];
             var permicao = false;
 
+            var xhr;
+
+            var idVaga = "idVaga="+document.getElementById("IdVaga").value;
+                            
+            if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+
+                xhr = new XMLHttpRequest();
+
+            }
+                                
+                            
+            else if (window.ActiveXObject) { // IE 8 and older
+
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+
+            }
 
             $(function(){
                 $('#habilidadesBtn').on('click', function(){
 
                     //------------------php-----------------------------//
                     var habilidade = "habilidade="+habilidades.options[habilidades.selectedIndex].value;
-                    var idVaga = "idVaga="+document.getElementById("IdVaga").value;
                     const words = habilidades.options[habilidades.selectedIndex].innerHTML.split(' ');
                     console.log(idVaga);
                     document.getElementById('')
@@ -227,26 +243,11 @@
 
     function verRequisitos(){
 
-        var xhr;
-
-        var idVaga = "idVaga="+document.getElementById("IdVaga").value;
-                           
-        if (window.XMLHttpRequest) { // Mozilla, Safari, ...
-
-            xhr = new XMLHttpRequest();
-
-        }
-                                
-                            
-        else if (window.ActiveXObject) { // IE 8 and older
-
-            xhr = new ActiveXObject("Microsoft.XMLHTTP");
-
-        }
+        
                                 
         xhr.open("POST", "../Areq1.php", true); 
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
-        xhr.send("idVaga="+id_vaga);
+        xhr.send(idVaga);
         xhr.onreadystatechange = display_data;
                                 
         function display_data() {
@@ -255,11 +256,11 @@
 
                 if (xhr.status == 200) {
 
-                    cards += xhr.responseText;
+                    cards = xhr.responseText;
 
                     if (cards == "" || cards == null || cards == " ") {
 
-                        document.getElementById('containerRequisitos').innerHTML = "sem mais resultados.."
+                        document.getElementById('selecionados').innerHTML = "sem mais resultados.."+idVaga;
                                             
                     }else{
 

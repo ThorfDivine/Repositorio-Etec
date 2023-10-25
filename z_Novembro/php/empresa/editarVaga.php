@@ -44,7 +44,7 @@ if(
     <header></header>
 
         <section class="bigMarginTop bigMarginBotom centralize">
-            <form action="../updateVaga1.php" class="flexC" method="POST">
+            <?php echo "<form action=\"../updateVaga1.php?id='$id_vaga'\" class=\"flexC\" method=\"POST\">" ?>
                 <div class="conteiner_form flexR">
                     <div class="flexC left alingCenter">
                         <div class="conteiner">
@@ -108,11 +108,12 @@ if(
                     <?php
                         if($resultadoVaga[6] == "0"){
                            echo "<div>
-                                    <input type=\"button\" id=\"ativar\" value=\"reativar vaga\" class=\"buttonPattern\" onclick=\"reativarVaga()\">
+                                    <input type=\"button\" id=\"mexer\" value=\"reativar vaga\" class=\"buttonPattern\" onclick=\"mexerVaga()\">
                                 </div>" ;
-                        }else{
+                        }
+                        else{
                             echo "<div>
-                                    <input type=\"button\" id=\"desativar\" value=\"desativar vaga\" class=\"buttonPattern\" onclick=\"desativarVaga()\">
+                                    <input type=\"button\" id=\"mexer\" value=\"desativar vaga\" class=\"buttonPattern\" onclick=\"mexerVaga()\">
                                   </div>" ;
                         }
                     ?>
@@ -182,17 +183,24 @@ if(
                 });
             });
 
-            function desativarVaga() {
 
-                xhr.open("POST", "desativarVaga.php", true); 
-                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
-                xhr.send(idVaga);
+            function mexerVaga() {
+                let mexe = document.getElementById('mexer')
+                if(mexe.value == "desativar vaga"){
+                    xhr.open("POST", "../desativarVaga.php", true); 
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+                    xhr.send(idVaga);
+                    mexe.value = "reativar vaga";
+                }
+                else if(mexe.value == "reativar vaga"){
+                    xhr.open("POST", "../reativarVaga.php", true); 
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+                    xhr.send(idVaga);
+                    mexe.value = "desativar vaga";
+                }
+                
             }
-            function reativarVaga() {
 
-            xhr.open("POST", "reativarVaga.php", true); 
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
-            xhr.send(idVaga);
-            }
+           
     </script>
 </html>

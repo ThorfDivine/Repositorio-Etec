@@ -1,4 +1,4 @@
-<?
+<?php
     include("./conexao.php");
 
     
@@ -7,5 +7,6 @@
     mysqli_query($con, 
     "UPDATE vaga
     SET aberta = 0
-    WHERE id_vaga = '$idVaga'")
+    WHERE id_vaga = '$idVaga'");
+    echo "sucesso";
 ?>
