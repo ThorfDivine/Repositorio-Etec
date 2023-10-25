@@ -1,11 +1,6 @@
 <?php
     session_start();
     include("./conexao.php");
-<<<<<<< Updated upstream
-=======
-    
-
->>>>>>> Stashed changes
 
     $num = $_POST['n'];
     $cnpj = $_SESSION['id'];
