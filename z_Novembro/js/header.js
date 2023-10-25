@@ -16,7 +16,7 @@ let loginLnk
 let desconectLnk
     desconectLnk = '../../php/desconectar.php'
 let homeLnk
-    homeLnk = './home.html'
+    homeLnk = './home.php'
 let redPoint
     redPoint = '<div class="redPoint"></div>'
 
@@ -90,7 +90,7 @@ let redPoint
 
         homeLnk = '../../html/funcionario/home.html'
 
-    }else if(document.title == 'BartoHelp - Vagas'){
+    }else if(document.title == 'BartoHelp - Vagas'){    
 
         who = 'usuário'
         linkWho = '../../html/empresa/areaDoUsuario.html'
