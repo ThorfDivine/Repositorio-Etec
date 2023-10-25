@@ -1,8 +1,8 @@
 <?php
 session_start();
-    
     if(
         !isset($_SESSION) 
+        && isset($_SESSION)
         || $_SESSION =="" 
         || $_SESSION == null 
         || !isset($_SESSION['id']) 

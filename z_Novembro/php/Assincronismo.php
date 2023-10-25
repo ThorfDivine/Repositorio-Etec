@@ -1,6 +1,7 @@
 <?php
     session_start();
     include("./conexao.php");
+
     $num = $_POST['n'];
     $cnpj = $_SESSION['id'];
     $busca = mysqli_query($con, "SELECT * FROM vaga WHERE cnpj_empresa = \"$cnpj\" LIMIT 6 OFFSET $num");
@@ -23,14 +24,14 @@
             
             while($resultado = mysqli_fetch_row($busca)){
 
-                $cnpj = $resultado[8];
+                $cnpj = $resultado[7];
                 $id_vaga = $resultado[0];
                 $buscaInteressados = mysqli_query($con, "SELECT * FROM interesse WHERE id_vaga = '$id_vaga'");
                 $buscaInteressados = mysqli_num_rows($buscaInteressados);
                 $buscaLogo1 = mysqli_query($con,"SELECT logo FROM empresa where cnpj ='$cnpj'");
                 $buscaLogo = mysqli_fetch_row($buscaLogo1);
 
-                if($resultado[7]==1){
+                if($resultado[6]==1){
                     $aberto = "aberta";
                 }else{
                     $aberto= "fechado";
@@ -75,9 +76,11 @@
                                 <a href=\"detalhesVaga.php?idVaga=".$resultado[0]."\"><button class=\"detalhes\">Detalhes</button></a>
                             </div>
                             <div>
-                                <div class=\"editar\">
-                                    <span class=\"material-symbols-outlined\"> edit_note </span>
-                                </div>
+                                <a href=\"./editarVaga.php?id=".$resultado[0]."\">
+                                    <div class=\"editar\">
+                                        <span class=\"material-symbols-outlined\"> edit_note </span>
+                                    </div>
+                                </a>
                             </div>
                         </div>";
                 }    

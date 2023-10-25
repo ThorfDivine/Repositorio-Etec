@@ -10,17 +10,17 @@ if(
     || $_SESSION['id'] == null 
     || empty($_SESSION['id'])
     
-    )
-        {header('Location: ../../html/login.html');}
+    ){header('Location: ../../html/login.html');}
        
-        include("../conexao.php");
+    include("../conexao.php");
 
     
-$id_vaga = $_GET['id'];
+    $id_vaga = $_GET['id'];
+    echo "<input type=\"text\" style=\"display:none\" value=\"$id_vaga\" id=\"IdVaga\"/>";
 
-$busca = mysqli_query($con, "SELECT * FROM vaga WHERE id_vaga = '$id_vaga'");
-$resultadoVaga = mysqli_fetch_row($busca);
-$cargo = $resultadoVaga[3];
+    $busca = mysqli_query($con, "SELECT * FROM vaga WHERE id_vaga = '$id_vaga'");
+    $resultadoVaga = mysqli_fetch_row($busca);
+    $cargo = $resultadoVaga[3];
 ?>
 
 <!DOCTYPE html>
@@ -57,11 +57,11 @@ $cargo = $resultadoVaga[3];
                         </div>
                         <div class="conteiner">
                             <label for="salario" class="lable">Salário: </label>
-                                <input type="text" name="salario" id="salario" class="inputPattern" placeholder="ex: R$ 2000.00" <?php echo "value=".$resultadoVaga[9]?>>
+                                <input type="text" name="salario" id="salario" class="inputPattern" placeholder="ex: R$ 2000.00" <?php echo "value=".$resultadoVaga[8]?>>
                         </div>
                         <div class="conteiner flexC">
                             <label for="titleVg" class="lable">Data limite: </label>
-                            <input type="date" name="limit" id="titleVg" class="inputPattern" <?php echo "value=".$resultadoVaga[6]?>>
+                            <input type="date" name="limit" id="titleVg" class="inputPattern" <?php echo "value=".$resultadoVaga[5]?>>
                         </div>
                     </div>
                     <div class="flexC right alingCenter">
@@ -71,12 +71,12 @@ $cargo = $resultadoVaga[3];
                         </div>
                         <div class="conteiner">
                             <label for="cep" class="lable">Cep: </label>
-                            <input type="text" name="cep" id="cep" class="inputPattern" placeholder="ex: 14015-040" <?php echo "value=".$resultadoVaga[10]?>>
+                            <input type="text" name="cep" id="cep" class="inputPattern" placeholder="ex: 14015-040" <?php echo "value=".$resultadoVaga[9]?>>
                         </div>
                        
                         <div class="conteiner">
                             <label for="beneficios" class="lable">Benefícios oferecidos:</label><br>
-                            <textarea name="message" id="beneficios" class="inputPattern" placeholder="ex: Vale transporte, etc..."><?php echo $resultadoVaga[4]?></textarea>
+                            <textarea name="message" id="beneficios" class="inputPattern" placeholder="ex: Vale transporte, etc..."><?php echo $resultadoVaga[3]?></textarea>
                         </div>
 
                         <div style="display: none;">
@@ -105,6 +105,18 @@ $cargo = $resultadoVaga[3];
                     <div>
                         <input type="button" id="clear" value="Limpar Formulário" class="buttonPattern">
                     </div>
+                    <?php
+                        if($resultadoVaga[6] == "0"){
+                           echo "<div>
+                                    <input type=\"button\" id=\"ativar\" value=\"reativar vaga\" class=\"buttonPattern\" onclick=\"reativarVaga()\">
+                                </div>" ;
+                        }else{
+                            echo "<div>
+                                    <input type=\"button\" id=\"desativar\" value=\"desativar vaga\" class=\"buttonPattern\" onclick=\"desativarVaga()\">
+                                  </div>" ;
+                        }
+                    ?>
+                    
                     <div id="btnSbmtCntnr">
                         <input type="submit" id="continuar" value="continuar" class="buttonPattern ">
                     </div>
@@ -125,6 +137,18 @@ $cargo = $resultadoVaga[3];
         var items = [];
         var habilidades = document.getElementById("habilidades");
         var permicao = false;
+        var idVaga = "idVaga="+document.getElementById("IdVaga").value;
+
+        var xhr;
+
+        if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+
+            xhr = new XMLHttpRequest();
+
+        } else if (window.ActiveXObject) { // IE 8 and older
+
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
 
             $(function(){
                 $('#adicionar').on('click', function(){
@@ -149,16 +173,7 @@ $cargo = $resultadoVaga[3];
                             alert("ja cadastrado")
                         }
                 
-                        var xhr;
-
-                        if (window.XMLHttpRequest) { // Mozilla, Safari, ...
-
-                            xhr = new XMLHttpRequest();
-
-                        } else if (window.ActiveXObject) { // IE 8 and older
-
-                            xhr = new ActiveXObject("Microsoft.XMLHTTP");
-                        }
+                        
 
                             xhr.open("POST", "cadastrarVaga.php", true); 
                             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
@@ -166,5 +181,18 @@ $cargo = $resultadoVaga[3];
                     
                 });
             });
+
+            function desativarVaga() {
+
+                xhr.open("POST", "desativarVaga.php", true); 
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+                xhr.send(idVaga);
+            }
+            function reativarVaga() {
+
+            xhr.open("POST", "reativarVaga.php", true); 
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+            xhr.send(idVaga);
+            }
     </script>
 </html>

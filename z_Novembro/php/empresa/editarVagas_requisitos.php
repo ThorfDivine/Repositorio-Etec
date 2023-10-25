@@ -5,6 +5,8 @@
         !isset($_SESSION) 
         || $_SESSION =="" 
         || $_SESSION == null 
+        || $_SESSION == " "
+        && isset($_SESSION)
         || !isset($_SESSION["id"]) 
         || $_SESSION["id"] =="" 
         || $_SESSION["id"] ==" " 

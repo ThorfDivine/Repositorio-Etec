@@ -31,7 +31,7 @@ $resultado="";
 $resultado2="";
 
 while($resultado = mysqli_fetch_row($busca)){
-    echo "<script>console.log('entrei no primeiro while')</script>";
+    
     $idComp = $resultado[2];
     $busca2 = mysqli_query($con, "SELECT * from competencia where id_competencia = $idComp");
     while($resultado2= mysqli_fetch_row($busca2)){
