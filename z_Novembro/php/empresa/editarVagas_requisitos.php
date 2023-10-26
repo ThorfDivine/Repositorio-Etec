@@ -323,11 +323,7 @@ $(function(){
 
                         if (itemsjs[index] == habilidades.options[habilidades.selectedIndex].value || words[1] =='*') {
                             
-                                console.log("entrei no while do js(itemsJs)");
-                                permicao = false;
-                                alert("ja cadastrado");
-                            
-                                
+                                permicao = true;
                                 console.log("a segunda é: "+words[1]);
                             
                                 
@@ -335,8 +331,9 @@ $(function(){
                                 
                         }
                         else{
-                            console.log("entrei no true");
-                            permicao = true;
+                            
+                            alert("não tem como deletar algo não cadastrado");
+                            permicao = false;
                         }
                     }
 
@@ -345,7 +342,7 @@ $(function(){
                             itemsjs.push(habilidades.options[habilidades.selectedIndex].value)
 
                             if(words[1]!='*'){
-                                    habilidades.options[habilidades.selectedIndex].innerHTML = habilidades.options[habilidades.selectedIndex].innerHTML+" * ";
+                                    habilidades.options[habilidades.selectedIndex].innerHTML = habilidades.options[habilidades.selectedIndex].innerHTML.replace("*", " ") ;
                             }else if(words[1] == '*' && items==""){
                                     items= valor;
                             }
@@ -365,7 +362,7 @@ $(function(){
 
                                 }
                                 
-                                xhr.open("POST", "../AssincronismoRequisicaoVaga.php?"+idVaga, true); 
+                                xhr.open("POST", "../removeReq.php?"+idVaga, true); 
                                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
                                 xhr.send(habilidade);
                                 xhr.onreadystatechange = display_data;
