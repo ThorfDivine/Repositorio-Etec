@@ -19,7 +19,7 @@
 
     
         # code...
-        $id_vaga = $_POST['id_vaga'];
+        $id_vaga = $_GET['id'];
         $titulo = $_POST['titulo'];
         $cargo = $_POST["cargo"];
         $salario= $_POST["salario"];
@@ -34,10 +34,14 @@
 
         echo "isso é o id: ".$id;
         $gravar = mysqli_query($con, 
-        "UPDATE vaga SET titulo = '$titulo', responsabilidades = '$cargo', salario = '$salario', beneficios = '$Beneficios', data_max = '$dataLimite', cep = '$cep' where id_vaga='$id_vaga'");
+        "UPDATE vaga SET titulo = '$titulo', responsabilidades = '$cargo', salario = '$salario', beneficios = '$Beneficios', data_max = '$dataLimite', cep = '$cep' where id_vaga=$id_vaga");
 
             if ($gravar) {
-                echo "<script>window.location.href='./empresa/editarVagas_requisitos.php?id=".$id_vaga."'</script>";
+                echo "<br/>entrei aqui
+                    <script>  </script>
+                ";
+
+                header('location:./empresa/editarVagas_requisitos.php?idVaga='.$id_vaga);
             }
         
 

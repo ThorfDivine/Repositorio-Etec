@@ -1,13 +1,16 @@
 <?php
 include("./conexao.php");
+
 $idVaga = $_POST['idVaga'];
 
 
 
 $res = "";
 
-$busca = mysqli_query($con, "select * from competencia_vaga where id_vaga = '$idVaga'");
+$busca = mysqli_query($con, "select * from competencia_vaga where id_vaga = $idVaga");
 $b = "";
+$resultado= "";
+
 
 
 
@@ -17,13 +20,17 @@ $b = "";
     }
     else{
         while($b = mysqli_fetch_row($busca)){
+            
         
-            $id_competencia = $b[0];
+
+            $id_competencia = $b[2];
 
             $busca2 = mysqli_query($con,"SELECT * from competencia where id_competencia = '$id_competencia'");
 
 
             while($resultado = mysqli_fetch_row($busca2)){
+
+                
 
                 $res = $res."
                 <div class=\"selecionados flexC\">

@@ -44,7 +44,7 @@ if(
     <header></header>
 
         <section class="bigMarginTop bigMarginBotom centralize">
-            <?php echo "<form action=\"../updateVaga1.php?id='$id_vaga'\" class=\"flexC\" method=\"POST\">" ?>
+            <?php echo "<form action=\"../updateVaga1.php?id=$id_vaga\" class=\"flexC\" method=\"POST\">" ?>
                 <div class="conteiner_form flexR">
                     <div class="flexC left alingCenter">
                         <div class="conteiner">

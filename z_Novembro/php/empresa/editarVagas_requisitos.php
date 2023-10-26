@@ -17,16 +17,60 @@
 
     include("../conexao.php");
 
+    
+    $id_vaga = $_GET['idVaga']; 
+    $res2 = "";
+
+    $busca = mysqli_query($con, "select * from competencia_vaga where id_vaga = $id_vaga");
+    $b = "";
+    $resultado= "";
+    $existem = array();
 
 
 
-    $id_vaga = $_GET['id'];
-    echo $id_vaga;
-    echo "<input type=\"text\" style=\"display:none\" value=\"$id_vaga\" id=\"IdVaga\"/> $id_vaga";
+
+    if (empty($busca) || !$busca || $busca == "" || $busca == null) {
+        $num = mysqli_num_rows($busca);
+        $res2="nenhum resultado";
+    }
+    else{
+        while($b = mysqli_fetch_row($busca)){
+            
+        
+
+            $id_competencia = $b[2];
+
+            $busca2 = mysqli_query($con,"SELECT * from competencia where id_competencia = '$id_competencia'");
+
+
+            while($resultado = mysqli_fetch_row($busca2)){
+
+                
+
+                $res2 = $res2."
+                <div class=\"selecionados flexC\">
+                    <div id=\"containerRequisitos\">
+                        <h2>".$resultado[1]."</h2>
+                        <div class=\"explain\">
+                            <p>".$resultado[2]."</p>
+                        </div>
+                    </div>
+                </div>";
+                array_push($existem, $resultado[1]);
+            }
+
+        }
+    }
 
 
 
-    $busca = mysqli_query($con, "SELECT * from competencia_vaga where id_vaga = '$id_vaga'");
+
+ 
+    echo "<input type=\"text\" style=\"display:none\" value=\"$id_vaga\" id=\"IdVaga\"/>";
+
+
+
+    $busca = mysqli_query($con, "SELECT * from competencia_vaga where id_vaga = $id_vaga");
     $resul = "";
     $res = "";
 
@@ -53,7 +97,7 @@
             <!-- End -->
     <title>BartoHelp - Requisitos</title>
 </head>
-<body onload="verRequisitos()">
+<body>
     
     <section class="bigMarginBotom flexC spaceAround alingCenter">
 
@@ -74,6 +118,7 @@
                     <input type="button" value="Adicionar" id="habilidadesBtn" class="btnAdicionar">
 
                     <select name="habilidades" id="habilidades" class="inputPattern">
+                        
                         <option value="1">Comunicação</option>
                         <option value="2">Criatividade</option>
                         <option value="3">Pensamento crítico</option>
@@ -95,9 +140,7 @@
                 </div>
             </div>
             <div class="spaceEvenly">
-                <div>
-                    <input type="button" id="clear" value="Limpar registro" class="buttonPattern">
-                </div>
+                
                 <div id="btnSbmtCntnr">
                     <a id="enviarA"><input type="button" id="enviar" value="Concluir" class="buttonPattern"></a>
                 </div>
@@ -112,7 +155,9 @@
         <a href="../HTML/competencias.html" target="_blank"><span class="material-symbols-outlined helpIcon" id="helpIcon">help</span></a>
     </div>
 
-<div class="selecionados_Conteiner flexR marginTop23px bigMarginBotom" id="selecionados" > </div>
+<div class="selecionados_Conteiner flexR marginTop23px bigMarginBotom" id="selecionados" >
+    <?php echo $res2;?>    
+</div>
 
     <footer></footer>
 
@@ -123,7 +168,30 @@
        
 
 
-<script>
+<script>    
+            var selectedoptiontest = document.getElementById("habilidades");
+            //As opções do seu select. Isto aqui é uma coleção:
+            var optionstest = selectedoptiontest.options;
+            var guarda = [];
+            var guarda2= [];
+
+            <?php
+
+                for( $i = 0; $i < count($existem); $i++ ){
+                    echo "guarda.push('".$existem[$i]."'); \n";
+                }
+                
+            ?>
+
+        for(var i = 0; i < optionstest.length;i++){
+            guarda2.push(optionstest[i].innerHTML);
+            for (let i2 = 0; i2 < guarda.length; i2++) {
+                if (guarda2[i] == guarda[i2]) {
+                    optionstest[i].innerHTML = optionstest[i].innerHTML + " * ";
+                }  
+            }
+        }
+
             var itemsjs = [];
             var permicao = false;
 
@@ -241,42 +309,104 @@
                 });
             });
 
-    function verRequisitos(){
+$(function(){
+                $('#habilidadesBtnRmv').on('click', function(){
 
-        
+                    //------------------php-----------------------------//
+                    var habilidade = "habilidade="+habilidades.options[habilidades.selectedIndex].value;
+                    const words = habilidades.options[habilidades.selectedIndex].innerHTML.split(' ');
+                    console.log(idVaga);
+                    document.getElementById('')
+
+                    //___________________js_____________________________//
+                    for (let index = 0; index <= itemsjs.length; index++) {
+
+                        if (itemsjs[index] == habilidades.options[habilidades.selectedIndex].value || words[1] =='*') {
+                            
+                                console.log("entrei no while do js(itemsJs)");
+                                permicao = false;
+                                alert("ja cadastrado");
+                            
                                 
-        xhr.open("POST", "../Areq1.php", true); 
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
-        xhr.send(idVaga);
-        xhr.onreadystatechange = display_data;
+                                console.log("a segunda é: "+words[1]);
+                            
                                 
-        function display_data() {
-
-            if (xhr.readyState == 4) {
-
-                if (xhr.status == 200) {
-
-                    cards = xhr.responseText;
-
-                    if (cards == "" || cards == null || cards == " ") {
-
-                        document.getElementById('selecionados').innerHTML = "sem mais resultados.."+idVaga;
-                                            
-                    }else{
-
-                        document.getElementById('selecionados').innerHTML = cards;   
-
+                                break;
+                                
+                        }
+                        else{
+                            console.log("entrei no true");
+                            permicao = true;
+                        }
                     }
 
-                }
-                else {
+                    if (permicao == true) {
+                        
+                            itemsjs.push(habilidades.options[habilidades.selectedIndex].value)
 
-                    alert('There was a problem with the request.');
+                            if(words[1]!='*'){
+                                    habilidades.options[habilidades.selectedIndex].innerHTML = habilidades.options[habilidades.selectedIndex].innerHTML+" * ";
+                            }else if(words[1] == '*' && items==""){
+                                    items= valor;
+                            }
+                            //------------------php-----------------------------//
+                                var xhr;
+                           
+                                if (window.XMLHttpRequest) { // Mozilla, Safari, ...
 
-                }
-            }    
-        }
-    }
+                                    xhr = new XMLHttpRequest();
+
+                                }
+                                
+                            
+                                else if (window.ActiveXObject) { // IE 8 and older
+
+                                    xhr = new ActiveXObject("Microsoft.XMLHTTP");
+
+                                }
+                                
+                                xhr.open("POST", "../AssincronismoRequisicaoVaga.php?"+idVaga, true); 
+                                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+                                xhr.send(habilidade);
+                                xhr.onreadystatechange = display_data;
+                                
+                                function display_data() {
+
+                                    if (xhr.readyState == 4) {
+
+                                        if (xhr.status == 200) {
+
+                                            items += xhr.responseText;
+
+                                            if (items == "" || items == null || items == " ") {
+
+                                                document.getElementById('containerRequisitos').innerHTML = "sem mais resultados.."
+                                            
+                                            }else{
+
+                                                document.getElementById('selecionados').innerHTML = items;   
+
+                                            }
+
+                                        }
+                                        else {
+
+                                            alert('There was a problem with the request.');
+
+                                        }
+                                    }
+                                }
+                                //------------------php-----------------------------//
+
+                        }
+                        
+                    //___________________js_____________________________//
+
+                    
+                });
+            });
+
+
 
     </script>
 </html>

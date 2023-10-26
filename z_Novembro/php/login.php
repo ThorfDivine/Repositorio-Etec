@@ -8,7 +8,6 @@
     
         $identity = $_POST['identity'];
         $password = $_POST['password'];
-        $category = $_POST['category'];
         
         $passwordCdf = base64_encode($password);
         
@@ -51,6 +50,7 @@
             }else {
                 echo "<script> 
                         alert('não esta cadastrado ou as informções estão incorretas'); 
+                        window.location.href =  '../html/login.html';
                       </script>";
             }
     }

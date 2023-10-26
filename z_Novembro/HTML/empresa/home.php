@@ -1,10 +1,19 @@
 <?php
-
 session_start();
 
     if (!isset($_SESSION["id"]) || $_SESSION["id"] =="" || $_SESSION == null || !isset($_SESSION['id']) || empty($_SESSION)) {
     echo "<script> alert(\" deslogado \"); window.location.href =  ../login.html </script>";
     }
+    if(
+        !isset($_SESSION) 
+        && isset($_SESSION)
+        || $_SESSION =="" 
+        || $_SESSION == null 
+        || !isset($_SESSION['id']) 
+        ||  $_SESSION['id'] =="" 
+        || $_SESSION['id'] == null 
+        || empty($_SESSION['id']))
+            {header('Location: ../../html/login.html');}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
