@@ -8,7 +8,8 @@
     $resultado2 = mysqli_fetch_row($busca);
     $res = "";
     
-        if (empty($resultado2) || !$resultado2 || $resultado2 == "" || $resultado2 == null || $resultado2 == " " && $num <=1) {
+        if ((mysqli_num_rows($busca) == 0) && $num <=1) {
+
             $num = mysqli_num_rows($busca);
             $res= $res.
             "<div class=\"respostaElse\">
@@ -16,7 +17,9 @@
                 <h3>Clique <a href=\"../../php/criarVagas.php\">aqui</a> para iniciar sua jornada!</h3>
             </div>";
         }
-        
+        else if((mysqli_num_rows($busca) == 0) && $num >1){
+            $res = "<h2>sem mais resultados...</h2>";
+        }
         else{
             $busca = mysqli_query($con, "SELECT * FROM vaga WHERE cnpj_empresa = \"$cnpj\" LIMIT 6 OFFSET $num");
     

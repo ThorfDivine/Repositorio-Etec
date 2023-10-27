@@ -79,9 +79,6 @@
             adicionar();    
         }
     }
-    function cadastrarVaga() {
-        
-    }
     function detalhes(id){
         
         

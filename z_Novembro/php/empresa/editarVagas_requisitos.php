@@ -142,7 +142,7 @@
             <div class="spaceEvenly">
                 
                 <div id="btnSbmtCntnr">
-                    <a id="enviarA"><input type="button" id="enviar" value="Concluir" class="buttonPattern"></a>
+                    <a id="enviarA" href="./vagas.php"><input type="button" id="enviar" value="Concluir" class="buttonPattern"></a>
                 </div>
             </div>
         </form>
@@ -222,30 +222,23 @@
                     document.getElementById('')
 
                     //___________________js_____________________________//
-                    for (let index = 0; index <= itemsjs.length; index++) {
+                    for (let index = 0; index <= guarda2.length; index++) {
 
-                        if (itemsjs[index] == habilidades.options[habilidades.selectedIndex].value || words[1] =='*') {
+                        if (guarda2[index] == habilidades.options[habilidades.selectedIndex].value || words[1] =='*') {
                             
-                                console.log("entrei no while do js(itemsJs)");
                                 permicao = false;
                                 alert("ja cadastrado");
-                            
-                                
-                                console.log("a segunda é: "+words[1]);
-                            
                                 
                                 break;
                                 
                         }
                         else{
-                            console.log("entrei no true");
                             permicao = true;
                         }
                     }
 
                     if (permicao == true) {
                         
-                            itemsjs.push(habilidades.options[habilidades.selectedIndex].value)
 
                             if(words[1]!='*'){
                                     habilidades.options[habilidades.selectedIndex].innerHTML = habilidades.options[habilidades.selectedIndex].innerHTML+" * ";
@@ -271,34 +264,11 @@
                                 xhr.open("POST", "../AssincronismoRequisicaoVaga.php?"+idVaga, true); 
                                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
                                 xhr.send(habilidade);
-                                xhr.onreadystatechange = display_data;
+
                                 
-                                function display_data() {
-
-                                    if (xhr.readyState == 4) {
-
-                                        if (xhr.status == 200) {
-
-                                            items += xhr.responseText;
-
-                                            if (items == "" || items == null || items == " ") {
-
-                                                document.getElementById('containerRequisitos').innerHTML = "sem mais resultados.."
-                                            
-                                            }else{
-
-                                                document.getElementById('selecionados').innerHTML = items;   
-
-                                            }
-
-                                        }
-                                        else {
-
-                                            alert('There was a problem with the request.');
-
-                                        }
-                                    }
-                                }
+                                xhr.onreadystatechange = recarregarAPagina();
+                                
+                                
                                 //------------------php-----------------------------//
 
                         }
@@ -319,32 +289,29 @@ $(function(){
                     document.getElementById('')
 
                     //___________________js_____________________________//
-                    for (let index = 0; index <= itemsjs.length; index++) {
+                    for (let index = 0; index <= guarda2.length; index++) {
 
-                        if (itemsjs[index] == habilidades.options[habilidades.selectedIndex].value || words[1] =='*') {
+                        if (guarda2[index] == habilidades.options[habilidades.selectedIndex].value || words[1] =='*') {
                             
                                 permicao = true;
-                                console.log("a segunda é: "+words[1]);
-                            
-                                
-                                break;
-                                
+                                console.log("a segunda é: "+words[1]);     
                         }
                         else{
                             
                             alert("não tem como deletar algo não cadastrado");
                             permicao = false;
+                            break;
                         }
                     }
 
                     if (permicao == true) {
                         
-                            itemsjs.push(habilidades.options[habilidades.selectedIndex].value)
-
-                            if(words[1]!='*'){
-                                    habilidades.options[habilidades.selectedIndex].innerHTML = habilidades.options[habilidades.selectedIndex].innerHTML.replace("*", " ") ;
-                            }else if(words[1] == '*' && items==""){
+                            if (words[1] == "*") {
+                                habilidades.options[habilidades.selectedIndex].innerHTML = habilidades.options[habilidades.selectedIndex].innerHTML.replace("*", " ");
+                            }
+                            else if(words[1] == '*' && items==""){
                                     items= valor;
+
                             }
                             //------------------php-----------------------------//
                                 var xhr;
@@ -365,9 +332,9 @@ $(function(){
                                 xhr.open("POST", "../removeReq.php?"+idVaga, true); 
                                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
                                 xhr.send(habilidade);
-                                xhr.onreadystatechange = display_data;
+                                xhr.onreadystatechange = recarregarAPagina;
                                 
-                                function display_data() {
+                                /*function display_data() {
 
                                     if (xhr.readyState == 4) {
 
@@ -375,15 +342,7 @@ $(function(){
 
                                             items += xhr.responseText;
 
-                                            if (items == "" || items == null || items == " ") {
-
-                                                document.getElementById('containerRequisitos').innerHTML = "sem mais resultados.."
-                                            
-                                            }else{
-
-                                                document.getElementById('selecionados').innerHTML = items;   
-
-                                            }
+                                            console.log(items);
 
                                         }
                                         else {
@@ -392,17 +351,21 @@ $(function(){
 
                                         }
                                     }
-                                }
+                                }*/
                                 //------------------php-----------------------------//
 
                         }
+                        
                         
                     //___________________js_____________________________//
 
                     
                 });
-            });
-
+            }
+);
+function recarregarAPagina(){
+    window.location.reload();
+}
 
 
     </script>

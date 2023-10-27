@@ -20,7 +20,7 @@
 
             if ($gravar) {
                 $idVaga = mysqli_insert_id($con);        
-                echo "<script>window.location.href='./empresa/criarVagas_requisitos.php?id=$idVaga'</script>";
+                echo "<script>window.location.href='./empresa/editarVagas_requisitos.php?idVaga=$idVaga'</script>";
             }
         
 

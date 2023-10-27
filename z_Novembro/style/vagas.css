@@ -191,3 +191,24 @@
     }
 
 }
+
+.altera{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+
+  & .direita, .esquerda{
+        width: 3.5vh;
+        height: 3vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(212, 212, 212);
+        margin: 0.3vh 0.3vw;
+        font-weight: bold;
+        cursor: pointer;
+        border-width: 0;}
+}

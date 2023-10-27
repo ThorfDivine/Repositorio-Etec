@@ -32,11 +32,13 @@ session_start();
     <script> var number = 0 ;</script>
     <header></header>
     
-        <div class="vagas" id="vagas"></div>
-        <section class="bigMarginTop bigMarginBotom centralize">
-                
+        
+    <div class="vagas" id="vagas"></div>
 
-        </section>
+    <div class="altera">
+        <button class="esquerda" onclick="rmv() "><</button>
+        <button class="direita"  onclick="add()"> ></button>
+    </div>
 
     <footer></footer>
 </body>
@@ -77,9 +79,9 @@ session_start();
                             items = xhr.responseText;
                             
                                 document.getElementById('vagas').innerHTML = items ; 
-                                console.log(items);    
-                                console.log($_SESSION['id']);
-
+                                    
+                                <?php echo "console.log(".$_SESSION['id'].");"?>
+                                console.log("number="+number);
                             
 
                         } else {
@@ -93,15 +95,15 @@ session_start();
             //limit sql
         }
         function add(){
-            if(number>=0 && items != "" && items != null && items != " "){
-                number+=10;
+            if(number>=0 && items != "<h2>sem mais resultados...</h2>"){
+                number+=6;
                 window.scrollTo(0, 0);
                 adicionar();    
             }
         }
         function rmv(){
             if(number>0){
-                number-=10;
+                number-=6;
                 window.scrollTo(window.scrollY, 0);
                 adicionar();    
             }
