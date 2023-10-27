@@ -52,7 +52,7 @@
                                 <div><p class=\"m1rem\">Status: <i>".$aberto."</i></p> <!----> <p style=\"margin-left: 25px;\"> | </p> <!----> <p style=\"margin-left: 25px;\"> N° <i>inscrições: ".$buscaInteressados."</i></p></div>
                             </div>
                             <div class=\"flexC botoes\">
-                                <button class=\"lixeira\" onclick=\"fecharVaga()\"><span class=\"material-symbols-outlined\">delete</span></button>
+                                <button class=\"ativo\" onclick=\"fecharVaga(".$resultado[0].")\"><span class=\"material-symbols-outlined\">toggle_on</span></button>
                                 <a href=\"detalhesVaga.php?idVaga=".$resultado[0]."\"><button class=\"detalhes\">Detalhes</button></a>
                             </div>
                             <div>
@@ -75,7 +75,7 @@
                                 <div><p class=\"m1rem\">Status: <i>".$aberto."</i></p> <!----> <p style=\"margin-left: 25px;\"> | </p> <!----> <p style=\"margin-left: 25px;\"> N° <i>inscrições: ".$buscaInteressados."</i></p></div>
                             </div>
                             <div class=\"flexC botoes\">
-                                <button class=\"lixeira\" onclick=\"fecharVaga()\"><span class=\"material-symbols-outlined\">delete</span></button>
+                                <button class=\"desativo\" onclick=\"reativarVaga(".$resultado[0].")\"><span class=\"material-symbols-outlined\">toggle_off</span></button>
                                 <a href=\"detalhesVaga.php?idVaga=".$resultado[0]."\"><button class=\"detalhes\">Detalhes</button></a>
                             </div>
                             <div>
