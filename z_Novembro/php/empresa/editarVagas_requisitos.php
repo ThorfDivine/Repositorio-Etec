@@ -212,7 +212,7 @@
 
             }
 
-            $(function(){
+$(function(){
                 $('#habilidadesBtn').on('click', function(){
 
                     //------------------php-----------------------------//
@@ -277,7 +277,7 @@
 
                     
                 });
-            });
+});
 
 $(function(){
                 $('#habilidadesBtnRmv').on('click', function(){
@@ -334,26 +334,7 @@ $(function(){
                                 xhr.send(habilidade);
                                 xhr.onreadystatechange = recarregarAPagina;
                                 
-                                /*function display_data() {
-
-                                    if (xhr.readyState == 4) {
-
-                                        if (xhr.status == 200) {
-
-                                            items += xhr.responseText;
-
-                                            console.log(items);
-
-                                        }
-                                        else {
-
-                                            alert('There was a problem with the request.');
-
-                                        }
-                                    }
-                                }*/
-                                //------------------php-----------------------------//
-
+                    
                         }
                         
                         

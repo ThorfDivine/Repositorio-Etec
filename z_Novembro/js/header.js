@@ -98,7 +98,7 @@ let redPoint
         item1 = 'Criar anúncio'
         LinkIt1 = './criarVagas.php'
 
-        desconectLnk = './desconectar.php'
+        desconectLnk = '../desconectar.php'
 
         item3 = ''
 

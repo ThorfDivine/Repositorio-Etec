@@ -32,10 +32,10 @@ session_start();
         <!-- End -->
     <title>BartoHelp - Empresa</title>
 </head>
-<body>
+<body onload="adicionar()">
     
-    <header id="topo">
-    </header>
+    <script> var number = 0 ;</script>
+    <header id="topo"></header>
 
     <section class="bigMarginTop">
         <div class="vagasAceitas">
@@ -43,30 +43,27 @@ session_start();
             <div class="conteinerH2">
                 <h2>Vagas Anunciadas</h2>
             </div>
-
-            <div class="cardVaga">
-                <div class="imgLogo img_conteiner">
-                    <img src="#" alt="logo">
-                </div>
-                <div class="informacoes_da_vaga">
-                    <p><strong>Analista de departamento</strong></p><br>
-                    <div><p class="m1rem">Status: <i>Aberto</i></p> <!----> <p style="margin-left: 25px;"> | </p> <!----> <p style="margin-left: 25px;"> N° <i>inscrições</i></p></div>
-                </div>
-                <div class="flexC botoes">
-                    <button class="lixeira"><span class="material-symbols-outlined">delete</span></button>
-                    <button class="detalhes">Detalhes</button>
-                </div>
-                <div>
-                    <div class="editar">
-                        <span class="material-symbols-outlined"> edit_note </span>
+            <div id="vagas">
+                <div class="cardVaga">
+                    <div class="imgLogo img_conteiner">
+                        <img src="#" alt="logo">
+                    </div>
+                    <div class="informacoes_da_vaga">
+                        <p><strong>Analista de departamento</strong></p><br>
+                        <div><p class="m1rem">Status: <i>Aberto</i></p> <!----> <p style="margin-left: 25px;"> | </p> <!----> <p style="margin-left: 25px;"> N° <i>inscrições</i></p></div>
+                    </div>
+                    <div class="flexC botoes">
+                        <button class="lixeira"><span class="material-symbols-outlined">delete</span></button>
+                        <button class="detalhes">Detalhes</button>
+                    </div>
+                    <div>
+                        <div class="editar">
+                            <span class="material-symbols-outlined"> edit_note </span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="cardVaga"></div>
-            <div class="cardVaga"></div>
-            <div class="cardVaga"></div>
-            <div class="cardVaga"></div>
-            <div class="cardVaga"></div>
+            
 
         </div>
         <div class="middleLine">
@@ -77,29 +74,10 @@ session_start();
             <div class="conteinerH2">
                 <h2>Currículos Disponiveis</h2>
             </div>
+            <div class="curricolos" id="curriculos">
 
-            <div class="cardVaga">
-                <div class="imgLogo img_conteiner">
-                    <img src="#" alt="logo">
-                </div>
-                <div class="informacoes_da_vaga vaga">
-                    <p><strong>Analista de departamento</strong></p><br>
-                    <div class="oferta spaceAround">
-                        <div class="idade"><p><i>17</i> anos</p></div>
-                        <div><p>|</p></div>
-                        <div class="local"><p>São Paulo, SP</p></div>
-                    </div>
-                </div>
-                <div class="flexC detalhes_Oferta">
-                    <button>Ver Currículo</button>
-                    <button class="cadastrar">Dispensar</button>
-                </div>
             </div>
-            <div class="cardVaga"></div>
-            <div class="cardVaga"></div>
-            <div class="cardVaga"></div>
-            <div class="cardVaga"></div>
-            <div class="cardVaga"></div>
+            
             
         </div>
     </section>
@@ -116,4 +94,95 @@ session_start();
     <script src="../../js/header.js"></script>
     <script src="../../js/footer.js"></script>
     <script src="../../js/confirmDelet.js"></script>
+    <script>
+    
+    var xhr;
+
+            if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+
+                xhr = new XMLHttpRequest();
+
+            } else if (window.ActiveXObject) { // IE 8 and older
+
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+    function adicionar()
+        {
+            var data = "n=" + number;
+            
+            
+
+
+                xhr.open("POST", "../../php/Ahome.php", true); 
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+                xhr.send(data);
+                xhr.onreadystatechange = display_data;
+
+                function display_data() {
+
+                    if (xhr.readyState == 4) {
+
+                        if (xhr.status == 200) {
+
+                            
+                                items = xhr.responseText;
+                            
+                                document.getElementById('vagas').innerHTML = items ; 
+                                    
+                                console.log("number="+number);
+                            
+
+                        } else {
+
+                            alert('There was a problem with the request.');
+
+                        }
+                    }
+                }
+
+            //limit sql
+        }
+        function verCurriculos(idVaga){
+                var data = "n=" + number;
+                xhr.open("POST", "../../php/Acurriculos.php?idVaga="+idVaga, true); 
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+                xhr.send(data);
+                xhr.onreadystatechange = display_data;
+
+                function display_data() {
+
+                    if (xhr.readyState == 4) {
+
+                        if (xhr.status == 200) {
+
+                            
+                                items = xhr.responseText;
+                            
+                                document.getElementById('curriculos').innerHTML = items ; 
+                                    
+                                console.log("number="+number);
+                            
+
+                        } else {
+
+                            alert('There was a problem with the request.');
+
+                        }
+                    }
+                }
+        }
+        function dispensar(cpf) {
+
+                xhr.open("POST", "../../php/dispensar.php?cpf="+cpf, true); 
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+                xhr.send(data);
+                xhr.onreadystatechange = recarregarAPagina();
+
+                
+        }
+        function recarregarAPagina(){
+            window.location.reload();
+        }
+    </script>
 </html>

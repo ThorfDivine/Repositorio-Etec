@@ -39,8 +39,10 @@
                 
                 
 
+                if($aberto=="aberta"){
+
                     $res = $res. 
-                        "<div class=\"cardVaga\">
+                        "<div class=\"cardVaga\" onclick=\" verCurriculos(".$id_vaga.") \">
                             <div class=\"imgLogo img_conteiner\">
                                 <img src=\"".$buscaLogo[0]."\" alt=\"logo\">
                             </div>
@@ -49,7 +51,7 @@
                                 <div><p class=\"m1rem\">Status: <i>".$aberto."</i></p> <!----> <p style=\"margin-left: 25px;\"> | </p> <!----> <p style=\"margin-left: 25px;\"> N° <i>inscrições: ".$buscaInteressados."</i></p></div>
                             </div>
                             <div class=\"flexC botoes\">
-                                <button class=\"lixeira\" onclick=\"fecharVaga()\"><span class=\"material-symbols-outlined\">delete</span></button>
+                                <button class=\"ativo\" onclick=\"fecharVaga(".$resultado[0].")\"><span class=\"material-symbols-outlined\">toggle_on</span></button>
                                 <a href=\"detalhesVaga.php?idVaga=".$resultado[0]."\"><button class=\"detalhes\">Detalhes</button></a>
                             </div>
                             <div>
@@ -60,10 +62,32 @@
                                 </a>
                             </div>
                         </div>";
+                }
+                else{
+                    $res = $res. 
+                        "<div class=\"cardVaga\">
+                            <div class=\"imgLogo img_conteiner\">
+                                <img src=\"".$buscaLogo[0]."\" alt=\"logo\">
+                            </div>
+                            <div class=\"informacoes_da_vaga\">
+                                <p><strong>".$resultado[1]."</strong></p><br>
+                                <div><p class=\"m1rem\">Status: <i>".$aberto."</i></p> <!----> <p style=\"margin-left: 25px;\"> | </p> <!----> <p style=\"margin-left: 25px;\"> N° <i>inscrições: ".$buscaInteressados."</i></p></div>
+                            </div>
+                            <div class=\"flexC botoes\">
+                                <button class=\"desativo\" onclick=\"reativarVaga(".$resultado[0].")\"><span class=\"material-symbols-outlined\">toggle_off</span></button>
+                                <a href=\"detalhesVaga.php?idVaga=".$resultado[0]."\"><button class=\"detalhes\">Detalhes</button></a>
+                            </div>
+                            <div>
+                                <a href=\"./editarVaga.php?id=".$resultado[0]."\">
+                                    <div class=\"editar\">
+                                        <span class=\"material-symbols-outlined\"> edit_note </span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>";
+                }    
                 
-                
-                
-                
+                      
             }
        }
             
