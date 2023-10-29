@@ -52,10 +52,10 @@
                             </div>
                             <div class=\"flexC botoes\">
                                 <button class=\"ativo\" onclick=\"fecharVaga(".$resultado[0].")\"><span class=\"material-symbols-outlined\">toggle_on</span></button>
-                                <a href=\"detalhesVaga.php?idVaga=".$resultado[0]."\"><button class=\"detalhes\">Detalhes</button></a>
+                                <a href=\"../../php/empresa/detalhesVaga.php?idVaga=".$resultado[0]."\"><button class=\"detalhes\">Detalhes</button></a>
                             </div>
                             <div>
-                                <a href=\"./editarVaga.php?id=".$resultado[0]."\">
+                                <a href=\"../../php/empresa/editarVaga.php?id=".$resultado[0]."\">
                                     <div class=\"editar\">
                                         <span class=\"material-symbols-outlined\"> edit_note </span>
                                     </div>
@@ -75,10 +75,10 @@
                             </div>
                             <div class=\"flexC botoes\">
                                 <button class=\"desativo\" onclick=\"reativarVaga(".$resultado[0].")\"><span class=\"material-symbols-outlined\">toggle_off</span></button>
-                                <a href=\"detalhesVaga.php?idVaga=".$resultado[0]."\"><button class=\"detalhes\">Detalhes</button></a>
+                                <a href=\"../../php/empresa/detalhesVaga.php?idVaga=".$resultado[0]."\"><button class=\"detalhes\">Detalhes</button></a>
                             </div>
                             <div>
-                                <a href=\"./editarVaga.php?id=".$resultado[0]."\">
+                                <a href=\"../../php/empresa/editarVaga.php?id=".$resultado[0]."\">
                                     <div class=\"editar\">
                                         <span class=\"material-symbols-outlined\"> edit_note </span>
                                     </div>

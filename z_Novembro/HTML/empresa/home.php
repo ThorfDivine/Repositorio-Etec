@@ -44,24 +44,7 @@ session_start();
                 <h2>Vagas Anunciadas</h2>
             </div>
             <div id="vagas">
-                <div class="cardVaga">
-                    <div class="imgLogo img_conteiner">
-                        <img src="#" alt="logo">
-                    </div>
-                    <div class="informacoes_da_vaga">
-                        <p><strong>Analista de departamento</strong></p><br>
-                        <div><p class="m1rem">Status: <i>Aberto</i></p> <!----> <p style="margin-left: 25px;"> | </p> <!----> <p style="margin-left: 25px;"> N° <i>inscrições</i></p></div>
-                    </div>
-                    <div class="flexC botoes">
-                        <button class="lixeira"><span class="material-symbols-outlined">delete</span></button>
-                        <button class="detalhes">Detalhes</button>
-                    </div>
-                    <div>
-                        <div class="editar">
-                            <span class="material-symbols-outlined"> edit_note </span>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
             
 
