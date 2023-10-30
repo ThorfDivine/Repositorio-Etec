@@ -46,6 +46,7 @@
 
 
                 $_SESSION['usuario'] = $result[1];
+                $_SESSION['cpf'] = $result[5];
                 
 
                 $_SESSION['Pudim7w7'] = true;

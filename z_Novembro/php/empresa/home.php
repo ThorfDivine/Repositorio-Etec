@@ -171,17 +171,10 @@ session_start();
 
 if (confirm("fechar vaga?") == true) {
     
-    var xhr;
+    
     var confirmar= "idVaga="+idVaga;
 
-    if (window.XMLHttpRequest) { // Mozilla, Safari, ...
-
-        xhr = new XMLHttpRequest();
-
-    } else if (window.ActiveXObject) { // IE 8 and older
-
-        xhr = new ActiveXObject("Microsoft.XMLHTTP");
-    }
+    
 
 
     xhr.open("POST", "../desativarVaga.php", true); 

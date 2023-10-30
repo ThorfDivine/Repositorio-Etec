@@ -86,7 +86,7 @@ let redPoint
         linkWho = '../../HTML/funcionario/areaDoCandidato.html'
         
         item1 = 'Criar Currículo'
-        LinkIt1 = '../../HTML/funcionario/curriculos.html'
+        LinkIt1 = './curriculos.php'
 
         desconectLnk = '../desconectar.php'
 

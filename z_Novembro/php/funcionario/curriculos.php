@@ -1,3 +1,27 @@
+<?php 
+session_start();
+include("../conexao.php");
+$cpf = $_SESSION['cpf'];
+$busca = mysqli_query($con, "select * from usuario where cpf = '$cpf'");
+$resultado = mysqli_fetch_row($busca);
+$idade = calcularIdade($resultado[6]);
+function calcularIdade($date){
+    $time = strtotime($date);
+    if($time === false){
+      return '';
+    }
+ 
+    $year_diff = '';
+    $date = date('Y-m-d', $time);
+    list($year,$month,$day) = explode('-',$date);
+    $year_diff = date('Y') - $year;
+    $month_diff = date('m') - $month;
+    $day_diff = date('d') - $day;
+    if ($day_diff < 0 || $month_diff < 0) $year_diff;
+ 
+    return $year_diff;
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -25,7 +49,7 @@
                     <div class="left">
                         <div class="flexC conteiner_item">
                             <label for="nome" class="lable">Nome Completo: </label>
-                                <input type="text" name="nome" id="nome" class="inputPattern" placeholder="ex: Nome Genérico">
+                                <input type="text" name="nome" id="nome" <?php echo "value=".$resultado[4]; ?> class="inputPattern" placeholder="ex: Nome Genérico">
                         </div>
                         <div class="flexR conteiner_item">
                             <help class="helpDropDown_0" style="display: none;">
@@ -38,16 +62,16 @@
                                     <label for="idade" class="lable">Idade: </label>
                                     <span class="material-symbols-outlined helpIcon marginLeft12px"> help </span>
                                 </div>
-                                    <input type="text" name="idade" id="idade" class="inputPattern" placeholder="ex: 22">
+                                    <input type="text" name="idade" id="idade" <?php echo "value=".$idade?> class="inputPattern" placeholder="ex: 22">
                             </div>
                             <div class="flexC marginLeft12px divEmail conteiner_item">
                                 <label for="email" class="lable">Email: </label>
-                                    <input type="text" name="email" id="email" class="inputPattern" placeholder="ex: exemplo@exemplo.com">
+                                    <input type="text" name="email" id="email" class="inputPattern" <?php echo "value=".$resultado[0]?> placeholder="ex: exemplo@exemplo.com">
                             </div>
                         </div>
                         <div class="flexC conteiner_item">
                             <label for="Bairro&Cidade" class="lable">Bairro e Cidade: </label>
-                                <input type="text" name="idade" id="idade" class="inputPattern" placeholder="ex: Cajamar - SP">
+                                <input type="text" name="idade" id="idade" class="inputPattern" placeholder="ex: Cajamar - SP" <?php echo "value=".$resultado[8]?>>
                         </div>
                         <!-- retirar para a proxima página -->
                         <div class="flexC conteiner_item">
@@ -70,7 +94,7 @@
                                     <option value="fundamental">Ensino fundamental completo</option>
                                     <option value="medioImcompleto">Ensino médio incompleto</option>
                                     <option value="medioCompleto">Ensino médio completo</option>
-                                    <option value="medioTecnicoIncompleto">Ensino médio técnico Imcompleto</option>
+                                    <option value="medioTecnicoIncompleto">Ensino médio técnico Incompleto</option>
                                     <option value="medioTecnicoCompleto">Ensino médio técnico Completo</option>
                                     <option value="faculdadeIncompleta">Faculdade incompleta</option>
                                     <option value="faculdadeCompleta">Faculdade completa</option>
@@ -152,6 +176,7 @@
     <script src="../../js/footer.js"></script>
     <script src="../../js/helpOpen.js"></script>
     <script src="../../js/createBttn.js"></script>
+    <script src="../../js/yearsCheck.js"></script>
 </html>
 
 <!--        Tem que enviar via PHP para a proxima página...          -->

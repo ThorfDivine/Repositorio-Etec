@@ -90,6 +90,22 @@ INSERT INTO `competencia_vaga` (`id_competencia_vaga`, `id_vaga`, `id_competenci
 	(48, 7, 3),
 	(49, 7, 2);
 
+-- Copiando estrutura para tabela bartohelp.cursos
+CREATE TABLE IF NOT EXISTS `cursos` (
+  `id_curso` int NOT NULL AUTO_INCREMENT,
+  `id_user` varchar(12) DEFAULT NULL,
+  `tipo` varchar(50) DEFAULT NULL,
+  `instituicao` varchar(100) DEFAULT NULL,
+  `data_inicio` varchar(10) DEFAULT NULL,
+  `data_fim` varchar(10) DEFAULT NULL,
+  `conclusao` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id_curso`),
+  KEY `id_user` (`id_user`),
+  CONSTRAINT `cursos_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `usuario` (`cpf`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Copiando dados para a tabela bartohelp.cursos: ~0 rows (aproximadamente)
+
 -- Copiando estrutura para tabela bartohelp.empresa
 CREATE TABLE IF NOT EXISTS `empresa` (
   `cnpj` varchar(20) NOT NULL,
@@ -131,6 +147,7 @@ CREATE TABLE IF NOT EXISTS `experiencia` (
   `descricao` text,
   `ano_inicio` varchar(4) DEFAULT NULL,
   `ano_conclusao` varchar(4) DEFAULT NULL,
+  `concluido` tinyint DEFAULT NULL,
   PRIMARY KEY (`id_exp`),
   KEY `cpf_cliente` (`cpf_cliente`),
   CONSTRAINT `experiencia_ibfk_1` FOREIGN KEY (`cpf_cliente`) REFERENCES `usuario` (`cpf`)
@@ -182,12 +199,13 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Copiando dados para a tabela bartohelp.usuario: ~0 rows (aproximadamente)
+INSERT INTO `usuario` (`email`, `senha`, `telefone`, `foto`, `nome`, `cpf`, `nascimento`, `cep`, `bairro_cidade`) VALUES
+	('gustavo@gmail.com', 'MTIzNDVHb2pvVVNvbGEkJA==', '93951-8083', NULL, 'Gustavo', '47319366835', '2006-10-03', '06535160', '');
 
 -- Copiando estrutura para tabela bartohelp.vaga
 CREATE TABLE IF NOT EXISTS `vaga` (
   `id_vaga` int NOT NULL AUTO_INCREMENT,
   `titulo` varchar(100) DEFAULT NULL,
-  `requisitos` text,
   `responsabilidades` text,
   `beneficios` text,
   `data_pub` varchar(20) DEFAULT NULL,
@@ -196,18 +214,19 @@ CREATE TABLE IF NOT EXISTS `vaga` (
   `cnpj_empresa` varchar(20) DEFAULT NULL,
   `salario` varchar(20) DEFAULT NULL,
   `cep` varchar(15) DEFAULT NULL,
+  `endereco` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_vaga`),
   KEY `cnpj_empresa` (`cnpj_empresa`),
   CONSTRAINT `vaga_ibfk_1` FOREIGN KEY (`cnpj_empresa`) REFERENCES `empresa` (`cnpj`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela bartohelp.vaga: ~4 rows (aproximadamente)
-INSERT INTO `vaga` (`id_vaga`, `titulo`, `requisitos`, `responsabilidades`, `beneficios`, `data_pub`, `data_max`, `aberta`, `cnpj_empresa`, `salario`, `cep`) VALUES
-	(1, 'Programador jr.', NULL, 'noções minimas  de: back-end, php, mysqli, ajax;', 'vale transportes, vale alimentação, saúde;', '21/10/2023', '2028-10-03', 1, '213-5', '2300', '06535160'),
-	(4, 'programador pleno', NULL, 'tudo', 'vale transporte, vale saúde, vale alimentação', '24/10/2023', '2029-12-03', 1, '213-5', '2.800,00', '06535160'),
-	(5, 'Programador senior', NULL, 'programar em js; programar em php; programar em react;', 'varios vales', '24/10/2023', '2028-02-03', 1, '213-5', '3.500,00', '06535160'),
-	(6, 'Auxiliar de logistica', NULL, 'carregar caixa', 'nada', '24/10/2023', '2024-10-03', 1, '213-5', '2.500', '06535160'),
-	(7, 'Auxiliar de RH', NULL, 'papelada', 'nenhum mesmo\r\n', '24/10/2023', '2029-10-03', 1, '213-5', '1.130,00', '06535160');
+-- Copiando dados para a tabela bartohelp.vaga: ~5 rows (aproximadamente)
+INSERT INTO `vaga` (`id_vaga`, `titulo`, `responsabilidades`, `beneficios`, `data_pub`, `data_max`, `aberta`, `cnpj_empresa`, `salario`, `cep`, `endereco`) VALUES
+	(1, 'Programador jr.', 'noções minimas  de: back-end, php, mysqli, ajax;', 'vale transportes, vale alimentação, saúde;', '21/10/2023', '2028-10-03', 1, '213-5', '2300', '06535160', NULL),
+	(4, 'programador pleno', 'tudo', 'vale transporte, vale saúde, vale alimentação', '24/10/2023', '2029-12-03', 1, '213-5', '2.800,00', '06535160', NULL),
+	(5, 'Programador senior', 'programar em js; programar em php; programar em react;', 'varios vales', '24/10/2023', '2028-02-03', 1, '213-5', '3.500,00', '06535160', NULL),
+	(6, 'Auxiliar de logistica', 'carregar caixa', 'nada', '24/10/2023', '2024-10-03', 1, '213-5', '2.500', '06535160', NULL),
+	(7, 'Auxiliar', 'domar leões', 'nenhum mesmo\r\n', '24/10/2023', '2029-10-03', 1, '213-5', '1.130,00', '06535160', NULL);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

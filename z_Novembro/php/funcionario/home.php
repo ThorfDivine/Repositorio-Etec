@@ -1,3 +1,11 @@
+<?php 
+session_start();
+include('../conexao.php');
+$cpf = $_SESSION['cpf'];
+$curriculo = mysqli_query($con, "SELECT curriculo from usuario where cpf ='$cpf'");
+$curriculo1 = mysqli_fetch_row($curriculo);
+echo "<input type=\"text\" style=\"display:none\" value= \"".$curriculo1[0]."\" id=\"curriculo\"/>";
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,7 +22,10 @@
         <!-- End -->
     <title>BartoHelp - Candidato</title>
 </head>
-<body>
+
+<body onload="vagaspincrever_se()">
+    
+    <script> var number = 0 ;</script>
     <header id="topo">
     </header>
 
@@ -76,42 +87,17 @@
 
                 </div>
             </div>
-            <div class="cardVaga"></div>
-            <div class="cardVaga"></div>
-            <div class="cardVaga"></div>
 
         </div>
             <div class="middleLine">
                 <!-- ==================================================================================================== -->
             </div>
-        <div class="vagasDisponiveis">
+        <div class="vagasDisponiveis" id="vagas">
             
             <div class="conteinerH2">
                 <h2>Vagas Disponiveis</h2>
             </div>
-
-            <div class="cardVaga">
-                <div class="imgLogo img_conteiner">
-                    <img src="#" alt="logo">
-                </div>
-                <div class="informacoes_da_vaga vaga">
-                    <p><strong>Analista de departamento</strong></p><br>
-                    <div class="oferta spaceAround">
-                        <div class="salario"><p>R$ 3.500,00</p></div>
-                        <div><p>|</p></div>
-                        <div class="local"><p>São Paulo, SP</p></div>
-                    </div>
-                </div>
-                <div class="flexC detalhes_Oferta spaceEvenly">
-                    <button class="cadastrar">Cadastrar-se</button>
-                    <button>Mais Detalhes</button>
-                </div>
-            </div>
-            <div class="cardVaga"></div>
-            <div class="cardVaga"></div>
-            <div class="cardVaga"></div>
-            <div class="cardVaga"></div>
-            <div class="cardVaga"></div>
+           
 
         </div>
     </section>
@@ -127,5 +113,79 @@
     <script src="../../js/header.js"></script>
     <script src="../../js/footer.js"></script>
     <script src="../../js/confirmDelet.js"></script>
+    <script>
+    
+    var xhr;
+
+            if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+
+                xhr = new XMLHttpRequest();
+
+            } else if (window.ActiveXObject) { // IE 8 and older
+
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+    function vagaspincrever_se()
+        {
+                var data = "n=" + number;
+
+                xhr.open("POST", "../../php/AvagasInscreverSe.php", true); 
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+                xhr.send(data);
+                xhr.onreadystatechange = display_data;
+
+                function display_data() {
+
+                    if (xhr.readyState == 4) {
+
+                        if (xhr.status == 200) {
+
+                            
+                                items = xhr.responseText;
+                            
+                                document.getElementById('vagas').innerHTML = items ; 
+                                    
+                                console.log("number="+number);
+                            
+
+                        } else {
+
+                            alert('There was a problem with the request.');
+
+                        }
+                    }
+                }
+
+            //limit sql
+        }
+        function inscrever_se(idVaga){
+            var curriculo = document.getElementById("curriculo").value;
+                if (curriculo == 1) {
+                    var data = "idVaga=" + idVaga;
+                
+                    xhr.open("POST", "../../php/Ainscrever.php", true); 
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+                    xhr.send(data);
+                    xhr.onreadystatechange = display_data;
+                }
+                else{
+                    
+                    if (confirm("sem curriculo cadastrado, criar o curriculo ?") == true) {
+                        
+                        window.location.href = "./curriculos.php";          
+
+                    } 
+                        
+                }
+        }        
+        
+        function recarregarAPagina(){
+            window.location.reload();
+        }
+        
+
+
+    </script>
 </html>
 
