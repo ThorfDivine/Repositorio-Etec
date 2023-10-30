@@ -25,6 +25,9 @@
             $_SESSION['logo'] = $result[5];
             $_SESSION['cat'] = "emp";
             $_SESSION['id']= $result[0];
+            $_SESSION['Pudim7w7'] = true;
+
+            echo "<script> window.location.href='./empresa/home.php'</script>";
         }
 
         else{
@@ -33,7 +36,8 @@
 
         }
 
-        
+        $count = mysqli_num_rows($query);
+
         
         if($count == 1){
                         # se passou significa que a pessoa inceriu o cnpj e não o cpf
@@ -46,13 +50,13 @@
 
                 $_SESSION['Pudim7w7'] = true;
 
-                echo "<script> window.location.href='../HTML/empresa/home.php'</script>";
-            }else {
+                echo "<script> window.location.href='./funcionario/home.php'</script>";
+        }else {
                 echo "<script> 
                         alert('não esta cadastrado ou as informções estão incorretas'); 
                         window.location.href =  '../html/login.html';
                       </script>";
-            }
+        }
     }
 
 ?>

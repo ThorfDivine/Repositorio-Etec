@@ -9,7 +9,7 @@
 
     --marginLineHeader: calc(13vh + 15px);
 
-    --bkg: rgba(253, 237, 237, 0.39);
+    --bkg: rgba(253, 247, 247, 0.349);
 
     --grayCard: rgb(236, 202, 202);
     --grayCardHvr: rgba(255, 207, 207, 0.938);
@@ -146,6 +146,23 @@ a{
             align-items: center;
         }
 
+        .paralaxLayout{
+
+            display: flex;
+            position: relative;
+            overflow: hidden;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        
+        }
+
+        .wrap_True{
+            display: flex;
+            flex-wrap: wrap;
+        }
+
         .m1rem{
             font-size: 1rem;
         }
@@ -201,6 +218,9 @@ a{
 
         .w100prc{
             width: 100%;
+        }
+        .h100prc{
+            height: 100%;
         }
 
         .bigMarginTop{
@@ -357,3 +377,6 @@ a{
     }    
 }
 /* ____________ final ____________ */
+
+/* para anotar: cubic-bezier(0.61, 0.21, 0.24, 0.83) [dlcinha] */
+

@@ -128,7 +128,7 @@ session_start();
         }
         function verCurriculos(idVaga){
                 var data = "n=" + number;
-                xhr.open("POST", "../../php/Acurriculos.php?idVaga="+idVaga, true); 
+                xhr.open("POST", "../Acurriculos.php?idVaga="+idVaga, true); 
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
                 xhr.send(data);
                 xhr.onreadystatechange = display_data;
@@ -167,5 +167,59 @@ session_start();
         function recarregarAPagina(){
             window.location.reload();
         }
+        function fecharVaga(idVaga){
+
+if (confirm("fechar vaga?") == true) {
+    
+    var xhr;
+    var confirmar= "idVaga="+idVaga;
+
+    if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+
+        xhr = new XMLHttpRequest();
+
+    } else if (window.ActiveXObject) { // IE 8 and older
+
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+
+    xhr.open("POST", "../desativarVaga.php", true); 
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+    xhr.send(confirmar);  
+    xhr.onreadystatechange = window.location.reload();                  
+
+} 
+    else{
+    console.log("n foi ")
+}
+}
+
+function reativarVaga(idVaga){
+if (confirm("reativar vaga?") == true) {
+
+    var xhr;
+    var confirmar= "idVaga="+idVaga;
+
+    if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+
+        xhr = new XMLHttpRequest();
+
+    } else if (window.ActiveXObject) { // IE 8 and older
+
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+
+    xhr.open("POST", "../reativarVaga.php", true); 
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+    xhr.send(confirmar);   
+    xhr.onreadystatechange = window.location.reload();
+
+} 
+    else{
+    console.log("n foi ")
+}
+}
     </script>
 </html>

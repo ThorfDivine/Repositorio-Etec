@@ -1,0 +1,142 @@
+    /*         ALTERAÇÕES REFERENTES A PÁGINA DA EMPRESA          */
+    
+    .botoes{
+
+        & button{
+            height: 23px;
+            display: flex;
+            cursor: pointer;
+            margin-left: 25px;
+            border-radius: 8px;
+            margin-bottom: 7px;
+            align-items: center;
+            justify-content: center;
+            border: var(--btnCardBrd);
+        }
+
+        & .lixeira{
+            width: 28px;
+            background-color: rgb(255, 239, 239);
+            transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+                & span{
+                    color: rgb(78, 0, 0);
+                    font-size: 1.32rem;
+                }
+
+                &:hover{
+                    color: rgb(67, 0, 0);
+                    background-color: rgb(187, 26, 26);
+                }
+        }
+
+        & .detalhes{
+            width: 37%;
+            font-size: .78rem;
+            color: rgb(25, 25, 184);
+            border: var(--detalhesBrd);
+            background-color: rgb(243, 243, 255);
+            transition: .8s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+            &:hover{
+                color: rgb(74, 74, 204);
+                background-color: rgb(222, 222, 255);
+            }
+        }
+
+    }
+
+
+    .editar{
+        
+        height: 100%;
+        cursor: pointer;
+        padding-top: 5px;
+        
+        & span{
+            width: 100%;
+            height: 80%;
+            font-size: 2.4rem;
+            border-radius: 10px;
+            color: rgb(230, 230, 230);
+            background-color: rgb(33, 20, 96);
+            transition: .6s cubic-bezier(0.12, 0.35, 0.68, 0.53);
+            &:hover{
+                color: rgb(232, 232, 232);
+                background-color: rgb(11, 6, 42);
+            }
+        }
+        
+    }
+    
+    
+    /*         AREA DESTINADA A PARTE DE RESPONSSIVIDADE          */
+
+    .detalhes_Oferta{
+        justify-content: space-around;
+    }
+
+        .informacoes_da_vaga{
+            width: 44.42% !important;
+        }
+
+        .detalhes_Oferta{
+            justify-content: space-evenly;
+        }
+
+    .informacoes_da_vaga{
+        width: 44.42% !important;
+    }
+
+        .botoes{
+
+            width: 10%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+
+
+            & button{
+                height: 23px;
+            }
+
+            & .lixeira{
+                margin-top: 5px;
+            }
+            
+            & .detalhes{
+                width: 100%;
+                font-weight: bold;
+                font-size: .6rem;
+            }
+            & .desativo{
+                width: 30px;
+                background-color: rgb(250, 230, 230);
+                transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+                    & span{
+                        color: rgb(100, 0, 0);
+                        font-size: 1.32rem;
+                    }
+        
+                    &:hover{
+                        color: rgb(100, 0, 0);
+                        background-color: rgb(187, 26, 26);
+                    }
+            }
+            & .ativo{
+                width: 30px;
+                background-color: rgb(230, 230, 250);
+                transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+                    & span{
+                        color: rgb(0, 140, 0);
+                        font-size: 1.32rem;
+                    }
+        
+                    &:hover{
+                        color: rgb(0, 67, 0);
+                        background-color: rgb(26, 200, 26);
+                    }
+            }
+
+        }
+    
+

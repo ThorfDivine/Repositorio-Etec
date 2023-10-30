@@ -14,7 +14,7 @@ let logotipo
 let loginLnk
     loginLnk = '../login.html'
 let desconectLnk
-    desconectLnk = '../../php/desconectar.php'
+    desconectLnk = '../desconectar.php'
 let homeLnk
     homeLnk = './home.php'
 let redPoint
@@ -25,36 +25,40 @@ let redPoint
     if (document.title == 'BartoHelp - Candidato') {
 
         who = 'candidato'
-        linkWho = './areaDoCandidato.html'
+        linkWho = './areaDoCandidato.php'
 
         item1 = 'Meus Currículos'
-        LinkIt1 = '../../PHP/funcionario/meusCurriculos.html' // mudar para "PHP"
+        LinkIt1 = './meusCurriculos.php'
 
         let item2
             item2 = 'Certificados'
-        LinkIt2 = './certificados.html'
+        LinkIt2 = './certificados.php'
 
         item3 = `<div class="separadorCC"></div><div class="certificados flexR centralize"><div class="redPoint"></div><a href="${LinkIt2}"><p>${item2}</p></a></div>`
     
     }else if(document.title == 'BartoHelp - Area do Candidato'){
 
-        // Cod
+        search = '<div class="search"></div>'
 
     }else if(document.title == 'BartoHelp - Area do Usuário'){
 
-        // Cod
+        search = '<div class="search"></div>'
 
     }else if(document.title == 'BartoHelp - Currículos'){
 
         who = 'candidato'
-        linkWho = './areaDoCandidato.html'
+        linkWho = './areaDoCandidato.php'
+
+        search = ''
+
+        desconectLnk = './desconectar.php'
 
         item1 = 'Meus Currículos'
-        LinkIt1 = '../../PHP/funcionario/meusCurriculos.html' //mudar para = '.php'
+        LinkIt1 = './meusCurriculos.php'
         
         item3 = ''
 
-    }else if(document.title == 'BartoHelp - Criar Vagas' || document.title == 'BartoHelp - Editar Vagas'|| document.title == 'BartoHelp - Requisitos'|| document.title == 'BartoHelp - Detalhes' ){
+    }else if(document.title == 'BartoHelp - Criar Vagas' || document.title == 'BartoHelp - Editar Vagas'|| document.title == 'BartoHelp - Requisitos'|| document.title == 'BartoHelp - Detalhes' || document.title == 'BartoHelp - Empresa' ){
 
         logotipo = '../../contents/logo/logo.png'
 
@@ -65,14 +69,14 @@ let redPoint
 
         search = ''
         desconectLnk = '../desconectar.php'
-        homeLnk = '../../HTML/empresa/home.php'
+        homeLnk = './home.php'
 
         who = 'usuário'
         linkWho = '../../html/empresa/areaDoUsuario.html'
 
     }else if(document.title == 'BartoHelp - Area do Usuário'){
 
-        // Cod
+        search = ''
 
     }else if(document.title == 'BartoHelp - Meus Currículos'){
 
@@ -90,7 +94,7 @@ let redPoint
 
         homeLnk = '../../html/funcionario/home.html'
 
-    }else if(document.title == 'BartoHelp - Vagas'){    
+    }else if(document.title == 'BartoHelp - Vagas'){
 
         who = 'usuário'
         linkWho = '../../html/empresa/areaDoUsuario.html'
@@ -98,11 +102,11 @@ let redPoint
         item1 = 'Criar anúncio'
         LinkIt1 = './criarVagas.php'
 
-        desconectLnk = '../desconectar.php'
+        desconectLnk = './desconectar.php'
 
         item3 = ''
 
-        homeLnk = '../../html/empresa/home.php'
+        homeLnk = '../../html/empresa/home.html'
 
     }else{
 

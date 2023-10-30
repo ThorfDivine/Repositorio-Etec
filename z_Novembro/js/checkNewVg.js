@@ -24,9 +24,7 @@ let limpar
 let submit
     submit   = document.querySelector('#enviar')
 let submitA
-    submitA  = document.querySelector('#enviarA')
-let submitB  
-    submitB  = document.querySelector('#enviarB')
+    submitA   = document.querySelector('#enviarA')
 
     // Variavies de confirmação
 let manyInps = 0
@@ -127,6 +125,9 @@ let habilidd = false
             console.log(cep);
 
             if (cep == '') {
+                cepCheck = false
+
+                return;
             }
 
             fetch(`https://viacep.com.br/ws/${cep}/json/`,{
@@ -225,10 +226,9 @@ let habilidd = false
             
             submit.type = 'button'
             
-            submitA.href = './vagas.php'
+            submitA.href = ''
             
             document.getElementById('enviar').setAttribute('onclick', '')
-
 
         }
     }

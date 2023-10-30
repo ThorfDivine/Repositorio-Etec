@@ -1,6 +1,9 @@
+let bairroCidade
+    bairroCidade = document.querySelector('#bairroCidade')
 
 var querry
     querry = document.querySelectorAll('input')
+
 
 const form = document.querySelector('.formCadastro')
 let radio
@@ -42,6 +45,8 @@ var IsFull
 
 let strongPass
     strongPass = false
+let cepCheck
+    cepCheck = false
 let requires
     requires = 0
 
@@ -164,6 +169,56 @@ let requires
         
     }
 
+    function cep_verify(cep) {
+
+        if (cep == '') {
+            cepCheck = false
+            return;
+        }
+
+        fetch(`https://viacep.com.br/ws/${cep}/json/`,{
+                method: 'get'
+            })
+            .then((response)=>{
+            response.json().then((result)=>{
+
+                if (!result.erro) {
+
+                    bairroCidade.value = result.localidade     // cidade
+                    bairroCidade.value += ' _ '+result.bairro // bairro
+                    bairroCidade.value += ' _ '+result.uf    // estado
+                    document.getElementById("bairro_cidade").value = bairroCidade.value;
+
+                    console.log(bairroCidade.value);
+                    console.log("o valor do document é "+document.getElementById("bairro_cidade").value)
+
+                    cepCheck = true
+                    console.log("Check: "+cepCheck);
+                    console.log('==================');
+
+                }else{
+                    alert('Cep inválido! \nCódigo do erro: 400 Bad Request')
+                }
+            })
+            .catch((error)=>{
+                if (error) {
+                    alert(`Erro: ${error.message}`)
+
+                    if (cidade.value != '') {
+                        for (let i = 0; i < Fantasmas.length; i++) {
+                            const element = Fantasmas[i];
+                            
+                                element.value = ''
+                        }
+                    }
+
+                    cepCheck = false
+                }
+            })
+        })
+        
+    }
+
         function checkFromBttn(IsFull) {
             
             IsFull = 0
@@ -266,6 +321,9 @@ function checkPass(){
         
     IsFull = 0
 
+    // console.log(querry[0].value);
+
+
         for (let index = 0; index < querry.length; index++) {
             const element = querry[index];
             
@@ -312,6 +370,36 @@ function checkPass(){
                                         
                                     }
 
+                            if (element.id == 'cep' && element.value != ''  && !cepCheck) {
+
+                                if (((element.value.toString()).length == 8 || (element.value.toString()).length == 9)) {
+                
+                                    let cep 
+                                        cep = (element.value.toString()).replace('-', '')
+                                            cep = (element.value.toString()).replace('.', '')
+                                    
+                                            cep_verify(cep)
+                                            console.log(cepCheck);
+                                    
+                                }else{
+                                    console.log(cepCheck);
+                                    if ((element.value.toString()).length >= 9) {
+                                        console.log('hllo');
+                                        element.value.replace('-','')
+                                        if ((element.value.toString()).length >= 9) {
+                                        console.log('hllo 2');
+                                            element.value = ''
+                                            cepCheck = false
+                                            console.clear()
+                                        }
+                                    }else if((element.value.toString()).length < 8){
+                                        cepCheck = false
+                                        console.clear()
+                                    }
+                                }
+                
+                            }
+
                         } else if(e.key == 'Enter'){
 
                             if (!strongPass) {
@@ -344,7 +432,7 @@ function checkPass(){
                 }
 
             if (IsFull == 8) {
-                if (strongPass) {
+                if (strongPass && cepCheck) {
                     if (bttn.classList.contains('btnBlocked')) {
                         bttn.classList.remove('btnBlocked')
                     }

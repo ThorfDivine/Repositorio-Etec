@@ -15,15 +15,16 @@ header{
     display: flex;
     margin-top: 15px;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 
 }
     header::after{
         content:'';
-        width: 90%;
+        width: 95%;
         height: 3px;
         display: block;
         position: absolute;
+        left: 3%;
         top: var(--marginLineHeader);
         background-color: black;
     }
@@ -31,6 +32,7 @@ header{
 .conteinerLgCC{
     width: 20%;
     height: 90%;
+    margin-left: 15px;
 }
     logo{
         width: 100%;

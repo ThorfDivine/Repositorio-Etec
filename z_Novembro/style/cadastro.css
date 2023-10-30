@@ -18,8 +18,9 @@ header{
 
     width: 100%;
     display: flex;
-    justify-content: center;
     margin-top: 5vh;
+    justify-content: center;
+    background-color: var(--bkg);
 
 }
 
@@ -69,8 +70,8 @@ header{
     width: 50%;
     margin-left: 5%;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
 }
 
 .locatePhone{
