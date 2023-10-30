@@ -45,8 +45,8 @@
                         </div>
                     </div>
                     <div class=\"flexC detalhes_Oferta spaceEvenly\">
-                        <button class=\"cadastrar\" onClick=\" increver_se('".$id_vaga."') \">Cadastrar-se</button>
-                        <button>Mais Detalhes</button>
+                        <button class=\"cadastrar\" onClick=\" inscrever_se('".$id_vaga."') \">Cadastrar-se</button>
+                        <button><a href=\"./maisDetalhesVaga.php?idVaga=".$id_vaga."\">Mais Detalhes</a></button>
                     </div>
                 </div>";              
                       

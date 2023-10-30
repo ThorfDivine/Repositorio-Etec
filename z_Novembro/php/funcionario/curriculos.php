@@ -1,5 +1,16 @@
 <?php 
 session_start();
+if(
+    !isset($_SESSION) 
+    || $_SESSION =="" 
+    || $_SESSION == null 
+    || !isset($_SESSION['cpf']) 
+    ||  $_SESSION['cpf'] =="" 
+    || $_SESSION['cpf'] == null 
+    || empty($_SESSION['cpf'])
+    
+    ){header('Location: ../../html/login.html');}  
+   
 include("../conexao.php");
 $cpf = $_SESSION['cpf'];
 $busca = mysqli_query($con, "select * from usuario where cpf = '$cpf'");

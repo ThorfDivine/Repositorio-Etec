@@ -22,7 +22,7 @@ let redPoint
 
     //      ====================================================================================         \\
 
-    if (document.title == 'BartoHelp - Candidato') {
+    if (document.title == 'BartoHelp - Candidato' || document.title == "BartoHelp - sobre a vaga" ) {
 
         who = 'candidato'
         linkWho = './areaDoCandidato.php'
@@ -74,7 +74,7 @@ let redPoint
         who = 'usuário'
         linkWho = '../../html/empresa/areaDoUsuario.html'
 
-    }else if(document.title == 'BartoHelp - Area do Usuário'){
+    }else if(document.title == 'BartoHelp - Area do Usuário' ){
 
         search = ''
 

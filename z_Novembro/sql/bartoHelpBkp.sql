@@ -37,7 +37,7 @@ INSERT INTO `competencia` (`id_competencia`, `tipo`, `descricao`) VALUES
 	(6, 'Liderança', 'É a habilidade de comandar, motivar, orientar e inspirar pessoas de forma positiva em direção a uma meta compartilhada.'),
 	(7, 'Planejamento', 'Ela está relacionada à capacidade de pensar no futuro. '),
 	(8, 'Organização', 'Essas são habilidades que permitem que você use seus recursos de forma eficiente e eficaz.'),
-	(9, 'Proatividade', 'Geralmente, as pessoas provagaativas têm uma boa visão de futuro, identificando necessidades e antecipando problemas, o que confere vantagens para sua equipe e empresa.'),
+	(9, 'Proatividade', 'Geralmente, as pessoas proativas têm uma boa visão de futuro, identificando necessidades e antecipando problemas, o que confere vantagens para sua equipe e empresa.'),
 	(10, 'Negociação', 'Tem a ver com capacidades diversas como comunicação eficiente e assertiva, planejamento, organização, disciplina, determinação, inovação e flexibilidade.'),
 	(11, 'Determinação', 'É a capacidade de persistir em uma tarefa, mesmo quando ela é desafiadora, e de manter o foco naquilo que se deseja alcançar.'),
 	(12, 'Tolerância', 'Se relaciona ao controle de estresse em situações difíceis, como, por exemplo, ao ouvir feedbacks negativos.'),
@@ -71,9 +71,9 @@ CREATE TABLE IF NOT EXISTS `competencia_vaga` (
   KEY `id_competencia` (`id_competencia`),
   CONSTRAINT `competencia_vaga_ibfk_1` FOREIGN KEY (`id_vaga`) REFERENCES `vaga` (`id_vaga`),
   CONSTRAINT `competencia_vaga_ibfk_2` FOREIGN KEY (`id_competencia`) REFERENCES `competencia` (`id_competencia`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela bartohelp.competencia_vaga: ~14 rows (aproximadamente)
+-- Copiando dados para a tabela bartohelp.competencia_vaga: ~28 rows (aproximadamente)
 INSERT INTO `competencia_vaga` (`id_competencia_vaga`, `id_vaga`, `id_competencia`) VALUES
 	(1, 5, 1),
 	(37, 5, 3),
@@ -88,7 +88,21 @@ INSERT INTO `competencia_vaga` (`id_competencia_vaga`, `id_vaga`, `id_competenci
 	(46, 6, 4),
 	(47, 7, 1),
 	(48, 7, 3),
-	(49, 7, 2);
+	(49, 7, 2),
+	(51, 4, 5),
+	(52, 4, 2),
+	(53, 4, 9),
+	(55, 1, 1),
+	(56, 1, 13),
+	(57, 8, 4),
+	(58, 8, 14),
+	(59, 8, 7),
+	(60, 8, 8),
+	(61, 9, 1),
+	(62, 9, 2),
+	(63, 9, 7),
+	(64, 9, 9),
+	(65, 9, 8);
 
 -- Copiando estrutura para tabela bartohelp.empresa
 CREATE TABLE IF NOT EXISTS `empresa` (
@@ -102,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `empresa` (
   PRIMARY KEY (`cnpj`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela bartohelp.empresa: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela bartohelp.empresa: ~1 rows (aproximadamente)
 INSERT INTO `empresa` (`cnpj`, `nome`, `gmail`, `senha`, `telefone`, `logo`, `descricao`) VALUES
 	('213-5', 'gustavo batista de oliveira santos ThorfDivine', 'gustavobatistabos.td@gmail.com', 'MTIzNDVHb2pvVVNvbGEkJA==', '93951-8083', '../../contents/logo/dell.png', NULL);
 
@@ -178,16 +192,19 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `nascimento` varchar(12) NOT NULL,
   `cep` varchar(10) NOT NULL,
   `bairro_cidade` varchar(255) NOT NULL,
+  `curriculo` int DEFAULT NULL,
   PRIMARY KEY (`cpf`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela bartohelp.usuario: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela bartohelp.usuario: ~2 rows (aproximadamente)
+INSERT INTO `usuario` (`email`, `senha`, `telefone`, `foto`, `nome`, `cpf`, `nascimento`, `cep`, `bairro_cidade`, `curriculo`) VALUES
+	('ramon', 'MTIzNDVHb2pvVVNvbGEkJA==', '93951-8083', NULL, 'Ramon', '44157522095', '2006-10-03', '06535160', 'Santana de Parnaíba _ Cidade São Pedro - Gleba A _ SP', 0),
+	('gustavobatistabos.td@gmail.com', 'MTIzNDVHb2pvVVNvbGEkJA==', '93951-8083', NULL, 'Gustavo B', '47319366835', '2006-10-03', '06535160', '', 0);
 
 -- Copiando estrutura para tabela bartohelp.vaga
 CREATE TABLE IF NOT EXISTS `vaga` (
   `id_vaga` int NOT NULL AUTO_INCREMENT,
   `titulo` varchar(100) DEFAULT NULL,
-  `requisitos` text,
   `responsabilidades` text,
   `beneficios` text,
   `data_pub` varchar(20) DEFAULT NULL,
@@ -196,18 +213,21 @@ CREATE TABLE IF NOT EXISTS `vaga` (
   `cnpj_empresa` varchar(20) DEFAULT NULL,
   `salario` varchar(20) DEFAULT NULL,
   `cep` varchar(15) DEFAULT NULL,
+  `endereco` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_vaga`),
   KEY `cnpj_empresa` (`cnpj_empresa`),
   CONSTRAINT `vaga_ibfk_1` FOREIGN KEY (`cnpj_empresa`) REFERENCES `empresa` (`cnpj`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela bartohelp.vaga: ~4 rows (aproximadamente)
-INSERT INTO `vaga` (`id_vaga`, `titulo`, `requisitos`, `responsabilidades`, `beneficios`, `data_pub`, `data_max`, `aberta`, `cnpj_empresa`, `salario`, `cep`) VALUES
-	(1, 'Programador jr.', NULL, 'noções minimas  de: back-end, php, mysqli, ajax;', 'vale transportes, vale alimentação, saúde;', '21/10/2023', '2028-10-03', 1, '213-5', '2300', '06535160'),
-	(4, 'programador pleno', NULL, 'tudo', 'vale transporte, vale saúde, vale alimentação', '24/10/2023', '2029-12-03', 1, '213-5', '2.800,00', '06535160'),
-	(5, 'Programador senior', NULL, 'programar em js; programar em php; programar em react;', 'varios vales', '24/10/2023', '2028-02-03', 1, '213-5', '3.500,00', '06535160'),
-	(6, 'Auxiliar de logistica', NULL, 'carregar caixa', 'nada', '24/10/2023', '2024-10-03', 1, '213-5', '2.500', '06535160'),
-	(7, 'Auxiliar de RH', NULL, 'papelada', 'nenhum mesmo\r\n', '24/10/2023', '2029-10-03', 1, '213-5', '1.130,00', '06535160');
+-- Copiando dados para a tabela bartohelp.vaga: ~7 rows (aproximadamente)
+INSERT INTO `vaga` (`id_vaga`, `titulo`, `responsabilidades`, `beneficios`, `data_pub`, `data_max`, `aberta`, `cnpj_empresa`, `salario`, `cep`, `endereco`) VALUES
+	(1, 'Programador', 'programar em js; programar em php; programar em react', 'vale transportes, vale alimentação, saúde;', '21/10/2023', '2028-10-03', 1, '213-5', '2300', '06535160', NULL),
+	(4, 'programador', '', 'tudo', '24/10/2023', '', 1, '213-5', '213-5', '2.800,00', NULL),
+	(5, 'Programador senior', 'programar em js; programar em php; programar em react;', 'varios vales', '24/10/2023', '2028-02-03', 1, '213-5', '3.500,00', '06535160', NULL),
+	(6, 'Auxiliar de logistica', 'carregar caixa', 'nada', '24/10/2023', '2024-10-03', 1, '213-5', '2.500', '06535160', NULL),
+	(7, 'Auxiliar de RH', 'papelada', 'nenhum mesmo\r\n', '24/10/2023', '2029-10-03', 1, '213-5', '1.130,00', '06535160', NULL),
+	(8, 'auxiliar de limpesa', 'limpa', 'vale refeição, vale transporte', '28/10/2023', '2023-11-05', 0, '213-5', '1.330,00', '06535160', NULL),
+	(9, 'auxiliar de logistica', 'carrega caixa', 'cafézinho e vale transporte', '29/10/2023', '2025-01-01', 1, '213-5', '3.500,00', '06535160', NULL);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

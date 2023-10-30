@@ -1,6 +1,17 @@
 <?php 
 session_start();
 include('../conexao.php');
+if(
+    !isset($_SESSION) 
+    || $_SESSION =="" 
+    || $_SESSION == null 
+    || !isset($_SESSION['cpf']) 
+    ||  $_SESSION['cpf'] =="" 
+    || $_SESSION['cpf'] == null 
+    || empty($_SESSION['cpf'])
+    
+    ){header('Location: ../../html/login.html');}  
+   
 $cpf = $_SESSION['cpf'];
 $curriculo = mysqli_query($con, "SELECT curriculo from usuario where cpf ='$cpf'");
 $curriculo1 = mysqli_fetch_row($curriculo);
