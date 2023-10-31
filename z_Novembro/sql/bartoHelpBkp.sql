@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `competencia_vaga` (
   CONSTRAINT `competencia_vaga_ibfk_2` FOREIGN KEY (`id_competencia`) REFERENCES `competencia` (`id_competencia`)
 ) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela bartohelp.competencia_vaga: ~28 rows (aproximadamente)
+-- Copiando dados para a tabela bartohelp.competencia_vaga: ~27 rows (aproximadamente)
 INSERT INTO `competencia_vaga` (`id_competencia_vaga`, `id_vaga`, `id_competencia`) VALUES
 	(1, 5, 1),
 	(37, 5, 3),
@@ -116,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `empresa` (
   PRIMARY KEY (`cnpj`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela bartohelp.empresa: ~1 rows (aproximadamente)
+-- Copiando dados para a tabela bartohelp.empresa: ~0 rows (aproximadamente)
 INSERT INTO `empresa` (`cnpj`, `nome`, `gmail`, `senha`, `telefone`, `logo`, `descricao`) VALUES
 	('213-5', 'gustavo batista de oliveira santos ThorfDivine', 'gustavobatistabos.td@gmail.com', 'MTIzNDVHb2pvVVNvbGEkJA==', '93951-8083', '../../contents/logo/dell.png', NULL);
 
@@ -171,7 +171,7 @@ CREATE TABLE IF NOT EXISTS `interesse` (
   `id_usuario` varchar(12) DEFAULT NULL,
   `id_vaga` int DEFAULT NULL,
   `interessado` tinyint(1) DEFAULT NULL,
-  `aprovacao` double(5,2) DEFAULT NULL,
+  `aprovacao` int DEFAULT NULL,
   PRIMARY KEY (`id_interesse`),
   KEY `id_usuario` (`id_usuario`),
   KEY `id_vaga` (`id_vaga`),
