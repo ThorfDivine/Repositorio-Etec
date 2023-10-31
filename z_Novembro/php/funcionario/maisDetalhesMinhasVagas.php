@@ -14,9 +14,6 @@ else{
 include('../conexao.php');
 
 $cpf = $_SESSION['cpf'];
-$curriculo = mysqli_query($con, "SELECT curriculo from usuario where cpf ='$cpf'");
-$curriculo1 = mysqli_fetch_row($curriculo);
-echo "<input type=\"text\" style=\"display:none\" value= \"".$curriculo1[0]."\" id=\"curriculo\"/>";
 
 $resposta="";
 
@@ -34,6 +31,11 @@ $buscaLogo = $resultadoEmp[5];
 $dataLimite = $resultadoVaga[5];
 
 $dataLimite = implode("/",array_reverse(explode("-",$dataLimite)));
+
+$buscaInteresse = mysqli_query($con, "SELECT * from interesse where id_usuario = '$cpf' and id_vaga = '$idVaga'");
+$Interessados = mysqli_fetch_row($buscaInteresse);
+
+
 if ($buscaLogo=="" || $buscaLogo==null || $buscaLogo == " ") {
     $buscaLogo = "../../contents/imgs/3106921.png";
 }
@@ -77,7 +79,7 @@ $resultado2;
             <link rel="stylesheet" href="../../style/style.css">
             <link rel="stylesheet" href="../../style/header.css">
             <link rel="stylesheet" href="../../style/home_empresa.css">
-            <link rel="stylesheet" href="../../style/detalhesVagaUser.css">
+            <link rel="stylesheet" href="../../style/detalhesminhaVagaUser.css">
         <!-- End -->
     <title>BartoHelp - sobre a vaga</title>
 </head>
@@ -100,11 +102,12 @@ $resultado2;
             <h4> <?php echo "R$ ".$resultadoVaga[8]?> </h4>
             <h4> <?php echo $resultadoVaga[4]." - ".$dataLimite;?> </h4>
         </div>
-        
-            <button class="candidatarVaga" <?php echo "onclick=\"inscrever_se( $idVaga)\" ";?>>
-                candidatar-se        
+        <?php 
+        if( $Interessados[4] != 3 ){ ?>
+            <button class="CancelarVaga" <?php echo "onclick=\"cancelar($idVaga)\" ";?>>
+                Cancelar        
             </button>
-        
+        <?php } ?>
 
     </div>
     <div class="contedor">
@@ -163,10 +166,12 @@ $resultado2;
     <script src="../../js/footer.js"></script>
     <script src="../../js/confirmDelet.js"></script>
     <script>
-    function inscrever_se(idVaga){
+    function cancelar(idVaga){
             var curriculo = document.getElementById("curriculo").value;
                 if (curriculo == 1) {
                     var data = "idVaga=" + idVaga;
+                    
+                    var data = "n=" + number;
 
                     var xhr;
 
@@ -179,10 +184,10 @@ $resultado2;
                         xhr = new ActiveXObject("Microsoft.XMLHTTP");
                     }
 
-                    xhr.open("POST", "../Ainscrever.php", true); 
+                    xhr.open("POST", "../Acancelar.php", true); 
                     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
                     xhr.send(data);
-                    xhr.onreadystatechange = window.location.href = "./maisDetalhesMinhasVagas.php?idVaga="+idVaga;
+                    xhr.onreadystatechange = window.location.href = "./home.php";
                 }
                 else{
                     
@@ -190,7 +195,7 @@ $resultado2;
                         
                         window.location.href = "./curriculos.php";          
 
-                    }
+                    } 
                         
                 }
         }        

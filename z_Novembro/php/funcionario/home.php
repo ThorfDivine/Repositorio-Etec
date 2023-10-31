@@ -34,7 +34,7 @@ echo "<input type=\"text\" style=\"display:none\" value= \"".$curriculo1[0]."\" 
     <title>BartoHelp - Candidato</title>
 </head>
 
-<body onload="vagaspincrever_se()">
+<body onload="both()" >
     
     <script> var number = 0 ;</script>
     <header id="topo">
@@ -44,61 +44,13 @@ echo "<input type=\"text\" style=\"display:none\" value= \"".$curriculo1[0]."\" 
 
         <!-- o maximo de cards que essa section aguenta são 6 de cada [disponiveis e inscritas] -->
 
-        <div class="vagasAceitas">
+        <div class="vagasAceitas" id="vagasAceitas">
 
             <div class="conteinerH2">
                 <h2>Vagas Inscritas</h2>
             </div>
 
-            <div class="cardVaga">
-                <div class="imgLogo img_conteiner">
-                    <img src="#" alt="logo">
-                </div>
-                <div class="informacoes_da_vaga">
-                    <p><strong>Programador junior</strong></p><br>
-                    <div>
-                        <p>Status: <i>detalhes</i></p>
-                            <button class="lixeira"><span class="material-symbols-outlined">delete</span></button>
-                            <button class="detalhes">Mais Detalhes</button>
-                    </div>
-                </div>
-                <div class="redPoint aprovado">
-
-                </div>
-            </div>
-            <div class="cardVaga">
-                <div class="imgLogo img_conteiner">
-                    <img src="#" alt="logo">
-                </div>
-                <div class="informacoes_da_vaga">
-                    <p><strong>Auxiliar de logistica</strong></p><br>
-                    <div>
-                        <p>Status: <i>detalhes</i></p>
-                            <button class="lixeira"><span class="material-symbols-outlined">delete</span></button>
-                            <button class="detalhes">Mais Detalhes</button>
-                    </div>
-                </div>
-                <div class="redPoint analize">
-
-                </div>
-            </div>
-            <div class="cardVaga">
-                <div class="imgLogo img_conteiner">
-                    <img src="#" alt="logo">
-                </div>
-                <div class="informacoes_da_vaga">
-                    <p><strong>Analista de recursos</strong></p><br>
-                    <div>
-                        <p>Status: <i>detalhes</i></p>
-                            <button class="lixeira"><span class="material-symbols-outlined">delete</span></button>
-                            <button class="detalhes">Mais Detalhes</button>
-                    </div>
-                </div>
-                <div class="redPoint reprovado">
-
-                </div>
-            </div>
-
+            
         </div>
             <div class="middleLine">
                 <!-- ==================================================================================================== -->
@@ -126,7 +78,17 @@ echo "<input type=\"text\" style=\"display:none\" value= \"".$curriculo1[0]."\" 
     <script src="../../js/confirmDelet.js"></script>
     <script>
     
-    var xhr;
+    
+    
+    function both(){
+                vagasInscritas();
+                vagaspincrever_se();
+    }
+    function vagaspincrever_se()
+        {
+                var data = "n=" + number;
+
+                var xhr;
 
             if (window.XMLHttpRequest) { // Mozilla, Safari, ...
 
@@ -136,10 +98,6 @@ echo "<input type=\"text\" style=\"display:none\" value= \"".$curriculo1[0]."\" 
 
                 xhr = new ActiveXObject("Microsoft.XMLHTTP");
             }
-
-    function vagaspincrever_se()
-        {
-                var data = "n=" + number;
 
                 xhr.open("POST", "../../php/AvagasInscreverSe.php", true); 
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
@@ -157,7 +115,7 @@ echo "<input type=\"text\" style=\"display:none\" value= \"".$curriculo1[0]."\" 
                             
                                 document.getElementById('vagas').innerHTML = items ; 
                                     
-                                console.log("number="+number);
+                                console.log("cheguei no inscrever-se ");
                             
 
                         } else {
@@ -190,6 +148,48 @@ echo "<input type=\"text\" style=\"display:none\" value= \"".$curriculo1[0]."\" 
                         
                 }
         }        
+
+        function vagasInscritas(){
+            var data = "n=" + number;
+
+            var xhr;
+
+            if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+
+                xhr = new XMLHttpRequest();
+
+            } else if (window.ActiveXObject) { // IE 8 and older
+
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+                xhr.open("POST", "../../php/AvagasInscritas.php", true); 
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+                xhr.send(data);
+                xhr.onreadystatechange = display_data;
+
+                function display_data() {
+
+                    if (xhr.readyState == 4) {
+
+                        if (xhr.status == 200) {
+
+                            
+                                items = xhr.responseText;
+                            
+                                document.getElementById('vagasAceitas').innerHTML = items ; 
+                                    
+                                console.log("cheguei nos inscritas");
+
+                        } else {
+
+                            alert('There was a problem with the request.');
+
+                        }
+                    }
+                }
+             
+        }
         
         function recarregarAPagina(){
             window.location.reload();

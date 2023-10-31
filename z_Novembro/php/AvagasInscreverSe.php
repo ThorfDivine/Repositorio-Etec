@@ -15,9 +15,8 @@
             $num = mysqli_num_rows($busca);
             $res= $res.
             "<div class=\"respostaElse\">
-                <h1>Ao que parece você não possui anúncios de vagas</h1>
-                <h3>Clique <a href=\"../../php/criarVagas.php\">aqui</a> para iniciar sua jornada!</h3>
-            </div>";
+                <h1>Ao que parece não existem anúncios de vagas</h1>
+             </div>";
         }
         
         else{
