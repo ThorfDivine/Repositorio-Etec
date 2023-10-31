@@ -167,11 +167,8 @@ $resultado2;
     <script src="../../js/confirmDelet.js"></script>
     <script>
     function cancelar(idVaga){
-            var curriculo = document.getElementById("curriculo").value;
-                if (curriculo == 1) {
-                    var data = "idVaga=" + idVaga;
-                    
-                    var data = "n=" + number;
+            
+                    var data = "idVaga=" + idVaga;         
 
                     var xhr;
 
@@ -188,16 +185,8 @@ $resultado2;
                     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
                     xhr.send(data);
                     xhr.onreadystatechange = window.location.href = "./home.php";
-                }
-                else{
-                    
-                    if (confirm("sem curriculo cadastrado, criar o curriculo ?") == true) {
+                
                         
-                        window.location.href = "./curriculos.php";          
-
-                    } 
-                        
-                }
         }        
     </script>
 </html> <?php } ?>

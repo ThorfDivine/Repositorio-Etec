@@ -136,7 +136,7 @@ echo "<input type=\"text\" style=\"display:none\" value= \"".$curriculo1[0]."\" 
                     xhr.open("POST", "../../php/Ainscrever.php", true); 
                     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
                     xhr.send(data);
-                    xhr.onreadystatechange = display_data;
+                    xhr.onreadystatechange = recarregarAPagina();
                 }
                 else{
                     
@@ -191,6 +191,29 @@ echo "<input type=\"text\" style=\"display:none\" value= \"".$curriculo1[0]."\" 
              
         }
         
+        function cancelar(idVaga){
+            
+            var data = "idVaga=" + idVaga;         
+
+            var xhr;
+
+            if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+
+                xhr = new XMLHttpRequest();
+
+            } else if (window.ActiveXObject) { // IE 8 and older
+
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            xhr.open("POST", "../Acancelar.php", true); 
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+            xhr.send(data);
+            xhr.onreadystatechange = recarregarAPagina();
+        
+                
+}
+
         function recarregarAPagina(){
             window.location.reload();
         }

@@ -56,8 +56,8 @@
 
                                     <div>
                                         <p>Status: <i>detalhes</i></p>
-                                            <button class=\"lixeira\"><span class=\"material-symbols-outlined\">delete</span></button>
-                                            <button class=\"detalhes\">Mais Detalhes</button>
+                                            <button class=\"lixeira\" onclick=\" cancelar($idVaga) \"><span class=\"material-symbols-outlined\">delete</span></button>
+                                            <button class=\"detalhes\" ><a href=\" ./maisDetalhesMinhasVagas.php?idVaga=".$id_vaga." \">Mais Detalhes </a></button>
                                     </div>
 
                                 </div>
