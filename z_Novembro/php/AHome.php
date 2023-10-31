@@ -6,7 +6,9 @@
     $cnpj = $_SESSION['id'];
     $busca = mysqli_query($con, "SELECT * FROM vaga WHERE cnpj_empresa = \"$cnpj\" LIMIT 6 OFFSET $num");
     $resultado2 = mysqli_fetch_row($busca);
-    $res = "";
+    $res = "<div class=\"conteinerH2\">
+                <h2>Vagas Anunciadas</h2>
+            </div>";
     
         if (empty($resultado2) || !$resultado2 || $resultado2 == "" || $resultado2 == null || $resultado2 == " " && $num <=1) {
             $num = mysqli_num_rows($busca);
@@ -14,7 +16,13 @@
             "<div class=\"respostaElse\">
                 <h1>Ao que parece você não possui anúncios de vagas</h1>
                 <h3>Clique <a href=\"../../php/criarVagas.php\">aqui</a> para iniciar sua jornada!</h3>
-            </div>";
+            </div>
+            
+            <div class=\"altera\">
+                <button class=\"esquerda\" onclick=\"rmv()\"><</button>
+                <button class=\"direita\"  onclick=\"add()\">></button>
+            </div> 
+            <script>autorizacao1=false;</script>";
         }
         
         else{
@@ -84,11 +92,19 @@
                                     </div>
                                 </a>
                             </div>
-                        </div>";
+                        </div>
+                        ";
                 }    
                 
                       
             }
+            $res= $res."
+            <div class=\"altera\">
+                <button class=\"esquerda\" onclick=\"rmv()\"><</button>
+                <button class=\"direita\"  onclick=\"add()\">></button>
+            </div>
+            <script> autorizacao1=true; </script>
+            ";
        }
             
         

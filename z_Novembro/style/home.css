@@ -197,6 +197,34 @@ section{
                     background-color: rgb(187, 26, 26);
                 }
         }
+         .desativo{
+            width: 30px;
+            background-color: rgb(250, 230, 230);
+            transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+                & span{
+                    color: rgb(100, 0, 0);
+                    font-size: 1.32rem;
+                }
+    
+                &:hover{
+                    color: rgb(100, 0, 0);
+                    background-color: rgb(187, 26, 26);
+                }
+        }
+         .ativo{
+            width: 30px;
+            background-color: rgb(230, 230, 250);
+            transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+                & span{
+                    color: rgb(0, 140, 0);
+                    font-size: 1.32rem;
+                }
+    
+                &:hover{
+                    color: rgb(0, 67, 0);
+                    background-color: rgb(26, 200, 26);
+                }
+        }
 
     .mostrarMais{
 

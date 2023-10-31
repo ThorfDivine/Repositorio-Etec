@@ -7,14 +7,24 @@
     $idVaga = $_GET['idVaga'];
     $busca = mysqli_query($con, "SELECT * FROM interesse WHERE id_vaga = \"$idVaga\" LIMIT 6 OFFSET $num");
     $resultado2 = mysqli_fetch_row($busca);
-    $res = "";
+    $res = "   <div class=\"conteinerH2\">
+                    <h2>Currículos Disponiveis</h2>
+                </div>
+ ";
     
         if (empty($resultado2) || !$resultado2 || $resultado2 == "" || $resultado2 == null || $resultado2 == " " && $num <=1) {
             $num = mysqli_num_rows($busca);
             $res= $res.
             "<div class=\"respostaElse\">
                 <h2>Ao que parece Ninguem se inscreveu pra essa vaga</h2>
-            </div>";
+            </div>
+
+            <div class=\"altera\">
+                <button class=\"esquerda\" onclick=\"rmv1($idVaga)\"><</button>
+                <button class=\"direita\"  onclick=\"add1($idVaga)\">></button>
+            </div>
+            <script>autorizacao2=false;</script>
+            ";
         }
         
         else{   
@@ -51,8 +61,12 @@
 
                         ";
                 }
-           
             }
+            $res = $res."<div class=\"altera\">
+                            <button class=\"esquerda\" onclick=\"rmv1($idVaga)\"><</button>
+                            <button class=\"direita\"  onclick=\"add1($idVaga)\">></button>
+                        </div>
+                        <script>autorizacao2=true;</script>";
        }
             
         

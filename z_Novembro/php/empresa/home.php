@@ -34,33 +34,28 @@ session_start();
 </head>
 <body onload="adicionar()">
     
-    <script> var number = 0 ;</script>
+    <script> var number1 = 0 ; var number2 = 0; autorizacao1 = true; autorizacao2 = true;</script>
     <header id="topo"></header>
 
     <section class="bigMarginTop">
-        <div class="vagasAceitas">
+        <div class="vagasAceitas" id="vagas">
 
             <div class="conteinerH2">
                 <h2>Vagas Anunciadas</h2>
             </div>
-            <div id="vagas">
-                
-            </div>
+
             
 
         </div>
         <div class="middleLine">
             <!-- ==================================================================================================== -->
         </div>
-        <div class="vagasDisponiveis">
-
-            <div class="conteinerH2">
+        <div class="vagasDisponiveis" id="curriculos">
+            <div class="conteinerH2" >
                 <h2>Currículos Disponiveis</h2>
             </div>
-            <div class="curricolos" id="curriculos">
+           
 
-            </div>
-            
             
         </div>
     </section>
@@ -92,7 +87,7 @@ session_start();
 
     function adicionar()
         {
-            var data = "n=" + number;
+            var data = "n=" + number1;
             
             
 
@@ -113,7 +108,6 @@ session_start();
                             
                                 document.getElementById('vagas').innerHTML = items ; 
                                     
-                                console.log("number="+number);
                             
 
                         } else {
@@ -126,8 +120,9 @@ session_start();
 
             //limit sql
         }
+
         function verCurriculos(idVaga){
-                var data = "n=" + number;
+                var data = "n=" + number2;
                 xhr.open("POST", "../Acurriculos.php?idVaga="+idVaga, true); 
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
                 xhr.send(data);
@@ -155,6 +150,7 @@ session_start();
                     }
                 }
         }
+
         function dispensar(cpf) {
 
                 xhr.open("POST", "../../php/dispensar.php?cpf="+cpf, true); 
@@ -164,62 +160,93 @@ session_start();
 
                 
         }
+
         function recarregarAPagina(){
             window.location.reload();
         }
+
         function fecharVaga(idVaga){
 
-if (confirm("fechar vaga?") == true) {
+            if (confirm("fechar vaga?") == true) {
     
-    var xhr;
-    var confirmar= "idVaga="+idVaga;
+                var xhr;
+                var confirmar= "idVaga="+idVaga;
 
-    if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+                if (window.XMLHttpRequest) { // Mozilla, Safari, ...
 
-        xhr = new XMLHttpRequest();
+                    xhr = new XMLHttpRequest();
 
-    } else if (window.ActiveXObject) { // IE 8 and older
+                } else if (window.ActiveXObject) { // IE 8 and older
 
-        xhr = new ActiveXObject("Microsoft.XMLHTTP");
-    }
+                    xhr = new ActiveXObject("Microsoft.XMLHTTP");
+                }
 
 
-    xhr.open("POST", "../desativarVaga.php", true); 
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
-    xhr.send(confirmar);  
-    xhr.onreadystatechange = window.location.reload();                  
+            xhr.open("POST", "../desativarVaga.php", true); 
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+            xhr.send(confirmar);  
+            xhr.onreadystatechange = window.location.reload();                  
 
-} 
-    else{
-    console.log("n foi ")
+            } 
+            else{
+            console.log("n foi ")
+            }
 }
-}
 
-function reativarVaga(idVaga){
-if (confirm("reativar vaga?") == true) {
+        function reativarVaga(idVaga){
+            if (confirm("reativar vaga?") == true) {
 
-    var xhr;
-    var confirmar= "idVaga="+idVaga;
+                var xhr;
+                var confirmar= "idVaga="+idVaga;
 
-    if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+                if (window.XMLHttpRequest) { // Mozilla, Safari, ...
 
-        xhr = new XMLHttpRequest();
+                    xhr = new XMLHttpRequest();
 
-    } else if (window.ActiveXObject) { // IE 8 and older
+                } else if (window.ActiveXObject) { // IE 8 and older
 
-        xhr = new ActiveXObject("Microsoft.XMLHTTP");
-    }
+                    xhr = new ActiveXObject("Microsoft.XMLHTTP");
+                }
 
 
-    xhr.open("POST", "../reativarVaga.php", true); 
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
-    xhr.send(confirmar);   
-    xhr.onreadystatechange = window.location.reload();
+                xhr.open("POST", "../reativarVaga.php", true); 
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+                xhr.send(confirmar);   
+                xhr.onreadystatechange = window.location.reload();
 
-} 
-    else{
-    console.log("n foi ")
-}
-}
+            } 
+                else{
+                console.log("n foi ")
+            }
+        }
+
+        function add(){
+            if(number1>=0 && autorizacao1==true){
+                number1+=6;
+                window.scrollTo(0, 0);
+                adicionar();    
+            }
+        }
+        function rmv(){
+            if(number1>0){
+                number1-=6;
+                window.scrollTo(window.scrollY, 0);
+                adicionar();    
+            }
+        }
+        function add2(){
+            if(number2>=0 && autorizacao2==true){
+                number2+=6;
+                window.scrollTo(0, 0);
+                verCurriculos(idVaga)
+            }
+        }
+        function rmv2(){
+            if(number2>0){
+                number2-=6;
+                window.scrollTo(window.scrollY, 0);
+                verCurriculos(idVaga)    
+            }
+        }
     </script>
 </html>
