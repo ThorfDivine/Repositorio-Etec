@@ -68,7 +68,11 @@ echo "<input type=\"text\" style=\"display:none\" value= \"".$curriculo1[0]."\" 
     <div class="mostrarMais bigMarginBotom spaceAround">
         <div></div>
         <div></div>
-        <a href="#topo"><button>Mostrar mais</button></a>
+        <!--<a href="#topo" onclick="add()"><button>Mostrar mais</button></a>-->
+        <div class="altera">
+        <button class="esquerda" onclick="rmv() "><</button>
+        <button class="direita"  onclick="add()"> ></button>
+        </div>
     </div>
 
     <footer></footer>
@@ -78,7 +82,7 @@ echo "<input type=\"text\" style=\"display:none\" value= \"".$curriculo1[0]."\" 
     <script src="../../js/confirmDelet.js"></script>
     <script>
     
-    
+    var items1="";
     
     function both(){
                 vagasInscritas();
@@ -111,9 +115,9 @@ echo "<input type=\"text\" style=\"display:none\" value= \"".$curriculo1[0]."\" 
                         if (xhr.status == 200) {
 
                             
-                                items = xhr.responseText;
+                                items1 = xhr.responseText;
                             
-                                document.getElementById('vagas').innerHTML = items ; 
+                                document.getElementById('vagas').innerHTML = items1 ; 
                                     
                                 console.log("cheguei no inscrever-se ");
                             
@@ -218,6 +222,21 @@ echo "<input type=\"text\" style=\"display:none\" value= \"".$curriculo1[0]."\" 
             window.location.reload();
         }
         
+        function add(){
+            if(number>=0 && items1 != "<div class=\"respostaElse\"><h1>Ao que parece não existem anúncios de vagas</h1></div>"){
+                console.log(items1)
+                number+=6;
+                window.scrollTo(0, 0);
+                vagaspincrever_se();    
+            }
+        }
+        function rmv(){
+            if(number>0){
+                number-=6;
+                window.scrollTo(window.scrollY, 0);
+                vagaspincrever_se();    
+            }
+        }
 
 
     </script>

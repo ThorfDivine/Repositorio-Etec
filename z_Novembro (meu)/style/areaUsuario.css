@@ -1,0 +1,277 @@
+:root{
+
+    --section_heigth: 100vh;
+    --cardSdw: 0 12px 25px 1px rgba(0, 0, 0, 0.555);
+    --cardSdwHvr: 0 12px 25px 1px rgba(0, 0, 0, 0.484);
+
+        --btnCardBrd: 1px solid rgb(0,0,0);
+        --detalhesBrd: 2px solid rgb(25, 25, 184);
+
+    --bkg_Card: rgb(226, 226, 226);
+}
+
+
+section{
+    width: 100%;
+    height: 180vh;
+}
+
+    .userDiv{
+        width: 90%;
+        height: 26vh;
+        border-radius: 20px;
+        background-color: var(--bkg_Card);
+    }
+        .bgk_prlx{
+            width: 100%;
+            height: 35%;
+            border-radius: 20px 20px 0 0;
+
+                /*Mudar:  ../../contents/imgs/paralax/paralaxUsuario.png */
+            background-image: url(../contents/imgs/paralax/paralaxUsuario.png);
+        }
+/*  */
+        .userInfo{
+            height: 65%;
+        }
+        .profilePicture{
+
+            width: 170px;
+            height: 170px;
+            margin-left: 2%;
+            position: absolute;
+            top: calc(14% - 3px + var(--marginLineHeader));
+            border-radius: 100%;
+            background-color: var(--bkg_Card);
+            
+            & img{
+                border-radius: 100%;
+            }
+
+        }
+        .infos{
+            width: 25%;
+            height: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: column;
+            margin-left: calc(4% + 180px);
+        }
+
+        .editar{
+            width: 1%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            color: rgb(15,28,120);
+            font-family: var(--raleway);
+
+            & span{
+                font-size: 40px;
+            }
+            & h4{
+                font-size: 16px;
+                cursor: pointer;
+                font-weight: 600;
+                color: rgb(14, 27, 91);
+            }
+
+            & span, h4{
+                cursor: pointer;
+            }
+        }
+
+.sobre, .vagas{
+    width: 90%;
+    height: 73vh;
+    border-radius: 15px;
+    margin-top: calc(var(--marginLineHeader) - 8vh);
+    background-color: rgba(255, 234, 234, 0.544);
+}
+    .titulo{
+        width: 100%;
+        height: 10%;
+        font-family: var(--raleway);
+        border-radius: 15px 15px 0 0;
+        background-color: var(--bkg_Card);
+
+            & h2{
+
+                cursor: pointer;
+                font-weight: 600;
+                color: rgb(16, 16, 16);
+                transition: 1s cubic-bezier(0.61, 0.21, 0.24, 0.83);
+
+                &:hover{
+                    color: rgb(60, 60, 60);
+                    font-weight: 800;
+                }
+            }
+    }
+
+.sobre{
+    height: 30vh;
+        & .titulo{
+            height: 23%;
+        }
+        & .contentP{
+            width: 95%;
+            height: 100%;
+            margin-top: 3%;
+
+            & p{
+                margin-left: 5%;
+                font-weight: 500 !important;
+                font-size: 1.2rem;
+                text-align: justify;
+                font-family: var(--Lato);
+            }
+            
+        }
+        
+}
+
+
+/* Card de vagas */
+
+.cardVaga{
+
+    width: 40%;
+    height: 10vh;
+    display: flex;
+    cursor: pointer;
+    margin: 15px 35px;
+    align-items: center;
+    border-radius: 13px;
+    box-shadow: var(--cardSdw);
+    background-color: var(--grayCard);
+    border: 2.3px solid var(--darkGray);
+    transition: .5s cubic-bezier(0.77, 0, 0.175, 1);
+
+    &:hover{
+        background-color: var(--grayCardHvr);
+        box-shadow: var(--cardSdwHvr);
+    }
+
+    & .imgLogo{
+        height: 80%;
+        width: 12.5%;
+        margin: 0 5px;
+    }
+
+}
+
+.informacoes_da_vaga{
+    width: 60%;
+    height: 100%;
+
+    & #insc{
+        margin-right: 10px;
+    }
+
+    & #status{
+        margin-left: 10px;
+    }
+
+}
+
+    .detalhes_p{
+        width: 90%;
+
+        & p{
+            margin-left: 2px;
+            font-size: 14px;
+        }
+    }
+
+.botoes{
+
+    & button{
+        height: 23px;
+        display: flex;
+        cursor: pointer;
+        margin-left: 25px;
+        border-radius: 8px;
+        margin-bottom: 7px;
+        align-items: center;
+        justify-content: center;
+        border: var(--btnCardBrd);
+    }
+
+    & .detalhes{
+        width: 70px;
+        font-size: .78rem;
+        color: rgb(25, 25, 184);
+        border: var(--detalhesBrd);
+        background-color: rgb(243, 243, 255);
+        transition: .8s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+        &:hover{
+            color: rgb(74, 74, 204);
+            background-color: rgb(222, 222, 255);
+        }
+    }
+
+}
+
+
+.deletVg{
+    margin-left: 15px;
+    height: 70%;
+    padding-bottom: 5px;
+}
+    .lixeira{
+        width: 40px;
+        height: 75%;
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+        justify-content: center;
+        background-color: rgb(255, 239, 239);
+        transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+            & span{
+                width: 90%;
+                height: 80%;
+                font-size: 1.45rem;
+                color: rgb(78, 0, 0);
+            }
+
+            &:hover{
+                color: rgb(67, 0, 0);
+                background-color: rgb(187, 26, 26);
+            }
+    }
+
+.editarVg{
+    
+    width: 40px;
+    height: 70%;
+    cursor: pointer;
+    padding-top: 5px;
+    
+    & span{
+        width: 100%;
+        height: 80%;
+        font-size: 2.4rem;
+        border-radius: 10px;
+        color: rgb(230, 230, 230);
+        background-color: rgb(33, 20, 96);
+        transition: .6s cubic-bezier(0.12, 0.35, 0.68, 0.53);
+        &:hover{
+            color: rgb(232, 232, 232);
+            background-color: rgb(11, 6, 42);
+        }
+    }
+    
+}
+
+/* End */
+
+
+    
+@media (max-width: 1280px){
+
+    
+
+}

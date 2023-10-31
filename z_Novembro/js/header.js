@@ -22,7 +22,7 @@ let redPoint
 
     //      ====================================================================================         \\
 
-    if (document.title == 'BartoHelp - Candidato' || document.title == "BartoHelp - sobre a vaga" ) {
+    if (document.title == 'BartoHelp - Candidato') {
 
         who = 'candidato'
         linkWho = './areaDoCandidato.php'
@@ -58,7 +58,7 @@ let redPoint
         
         item3 = ''
 
-    }else if(document.title == 'BartoHelp - Criar Vagas' || document.title == 'BartoHelp - Editar Vagas'|| document.title == 'BartoHelp - Requisitos'|| document.title == 'BartoHelp - Detalhes' || document.title == 'BartoHelp - Empresa' ){
+    }else if(document.title == 'BartoHelp - Criar Vagas'){
 
         logotipo = '../../contents/logo/logo.png'
 
@@ -69,12 +69,12 @@ let redPoint
 
         search = ''
         desconectLnk = '../desconectar.php'
-        homeLnk = './home.php'
+        homeLnk = '../../HTML/empresa/home.html'
 
         who = 'usuário'
         linkWho = '../../html/empresa/areaDoUsuario.html'
 
-    }else if(document.title == 'BartoHelp - Area do Usuário' ){
+    }else if(document.title == 'BartoHelp - Area do Usuário'){
 
         search = ''
 
@@ -86,7 +86,7 @@ let redPoint
         linkWho = '../../HTML/funcionario/areaDoCandidato.html'
         
         item1 = 'Criar Currículo'
-        LinkIt1 = './curriculos.php'
+        LinkIt1 = '../../HTML/funcionario/curriculos.html'
 
         desconectLnk = '../desconectar.php'
 

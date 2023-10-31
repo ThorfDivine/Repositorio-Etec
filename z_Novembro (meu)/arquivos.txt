@@ -1,0 +1,10 @@
+areaDoUsuario.php
+areaUsuario.css
+infoEdit.js
+
+============================================
+
+Mantenha (editei agora):
+	style.css
+	meusCertificados.php
+	certificados.css

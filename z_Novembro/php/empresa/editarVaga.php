@@ -1,26 +1,14 @@
 <?php
 session_start();
-    
-if(
-    !isset($_SESSION) 
-    || $_SESSION =="" 
-    || $_SESSION == null 
-    || !isset($_SESSION['id']) 
-    ||  $_SESSION['id'] =="" 
-    || $_SESSION['id'] == null 
-    || empty($_SESSION['id'])
-    
-    ){header('Location: ../../html/login.html');}
-       
-    include("../conexao.php");
+include("../conexao.php");
+if (!isset($_SESSION) || $_SESSION =="" || $_SESSION == null) {
+    header('Location: ../../html/login.html');
+}
+$id_vaga = $_GET['id'];
 
-    
-    $id_vaga = $_GET['id'];
-    echo "<input type=\"text\" style=\"display:none\" value=\"$id_vaga\" id=\"IdVaga\"/>";
-
-    $busca = mysqli_query($con, "SELECT * FROM vaga WHERE id_vaga = '$id_vaga'");
-    $resultadoVaga = mysqli_fetch_row($busca);
-    $cargo = $resultadoVaga[3];
+$busca = mysqli_query($con, "SELECT * FROM vaga WHERE id_vaga = '$id_vaga'");
+$resultadoVaga = mysqli_fetch_row($busca);
+$cargo = $resultadoVaga[3];
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +16,10 @@ if(
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Fav-Icon -->
+            <link rel="shortcut icon" href="../../contents/favIcon/favicon.ico" type="image/x-icon">
+        <!-- end -->
+
         <!-- Material Icons -->
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <!-- End -->
@@ -44,7 +36,7 @@ if(
     <header></header>
 
         <section class="bigMarginTop bigMarginBotom centralize">
-            <?php echo "<form action=\"../updateVaga1.php?id=$id_vaga\" class=\"flexC\" method=\"POST\">" ?>
+            <form action="../updateVaga.php" class="flexC" method="POST">
                 <div class="conteiner_form flexR">
                     <div class="flexC left alingCenter">
                         <div class="conteiner">
@@ -57,11 +49,11 @@ if(
                         </div>
                         <div class="conteiner">
                             <label for="salario" class="lable">Salário: </label>
-                                <input type="text" name="salario" id="salario" class="inputPattern" placeholder="ex: R$ 2000.00" <?php echo "value=".$resultadoVaga[8]?>>
+                                <input type="text" name="salario" id="salario" class="inputPattern" placeholder="ex: R$ 2000.00" <?php echo "value=".$resultadoVaga[9]?>>
                         </div>
                         <div class="conteiner flexC">
                             <label for="titleVg" class="lable">Data limite: </label>
-                            <input type="date" name="limit" id="titleVg" class="inputPattern" <?php echo "value=".$resultadoVaga[5]?>>
+                            <input type="date" name="limit" id="titleVg" class="inputPattern" <?php echo "value=".$resultadoVaga[6]?>>
                         </div>
                     </div>
                     <div class="flexC right alingCenter">
@@ -71,12 +63,36 @@ if(
                         </div>
                         <div class="conteiner">
                             <label for="cep" class="lable">Cep: </label>
-                            <input type="text" name="cep" id="cep" class="inputPattern" placeholder="ex: 14015-040" <?php echo "value=".$resultadoVaga[9]?>>
+                            <input type="text" name="cep" id="cep" class="inputPattern" placeholder="ex: 14015-040" <?php echo "value=".$resultadoVaga[10]?>>
                         </div>
-                       
+                        <div class="conteiner">
+                            
+                            <label for="habilidades" class="lable Habili_fontLow">Habilidades Requisitadas:</label>
+                            <input type="button" value="Adicionar" class="btnAdicionar" id="adicionar" <?php echo "value=".$resultadoVaga[4]?>>
+
+                            <select name="habilidades" id="habilidades" class="inputPattern">
+                                <option value="lider">Liderança</option>
+                                <option value="persuasao">Persuasão</option>
+                                <option value="tolerancia">Tolerância</option>
+                                <option value="negociacao">Negociação</option>
+                                <option value="Comunicacao">Comunicação</option>
+                                <option value="proatividade">Proatividade</option>
+                                <option value="planejamento">Planejamento</option>
+                                <option value="determinacao">Determinação</option>
+                                <option value="Criatividade">Criatividade</option>
+                                <option value="flexibilidade">Flexibilidade</option>
+                                <option value="autoconfiança">Autoconfiança</option>
+                                <option value="adaptabilidade">Adaptabilidade</option>
+                                <option value="pensamento">Pensamento crítico</option>
+                                <option value="intEmocional">Inteligência emocional</option>
+                                <option value="inerpessoal">Relacionamento inerpessoal</option>
+                                <option value="gerenciamentoRscs">Gerenciamento de riscos</option>
+                            </select>
+
+                        </div>
                         <div class="conteiner">
                             <label for="beneficios" class="lable">Benefícios oferecidos:</label><br>
-                            <textarea name="message" id="beneficios" class="inputPattern" placeholder="ex: Vale transporte, etc..."><?php echo $resultadoVaga[3]?></textarea>
+                            <textarea name="message" id="beneficios" class="inputPattern" placeholder="ex: Vale transporte, etc..."><?php echo $resultadoVaga[4]?></textarea>
                         </div>
 
                         <div style="display: none;">
@@ -105,51 +121,31 @@ if(
                     <div>
                         <input type="button" id="clear" value="Limpar Formulário" class="buttonPattern">
                     </div>
-                    <?php
-                        if($resultadoVaga[6] == "0"){
-                           echo "<div>
-                                    <input type=\"button\" id=\"mexer\" value=\"reativar vaga\" class=\"buttonPattern\" onclick=\"mexerVaga()\">
-                                </div>" ;
-                        }
-                        else{
-                            echo "<div>
-                                    <input type=\"button\" id=\"mexer\" value=\"desativar vaga\" class=\"buttonPattern\" onclick=\"mexerVaga()\">
-                                  </div>" ;
-                        }
-                    ?>
-                    
-                    <div id="btnSbmtCntnr">
-                        <input type="submit" id="continuar" value="continuar" class="buttonPattern ">
+                    <div>
+                        <input type="text" name="id_vaga" style="display:none" <?php echo "value='$resultadoVaga[0]'"?>>
+                        <input type="submit" id="enviar" value="..." class="buttonPattern btnBlocked">
                     </div>
                     <div></div>
                 </div>
             </form>
         </section>
 
-        
+        <a href="#top">
+            <div id="backTop" class="backTop">
+            </div>
+        </a>
 
     <footer></footer>
 </body>
     <script src="../../js/header.js"></script>
     <script src="../../js/footer.js"></script>
+    <script src="../../js/createBttn.js"></script>
     <script src="../../js/checkNewVg.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>
         var items = [];
         var habilidades = document.getElementById("habilidades");
         var permicao = false;
-        var idVaga = "idVaga="+document.getElementById("IdVaga").value;
-
-        var xhr;
-
-        if (window.XMLHttpRequest) { // Mozilla, Safari, ...
-
-            xhr = new XMLHttpRequest();
-
-        } else if (window.ActiveXObject) { // IE 8 and older
-
-            xhr = new ActiveXObject("Microsoft.XMLHTTP");
-        }
 
             $(function(){
                 $('#adicionar').on('click', function(){
@@ -174,7 +170,16 @@ if(
                             alert("ja cadastrado")
                         }
                 
-                        
+                        var xhr;
+
+                        if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+
+                            xhr = new XMLHttpRequest();
+
+                        } else if (window.ActiveXObject) { // IE 8 and older
+
+                            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+                        }
 
                             xhr.open("POST", "cadastrarVaga.php", true); 
                             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
@@ -182,25 +187,5 @@ if(
                     
                 });
             });
-
-
-            function mexerVaga() {
-                let mexe = document.getElementById('mexer')
-                if(mexe.value == "desativar vaga"){
-                    xhr.open("POST", "../desativarVaga.php", true); 
-                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
-                    xhr.send(idVaga);
-                    mexe.value = "reativar vaga";
-                }
-                else if(mexe.value == "reativar vaga"){
-                    xhr.open("POST", "../reativarVaga.php", true); 
-                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
-                    xhr.send(idVaga);
-                    mexe.value = "desativar vaga";
-                }
-                
-            }
-
-           
     </script>
 </html>

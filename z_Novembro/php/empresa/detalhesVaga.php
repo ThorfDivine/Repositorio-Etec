@@ -1,6 +1,8 @@
 <?php
 session_start();
-if (!isset($_SESSION) || $_SESSION =="" || $_SESSION == null) {header('Location: ../../html/login.html');}
+if (!isset($_SESSION) || $_SESSION =="" || $_SESSION == null) {
+    header('Location: ../../html/login.html');
+}
 else{
 include('../conexao.php');
 
@@ -11,13 +13,13 @@ $idVaga = $_GET['idVaga'];
 $buscaVaga = mysqli_query($con, "SELECT * FROM vaga where id_vaga = '$idVaga'");
 $resultadoVaga = mysqli_fetch_row($buscaVaga);
 
-$cnpj = $resultadoVaga[7];
+$cnpj = $resultadoVaga[8];
 
 $buscaEmp = mysqli_query($con, "SELECT * FROM empresa where cnpj = '$cnpj'");
 $resultadoEmp = mysqli_fetch_row($buscaEmp);
 
 $buscaLogo = $resultadoEmp[5];
-$dataLimite = $resultadoVaga[5];
+$dataLimite = $resultadoVaga[6];
 
 $dataLimite = implode("/",array_reverse(explode("-",$dataLimite)));
 if ($buscaLogo=="" || $buscaLogo==null || $buscaLogo == " ") {
@@ -25,27 +27,18 @@ if ($buscaLogo=="" || $buscaLogo==null || $buscaLogo == " ") {
 }
 
 $busca= mysqli_query($con, "SELECT * from competencia_vaga where id_vaga = '$idVaga'");
-$resultado;
-$resultado2;
-    if( mysqli_num_rows($busca)>= 1) {
-        while($resultado = mysqli_fetch_row($busca)){
-            echo "<script>console.log('entrei no primeiro while')</script>";
-            $idComp = $resultado[2];
-            $busca2 = mysqli_query($con, "SELECT * from competencia where id_competencia = $idComp");
+$resultado="";
+$resultado2="";
 
-            while($resultado2= mysqli_fetch_row($busca2)){
-                echo "<script>console.log('entrei no segundo while')</script>";
-                $resposta = $resposta."<a href=\"../../html/competencias.html\" target=\"_Blank\"><button>".$resultado2[1]."</button></a>";
-            }
-        }
+while($resultado = mysqli_fetch_row($busca)){
+    echo "<script>console.log('entrei no primeiro while')</script>";
+    $idComp = $resultado[2];
+    $busca2 = mysqli_query($con, "SELECT * from competencia where id_competencia = $idComp");
+    while($resultado2= mysqli_fetch_row($busca2)){
+        echo "<script>console.log('entrei no segundo while')</script>";
+        $resposta = $resposta."<a href=\"../../html/competencias.html\" target=\"_Blank\"><button>".$resultado2[1]."</button></a>";
     }
-    else{
-        $resposta = "<a href=\"#\"><button>sem nenhum requisito</button></a>";
-    }
-    
-
-
-
+}
 
 ?>
 
@@ -54,6 +47,10 @@ $resultado2;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Fav-Icon -->
+            <link rel="shortcut icon" href="../../contents/favIcon/favicon.ico" type="image/x-icon">
+        <!-- end -->
+
         <!-- Material Icons -->
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <!-- End -->
@@ -65,7 +62,7 @@ $resultado2;
             <link rel="stylesheet" href="../../style/home_empresa.css">
             <link rel="stylesheet" href="../../style/detalhesVaga.css">
         <!-- End -->
-    <title>BartoHelp - Detalhes</title>
+    <title>BartoHelp - Empresa</title>
 </head>
 <body>
     
@@ -82,9 +79,9 @@ $resultado2;
             <h1> <?php echo $resultadoVaga[1]; ?></h1>
             <hr/>
             <h4> <?php echo $resultadoEmp[1]?></h4>
-            <h4> <?php echo $resultadoVaga[9]?> </h4>
-            <h4> <?php echo "R$ ".$resultadoVaga[8]?> </h4>
-            <h4> <?php echo $resultadoVaga[4]." - ".$dataLimite;?> </h4>
+            <h4> <?php echo $resultadoVaga[10]?> </h4>
+            <h4> <?php echo "R$ ".$resultadoVaga[9]?> </h4>
+            <h4> <?php echo $resultadoVaga[5]." - ".$dataLimite;?> </h4>
         </div>
         <a <?php echo "href=\"./editarVaga.php?id=".$resultadoVaga[0]."\"" ?> >
             <button class="editarVaga">
@@ -109,7 +106,7 @@ $resultado2;
             </h1>
 
             
-                    <?php echo "<br/>".$resultadoVaga[2]?>;
+                    <?php echo "<br/>".$resultadoVaga[3]?>;
                     <br/>
         </div>
         
@@ -119,7 +116,7 @@ $resultado2;
                 Benefícios
                 <hr style=" width:13vw; "/>
             </h1>
-                    <?php echo "<br/>".$resultadoVaga[3]?>
+                    <?php echo "<br/>".$resultadoVaga[4]?>
                     <br/>
         </div>
 
@@ -140,6 +137,11 @@ $resultado2;
         </div>
 
     </div>
+
+    <a href="#top">
+        <div id="backTop" class="backTop">
+        </div>
+    </a>
    
     <footer>
     </footer>
@@ -147,5 +149,6 @@ $resultado2;
 </body>
     <script src="../../js/header.js"></script>
     <script src="../../js/footer.js"></script>
+    <script src="../../js/createBttn.js"></script>
     <script src="../../js/confirmDelet.js"></script>
 </html> <?php } ?>

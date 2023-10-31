@@ -1,6 +1,8 @@
 <?php
 session_start();
-if (!isset($_SESSION) || $_SESSION =="" || $_SESSION == null) {header('Location: ../../html/login.html');}
+if (!isset($_SESSION) || $_SESSION =="" || $_SESSION == null) {
+    header('Location: ../../html/login.html');
+}
 ?>
 
 
@@ -9,6 +11,10 @@ if (!isset($_SESSION) || $_SESSION =="" || $_SESSION == null) {header('Location:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Fav-Icon -->
+            <link rel="shortcut icon" href="../../contents/favIcon/favicon.ico" type="image/x-icon">
+        <!-- end -->
+        
         <!-- Material Icons -->
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <!-- End -->
@@ -93,9 +99,15 @@ if (!isset($_SESSION) || $_SESSION =="" || $_SESSION == null) {header('Location:
             </form>
         </section>
 
+        <a href="#top">
+            <div id="backTop" class="backTop">
+            </div>
+        </a>
+
     <footer></footer>
 </body>
     <script src="../../js/header.js"></script>
     <script src="../../js/footer.js"></script>
     <script src="../../js/checkNewVg.js"></script>
+    <script src="../../js/createBttn.js"></script>
 </html>

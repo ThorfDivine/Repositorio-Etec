@@ -12,7 +12,7 @@
                 <h2>Vagas Disponiveis</h2>
             </div> ";
     
-        if (mysqli_num_rows($busca) <=0 && $num <=1) {
+        if (mysqli_num_rows($busca) <= 0) {
             $num = mysqli_num_rows($busca);
             $res= $res.
             "<div class=\"respostaElse\">

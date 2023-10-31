@@ -187,11 +187,9 @@ let requires
                     bairroCidade.value = result.localidade     // cidade
                     bairroCidade.value += ' _ '+result.bairro // bairro
                     bairroCidade.value += ' _ '+result.uf    // estado
-                    document.getElementById("bairro_cidade").value = bairroCidade.value;
 
                     console.log(bairroCidade.value);
-                    console.log("o valor do document é "+document.getElementById("bairro_cidade").value)
-
+                    
                     cepCheck = true
                     console.log("Check: "+cepCheck);
                     console.log('==================');

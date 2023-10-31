@@ -10,6 +10,170 @@
     --bkg_Card: rgb(226, 226, 226);
 }
 
+        /* POP-UP __ EDIÇÃO DE DADOS */
+
+
+    popup{
+    
+        z-index: 6;
+        width: 100%;
+        display: flex;
+        position: absolute;
+        align-items: center;
+        margin: -15px 0 0 0;
+        justify-content: center;
+        height: calc(100% + 6px + 126vh);
+        background-color: rgba(0, 0, 0, 0.619);
+        
+        & .conteiner{
+            width: 96%;
+            height: 96%;
+            display: flex;
+            background-color: rgb(240, 211, 211);
+        }
+
+    }
+        .close{
+            width: 100%;
+            height: 6vh;
+            z-index: 2;
+
+            & div{
+                width: 50px;
+                height: 100%;
+                display: flex;
+                font-size: 2rem;
+                font-weight: 800;
+                align-items: center;
+                color: rgb(63, 63, 63);
+                justify-content: center;
+                font-family: var(--Mukta);
+
+                & p{
+                    cursor: pointer;
+                }
+
+            }
+        }
+        .form{
+            width: 96%;
+            margin: 3% 2%;
+            margin-top: -2%;
+            display: flex;
+            height: calc(94% - 6vh);
+        }
+            form{
+                width: 100%;
+                height: 90%;
+            }
+            textarea{
+                padding-top: 15px;
+            }
+            .lable{
+                font-size: 1.5rem;
+                font-weight: bold;
+                font-family: var(--PtSans);
+            }
+            .topConteiner{
+                height: 20%;
+            }
+                .conteinerInfo{
+                    width: 40%;
+                    height: 100%;
+                    margin: 25px;
+                }
+                    .profilePicture_edite{
+                        width: 170px;
+                        height: 170px;
+                        margin-left: 2%;
+                        border-radius: 100%;
+                        background-color: var(--bkg_Card);
+                    }
+                    .editarImg{
+                        width: 15%;
+                        height: 100%;
+                        margin-left: 5%;
+                    }
+                    .alterar{
+                        width: 80%;
+                        cursor: pointer;
+                        font-size: .7rem;
+                        font-weight: 600;
+                        border-radius: 12px;
+                        color: rgb(62, 62, 62);
+                        background-color: rgba(14, 0, 117, 0.030);
+                        transition: .5s cubic-bezier(0.61, 0.21, 0.24, 0.83);
+                        & span{
+                            font-size: 2.3rem;
+                        }
+
+                        &:hover{
+                            color: rgb(66, 66, 66);
+                            background-color: rgba(7, 0, 59, 0.070);
+                            box-shadow: inset 2px 3px 34px 5px rgba(66, 72, 144, 0.373);
+                        }
+                    }
+
+                .nomeUser{
+                    width: 90%;
+                    height: 15%;
+                    margin-top: 15px;
+                    font-size: 1.3rem;
+                    padding-left: 10px;
+                    border-radius: 6px;
+                    color: rgb(0,0,0);
+                }
+
+            .duraRealidadeDoMacgiver{
+                width: 100%;
+                height: 80%;
+                /* background-color: lightslategrey; */
+            }
+                .conteinerAll{
+                    width: 100%;
+                    height: 70%;
+                    /* background-color: rgb(14, 0, 117); */
+
+                    & .conteinerInfo{
+                        width: 50%;
+                        height: 100%;
+                        margin: 25px;
+
+                        padding-left: 8%;
+                    }
+                }
+
+                .input{
+                    width: 78%;
+                    height: 24%;
+                    margin-top: 5px;
+                    font-size: 1.15rem;
+                    color: rgb(70,70,70);
+                    padding-left: 15px;
+                    border-radius: 5px;
+                    border: .5px solid rgb(57, 57, 57);
+                }
+                    .Denai{
+                        border: 2.3px solid var(--borderInputDenai);
+                    }
+                    .Denai::-webkit-input-placeholder{
+                        margin-left: 5px;
+                        color: var(--borderInputDenai);
+                    }
+        /* edições de classes já existentes: */
+
+        #eye{
+            font-size: 1.5rem;
+        }
+
+        .buttonPattern{
+            width: 170px;
+            height: 50px;
+        }
+
+        /* Fim */
+
+                /* POP-UP __ EDIÇÃO DE DADOS */
 
 section{
     width: 100%;
@@ -40,9 +204,9 @@ section{
             height: 170px;
             margin-left: 2%;
             position: absolute;
-            top: calc(14% - 3px + var(--marginLineHeader));
             border-radius: 100%;
             background-color: var(--bkg_Card);
+            top: calc(14% - 3px + var(--marginLineHeader));
             
             & img{
                 border-radius: 100%;
@@ -218,10 +382,13 @@ section{
 
 .deletVg{
     margin-left: 15px;
+    width: 70px;
     height: 70%;
     padding-bottom: 5px;
 }
     .lixeira{
+        border: 0;
+        width: 100%;
         width: 40px;
         height: 75%;
         display: flex;
@@ -232,7 +399,7 @@ section{
         transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
             & span{
                 width: 90%;
-                height: 80%;
+                height: auto;
                 font-size: 1.45rem;
                 color: rgb(78, 0, 0);
             }
@@ -272,6 +439,34 @@ section{
     
 @media (max-width: 1280px){
 
-    
+    popup{
+        height: calc(100% + 1.5px + 128vh);
+    }
+
+    .profilePicture{
+        width: 130px;
+        height: 130px;
+        margin-left: 2.2%;
+        top: calc(15% + var(--marginLineHeader));
+    }
+
+    .infos{
+        margin-left: calc(4% + 130px);
+    }
+
+    .cardVaga{
+        height: 12%;
+    }
+        .deletVg{
+            height: 100%;
+            padding-bottom: 0;
+
+            & button{
+                height: 35px;
+            }
+        }
+            .lixeira{
+                height: 95%;
+            }
 
 }
