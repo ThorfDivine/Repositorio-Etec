@@ -222,7 +222,7 @@ section{
             margin-left: calc(4% + 180px);
         }
 
-        .editar{
+         .editar{
             width: 1%;
             height: 100%;
             display: flex;
@@ -302,7 +302,7 @@ section{
 
 .cardVaga{
 
-    width: 40%;
+    width: 48%;
     height: 10vh;
     display: flex;
     cursor: pointer;
@@ -350,7 +350,7 @@ section{
         }
     }
 
-.botoes{
+ .botoes{
 
     & button{
         height: 23px;
@@ -365,7 +365,7 @@ section{
     }
 
     & .detalhes{
-        width: 70px;
+        width: 55px;
         font-size: .78rem;
         color: rgb(25, 25, 184);
         border: var(--detalhesBrd);
@@ -386,31 +386,9 @@ section{
     height: 70%;
     padding-bottom: 5px;
 }
-    .lixeira{
-        border: 0;
-        width: 100%;
-        width: 40px;
-        height: 75%;
-        display: flex;
-        align-items: center;
-        border-radius: 10px;
-        justify-content: center;
-        background-color: rgb(255, 239, 239);
-        transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
-            & span{
-                width: 90%;
-                height: auto;
-                font-size: 1.45rem;
-                color: rgb(78, 0, 0);
-            }
+    
 
-            &:hover{
-                color: rgb(67, 0, 0);
-                background-color: rgb(187, 26, 26);
-            }
-    }
-
-.editarVg{
+a .editarVg{
     
     width: 40px;
     height: 70%;
@@ -431,6 +409,36 @@ section{
         }
     }
     
+}
+ .desativo{
+    width: 40px;
+    background-color: rgb(250, 230, 230);
+    transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    cursor: pointer;
+        & span{
+            color: rgb(100, 0, 0);
+            font-size: 1.5rem;
+        }
+
+        &:hover{
+            color: rgb(100, 0, 0);
+            background-color: rgb(187, 26, 26);
+        }
+}
+ .ativo{
+    width: 40px;
+    background-color: rgb(230, 230, 250);
+    transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    cursor: pointer;
+        & span{
+            color: rgb(0, 140, 0);
+            font-size: 1.5rem;
+        }
+
+        &:hover{
+            color: rgb(0, 67, 0);
+            background-color: rgb(26, 200, 26);
+        }
 }
 
 /* End */

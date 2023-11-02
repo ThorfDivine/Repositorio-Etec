@@ -112,15 +112,17 @@ CREATE TABLE IF NOT EXISTS `empresa` (
   `gmail` varchar(100) DEFAULT NULL,
   `senha` varchar(80) DEFAULT NULL,
   `telefone` varchar(12) DEFAULT NULL,
-  `logo` varchar(200) DEFAULT NULL,
-  `descricao` text,
-  `descricaoLinha` varchar(255) DEFAULT NULL,
+  `logo` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `descricao` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `descricaoLinha` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `endereco` varchar(150) NOT NULL,
+  `cep` varchar(20) NOT NULL,
   PRIMARY KEY (`cnpj`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela bartohelp.empresa: ~0 rows (aproximadamente)
-INSERT INTO `empresa` (`cnpj`, `nome`, `gmail`, `senha`, `telefone`, `logo`, `descricao`, `descricaoLinha`) VALUES
-	('213-5', 'gustavo batista de oliveira santos ThorfDivine', 'gustavobatistabos.td@gmail.com', 'MTIzNDVHb2pvVVNvbGEkJA==', '93951-8083', '../../contents/logo/dell.png', NULL, NULL);
+-- Copiando dados para a tabela bartohelp.empresa: ~1 rows (aproximadamente)
+INSERT INTO `empresa` (`cnpj`, `nome`, `gmail`, `senha`, `telefone`, `logo`, `descricao`, `descricaoLinha`, `endereco`, `cep`) VALUES
+	('213-5', 'gustavo batista de oliveira santos ThorfDivine', 'gustavobatistabos.td@gmail.com', 'MTIzNDVHb2pvVVNvbGEkJA==', '93951-8083', '../../contents/logo/dell.png', NULL, NULL, '', '');
 
 -- Copiando estrutura para tabela bartohelp.escolaridade
 CREATE TABLE IF NOT EXISTS `escolaridade` (

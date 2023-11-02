@@ -7,33 +7,31 @@
         # code...
         $original = $_SESSION['id'];
         $cnpj = $_POST["cnpj"];
-        $category = $_POST['category'];
-        $nome = $_POST["identity"];
+        $nome = $_POST["nome"];
         $cep= $_POST["cep"];
         $fone = $_POST["fone"];
         $email = $_POST["email"];
-        $senha = $_POST["password"];
-        $descricao = $_POST['desc1'];
-        $descricaoLinha = $_POST['desc2'];
-        $bairro_cidade = $_POST["bairro_cidade"];
+        $senha = $_POST["pass"];
+        $descricao = $_POST['desc2'];
+        $descricaoLinha = $_POST['desc1'];
         $senhaCripto = base64_encode($senha);
 
     
             
             
-            if (isset($_FILES["logo"]) && !empty($_FILES["logo"])) {
+            if (isset($_FILES["logo"]) || !empty($_FILES["logo"])) {
                 $imgUploaded =  "../contents/imgs/logoEmpresa/".$_FILES["logo"]["name"];
                 move_uploaded_file($_FILES["logo"]["tmp_name"], $imgUploaded);}
             else {
                 echo "<script>alert('a imagem não chegou nem a ser enviada')</script>";
-                $imgUploaded = "";
-            }     
+                $imgUploaded = "../../contents/imgs/3106921.png";}     
 
-            $gravar = mysqli_query($con, "update empresa set cnpj = $cnpj ,nome = , gmail, senha, telefone, logo where cnpj = $original");
+            $gravar = mysqli_query($con, "update empresa set cnpj = '$cnpj', cep = '$cep', nome = '$nome', gmail = '$email', logo = '$imgUploaded', senha = '$senhaCripto', telefone = '$fone', descricao = '$descricao', descricaoLinha = '$descricaoLinha' where cnpj = '$original'");
+     
+
             
             if ($gravar){
-                echo "<script>alert('cadastrado com sucesso'); window.location.href = '../HTML/login.html';</script>";
-               
+                echo "<script>alert('atualizado com sucesso'); window.location.href = './empresa/areaDoUsuario.php';</script>";
             }
         
 
