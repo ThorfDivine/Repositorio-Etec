@@ -28,7 +28,6 @@
         $hoje = date('d/m/Y'); 
         $aberta = 1;
         $cep = $_POST["cep"];
-        //$habilidadesReq = $_POST["password"];
         $Beneficios = $_POST["message"];
         $id=$_SESSION['id'];
 

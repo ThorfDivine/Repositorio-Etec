@@ -23,8 +23,8 @@ let limpar
     limpar   = document.querySelector('#clear')
 let submit
     submit   = document.querySelector('#enviar')
-let submitA
-    submitA   = document.querySelector('#enviarA')
+//let submitA
+    //submitA   = document.querySelector('#enviarA')
 
     // Variavies de confirmação
 let manyInps = 0
@@ -226,7 +226,7 @@ let habilidd = false
             
             submit.type = 'button'
             
-            submitA.href = ''
+           // submitA.href = ''
             
             document.getElementById('enviar').setAttribute('onclick', '')
 

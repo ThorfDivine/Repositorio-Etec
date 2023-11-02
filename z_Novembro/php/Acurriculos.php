@@ -12,23 +12,26 @@
                 </div>
  ";
     
-        if (empty($resultado2) || !$resultado2 || $resultado2 == "" || $resultado2 == null || $resultado2 == " " && $num <=1) {
+        if (mysqli_num_rows($busca)==0 && $num <=1) {
             $num = mysqli_num_rows($busca);
             $res= $res.
             "<div class=\"respostaElse\">
                 <h2>Ao que parece Ninguem se inscreveu pra essa vaga</h2>
             </div>
-
+            ";
+        }
+        else if(mysqli_num_rows($busca)==0 && $num >1){
+            $res = $res."
+            <div class=\"respostaElse\">
+                <h2>Ao que parece Ninguem mais se inscreveu pra essa vaga</h2>
+            </div>
             <div class=\"altera\">
                 <button class=\"esquerda\" onclick=\"rmv1($idVaga)\"><</button>
-                <button class=\"direita\"  onclick=\"add1($idVaga)\">></button>
             </div>
-            <script>autorizacao2=false;</script>
             ";
         }
         
         else{   
-            $resultado;
             
             while($resultado = mysqli_fetch_row($busca)){
 
@@ -63,8 +66,8 @@
                 }
             }
             $res = $res."<div class=\"altera\">
-                            <button class=\"esquerda\" onclick=\"rmv1($idVaga)\"><</button>
-                            <button class=\"direita\"  onclick=\"add1($idVaga)\">></button>
+                            <button class=\"esquerda\" onclick=\"rmv2($idVaga)\"><</button>
+                            <button class=\"direita\"  onclick=\"add2($idVaga)\">></button>
                         </div>
                         <script>autorizacao2=true;</script>";
        }

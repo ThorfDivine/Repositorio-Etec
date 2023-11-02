@@ -23,6 +23,7 @@
         $titulo = $_POST['titulo'];
         $cargo = $_POST["cargo"];
         $salario= $_POST["salario"];
+        
         //$formato= $_POST["home"];
         $dataLimite = $_POST["limit"];
         $hoje = date('d/m/Y'); 

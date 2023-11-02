@@ -10,19 +10,24 @@
                 <h2>Vagas Anunciadas</h2>
             </div>";
     
-        if (empty($resultado2) || !$resultado2 || $resultado2 == "" || $resultado2 == null || $resultado2 == " " && $num <=1) {
+        if (mysqli_num_rows($busca)==0 && $num <= 1) {
             $num = mysqli_num_rows($busca);
             $res= $res.
-            "<div class=\"respostaElse\">
+            "$num <div class=\"respostaElse\">
                 <h1>Ao que parece você não possui anúncios de vagas</h1>
                 <h3>Clique <a href=\"../../php/criarVagas.php\">aqui</a> para iniciar sua jornada!</h3>
+            </div>";
+        }
+        else if(mysqli_num_rows($busca) == 0 && $num>1 ) {
+            $res = $res."
+            <div class=\"respostaElse\">
+                <h1>Ao que parece você não possui mais anúncios de vagas</h1>
             </div>
-            
             <div class=\"altera\">
                 <button class=\"esquerda\" onclick=\"rmv()\"><</button>
-                <button class=\"direita\"  onclick=\"add()\">></button>
             </div> 
-            <script>autorizacao1=false;</script>";
+            <script>autorizacao1=false; console.log(autorizacao);</script>
+            ";
         }
         
         else{

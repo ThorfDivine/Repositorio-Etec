@@ -49,11 +49,11 @@ $cargo = $resultadoVaga[3];
                         </div>
                         <div class="conteiner">
                             <label for="salario" class="lable">Salário: </label>
-                                <input type="text" name="salario" id="salario" class="inputPattern" placeholder="ex: R$ 2000.00" <?php echo "value=".$resultadoVaga[9]?>>
+                                <input type="text" name="salario" id="salario" class="inputPattern" placeholder="ex: R$ 2000.00" <?php echo "value=".$resultadoVaga[8]?>>
                         </div>
                         <div class="conteiner flexC">
                             <label for="titleVg" class="lable">Data limite: </label>
-                            <input type="date" name="limit" id="titleVg" class="inputPattern" <?php echo "value=".$resultadoVaga[6]?>>
+                            <input type="date" name="limit" id="titleVg" class="inputPattern" <?php echo "value=".$resultadoVaga[5]?>>
                         </div>
                     </div>
                     <div class="flexC right alingCenter">
@@ -63,36 +63,12 @@ $cargo = $resultadoVaga[3];
                         </div>
                         <div class="conteiner">
                             <label for="cep" class="lable">Cep: </label>
-                            <input type="text" name="cep" id="cep" class="inputPattern" placeholder="ex: 14015-040" <?php echo "value=".$resultadoVaga[10]?>>
+                            <input type="text" name="cep" id="cep" class="inputPattern" placeholder="ex: 14015-040" <?php echo "value=".$resultadoVaga[9]?>>
                         </div>
-                        <div class="conteiner">
-                            
-                            <label for="habilidades" class="lable Habili_fontLow">Habilidades Requisitadas:</label>
-                            <input type="button" value="Adicionar" class="btnAdicionar" id="adicionar" <?php echo "value=".$resultadoVaga[4]?>>
-
-                            <select name="habilidades" id="habilidades" class="inputPattern">
-                                <option value="lider">Liderança</option>
-                                <option value="persuasao">Persuasão</option>
-                                <option value="tolerancia">Tolerância</option>
-                                <option value="negociacao">Negociação</option>
-                                <option value="Comunicacao">Comunicação</option>
-                                <option value="proatividade">Proatividade</option>
-                                <option value="planejamento">Planejamento</option>
-                                <option value="determinacao">Determinação</option>
-                                <option value="Criatividade">Criatividade</option>
-                                <option value="flexibilidade">Flexibilidade</option>
-                                <option value="autoconfiança">Autoconfiança</option>
-                                <option value="adaptabilidade">Adaptabilidade</option>
-                                <option value="pensamento">Pensamento crítico</option>
-                                <option value="intEmocional">Inteligência emocional</option>
-                                <option value="inerpessoal">Relacionamento inerpessoal</option>
-                                <option value="gerenciamentoRscs">Gerenciamento de riscos</option>
-                            </select>
-
-                        </div>
+                        
                         <div class="conteiner">
                             <label for="beneficios" class="lable">Benefícios oferecidos:</label><br>
-                            <textarea name="message" id="beneficios" class="inputPattern" placeholder="ex: Vale transporte, etc..."><?php echo $resultadoVaga[4]?></textarea>
+                            <textarea name="message" id="beneficios" class="inputPattern" placeholder="ex: Vale transporte, etc..."><?php echo $resultadoVaga[3]?></textarea>
                         </div>
 
                         <div style="display: none;">
@@ -122,7 +98,7 @@ $cargo = $resultadoVaga[3];
                         <input type="button" id="clear" value="Limpar Formulário" class="buttonPattern">
                     </div>
                     <div>
-                        <input type="text" name="id_vaga" style="display:none" <?php echo "value='$resultadoVaga[0]'"?>>
+                        <input type="text" name="id_vaga" style="display:none" <?php echo "value=".$resultadoVaga[0]?>>
                         <input type="submit" id="enviar" value="..." class="buttonPattern btnBlocked">
                     </div>
                     <div></div>

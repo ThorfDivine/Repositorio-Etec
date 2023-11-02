@@ -139,7 +139,6 @@ session_start();
                             
                                 document.getElementById('curriculos').innerHTML = items ; 
                                     
-                                console.log("number="+number);
                             
 
                         } else {
@@ -234,14 +233,14 @@ session_start();
                 adicionar();    
             }
         }
-        function add2(){
+        function add2(idVaga){
             if(number2>=0 && autorizacao2==true){
                 number2+=6;
                 window.scrollTo(0, 0);
                 verCurriculos(idVaga)
             }
         }
-        function rmv2(){
+        function rmv2(idVaga){
             if(number2>0){
                 number2-=6;
                 window.scrollTo(window.scrollY, 0);
