@@ -13,7 +13,7 @@ if(
     ){header('Location: ../../html/login.html');}
        
     include("../conexao.php");
-
+    if(empty($_GET) || !isset($_GET)) header('Location: ./home.php');
     
     $id_vaga = $_GET['id'];
     echo "<input type=\"text\" style=\"display:none\" value=\"$id_vaga\" id=\"IdVaga\"/>";

@@ -1,5 +1,26 @@
+<?php 
+session_start();
+include("../conexao.php");
+if(
+    !isset($_SESSION) 
+    || $_SESSION =="" 
+    || $_SESSION == null 
+    || $_SESSION == " "
+    && isset($_SESSION)
+    || !isset($_SESSION["id"]) 
+    || $_SESSION["id"] =="" 
+    || $_SESSION["id"] ==" " 
+    || $_SESSION["id"] == null 
+    || empty($_SESSION["id"])
+    || $_SESSION['Pudim7w7'] != true)
+        {header('Location: ../../html/login.html');}
+    $id = $_SESSION['id'];
+    $busca = mysqli_query($con,"SELECT * from empresa where cnpj = '$id'");
+    $empresa = mysqli_fetch_row($busca);?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,7 +57,7 @@
 
             <!-- form div -->
             <div class="form flexC">
-                <form action="../updateEmpresa.php" method="post" class="flexR wrap_True">
+                <form action="../updateinfoEmp.php" method="post" class="flexR wrap_True">
                     <div class="topConteiner w100prc spaceEvenly">
                         <div class="conteinerInfo">
                             <label for="logotipo" class="lable">Logotipo atual:</label>
@@ -53,51 +74,54 @@
                             </div>
                         </div>
                         <div class="conteinerInfo flexC">
-                            <label for="nome" class="lable">Nome de usuário:</label>
-                                <input type="text" name="nome" id="nome" class="nomeUser">
+                            <label for="nome" class="lable">Nome da empresa:</label>
+                                <input type="text" name="nome" id="nome" class="nomeUser" <?php echo "value=".$empresa[1];?>>
                         </div>
                     </div>
                         <!--  -->
+                    
+
+                    </form>
                     <div class="duraRealidadeDoMacgiver flexC alingCenter">
                         <div class="conteinerAll spaceEvenly wrap_True">
                             <div class="w100prc spaceEvenly">
                                 <div class="conteinerInfo">
                                     <label for="cep" class="lable marginLeft12px">Cep: </label>
-                                        <br><input type="text" name="cep" id="cep" class="input">
+                                        <br><input type="text" name="cep" id="cep" class="input" <?php echo "value=".$empresa[9];?>>
                                 </div>
                                 <div class="conteinerInfo">
                                     <label for="cnpj" class="lable marginLeft12px">Cnpj: </label>
-                                        <br><input type="text" name="cnpj" id="cnpj" class="input">
+                                        <br><input type="text" name="cnpj" id="cnpj" class="input" <?php echo "value=".$empresa[0];?>>
                                 </div>
                             </div>
                             <div class="w100prc spaceEvenly">
                                 <div class="conteinerInfo">
                                     <label for="cep" class="lable marginLeft12px">Email: </label>
-                                        <br><input type="email" name="email" id="email" class="input">
+                                        <br><input type="email" name="email" id="email" class="input" <?php echo "value=".$empresa[2];?>>
                                 </div>
                                 <div class="conteinerInfo">
                                     <label for="fone" class="lable marginLeft12px">Telefone: </label>
-                                        <br><input type="tel" name="fon" id="fone" class="input">
+                                        <br><input type="tel" name="fon" id="fone" class="input" <?php echo "value=".$empresa[4];?>>
                                 </div>
                             </div>
                             <div class="w100prc spaceEvenly">
                                 <div class="conteinerInfo">
                                     <label for="desc1" class="lable marginLeft12px">Descrição <i style="font-size: .58rem;">(1 linha) </i>: </label>
-                                        <br><input type="text" name="desc1" id="desc1" class="input">
+                                        <br><input type="text" name="desc1" id="desc1" class="input" <?php echo "value=".$empresa[7];?>>
                                 </div>
                                 <div class="conteinerInfo">
                                     <label for="desc2" class="lable marginLeft12px">Descrição <i style="font-size: .58rem;">(paragrafo) </i>: </label>
-                                        <br><textarea name="desc2" id="desc2" class="input"></textarea>
+                                        <br><textarea name="desc2" id="desc2" class="input"><?php echo $empresa[6];?></textarea>
                                 </div>
                             </div>
                             <div class="w100prc spaceEvenly">
                                 <div class="conteinerInfo">
                                     <label for="senha" class="lable marginLeft12px">Senha: </label>
-                                        <br><input type="password" name="pass" id="senha" class="input senhas">
+                                        <br><input type="password" name="pass" id="senha" class="input senhas" <?php echo "value=".base64_decode($empresa[1]);?>>
                                 </div>
                                 <div class="conteinerInfo">
                                     <label for="confirm" class="lable marginLeft12px">Confirme sua senha: </label>
-                                        <br><input type="password" name="confirm" id="confirm" class="input senhas">
+                                        <br><input type="password" name="confirm" id="confirm" class="input senhas" >
                                 </div>
                             </div>
                             <div class="w100prc centralize">

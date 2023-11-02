@@ -5,6 +5,7 @@ if (!isset($_SESSION) || $_SESSION =="" || $_SESSION == null) {
     header('Location: ../../html/login.html');
 }
 $id_vaga = $_GET['id'];
+echo "<input type=\"text\" style=\"display:none\" value=\"$id_vaga\" id=\"IdVaga\"/>";
 
 $busca = mysqli_query($con, "SELECT * FROM vaga WHERE id_vaga = '$id_vaga'");
 $resultadoVaga = mysqli_fetch_row($busca);
@@ -36,7 +37,7 @@ $cargo = $resultadoVaga[3];
     <header></header>
 
         <section class="bigMarginTop bigMarginBotom centralize">
-            <form action="../updateVaga.php" class="flexC" method="POST">
+            <form <?php echo "action=\"../updateVaga1.php?id=$id_vaga\""; ?> class="flexC" method="POST">
                 <div class="conteiner_form flexR">
                     <div class="flexC left alingCenter">
                         <div class="conteiner">
@@ -97,6 +98,18 @@ $cargo = $resultadoVaga[3];
                     <div>
                         <input type="button" id="clear" value="Limpar Formulário" class="buttonPattern">
                     </div>
+                    <?php
+                        if($resultadoVaga[6] == "0"){
+                           echo "<div>
+                                    <input type=\"button\" id=\"mexer\" value=\"reativar vaga\" class=\"buttonPattern\" onclick=\"mexerVaga()\">
+                                </div>" ;
+                        }
+                        else{
+                            echo "<div>
+                                    <input type=\"button\" id=\"mexer\" value=\"desativar vaga\" class=\"buttonPattern\" onclick=\"mexerVaga()\">
+                                  </div>" ;
+                        }
+                    ?>
                     <div>
                         <input type="text" name="id_vaga" style="display:none" <?php echo "value=".$resultadoVaga[0]?>>
                         <input type="submit" id="enviar" value="..." class="buttonPattern btnBlocked">
@@ -122,6 +135,7 @@ $cargo = $resultadoVaga[3];
         var items = [];
         var habilidades = document.getElementById("habilidades");
         var permicao = false;
+        var idVaga = "idVaga="+document.getElementById("IdVaga").value;
 
             $(function(){
                 $('#adicionar').on('click', function(){
@@ -163,5 +177,33 @@ $cargo = $resultadoVaga[3];
                     
                 });
             });
+
+            function mexerVaga() {
+                var xhr;
+
+                        if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+
+                            xhr = new XMLHttpRequest();
+
+                        } else if (window.ActiveXObject) { // IE 8 and older
+
+                            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+                        }
+
+                let mexe = document.getElementById('mexer')
+                if(mexe.value == "desativar vaga"){
+                    xhr.open("POST", "../desativarVaga.php", true); 
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+                    xhr.send(idVaga);
+                    mexe.value = "reativar vaga";
+                }
+                else if(mexe.value == "reativar vaga"){
+                    xhr.open("POST", "../reativarVaga.php", true); 
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+                    xhr.send(idVaga);
+                    mexe.value = "desativar vaga";
+                }
+                
+            }
     </script>
 </html>

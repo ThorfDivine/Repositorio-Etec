@@ -30,7 +30,7 @@
         $cidade= $_POST['cidade'];
         $estado= $_POST['estado'];
         $rua= $_POST['rua'];
-        $endereco = $estado+", "+$cidade+", "+$bairro+", "+$rua;
+        $endereco = $estado.", ".$cidade.", ".$bairro.", ".$rua;
         //$habilidadesReq = $_POST["password"];
         $Beneficios = $_POST["message"];
         $id=$_SESSION['id'];

@@ -32,18 +32,32 @@ let redPoint
 
         let item2
             item2 = 'Certificados'
-        LinkIt2 = './certificados.php'
+        LinkIt2 = './meusCertificados.php'
 
         item3 = `<div class="separadorCC"></div><div class="certificados flexR centralize"><div class="redPoint"></div><a href="${LinkIt2}"><p>${item2}</p></a></div>`
     
-    }else if(document.title == 'BartoHelp - Area do Candidato'){
+    }else if(document.title == 'BartoHelp - Area do candidato'){
 
         search = '<div class="search"></div>'
+
+        who = 'candidato'
+        linkWho = './areaDoCandidato.php'
+
+        item1 = 'Meus Currículos'
+        LinkIt1 = './meusCurriculos.php'
+
+        let item2
+            item2 = 'Certificados'
+        LinkIt2 = './meusCertificados.php'
+
+        item3 = `<div class="separadorCC"></div><div class="certificados flexR centralize"><div class="redPoint"></div><a href="${LinkIt2}"><p>${item2}</p></a></div>`
+    
 
     }else if(document.title == 'BartoHelp - Area do Usuário'){
 
         search = '<div class="search"></div>'
 
+        
     }else if(document.title == 'BartoHelp - Currículos'){
 
         who = 'candidato'
@@ -69,7 +83,7 @@ let redPoint
 
         search = ''
         desconectLnk = '../desconectar.php'
-        homeLnk = '../../HTML/empresa/home.html'
+        homeLnk = './home.php'
 
         who = 'usuário'
         linkWho = '../../html/empresa/areaDoUsuario.html'
@@ -83,21 +97,21 @@ let redPoint
         logotipo = '../../contents/logo/logo.png'
 
         who = 'candidato'
-        linkWho = '../../HTML/funcionario/areaDoCandidato.html'
+        linkWho = './areaDoCandidato.html'
         
         item1 = 'Criar Currículo'
-        LinkIt1 = '../../HTML/funcionario/curriculos.html'
+        LinkIt1 = './curriculos.php'
 
         desconectLnk = '../desconectar.php'
 
         item3 = ''
 
-        homeLnk = '../../html/funcionario/home.html'
+        homeLnk = './home.php'
 
     }else if(document.title == 'BartoHelp - Vagas'){
 
         who = 'usuário'
-        linkWho = '../../html/empresa/areaDoUsuario.html'
+        linkWho = './areaDoUsuario.php'
         
         item1 = 'Criar anúncio'
         LinkIt1 = './criarVagas.php'
@@ -106,12 +120,27 @@ let redPoint
 
         item3 = ''
 
-        homeLnk = '../../html/empresa/home.html'
+        homeLnk = './home.php'
 
+    }else if(document.title == 'bartoHELP - Meus Certificados'){
+
+        who = 'candidato'
+        linkWho = './areaDoCandidato.php'
+
+        item1 = 'Meus Currículos'
+        LinkIt1 = './meusCurriculos.php'
+
+        let item2
+            item2 = 'Certificados'
+        LinkIt2 = './meusCertificados.php'
+
+        item3 = `<div class="separadorCC"></div><div class="certificados flexR centralize"><div class="redPoint"></div><a href="${LinkIt2}"><p>${item2}</p></a></div>`
+    
+   
     }else{
 
         who = 'usuário'
-        linkWho = './areaDoUsuario.html'
+        linkWho = './areaDoUsuario.php'
         
         item1 = 'Meus anúncios'
         LinkIt1 = '../../php/empresa/vagas.php'

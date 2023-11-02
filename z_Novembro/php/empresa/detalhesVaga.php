@@ -13,13 +13,13 @@ $idVaga = $_GET['idVaga'];
 $buscaVaga = mysqli_query($con, "SELECT * FROM vaga where id_vaga = '$idVaga'");
 $resultadoVaga = mysqli_fetch_row($buscaVaga);
 
-$cnpj = $resultadoVaga[8];
+$cnpj = $resultadoVaga[7];
 
 $buscaEmp = mysqli_query($con, "SELECT * FROM empresa where cnpj = '$cnpj'");
 $resultadoEmp = mysqli_fetch_row($buscaEmp);
 
 $buscaLogo = $resultadoEmp[5];
-$dataLimite = $resultadoVaga[6];
+$dataLimite = $resultadoVaga[5];
 
 $dataLimite = implode("/",array_reverse(explode("-",$dataLimite)));
 if ($buscaLogo=="" || $buscaLogo==null || $buscaLogo == " ") {
@@ -81,7 +81,7 @@ while($resultado = mysqli_fetch_row($busca)){
             <h4> <?php echo $resultadoEmp[1]?></h4>
             <h4> <?php echo $resultadoVaga[10]?> </h4>
             <h4> <?php echo "R$ ".$resultadoVaga[9]?> </h4>
-            <h4> <?php echo $resultadoVaga[5]." - ".$dataLimite;?> </h4>
+            <h4> <?php echo $resultadoVaga[4]." - ".$dataLimite;?> </h4>
         </div>
         <a <?php echo "href=\"./editarVaga.php?id=".$resultadoVaga[0]."\"" ?> >
             <button class="editarVaga">
@@ -96,7 +96,8 @@ while($resultado = mysqli_fetch_row($busca)){
                 Sobre a empresa
                 <hr style=" width:20vw; "/>
             </h1>
-            
+                <?php echo "<br/>".$resultadoEmp[6]?>;
+                <br/>
         </div>        
 
         <div>
@@ -106,7 +107,7 @@ while($resultado = mysqli_fetch_row($busca)){
             </h1>
 
             
-                    <?php echo "<br/>".$resultadoVaga[3]?>;
+                    <?php echo "<br/>".$resultadoVaga[2]?>;
                     <br/>
         </div>
         
@@ -116,7 +117,7 @@ while($resultado = mysqli_fetch_row($busca)){
                 Benefícios
                 <hr style=" width:13vw; "/>
             </h1>
-                    <?php echo "<br/>".$resultadoVaga[4]?>
+                    <?php echo "<br/>".$resultadoVaga[3]?>
                     <br/>
         </div>
 

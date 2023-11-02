@@ -131,7 +131,7 @@
                         <option value="10">Negociação</option>
                         <option value="11">Determinação</option>
                         <option value="12">Tolerância</option>
-                        <option value="13">Persuasão</option>
+                        <option value="13">Poder de persuasão</option>
                         <option value="14">Adaptabilidade</option>
                         <option value="15">Relacionamento inerpessoal</option>
                         <option value="16">Inteligência emocional</option>
@@ -183,7 +183,7 @@
                 
             ?>
 
-        for(var i = 0; i < optionstest.length;i++){
+        for(var i = 0; i < optionstest.length; i++){
             guarda2.push(optionstest[i].innerHTML);
             for (let i2 = 0; i2 < guarda.length; i2++) {
                 if (guarda2[i] == guarda[i2]) {

@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `competencia_vaga` (
   KEY `id_competencia` (`id_competencia`),
   CONSTRAINT `competencia_vaga_ibfk_1` FOREIGN KEY (`id_vaga`) REFERENCES `vaga` (`id_vaga`),
   CONSTRAINT `competencia_vaga_ibfk_2` FOREIGN KEY (`id_competencia`) REFERENCES `competencia` (`id_competencia`)
-) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Copiando dados para a tabela bartohelp.competencia_vaga: ~27 rows (aproximadamente)
 INSERT INTO `competencia_vaga` (`id_competencia_vaga`, `id_vaga`, `id_competencia`) VALUES
@@ -92,7 +92,6 @@ INSERT INTO `competencia_vaga` (`id_competencia_vaga`, `id_vaga`, `id_competenci
 	(51, 4, 5),
 	(52, 4, 2),
 	(53, 4, 9),
-	(55, 1, 1),
 	(56, 1, 13),
 	(57, 8, 4),
 	(58, 8, 14),
@@ -102,7 +101,9 @@ INSERT INTO `competencia_vaga` (`id_competencia_vaga`, `id_vaga`, `id_competenci
 	(62, 9, 2),
 	(63, 9, 7),
 	(64, 9, 9),
-	(65, 9, 8);
+	(65, 9, 8),
+	(66, 1, 1),
+	(68, 1, 4);
 
 -- Copiando estrutura para tabela bartohelp.empresa
 CREATE TABLE IF NOT EXISTS `empresa` (
@@ -113,12 +114,13 @@ CREATE TABLE IF NOT EXISTS `empresa` (
   `telefone` varchar(12) DEFAULT NULL,
   `logo` varchar(200) DEFAULT NULL,
   `descricao` text,
+  `descricaoLinha` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`cnpj`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Copiando dados para a tabela bartohelp.empresa: ~0 rows (aproximadamente)
-INSERT INTO `empresa` (`cnpj`, `nome`, `gmail`, `senha`, `telefone`, `logo`, `descricao`) VALUES
-	('213-5', 'gustavo batista de oliveira santos ThorfDivine', 'gustavobatistabos.td@gmail.com', 'MTIzNDVHb2pvVVNvbGEkJA==', '93951-8083', '../../contents/logo/dell.png', NULL);
+INSERT INTO `empresa` (`cnpj`, `nome`, `gmail`, `senha`, `telefone`, `logo`, `descricao`, `descricaoLinha`) VALUES
+	('213-5', 'gustavo batista de oliveira santos ThorfDivine', 'gustavobatistabos.td@gmail.com', 'MTIzNDVHb2pvVVNvbGEkJA==', '93951-8083', '../../contents/logo/dell.png', NULL, NULL);
 
 -- Copiando estrutura para tabela bartohelp.escolaridade
 CREATE TABLE IF NOT EXISTS `escolaridade` (
@@ -213,7 +215,7 @@ CREATE TABLE IF NOT EXISTS `vaga` (
   `cnpj_empresa` varchar(20) DEFAULT NULL,
   `salario` varchar(20) DEFAULT NULL,
   `cep` varchar(15) DEFAULT NULL,
-  `endereco` varchar(50) DEFAULT NULL,
+  `endereco` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   PRIMARY KEY (`id_vaga`),
   KEY `cnpj_empresa` (`cnpj_empresa`),
   CONSTRAINT `vaga_ibfk_1` FOREIGN KEY (`cnpj_empresa`) REFERENCES `empresa` (`cnpj`)
@@ -221,12 +223,12 @@ CREATE TABLE IF NOT EXISTS `vaga` (
 
 -- Copiando dados para a tabela bartohelp.vaga: ~7 rows (aproximadamente)
 INSERT INTO `vaga` (`id_vaga`, `titulo`, `responsabilidades`, `beneficios`, `data_pub`, `data_max`, `aberta`, `cnpj_empresa`, `salario`, `cep`, `endereco`) VALUES
-	(1, 'Programador', 'programar em js; programar em php; programar em react', 'vale transportes, vale alimentação, saúde;', '21/10/2023', '2028-10-03', 1, '213-5', '2300', '06535160', NULL),
+	(1, 'Programador senior', 'programar em js; programar em php; programar em react;', 'vale transportes, vale alimentação, saúde;', '21/10/2023', '2028-10-03', 1, '213-5', '2.300,00', '06535160', 'SP, Santana de Parnaíba, Cidade São Pedro - Gleba A, Rua do Rouxinol'),
 	(4, 'programador', '', 'tudo', '24/10/2023', '', 1, '213-5', '213-5', '2.800,00', NULL),
 	(5, 'Programador senior', 'programar em js; programar em php; programar em react;', 'varios vales', '24/10/2023', '2028-02-03', 1, '213-5', '3.500,00', '06535160', NULL),
 	(6, 'Auxiliar de logistica', 'carregar caixa', 'nada', '24/10/2023', '2024-10-03', 1, '213-5', '2.500', '06535160', NULL),
 	(7, 'Auxiliar de RH', 'papelada', 'nenhum mesmo\r\n', '24/10/2023', '2029-10-03', 1, '213-5', '1.130,00', '06535160', NULL),
-	(8, 'auxiliar de limpesa', 'limpa', 'vale refeição, vale transporte', '28/10/2023', '2023-11-05', 0, '213-5', '1.330,00', '06535160', NULL),
+	(8, 'auxiliar de limpesa', 'limpa', 'vale refeição, vale transporte', '28/10/2023', '2023-11-05', 1, '213-5', '1.330,00', '06535160', NULL),
 	(9, 'auxiliar de logistica', 'carrega caixa', 'cafézinho e vale transporte', '29/10/2023', '2025-01-01', 1, '213-5', '3.500,00', '06535160', NULL);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;

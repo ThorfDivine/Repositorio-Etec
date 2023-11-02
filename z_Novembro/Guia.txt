@@ -1,0 +1,7 @@
+1- terminar a parte de criação de curriculo e certificado completa|
+2- fazer a conexão de vaga e curriculo, logo a contratação e etc.. também -|depende da 1|-
+
+3- fazer a area de usuario do candidato |
+4- terminar js da area do usuario da empresa(button pra submit e fazer aparecer o endereco completo)|
+5- terminar php da area do usuario da empresa -|depende da 4|-
+6- fazer update das areas de usuario -|depende da 4|-

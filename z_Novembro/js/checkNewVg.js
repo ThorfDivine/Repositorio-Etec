@@ -234,7 +234,7 @@ let habilidd = false
     }
 
     function proximo() {
-        
-        document.location = './criarVagas_requisitos.php'
+
+        window.location.href = './editarVagas_requisitos.php'
 
     }
