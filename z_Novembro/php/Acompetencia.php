@@ -31,6 +31,7 @@
                         <div class=\"points flexC spaceBetween\">
                             <p id=\"nivel\" class=\"centralize\" style=\"margin-bottom: 15px;\">Nível de competência: <i style=\"margin-left: 5px;\">0</i></p>
                             <div class=\"w100prc centralize\">
+                            
                                 <div class=\"flexR spaceAround\" style=\"width: 70%;\">
                                     <div class=\"redPoint\" id=\"u\" onclick=\"c".$resultado[0]." = 1\"></div> <!--  u m     -->
                                     <div class=\"redPoint\" id=\"d\" onclick=\"c".$resultado[0]." = 2\"></div> <!--  d ois   -->
@@ -39,6 +40,7 @@
                                     <div class=\"redPoint\" id=\"c\" onclick=\"c".$resultado[0]." = 5\"></div> <!--  c inco  -->
                                         <!-- redo -->
                                 </div>
+
                                 <div class=\"refresh\">
                                     <span class=\"material-symbols-outlined\" id=\"refresh\" onclick=\"c".$resultado[0]." = 0\"> refresh </span>
                                 </div>

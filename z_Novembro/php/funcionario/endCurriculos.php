@@ -43,7 +43,7 @@ if(
         </div>
 
         <div class="form flex marginBtm23px" style="margin-bottom: 45px;">
-            <form  class="curriculo flexC" method="post">
+            <form class="curriculo flexC">
                 <div class='flexR w100prc spaceAround'>
                     <div class="flexC conteiner_item" style="width: 40%;">
                         <div class="flexR marginBtm5px">
