@@ -251,7 +251,8 @@ section{
                 }
             }
         }
-        & .altera{
+       
+    } .altera{
             width: 30%;
             display: flex;
             align-items: center;
@@ -271,4 +272,3 @@ section{
                 cursor: pointer;
                 border-width: 0;}
         }
-    }

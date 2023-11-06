@@ -13,7 +13,11 @@ if(
    
 include("../conexao.php");
 $cpf = $_SESSION['cpf'];
-$busca = mysqli_query($con, "select * from usuario where cpf = '$cpf'");
+$teste = mysqli_query($con, "SELECT * from escolaridade where cpf_cliente = '$cpf'"); 
+if(mysqli_num_rows($teste) >=1){
+    header('Location: ./endCurriculos.php');
+}
+$busca = mysqli_query($con, "SELECT * from usuario where cpf = '$cpf'");
 $resultado = mysqli_fetch_row($busca);
 $idade = calcularIdade($resultado[6]);
 function calcularIdade($date){
@@ -31,7 +35,15 @@ function calcularIdade($date){
     if ($day_diff < 0 || $month_diff < 0) $year_diff;
  
     return $year_diff;
-}
+
+   } 
+    $aumentando= date('Y');
+    $anos = "";
+    while ($aumentando >= 1950) {
+        echo "<script>console.log(\"to aqui\")</script>";
+        $anos = $anos."<option value=\"$aumentando\">$aumentando</option>";
+        $aumentando--;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -59,7 +71,7 @@ function calcularIdade($date){
 
     <section>
         <div class="form flex">
-            <form action="#" class="curriculo flexC" method="post">
+            <form action="../cadastrarCurriculo1.php" class="curriculo flexC" method="POST">
                 <div class="flexR spaceEvenly">
                     <div class="left">
                         <div class="flexC conteiner_item">
@@ -112,38 +124,15 @@ function calcularIdade($date){
                                 <div class="w100prc flexR spaceAround">
                                     <div class="flexC">
                                         <label for="inicio" class="dates">Início: </label>
-                                            <select name="inicio"  id="inicio" class="inicio">
-                                                <option value="2009">2009</option>
-                                                <option value="2008">2008</option>
-                                                <option value="2007">2007</option>
-                                                <option value="2006">2006</option>
-                                                <option value="2005">2005</option>
-                                                <option value="2004">2004</option>
-                                                <option value="2003">2003</option>
-                                                <option value="2002">2002</option>
-                                                <option value="2001">2001</option>
-                                                <option value="2000">2000</option>
-                                                <option value="1999">1999</option>
-                                                <option value="1998">1998</option>
-                                                <option value="1997">1997</option>
-                                                <option value="1996">1996</option>
+                                            <select name="inicio"  id="inicio" class="inicio">          
+                                                <?php echo $anos;?>
                                             </select>
                                     </div>
                                     <div class="flexC">
                                         <label for="conclusao" class="dates">Conclusão: </label>
                                             <select name="conclusao" id="conclusao" class="conclusao">
-                                                <option value="emCurso">Em curso</option>
-                                                <option value="2023">2023</option>
-                                                <option value="2022">2022</option>
-                                                <option value="2021">2021</option>
-                                                <option value="2020">2020</option>
-                                                <option value="2019">2019</option>
-                                                <option value="2018">2018</option>
-                                                <option value="2017">2017</option>
-                                                <option value="2016">2016</option>
-                                                <option value="2015">2015</option>
-                                                <option value="2014">2014</option>
-                                                <option value="2013">2013</option>
+                                                <option value="Em curso">Em curso</option>
+                                                <?php echo $anos;?>
                                             </select>
                                     </div>
                                 </div>
@@ -153,6 +142,7 @@ function calcularIdade($date){
                 </div>
                 <div class="flexR">
                 </div>
+                <input type="submit" class="submitPattern" value="continuar">
             </form>
         </div>
     </section>
