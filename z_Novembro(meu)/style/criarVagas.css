@@ -1,0 +1,147 @@
+/* Elements */
+
+section{
+    height: 100vh;
+}
+
+form{
+
+    width: 85%;
+    height: 100%;
+    border: 1px solid black;
+
+}
+
+/* Classes '.' */
+
+    .conteiner_form{
+        height: 70%;
+    }
+
+    .left, .right{
+        width: 50%;
+        height: 70%;
+    }
+
+    .conteiner{
+        width: 60%;
+        height: 15%;
+        margin: 15px 0;
+
+            & .inputPattern{
+                margin-bottom: .5rem;
+            }
+
+            & .inputPattern::-webkit-input-placeholder{
+                font-size: .9rem;
+                color: rgba(56, 5, 5, 0.426)
+            }
+            & .inputPattern::-moz-placeholder{
+                font-size: .9rem;
+                color: rgba(56, 5, 5, 0.426)
+            }
+    }
+
+    .btnAdicionar{
+        margin-left: 10px;
+        margin-bottom: 4px;
+        width: 20%;
+        height: 20px;
+        border: 0px;
+        background-color: rgb(255, 145, 143);
+        box-shadow: inset 0 -3px rgb(190, 94, 92);
+        transition: .2s ease-out;
+            &:hover{
+                box-shadow: inset 0 0 rgb(190, 94, 92);
+            }
+    }
+    .btnRemover{
+        margin-left: 10px;
+        margin-bottom: 4px;
+        width: 20%;
+        height: 20px;
+        border: 0px;
+        background-color: rgb(255, 145, 143);
+        box-shadow: inset 0 -3px rgb(190, 94, 92);
+        transition: .2s ease-out;
+            &:hover{
+                box-shadow: inset 0 0 rgb(190, 94, 92);
+            }
+    }
+    
+
+    .conteiner_Info{
+        height: 35%;
+    }
+    .conteiner_Wm{
+        width: 60%;
+        height: 5%;
+    }
+
+    .buttonPatern{
+        font-family: var(--PtSans);
+    }
+
+    .lable{
+
+        font-weight: 400;
+        font-size: 1.2rem;
+        margin-left: 15px;
+        margin-bottom: 3px;
+        font-family: var(--raleway);
+
+    }
+
+        .mH_vagas{
+            height: 20%;
+        }
+        .lH_vagas{
+            height: 5%;
+            margin: 5%;
+        }
+
+    input[type="date"]{
+        cursor: text;
+        height: 50px;
+        font-size: 1rem;
+        color: rgba(56, 5, 5, 0.426);
+        font-family: var(--raleway);
+    }
+
+    .w100prc{
+        width: 100%;
+    }
+
+        .spaceEvenly{
+            & div{
+                & .buttonPatern{
+                    width: 1.2rem;
+                    height: 100%;
+                }
+                height: 25%;
+            }
+        }
+
+/* Id's '#' */
+
+#home{
+    border: 1px solid var(--gray3);
+    border-radius: 3px;
+
+}
+
+        /* ========================  RESPONSSIVIDADE  ======================== */
+
+    @media (max-width: 1280px){
+        .lable{
+            font-size: calc(1rem + 2px);
+        }   
+    }
+
+    @media (max-height: 710px){
+
+        section{
+            height: 143vh;
+        }
+
+    }

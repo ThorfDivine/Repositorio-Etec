@@ -1,0 +1,480 @@
+:root{
+
+    --section_heigth: 100vh;
+    --cardSdw: 0 12px 25px 1px rgba(0, 0, 0, 0.555);
+    --cardSdwHvr: 0 12px 25px 1px rgba(0, 0, 0, 0.484);
+
+        --btnCardBrd: 1px solid rgb(0,0,0);
+        --detalhesBrd: 2px solid rgb(25, 25, 184);
+
+    --bkg_Card: rgb(226, 226, 226);
+}
+
+        /* POP-UP __ EDIÇÃO DE DADOS */
+
+
+    popup{
+    
+        z-index: 6;
+        width: 100%;
+        display: flex;
+        position: absolute;
+        align-items: center;
+        margin: -15px 0 0 0;
+        justify-content: center;
+        height: calc(100% + 6px + 126vh);
+        background-color: rgba(0, 0, 0, 0.619);
+        
+        & .conteiner{
+            width: 96%;
+            height: 96%;
+            display: flex;
+            background-color: rgb(240, 211, 211);
+        }
+
+    }
+        .close{
+            width: 100%;
+            height: 6vh;
+            z-index: 2;
+
+            & div{
+                width: 50px;
+                height: 100%;
+                display: flex;
+                font-size: 2rem;
+                font-weight: 800;
+                align-items: center;
+                color: rgb(63, 63, 63);
+                justify-content: center;
+                font-family: var(--Mukta);
+
+                & p{
+                    cursor: pointer;
+                }
+
+            }
+        }
+        .form{
+            width: 96%;
+            margin: 3% 2%;
+            margin-top: -2%;
+            display: flex;
+            height: calc(94% - 6vh);
+        }
+            form{
+                width: 100%;
+                height: 90%;
+            }
+            textarea{
+                padding-top: 15px;
+            }
+            .lable{
+                font-size: 1.5rem;
+                font-weight: bold;
+                font-family: var(--PtSans);
+            }
+            .topConteiner{
+                height: 20%;
+            }
+                .conteinerInfo{
+                    width: 40%;
+                    height: 100%;
+                    margin: 25px;
+                }
+                    .profilePicture_edite{
+                        width: 170px;
+                        height: 170px;
+                        margin-left: 2%;
+                        border-radius: 100%;
+                        background-color: var(--bkg_Card);
+                    }
+                    .editarImg{
+                        width: 15%;
+                        height: 100%;
+                        margin-left: 5%;
+                    }
+                    .alterar{
+                        width: 80%;
+                        cursor: pointer;
+                        font-size: .7rem;
+                        font-weight: 600;
+                        border-radius: 12px;
+                        color: rgb(62, 62, 62);
+                        background-color: rgba(14, 0, 117, 0.030);
+                        transition: .5s cubic-bezier(0.61, 0.21, 0.24, 0.83);
+                        & span{
+                            font-size: 2.3rem;
+                        }
+
+                        &:hover{
+                            color: rgb(66, 66, 66);
+                            background-color: rgba(7, 0, 59, 0.070);
+                            box-shadow: inset 2px 3px 34px 5px rgba(66, 72, 144, 0.373);
+                        }
+                    }
+
+                .nomeUser{
+                    width: 90%;
+                    height: 15%;
+                    margin-top: 15px;
+                    font-size: 1.3rem;
+                    padding-left: 10px;
+                    border-radius: 6px;
+                    color: rgb(0,0,0);
+                }
+
+            .duraRealidadeDoMacgiver{
+                width: 100%;
+                height: 80%;
+                /* background-color: lightslategrey; */
+            }
+                .conteinerAll{
+                    width: 100%;
+                    height: 70%;
+                    /* background-color: rgb(14, 0, 117); */
+
+                    & .conteinerInfo{
+                        width: 50%;
+                        height: 100%;
+                        margin: 25px;
+
+                        padding-left: 8%;
+                    }
+                }
+
+                .input{
+                    width: 78%;
+                    height: 24%;
+                    margin-top: 5px;
+                    font-size: 1.15rem;
+                    color: rgb(70,70,70);
+                    padding-left: 15px;
+                    border-radius: 5px;
+                    border: .5px solid rgb(57, 57, 57);
+                }
+                    .Denai{
+                        border: 2.3px solid var(--borderInputDenai);
+                    }
+                    .Denai::-webkit-input-placeholder{
+                        margin-left: 5px;
+                        color: var(--borderInputDenai);
+                    }
+        /* edições de classes já existentes: */
+
+        #eye{
+            font-size: 1.5rem;
+        }
+
+        .buttonPattern{
+            width: 170px;
+            height: 50px;
+        }
+
+        /* Fim */
+
+                /* POP-UP __ EDIÇÃO DE DADOS */
+
+section{
+    width: 100%;
+    height: 180vh;
+}
+
+    .userDiv{
+        width: 90%;
+        height: 26vh;
+        border-radius: 20px;
+        background-color: var(--bkg_Card);
+    }
+        .bgk_prlx{
+            width: 100%;
+            height: 35%;
+            border-radius: 20px 20px 0 0;
+
+                /*Mudar:  ../../contents/imgs/paralax/paralaxUsuario.png */
+            background-image: url(../contents/imgs/paralax/paralaxUsuario.png);
+        }
+/*  */
+        .userInfo{
+            height: 65%;
+        }
+        .profilePicture{
+
+            width: 170px;
+            height: 170px;
+            margin-left: 2%;
+            position: absolute;
+            border-radius: 100%;
+            background-color: var(--bkg_Card);
+            top: calc(14% - 3px + var(--marginLineHeader));
+            
+            & img{
+                border-radius: 100%;
+            }
+
+        }
+        .infos{
+            width: 25%;
+            height: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: column;
+            margin-left: calc(4% + 180px);
+        }
+
+         .editar{
+            width: 1%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            color: rgb(15,28,120);
+            font-family: var(--raleway);
+
+            & span{
+                font-size: 40px;
+            }
+            & h4{
+                font-size: 16px;
+                cursor: pointer;
+                font-weight: 600;
+                color: rgb(14, 27, 91);
+            }
+
+            & span, h4{
+                cursor: pointer;
+            }
+        }
+
+.sobre, .vagas{
+    width: 90%;
+    height: 73vh;
+    border-radius: 15px;
+    margin-top: calc(var(--marginLineHeader) - 8vh);
+    background-color: rgba(255, 234, 234, 0.544);
+}
+    .titulo{
+        width: 100%;
+        height: 10%;
+        font-family: var(--raleway);
+        border-radius: 15px 15px 0 0;
+        background-color: var(--bkg_Card);
+
+            & h2{
+
+                cursor: pointer;
+                font-weight: 600;
+                color: rgb(16, 16, 16);
+                transition: 1s cubic-bezier(0.61, 0.21, 0.24, 0.83);
+
+                &:hover{
+                    color: rgb(60, 60, 60);
+                    font-weight: 800;
+                }
+            }
+    }
+
+.sobre{
+    height: 30vh;
+        & .titulo{
+            height: 23%;
+        }
+        & .contentP{
+            width: 95%;
+            height: 100%;
+            margin-top: 3%;
+
+            & p{
+                margin-left: 5%;
+                font-weight: 500 !important;
+                font-size: 1.2rem;
+                text-align: justify;
+                font-family: var(--Lato);
+            }
+            
+        }
+        
+}
+
+
+/* Card de vagas */
+
+.cardVaga{
+
+    width: 48%;
+    height: 10vh;
+    display: flex;
+    cursor: pointer;
+    margin: 15px 35px;
+    align-items: center;
+    border-radius: 13px;
+    box-shadow: var(--cardSdw);
+    background-color: var(--grayCard);
+    border: 2.3px solid var(--darkGray);
+    transition: .5s cubic-bezier(0.77, 0, 0.175, 1);
+
+    &:hover{
+        background-color: var(--grayCardHvr);
+        box-shadow: var(--cardSdwHvr);
+    }
+
+    & .imgLogo{
+        height: 80%;
+        width: 12.5%;
+        margin: 0 5px;
+    }
+
+}
+
+.informacoes_da_vaga{
+    width: 60%;
+    height: 100%;
+
+    & #insc{
+        margin-right: 10px;
+    }
+
+    & #status{
+        margin-left: 10px;
+    }
+
+}
+
+    .detalhes_p{
+        width: 90%;
+
+        & p{
+            margin-left: 2px;
+            font-size: 14px;
+        }
+    }
+
+ .botoes{
+
+    & button{
+        height: 23px;
+        display: flex;
+        cursor: pointer;
+        margin-left: 25px;
+        border-radius: 8px;
+        margin-bottom: 7px;
+        align-items: center;
+        justify-content: center;
+        border: var(--btnCardBrd);
+    }
+
+    & .detalhes{
+        width: 55px;
+        font-size: .78rem;
+        color: rgb(25, 25, 184);
+        border: var(--detalhesBrd);
+        background-color: rgb(243, 243, 255);
+        transition: .8s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+        &:hover{
+            color: rgb(74, 74, 204);
+            background-color: rgb(222, 222, 255);
+        }
+    }
+
+}
+
+
+.deletVg{
+    margin-left: 15px;
+    width: 70px;
+    height: 70%;
+    padding-bottom: 5px;
+}
+    
+
+a .editarVg{
+    
+    width: 40px;
+    height: 70%;
+    cursor: pointer;
+    padding-top: 5px;
+    
+    & span{
+        width: 100%;
+        height: 80%;
+        font-size: 2.4rem;
+        border-radius: 10px;
+        color: rgb(230, 230, 230);
+        background-color: rgb(33, 20, 96);
+        transition: .6s cubic-bezier(0.12, 0.35, 0.68, 0.53);
+        &:hover{
+            color: rgb(232, 232, 232);
+            background-color: rgb(11, 6, 42);
+        }
+    }
+    
+}
+ .desativo{
+    width: 40px;
+    background-color: rgb(250, 230, 230);
+    transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    cursor: pointer;
+        & span{
+            color: rgb(100, 0, 0);
+            font-size: 1.5rem;
+        }
+
+        &:hover{
+            color: rgb(100, 0, 0);
+            background-color: rgb(187, 26, 26);
+        }
+}
+ .ativo{
+    width: 40px;
+    background-color: rgb(230, 230, 250);
+    transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    cursor: pointer;
+        & span{
+            color: rgb(0, 140, 0);
+            font-size: 1.5rem;
+        }
+
+        &:hover{
+            color: rgb(0, 67, 0);
+            background-color: rgb(26, 200, 26);
+        }
+}
+
+/* End */
+
+
+    
+@media (max-width: 1280px){
+
+    popup{
+        height: calc(100% + 1.5px + 128vh);
+    }
+
+    .profilePicture{
+        width: 130px;
+        height: 130px;
+        margin-left: 2.2%;
+        top: calc(15% + var(--marginLineHeader));
+    }
+
+    .infos{
+        margin-left: calc(4% + 130px);
+    }
+
+    .cardVaga{
+        height: 12%;
+    }
+        .deletVg{
+            height: 100%;
+            padding-bottom: 0;
+
+            & button{
+                height: 35px;
+            }
+        }
+            .lixeira{
+                height: 95%;
+            }
+
+}

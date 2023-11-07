@@ -2,10 +2,10 @@
     session_start();
     include("./conexao.php");
 
-    $num = $_POST['idDaComp'];
-    $cpf = $_SESSION['cpf'];
-    $busca = mysqli_query($con, "SELECT * FROM competencia where id_competencia = $num");
     $res = "";
+    $cpf = $_SESSION['cpf'];
+    $num = $_POST['idDaComp'];
+    $busca = mysqli_query($con, "SELECT * FROM competencia where id_competencia = $num");
     
         
             
@@ -29,28 +29,32 @@
                                 <p>detalhes da competência: ".$resultado[2]."</p>
                             </div>
                         <div class=\"points flexC spaceBetween\">
+
                             <p id=\"nivel\" class=\"centralize\" style=\"margin-bottom: 15px;\">Nível de competência: <i style=\"margin-left: 5px;\">0</i></p>
                             <div class=\"w100prc centralize\">
                             
                                 <div class=\"flexR spaceAround\" style=\"width: 70%;\">
-                                    <div class=\"redPoint\" id=\"u\" onclick=\"c".$resultado[0]." = 1\"></div> <!--  u m     -->
-                                    <div class=\"redPoint\" id=\"d\" onclick=\"c".$resultado[0]." = 2\"></div> <!--  d ois   -->
-                                    <div class=\"redPoint\" id=\"t\" onclick=\"c".$resultado[0]." = 3\"></div> <!--  t rês   -->
-                                    <div class=\"redPoint\" id=\"q\" onclick=\"c".$resultado[0]." = 4\"></div> <!--  q uatro -->
-                                    <div class=\"redPoint\" id=\"c\" onclick=\"c".$resultado[0]." = 5\"></div> <!--  c inco  -->
+                                    <div class=\"redPoint\" id=\"u\"></div> <!--  u m     -->
+                                    <div class=\"redPoint\" id=\"d\"></div> <!--  d ois   -->
+                                    <div class=\"redPoint\" id=\"t\"></div> <!--  t rês   -->
+                                    <div class=\"redPoint\" id=\"q\"></div> <!--  q uatro -->
+                                    <div class=\"redPoint\" id=\"c\"></div> <!--  c inco  -->
                                         <!-- redo -->
                                 </div>
 
                                 <div class=\"refresh\">
-                                    <span class=\"material-symbols-outlined\" id=\"refresh\" onclick=\"c".$resultado[0]." = 0\"> refresh </span>
+                                    <span class=\"material-symbols-outlined\" id=\"refresh\"> refresh </span>
                                 </div>
+                            
                             </div>
                         </div>
-                    </div>";
+                    </div>
+                ";
                 
      
                 
             }
+            
        
             
         

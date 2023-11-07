@@ -1,0 +1,56 @@
+section{
+    height: 150vh;
+    flex-shrink: 0;
+}
+
+.respostaElse{
+    display: none;
+}
+
+.myCrts{
+    width: 100%;
+    height: 100%;
+}
+    .cardCertificado{
+        width: 18%;
+        height: 45vh;
+        margin: 8px 25px;
+        border-radius: 5px;
+        background-color: rgb(255, 243, 243);
+        transition: .5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+        box-shadow: 7px 9px 52px 12px rgba(0, 0, 0, 0.416);
+
+        &:hover{
+            background-color: rgb(255, 224, 225);
+            box-shadow: 15px 13px 62px 12px rgba(0, 0, 0, 0.926);
+        }
+        
+        & .img_conteiner{
+            width: 100%;
+            height: 29vh;
+            overflow: hidden;
+            border-radius: 5px 5px 0 0;
+            background-color: rgb(60,60,60);
+            
+            & img{
+                opacity: 1;
+                transition: .5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+            }
+
+            &:hover{
+                & img{
+                    opacity: .87;
+                    width: 120%;
+                    height: 120%;
+                    transform: translateY(-10%);
+                }
+            }
+        }
+
+        .cerificadoInfo{
+            width: 100%;
+            color: rgb(32, 32, 32);
+            height: calc(45vh - 29vh);
+        }
+
+    }
