@@ -81,7 +81,6 @@ if(
                                 <p>detalhes da competência: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum consectetur adipisicing elit.</p>
                             </div>
                         <div class="points flexC spaceBetween">
-
                             <p id="nivel" class="centralize" style="margin-bottom: 15px;">Nível de competência: <i style="margin-left: 5px;">0</i></p>
                             <div class="w100prc centralize">
                                 <div class="flexR spaceAround" style="width: 70%;">

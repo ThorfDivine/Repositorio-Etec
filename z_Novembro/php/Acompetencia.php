@@ -12,7 +12,7 @@
             while($resultado = mysqli_fetch_row($busca)){
 
                     $res = $res. 
-                "<div class=\"flexC alingCenter spaceEvenly\" style=\"width: 70%; background-color: rgba(60,60,60,0.2); border-radius: 4px;\">
+                        "<div class=\"flexC alingCenter spaceEvenly\" style=\"width: 70%; background-color: rgba(60,60,60,0.2); border-radius: 4px;\">
                         <div class=\"tittle w100prc flexR alingCenter\" id=\"cTitle\">
                             <h1>".$resultado[1]."</h1>
                         </div>
