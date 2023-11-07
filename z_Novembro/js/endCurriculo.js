@@ -2,7 +2,7 @@
 let points
     points = document.querySelectorAll('.redPoint')
         // console.log('points: ', points);
-
+    
 let refresh
     refresh = document.querySelector("#refresh")
     console.log('refresh: ', refresh);

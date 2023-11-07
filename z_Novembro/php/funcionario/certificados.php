@@ -36,11 +36,12 @@ if(
     <header></header>
     
     <section class="bigMarginTop bigMarginBotom centralize">
-        <form action="../certificados.php" methot="post">
+        <form action="../upload.php" methot="post">
             <div class="flexC">
-                <label style="margin: 5px 25px;" for="certificado"> Seu Certificado: </label>
-                    <input style="display: block;" type="file" name="certificado" id="certificado" class="inputPattern">
+                <label style="margin: 5px 25px;" for="certificado" onchange="testarChange()"> Seu Certificado: </label>
+                    <input style="display: block;" type="file" name="certificado" id="certificado" class="inputPattern" id="certificado">
             </div>
+            <input type="submit" value="enviar" id="enviarCertificado" class="buttonPattern">
         </form>
     </section>
 
@@ -48,4 +49,6 @@ if(
 </body>
     <script src="../../js/header.js"></script>
     <script src="../../js/footer.js"></script>
+    <script src="../../js/certificados.js"></script>
+    
 </html>

@@ -3,10 +3,6 @@ section{
     flex-shrink: 0;
 }
 
-.respostaElse{
-    display: none;
-}
-
 .myCrts{
     width: 100%;
     height: 100%;

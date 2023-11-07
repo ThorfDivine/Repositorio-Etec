@@ -40,7 +40,7 @@ if(
             <!-- Essa div só deve ser criada (junto ao seu conteúdo) caso não haja currículos 
                  cadastrados previamente pelo usuário, estes cujo, registrados no banco de dados -->
             <h1>Ao que parece você não possui currículos cadastrados</h1>
-            <h3>Clique <a href="../../HTML/funcionario/curriculos.php">aqui</a> para iniciar sua jornada!</h3>
+            <h3>Clique <a href="./curriculos.php">aqui</a> para iniciar sua jornada!</h3>
         </div>
         
         <div class="vagas">

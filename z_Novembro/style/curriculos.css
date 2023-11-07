@@ -99,3 +99,19 @@ help{
     font-size: 1.6rem;
     color: rgb(94, 115, 128);
 }
+.submitPattern{
+
+    border: 0px;
+    width: 115px;
+    height: 40px;
+    cursor: pointer;
+    transition: .5s;
+    border-radius: 50px;
+    color: var(--buttonClr);
+    box-shadow: var(--buttonSdw);
+    background-color: var(--buttonBkgClr);
+
+        &:hover{
+            box-shadow: var(--buttonSdwHvr);
+        }
+}

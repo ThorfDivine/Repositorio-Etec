@@ -11,9 +11,7 @@
         
         $passwordCdf = base64_encode($password);
         
-       
-
-        
+    
            
         $query = mysqli_query($con, "SELECT * FROM empresa WHERE cnpj = '$identity' AND senha = '$passwordCdf'");
         $result = mysqli_fetch_array($query);
