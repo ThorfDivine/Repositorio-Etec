@@ -57,7 +57,7 @@
                                     <div class=\"oferta spaceAround\">
                                         <div class=\"salario\"><p>R$ ".$resultado[8]."</p></div>
                                         <div><p>|</p></div>
-                                        <div class=\"local\"><p>".$resultado[10]."</p></div>
+                                        <div class=\"local\"><p>".$resultado[9]."</p></div>
                                     </div>
                                 </div>
                                 <div class=\"flexC detalhes_Oferta spaceEvenly\">

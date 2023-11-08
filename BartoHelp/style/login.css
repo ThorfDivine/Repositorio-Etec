@@ -97,4 +97,12 @@ section{
         width: 33%;
     }
 }
+@media (min-width: 1130px){
+    .redirect{
+        width: 34%;
+    }
+    .redirect p{
+        font-size: .74rem;
+    }
+}
 /* ____________ final ____________ */

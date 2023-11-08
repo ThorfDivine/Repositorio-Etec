@@ -1,7 +1,8 @@
 
 // janela:
     const popup = document.querySelector('popup')
-
+        // console.log(popup);
+        
 // botões:
     const drop  = document.querySelector('#colse')
     const edit  = document.querySelector('#editar')

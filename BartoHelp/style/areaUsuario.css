@@ -422,6 +422,11 @@ a .editarVg{
     }
     
 }
+.escolaridade{
+
+    height: auto;
+    padding-bottom: 20px;
+}
  .desativo{
     width: 40px;
     background-color: rgb(250, 230, 230);
@@ -456,7 +461,64 @@ a .editarVg{
 /* End */
 
 
-    
+@media (max-height: 651px){
+
+    popup{
+        width: 100%;
+        display: flex;
+        position: absolute;
+        align-items: center;
+        margin: -15px 0 0 0;
+        justify-content: center;
+        height: calc(100% + 6px + 190vh);
+        background-color: rgba(0, 0, 0, 0.619);
+        
+        & .conteiner{
+            width: 96%;
+            height: 96%;
+            display: flex;
+            background-color: rgb(240, 211, 211);
+        }
+
+    }
+
+
+    section{
+        height: 240vh;
+    }
+
+    popup{
+        height: calc(100% + 1.5px + 128vh);
+    }
+
+    .profilePicture{
+        width: 140px;
+        height: 140px;
+        margin-left: 1.78%;
+        top: calc(15% + var(--marginLineHeader));
+    }
+
+    .infos{
+        margin-left: calc(4% + 130px);
+    }
+
+    .cardVaga{
+        height: 12%;
+    }
+        .deletVg{
+            height: 100%;
+            padding-bottom: 0;
+
+            & button{
+                height: 35px;
+            }
+        }
+            .lixeira{
+                height: 95%;
+            }
+
+}
+
 @media (max-width: 1280px){
 
     popup{

@@ -23,19 +23,19 @@
     }else if($resultado2[3] == 1){
         $RedPoints = "<div class=\"flexR spaceAround\" style=\"width: 70%;\">
         <div class=\"redPoint\" id=\"u\"></div> <!--  u m     -->
-        <div class=\"Point\" id=\"d\"></div> <!--  d ois   -->
-        <div class=\"Point\" id=\"t\"></div> <!--  t rês   -->
-        <div class=\"Point\" id=\"q\"></div> <!--  q uatro -->
-        <div class=\"Point\" id=\"c\"></div> <!--  c inco  -->
+        <!-- <div class=\"redPoint\" id=\"d\"></div>  d ois   -->
+        <!-- <div class=\"redPoint\" id=\"t\"></div>  t rês   -->
+        <!--<div class=\"redPoint\" id=\"q\"></div>  q uatro -->
+        <!-- <div class=\"redPoint\" id=\"c\"></div>  c inco  -->
             <!-- redo -->
     </div>";
     }else if($resultado2[3] == 2){
         $RedPoints = "<div class=\"flexR spaceAround\" style=\"width: 70%;\">
         <div class=\"redPoint\" id=\"u\"></div> <!--  u m     -->
         <div class=\"redPoint\" id=\"d\"></div> <!--  d ois   -->
-        <div class=\"Point\" id=\"t\"></div> <!--  t rês   -->
-        <div class=\"Point\" id=\"q\"></div> <!--  q uatro -->
-        <div class=\"Point\" id=\"c\"></div> <!--  c inco  -->
+        <!-- <div class=\"Point\" id=\"t\"></div>  t rês   -->
+        <!-- <div class=\"Point\" id=\"q\"></div>  q uatro -->
+        <!-- <div class=\"Point\" id=\"c\"></div>  c inco  -->
             <!-- redo -->
     </div>";
     }else if($resultado2[3] == 3){
@@ -43,8 +43,8 @@
         <div class=\"redPoint\" id=\"u\"></div> <!--  u m     -->
         <div class=\"redPoint\" id=\"d\"></div> <!--  d ois   -->
         <div class=\"redPoint\" id=\"t\"></div> <!--  t rês   -->
-        <div class=\"Point\" id=\"q\"></div> <!--  q uatro -->
-        <div class=\"Point\" id=\"c\"></div> <!--  c inco  -->
+        <!-- <div class=\"Point\" id=\"q\"></div>     q uatro -->
+        <!-- <div class=\"Point\" id=\"c\"></div>     c inco  -->
             <!-- redo -->
     </div>";
     }else if($resultado2[3] == 4){
@@ -53,10 +53,10 @@
         <div class=\"redPoint\" id=\"d\"></div> <!--  d ois   -->
         <div class=\"redPoint\" id=\"t\"></div> <!--  t rês   -->
         <div class=\"redPoint\" id=\"q\"></div> <!--  q uatro -->
-        <div class=\"Point\" id=\"c\"></div> <!--  c inco  -->
+        <!-- <div class=\"Point\" id=\"c\"></div>     c inco  -->
             <!-- redo -->
     </div>";
-    }else if($resultado2[3] == 5){
+    }else if($resultado2[4] == 5){
         $RedPoints = "<div class=\"flexR spaceAround\" style=\"width: 70%;\">
         <div class=\"redPoint\" id=\"u\"></div> <!--  u m     -->
         <div class=\"redPoint\" id=\"d\"></div> <!--  d ois   -->
@@ -70,9 +70,9 @@
             while($resultado = mysqli_fetch_row($busca)){
 
                     $res = $res. 
-                        "<div class=\"flexC alingCenter spaceEvenly\" style=\"width: 70%; background-color: rgba(60,60,60,0.2); border-radius: 4px;\">
+                        "<div class=\"flexC alingCenter spaceEvenly\" style=\"margin: 13% 15%; width: 70%; background-color: rgba(60,60,60,0.2); border-radius: 4px;\">
                         <div class=\"tittle w100prc flexR alingCenter\" id=\"cTitle\">
-                            <h1>".$resultado[1]."</h1>
+                            <h1 style=\"margin: 13px 12px; \">".$resultado[1]."</h1>
                         </div>
 
                         <div id=\"competenciaId\" style=\"display: none;\">
@@ -84,12 +84,12 @@
                         </div>
 
                             <div class=\"explain\" id=\"explain\">
-                                <p>detalhes da competência: ".$resultado[2]."</p>
+                                <p style=\"margin: auto 12px; \" >detalhes da competência: ".$resultado[2]."</p>
                             </div>
                         <div class=\"points flexC spaceBetween\">
 
-                            <p id=\"nivel\" class=\"centralize\" style=\"margin-bottom: 15px;\">Nível de competência: <i style=\"margin-left: 5px;\">0</i></p>
-                            <div class=\"w100prc centralize\">
+                            <p id=\"nivel\" class=\"centralize\" style=\"margin-bottom: 5px; margin-top: 10px;\">Nível de competência: <i style=\"margin-left: 5px;\">".$resultado2[3]."</i></p>
+                            <div class=\"w100prc centralize\" style=\"margin-bottom: 13px; \">
                             
                                 ".$RedPoints."
 
