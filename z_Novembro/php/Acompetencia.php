@@ -32,6 +32,7 @@
 
                             <p id=\"nivel\" class=\"centralize\" style=\"margin-bottom: 15px;\">Nível de competência: <i style=\"margin-left: 5px;\">0</i></p>
                             <div class=\"w100prc centralize\">
+                            
                                 <div class=\"flexR spaceAround\" style=\"width: 70%;\">
                                     <div class=\"redPoint\" id=\"u\"></div> <!--  u m     -->
                                     <div class=\"redPoint\" id=\"d\"></div> <!--  d ois   -->
