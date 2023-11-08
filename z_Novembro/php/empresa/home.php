@@ -150,14 +150,14 @@ session_start();
                 }
         }
 
-        function dispensar(cpf) {
+        function dispensar(cpf, data) {
 
+                let data2 = "post="+data;
                 xhr.open("POST", "../../php/dispensar.php?cpf="+cpf, true); 
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
-                xhr.send(data);
+                xhr.send(data2);
                 xhr.onreadystatechange = recarregarAPagina();
-
-                
+ 
         }
 
         function recarregarAPagina(){

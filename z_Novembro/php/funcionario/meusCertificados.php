@@ -13,9 +13,9 @@ if(
     ){header('Location: ../../html/login.html');}  
 
     $cpf = $_SESSION['cpf'];
-    $busca = mysqli_query($con, "SELECT * from certificados where id_user = '$cpf'");
+    $busca = mysqli_query($con, "SELECT * from certificados where id_usuario = '$cpf'");
     $res = "";
-    $vazio;
+    $vazio = 1;
     while($resultado = mysqli_fetch_row($busca)){
         $vazio = 0;
         $res = $res."
@@ -30,14 +30,17 @@ if(
                         
                     ";
     }
-    if($res == "" || $res == " " || $res ==null){
+    if($res == "" || $res == " " || $res ==null || $vazio =1){
         $vazio=1;
         $res= "
-            <div class=\"respostaElse\">
+            <div class=\"respostaElse\" style=\"padding: 25vh\">
                 <h1>Ao que parece você não possui certificados cadastrados</h1>
                 <h3>Clique <a href=\"./certificados.php\">aqui</a> para iniciar sua jornada!</h3>
             </div>";
+            
     }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -68,19 +71,16 @@ if(
 <body>
     
     <header></header>
-        
+        <?php if($vazio == 1){echo $res;}?>
         <section class="bigMarginTop bigMarginBotom centralize">
-            <?php if($vazio == 1){echo $res;}?>
+            
             <?php if($vazio != 1 ){?>
             <div class="myCrts flexR wrap_True spaceAround">
-                <!-- Essa div só deve ser criada (junto ao seu conteúdo) caso HAJA certificados 
-                    cadastrados previamente pelo usuário, estes cujo, registrados no banco de dados -->
-                    <?php echo $res."ainda to aqui";?>
-                    <!-- são possiveis adicionar até 8 cards de certificados nesta janela (sem que haja transbordamento)
-                        [contador deverá parar em 8] -->
+                <?php echo $res."ainda to aqui";?>
+                    
             </div>
             
-<?php }?>
+        <?php }?>
         </section>
     <footer></footer>
 </body>

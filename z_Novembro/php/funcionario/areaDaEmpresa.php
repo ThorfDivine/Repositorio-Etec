@@ -8,15 +8,20 @@ if(
     || $_SESSION == " "
     && isset($_SESSION)
     || !isset($_SESSION["id"]) 
-    || $_SESSION["id"] =="" 
-    || $_SESSION["id"] ==" " 
-    || $_SESSION["id"] == null 
-    || empty($_SESSION["id"])
+    || $_SESSION["cpf"] =="" 
+    || $_SESSION["cpf"] ==" " 
+    || $_SESSION["cpf"] == null 
+    || empty($_SESSION["cpf"])
     || $_SESSION['Pudim7w7'] != true)
         {header('Location: ../../html/login.html');}
-    $id = $_SESSION['id'];
+    $id = $_GET['id'];
+    $cpf = $_SESSION['cpf'];
     $busca = mysqli_query($con,"SELECT * from empresa where cnpj = '$id'");
     $empresa = mysqli_fetch_row($busca);
+    $curriculo = mysqli_query($con, "SELECT curriculo from usuario where cpf ='$cpf'");
+    $curriculo1 = mysqli_fetch_row($curriculo);
+    echo "<input type=\"text\" style=\"display:none\" value= \"".$curriculo1[0]."\" id=\"curriculo\"/>";
+    
     if($empresa[5] =="" || $empresa[5] ==" "){
         $logo = "../../contents/imgs/3106921.png";
     }else{
@@ -43,114 +48,17 @@ if(
         <!-- CSS -->
             <link rel="stylesheet" href="../../style/style.css">
             <link rel="stylesheet" href="../../style/header.css">
+            <link rel="stylesheet" href="../../style/home.css">
             <link rel="stylesheet" href="../../style/areaUsuario.css">
+
         <!-- End -->
     <title>BartoHelp - Area do usuário</title>
 </head>
-<body onload="adicionar()">
+<body onload="vagas()">
     <script> var number = 0 ;</script>
 
 
     <!-- style="display: none;" -->
-    <popup>
-        <div class="conteiner flexC">
-            <!-- close div -->
-            <div class="close spaceBetween">
-                <div></div>
-
-                <div id="close">
-                    <p>X</p>
-                </div>
-            </div>
-            <!-- end close div -->
-
-            <!-- form div -->
-            <div class="form flexC">
-                <form action="../updateinfoEmp.php" method="post" class="flexR wrap_True">
-                    <div class="topConteiner w100prc spaceEvenly">
-                        <div class="conteinerInfo">
-                            <label for="logotipo" class="lable">Logotipo atual:</label>
-                            <div class="flexR alingCenter">
-                                <div class="profilePicture_edite img_conteiner">
-                                    <img src="<?php echo $logo;?>" alt="Foto de perfil">
-                                </div>
-                                <div class="editarImg">
-                                    <label for="logotipo" class="alterar flexC alingCenter">
-                                        <span class="material-symbols-outlined">edit</span> Alterar
-                                    </label>
-                                    <input id="img3" type="file" name="logo" accept="image/*" id="logotipo" style="display: none;">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="conteinerInfo flexC">
-                            <label for="nome" class="lable">Nome da empresa:</label>
-                                <input type="text" name="nome" id="nome" class="nomeUser" <?php echo "value=".$empresa[1];?>>
-                        </div>
-                    </div>
-                        <!--  -->
-                    
-
-                    
-                    <div class="duraRealidadeDoMacgiver flexC alingCenter">
-                        <div class="conteinerAll spaceEvenly wrap_True">
-                            <div class="w100prc spaceEvenly">
-                                <div class="conteinerInfo">
-                                    <label for="cep" class="lable marginLeft12px">Cep: </label>
-                                        <br><input type="text" name="cep" id="cep" class="input" <?php echo "value=".$empresa[9];?>>
-                                </div>
-                                <div class="conteinerInfo">
-                                    <label for="cnpj" class="lable marginLeft12px">Cnpj: </label>
-                                        <br><input type="text" name="cnpj" id="cnpj" class="input" <?php echo "value=".$empresa[0];?>>
-                                </div>
-                            </div>
-                            <div class="w100prc spaceEvenly">
-                                <div class="conteinerInfo">
-                                    <label for="cep" class="lable marginLeft12px">Email: </label>
-                                        <br><input type="email" name="email" id="email" class="input" <?php echo "value=".$empresa[2];?>>
-                                </div>
-                                <div class="conteinerInfo">
-                                    <label for="fone" class="lable marginLeft12px">Telefone: </label>
-                                        <br><input type="tel" name="fone" id="fone" class="input" <?php echo "value=".$empresa[4];?>>
-                                </div>
-                            </div>
-                            <div class="w100prc spaceEvenly">
-                                <div class="conteinerInfo">
-                                    <label for="desc1" class="lable marginLeft12px">Descrição <i style="font-size: .58rem;">(1 linha) </i>: </label>
-                                        <br><input type="text" name="desc1" id="desc1" class="input" <?php echo "value=".$empresa[7];?>>
-                                </div>
-                                <div class="conteinerInfo">
-                                    <label for="desc2" class="lable marginLeft12px">Descrição <i style="font-size: .58rem;">(paragrafo) </i>: </label>
-                                        <br><textarea name="desc2" id="desc2" class="input"><?php echo $empresa[6];?></textarea>
-                                </div>
-                            </div>
-                            <div class="w100prc spaceEvenly">
-                                <div class="conteinerInfo">
-                                    <label for="senha" class="lable marginLeft12px">Senha: </label>
-                                        <br><input type="password" name="pass" id="senha" class="input senhas" <?php echo "value=".base64_decode($empresa[1]);?>>
-                                </div>
-                                <div class="conteinerInfo">
-                                    <label for="confirm" class="lable marginLeft12px">Confirme sua senha: </label>
-                                        <br><input type="password" name="confirm" id="confirm" class="input senhas" >
-                                </div>
-                            </div>
-                            <div class="w100prc centralize">
-                                <div class="flexC alingCenter">
-                                    <span class="material-symbols-outlined" id="eye"> visibility_off </span> <!-- Eye -->
-                                    <br><p id="text_eye" style="font-size: 1rem;">Mostrar senhas</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="marginTop23px centralize">
-                            <input type="button" class="buttonPattern btnBlocked" value="...">
-                        </div>
-                    </div>
-                
-                </form>
-            </div>
-            <!-- form end -->
-        </div>
-    </popup>
     
     <header id="top"></header>
 
@@ -169,10 +77,6 @@ if(
                     <div class="userInfos">
                         <p><?php echo $empresa[9];?> - <?php echo $empresa[0];?> - <?php echo $empresa[2];?> <br> Telefone: +55 11 <?php echo $empresa[4];?></p>
                     </div>
-                </div>
-                <div class="editar" id="editar">
-                    <span class="material-symbols-outlined"> edit_square </span>
-                    <h4>Editar</h4>
                 </div>
             </div>
         </div>
@@ -208,18 +112,19 @@ if(
 </body>
     <script src="../../js/header.js"></script>
     <script src="../../js/footer.js"></script>
-    <script src="../../js/infoEdit.js"></script>
     <script src="../../js/createBttn.js"></script>
+    <script src="../../js/confirmDelet.js"></script>
     <script>
             var items = "";  
         
         
 
-        function adicionar()
+        
+    function vagas()
         {
-            var data = "n=" + number;
-            
-            var xhr;
+                var data = "n=" + number;
+
+                var xhr;
 
             if (window.XMLHttpRequest) { // Mozilla, Safari, ...
 
@@ -230,8 +135,7 @@ if(
                 xhr = new ActiveXObject("Microsoft.XMLHTTP");
             }
 
-
-                xhr.open("POST", "../../php/AareadeUserEmp.php", true); 
+                xhr.open("POST", "../../php/AareadeUserEmp.php?id=<?php echo $id;?>", true); 
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
                 xhr.send(data);
                 xhr.onreadystatechange = display_data;
@@ -242,13 +146,11 @@ if(
 
                         if (xhr.status == 200) {
 
-                            //alert(xhr.responseText);	 
                             
-                            items = xhr.responseText;
+                                items1 = xhr.responseText;
                             
-                                document.getElementById('vagas').innerHTML = items ; 
+                                document.getElementById('vagas').innerHTML = items1 ; 
                                     
-                                console.log("number="+number);
                             
 
                         } else {
@@ -261,76 +163,89 @@ if(
 
             //limit sql
         }
+            function inscrever_se(idVaga){
+
+                var xhr;
+
+                if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+
+                    xhr = new XMLHttpRequest();
+
+                } else if (window.ActiveXObject) { // IE 8 and older
+
+                    xhr = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+
+                var curriculo = document.getElementById("curriculo").value;
+
+                if (curriculo == 1) {
+                    var data = "idVaga=" + idVaga;
+                
+                    xhr.open("POST", "../../php/Ainscrever.php", true); 
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+                    xhr.send(data);
+                    xhr.onreadystatechange = recarregarAPagina();
+
+                    
+                    
+                }
+                else{
+                    
+                    if (confirm("sem curriculo cadastrado, criar o curriculo ?") == true) {
+                        
+                        window.location.href = "./curriculos.php";          
+
+                    } 
+                        
+                }
+        }        
+
+        
+        function cancelar(idVaga){
+            
+            var data = "idVaga=" + idVaga;         
+
+            var xhr;
+
+            if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+
+                xhr = new XMLHttpRequest();
+
+            } else if (window.ActiveXObject) { // IE 8 and older
+
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            xhr.open("POST", "../Acancelar.php", true); 
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+            xhr.send(data);
+            xhr.onreadystatechange = recarregarAPagina();
+        
+                
+}
+
+        function recarregarAPagina(){
+            window.location.reload();
+        }
+        
         function add(){
-            if(number>=0 && items != "<h2>sem mais resultados...</h2>"){
+            if(number>=0 && items1 != "<div class=\"respostaElse\"><h1>Ao que parece não existem anúncios de vagas</h1></div>"){
+                console.log(items1)
                 number+=6;
                 window.scrollTo(0, 0);
-                adicionar();    
+                vagaspincrever_se();    
             }
         }
         function rmv(){
             if(number>0){
                 number-=6;
                 window.scrollTo(window.scrollY, 0);
-                adicionar();    
+                vagaspincrever_se();    
             }
         }
         
        
 
-        function fecharVaga(idVaga){
-
-            if (confirm("fechar vaga?") == true) {
-                
-                var xhr;
-                var confirmar= "idVaga="+idVaga;
-
-                if (window.XMLHttpRequest) { // Mozilla, Safari, ...
-
-                    xhr = new XMLHttpRequest();
-
-                } else if (window.ActiveXObject) { // IE 8 and older
-
-                    xhr = new ActiveXObject("Microsoft.XMLHTTP");
-                }
-
-
-                xhr.open("POST", "../desativarVaga.php", true); 
-                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
-                xhr.send(confirmar);  
-                xhr.onreadystatechange = window.location.reload();                  
-
-            } 
-                else{
-                console.log("n foi ")
-            }
-        }
-
-        function reativarVaga(idVaga){
-            if (confirm("reativar vaga?") == true) {
-
-                var xhr;
-                var confirmar= "idVaga="+idVaga;
-
-                if (window.XMLHttpRequest) { // Mozilla, Safari, ...
-
-                    xhr = new XMLHttpRequest();
-
-                } else if (window.ActiveXObject) { // IE 8 and older
-
-                    xhr = new ActiveXObject("Microsoft.XMLHTTP");
-                }
-
-
-                xhr.open("POST", "../reativarVaga.php", true); 
-                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
-                xhr.send(confirmar);   
-                xhr.onreadystatechange = window.location.reload();
-
-            } 
-                else{
-                console.log("n foi ")
-            }
-        }
+        
     </script>
 </html>

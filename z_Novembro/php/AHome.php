@@ -39,7 +39,7 @@
 
                 $cnpj = $resultado[7];
                 $id_vaga = $resultado[0];
-                $buscaInteressados = mysqli_query($con, "SELECT * FROM interesse WHERE id_vaga = '$id_vaga'");
+                $buscaInteressados = mysqli_query($con, "SELECT * FROM interesse WHERE id_vaga = '$id_vaga' and aprovacao <> 0");
                 $buscaInteressados = mysqli_num_rows($buscaInteressados);
                 $buscaLogo1 = mysqli_query($con, "SELECT logo FROM empresa where cnpj ='$cnpj'");
                 $buscaLogo = mysqli_fetch_row($buscaLogo1);

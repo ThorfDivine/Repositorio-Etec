@@ -1,0 +1,35 @@
+.botoesDeAprovacao{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & .aprovar{
+        width: 10vw;
+        height: 4vh;
+        background-color: blue;
+        color: white;
+        border-radius: 1vh;
+        border-width: 0;
+        margin: 4vh 0.3vw;
+        cursor: pointer;
+    }
+    & .dispensar{
+        width: 10vw;
+        height: 4vh;
+        background-color: red;
+        color: white;
+        border-radius: 1vh;
+        border-width: 0;
+        cursor: pointer;
+    }
+    & .aprovado{
+        width: 10vw;
+        height: 4vh;
+        background-color: rgb(0, 255, 64);
+        color: white;
+        border-radius: 1vh;
+        border-width: 0;
+        margin: 4vh 0.3vw;
+        cursor: pointer;
+    }
+}

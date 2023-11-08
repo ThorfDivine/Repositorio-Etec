@@ -379,6 +379,18 @@ section{
 
 }
 
+.detalhes{
+    width: 37%;
+    font-size: .78rem;
+    color: rgb(25, 25, 184);
+    border: var(--detalhesBrd);
+    background-color: rgb(243, 243, 255);
+    transition: .8s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    &:hover{
+        color: rgb(74, 74, 204);
+        background-color: rgb(222, 222, 255);
+    }
+}
 
 .deletVg{
     margin-left: 15px;

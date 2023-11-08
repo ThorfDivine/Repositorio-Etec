@@ -5,8 +5,8 @@
     $num = $_POST['n'];
     $cnpj = $_SESSION['id'];
     $idVaga = $_GET['idVaga'];
-    $busca = mysqli_query($con, "SELECT * FROM interesse WHERE id_vaga = \"$idVaga\" LIMIT 6 OFFSET $num");
-    $resultado2 = mysqli_fetch_row($busca);
+    $busca = mysqli_query($con, "SELECT * FROM interesse WHERE id_vaga = \"$idVaga\" and aprovacao <> 0 LIMIT 6 OFFSET $num");
+    
     $res = "   <div class=\"conteinerH2\">
                     <h2>Currículos Disponiveis</h2>
                 </div>
@@ -37,9 +37,17 @@
 
                 $cpf= $resultado[1];
                 $busca2 = mysqli_query($con, "SELECT * FROM usuario WHERE cpf = '$cpf'");
+                $aprovacaoPosta = $resultado[4]; 
+
+                if($aprovacaoPosta==1){
+                    $botesAprovacao = "<button class=\"aprovado\">Aprovado!</button>";
+                }else{
+                    $botesAprovacao = "<button onclick=\"dispensar($cpf, $idVaga)\" class=\"cadastrar\">Dispensar</button>";
+                }
 
                 while($resultado2 = mysqli_fetch_row($busca2)){
                         $idade =  calcularIdade($resultado2[6]);
+                        $enviarA = $cpf."-".$idVaga;
                         $res = $res."
                         
                     <div class=\"cardVaga\">
@@ -52,13 +60,13 @@
                             <div class=\"oferta spaceAround\">
                                 <div class=\"idade\"><p><i>".$idade."</i> anos</p></div>
                                 <div><p>|</p></div>
-                                <div class=\"local\"><p>".$resultado2[8]."</p></div>
+                                <div class=\"local\"><p>".$resultado2[7]."</p></div>
                             </div>
                         </div>
 
                         <div class=\"flexC detalhes_Oferta\">
-                            <a href=\"./curricolouser.php?cpf=$cpf\"><button>Ver Currículo</button></a>
-                            <button onclick=\"dispensar($cpf)\" class=\"cadastrar\">Dispensar</button>
+                            <a href=\"./curriculoUser.php?data=$enviarA\"><button>Ver Currículo</button></a>
+                            ".$botesAprovacao."
                         </div>
                     </div>
 

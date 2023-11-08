@@ -20,7 +20,7 @@
 
     <section class="bigMarginTop bigMarginBotom">
         <div class="flexR">
-            
+            <?php header('location:./meusCurriculos.php');?>
         </div>
     </section>
 

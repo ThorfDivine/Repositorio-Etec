@@ -33,15 +33,17 @@
                     $id_vaga = $resultado[0];
                     $buscaLogo1 = mysqli_query($con, "SELECT logo FROM empresa where cnpj ='$cnpj'");
                     $buscaLogo = mysqli_fetch_row($buscaLogo1);
-                        if ($resultado1[4]==2){
+
+                        if ($resultado2[4]==2){
                             $bolinha= "analize";
                         }
-                        else if ($resultado1[4]==1){
+                        else if ($resultado2[4]==0){
                             $bolinha= "reprovado";
                         }
-                        else if ($resultado1[4]==3){
-                            $bolinha= "analize";
+                        else if ($resultado2[4]==1){
+                            $bolinha= "aprovado";
                         }
+
                         $res = $res. 
                         
                             "<div class=\"cardVaga\">
@@ -55,9 +57,9 @@
                                     <p><strong>".$resultado[1]."</strong></p><br>
 
                                     <div>
-                                        <p>Status: <i>detalhes</i></p>
-                                            <button class=\"lixeira\" onclick=\" cancelar($idVaga) \"><span class=\"material-symbols-outlined\">delete</span></button>
-                                            <button class=\"detalhes\" ><a href=\" ./maisDetalhesMinhasVagas.php?idVaga=".$id_vaga." \">Mais Detalhes </a></button>
+                                        <p>Status: <i>.$bolinha.</i></p>
+                                            <button class=\"lixeira\" onclick=\" cancelar($filtroIdVaga) \"><span class=\"material-symbols-outlined\">delete</span></button>
+                                            <button class=\"detalhes\" ><a href=\" ./maisDetalhesMinhasVagas.php?idVaga=".$filtroIdVaga." \">Mais Detalhes </a></button>
                                     </div>
 
                                 </div>

@@ -2,12 +2,70 @@
     session_start();
     include("./conexao.php");
 
-    $res = "";
-    $cpf = $_SESSION['cpf'];
+    $res = "<div class=\"titulo alingCenter\">
+                <h2 class=\"marginLeft12px\">Competencias: </h2>
+            </div>";
+    $cpf = $_GET['cpf'];
     $num = $_POST['idDaComp'];
     $busca = mysqli_query($con, "SELECT * FROM competencia where id_competencia = $num");
-    
-        
+    $busca2 = mysqli_query($con, "SELECT * FROM competencia_usuario where id_competencia = $num and cpf_usuario = '$cpf'"); 
+    $resultado2 = mysqli_fetch_row($busca2);
+
+    if($resultado2[3] == 0 ){
+        $RedPoints = "<div class=\"flexR spaceAround\" style=\"width: 70%;\">
+        <div class=\"Point\" id=\"u\"></div> <!--  u m     -->
+        <div class=\"Point\" id=\"d\"></div> <!--  d ois   -->
+        <div class=\"Point\" id=\"t\"></div> <!--  t rês   -->
+        <div class=\"Point\" id=\"q\"></div> <!--  q uatro -->
+        <div class=\"Point\" id=\"c\"></div> <!--  c inco  -->
+            <!-- redo -->
+    </div>";
+    }else if($resultado2[3] == 1){
+        $RedPoints = "<div class=\"flexR spaceAround\" style=\"width: 70%;\">
+        <div class=\"redPoint\" id=\"u\"></div> <!--  u m     -->
+        <div class=\"Point\" id=\"d\"></div> <!--  d ois   -->
+        <div class=\"Point\" id=\"t\"></div> <!--  t rês   -->
+        <div class=\"Point\" id=\"q\"></div> <!--  q uatro -->
+        <div class=\"Point\" id=\"c\"></div> <!--  c inco  -->
+            <!-- redo -->
+    </div>";
+    }else if($resultado2[3] == 2){
+        $RedPoints = "<div class=\"flexR spaceAround\" style=\"width: 70%;\">
+        <div class=\"redPoint\" id=\"u\"></div> <!--  u m     -->
+        <div class=\"redPoint\" id=\"d\"></div> <!--  d ois   -->
+        <div class=\"Point\" id=\"t\"></div> <!--  t rês   -->
+        <div class=\"Point\" id=\"q\"></div> <!--  q uatro -->
+        <div class=\"Point\" id=\"c\"></div> <!--  c inco  -->
+            <!-- redo -->
+    </div>";
+    }else if($resultado2[3] == 3){
+        $RedPoints = "<div class=\"flexR spaceAround\" style=\"width: 70%;\">
+        <div class=\"redPoint\" id=\"u\"></div> <!--  u m     -->
+        <div class=\"redPoint\" id=\"d\"></div> <!--  d ois   -->
+        <div class=\"redPoint\" id=\"t\"></div> <!--  t rês   -->
+        <div class=\"Point\" id=\"q\"></div> <!--  q uatro -->
+        <div class=\"Point\" id=\"c\"></div> <!--  c inco  -->
+            <!-- redo -->
+    </div>";
+    }else if($resultado2[3] == 4){
+        $RedPoints = "<div class=\"flexR spaceAround\" style=\"width: 70%;\">
+        <div class=\"redPoint\" id=\"u\"></div> <!--  u m     -->
+        <div class=\"redPoint\" id=\"d\"></div> <!--  d ois   -->
+        <div class=\"redPoint\" id=\"t\"></div> <!--  t rês   -->
+        <div class=\"redPoint\" id=\"q\"></div> <!--  q uatro -->
+        <div class=\"Point\" id=\"c\"></div> <!--  c inco  -->
+            <!-- redo -->
+    </div>";
+    }else if($resultado2[3] == 5){
+        $RedPoints = "<div class=\"flexR spaceAround\" style=\"width: 70%;\">
+        <div class=\"redPoint\" id=\"u\"></div> <!--  u m     -->
+        <div class=\"redPoint\" id=\"d\"></div> <!--  d ois   -->
+        <div class=\"redPoint\" id=\"t\"></div> <!--  t rês   -->
+        <div class=\"redPoint\" id=\"q\"></div> <!--  q uatro -->
+        <div class=\"redPoint\" id=\"c\"></div> <!--  c inco  -->
+            <!-- redo -->
+    </div>";
+    }
             
             while($resultado = mysqli_fetch_row($busca)){
 
@@ -33,18 +91,8 @@
                             <p id=\"nivel\" class=\"centralize\" style=\"margin-bottom: 15px;\">Nível de competência: <i style=\"margin-left: 5px;\">0</i></p>
                             <div class=\"w100prc centralize\">
                             
-                                <div class=\"flexR spaceAround\" style=\"width: 70%;\">
-                                    <div class=\"redPoint\" id=\"u\"></div> <!--  u m     -->
-                                    <div class=\"redPoint\" id=\"d\"></div> <!--  d ois   -->
-                                    <div class=\"redPoint\" id=\"t\"></div> <!--  t rês   -->
-                                    <div class=\"redPoint\" id=\"q\"></div> <!--  q uatro -->
-                                    <div class=\"redPoint\" id=\"c\"></div> <!--  c inco  -->
-                                        <!-- redo -->
-                                </div>
+                                ".$RedPoints."
 
-                                <div class=\"refresh\">
-                                    <span class=\"material-symbols-outlined\" id=\"refresh\"> refresh </span>
-                                </div>
                             
                             </div>
                         </div>

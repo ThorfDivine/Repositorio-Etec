@@ -34,7 +34,7 @@
                     while($resultado = mysqli_fetch_row($busca)){
                         $permicao = true;
                         foreach ($vagajainscrita as $key => $value) {
-                            if ($valores == $resultado[0]) {
+                            if ($value == $resultado[0]) {
                                 $permicao = false;
                                 break;
                             }
@@ -48,7 +48,9 @@
                                 $res = $res. 
                                 "<div class=\"cardVaga\">
                                 <div class=\"imgLogo img_conteiner\">
-                                    <img src=".$buscaLogo[0]." alt=\"logo\">
+                                    <a href=\"./areaDaEmpresa.php?id=$cnpj\">
+                                        <img src=".$buscaLogo[0]." alt=\"logo\">
+                                    </a>
                                 </div>
                                 <div class=\"informacoes_da_vaga vaga\">
                                     <p><strong>".$resultado[1]."</strong></p><br>

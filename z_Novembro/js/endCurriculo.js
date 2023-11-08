@@ -119,7 +119,7 @@ var quant = function (e) {
 
         switch (e.target.id) {
             case 'next':
-                if (onde == 16) {
+                if (onde == 17) {
                     onde = 0
                 }else{
                     onde++
@@ -127,7 +127,7 @@ var quant = function (e) {
                 break;
             case 'back':
                 if (onde == 0) {
-                    onde = 16
+                    onde = 17
                 }else{
                     onde--
                 }

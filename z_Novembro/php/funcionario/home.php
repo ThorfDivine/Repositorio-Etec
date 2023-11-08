@@ -132,8 +132,21 @@ echo "<input type=\"text\" style=\"display:none\" value= \"".$curriculo1[0]."\" 
 
             //limit sql
         }
-        function inscrever_se(idVaga){
-            var curriculo = document.getElementById("curriculo").value;
+            function inscrever_se(idVaga){
+
+                var xhr;
+
+                if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+
+                    xhr = new XMLHttpRequest();
+
+                } else if (window.ActiveXObject) { // IE 8 and older
+
+                    xhr = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+
+                var curriculo = document.getElementById("curriculo").value;
+
                 if (curriculo == 1) {
                     var data = "idVaga=" + idVaga;
                 
@@ -141,6 +154,9 @@ echo "<input type=\"text\" style=\"display:none\" value= \"".$curriculo1[0]."\" 
                     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
                     xhr.send(data);
                     xhr.onreadystatechange = recarregarAPagina();
+
+                    
+                    
                 }
                 else{
                     

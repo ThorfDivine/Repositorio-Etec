@@ -43,6 +43,7 @@ if(
 
     if($temCur == 0){           
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -64,6 +65,7 @@ if(
     <!-- End -->
 </head>
 <body>
+    <script>var number = 1; </script>
     <header></header>
     
     <section class="bigMarginTop bigMarginBotom centralize">
@@ -204,11 +206,13 @@ if(
         </div>
  
    
-        <div class="vagas">
-            <div class="titulo alingCenter">
-                <h2 class="marginLeft12px">Competencias: </h2>
-            </div>
+        <div class="vagas" id="containerComp">
             
+            
+        </div>
+        <div style="display: flex; align-items: center;justify-content: center;width:100%">
+            <button onclick="addd()" style=""><</button>
+            <button onclick="rmvv()" style="">></button>
         </div>
  
     </section>
@@ -216,6 +220,69 @@ if(
     <footer></footer>
  
 </body>
+    <script>
+        var number = 1;
+        function mostrarCompetencia(){
+            var data = "idDaComp=" + number;
+
+            var xhr;
+
+            if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+
+                xhr = new XMLHttpRequest();
+
+            } else if (window.ActiveXObject) { // IE 8 and older
+
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+                xhr.open("POST", "../Acomp.php?cpf=<?php echo $cpf; ?>", true); 
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+                xhr.send(data);
+                xhr.onreadystatechange = display_data;
+
+                function display_data() {
+
+                    if (xhr.readyState == 4) {
+
+                        if (xhr.status == 200) {
+
+                            
+                                items = xhr.responseText;
+                            
+                                document.getElementById('containerComp').innerHTML = items ; 
+                                console.log(number);
+                        } else {
+
+                            alert('There was a problem with the request.');
+
+                        }
+                    }
+                }
+        }
+        function addd(){
+            if(number==17){
+                number = 1;
+            }else{
+                number++;
+            }
+            
+            mostrarCompetencia();
+        }
+        function rmvv(){
+            if(number==1){
+                number = 17;
+            }else{
+                number--;
+            }
+            
+            mostrarCompetencia();
+        }
+    
+   
+
+    mostrarCompetencia();
+    </script>                    
     <script src="../../js/header.js"></script>
     <script src="../../js/footer.js"></script>
 </html>
