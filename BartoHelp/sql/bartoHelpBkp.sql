@@ -19,6 +19,18 @@
 CREATE DATABASE IF NOT EXISTS `bartohelp` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `bartohelp`;
 
+-- Copiando estrutura para tabela bartohelp.certificados
+CREATE TABLE IF NOT EXISTS `certificados` (
+  `id_certificados` int NOT NULL AUTO_INCREMENT,
+  `id_usuario` varchar(20) DEFAULT NULL,
+  `caminho` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_certificados`),
+  KEY `id_usuario` (`id_usuario`),
+  CONSTRAINT `certificados_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`cpf`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Copiando dados para a tabela bartohelp.certificados: ~0 rows (aproximadamente)
+
 -- Copiando estrutura para tabela bartohelp.competencia
 CREATE TABLE IF NOT EXISTS `competencia` (
   `id_competencia` int NOT NULL AUTO_INCREMENT,
@@ -52,14 +64,33 @@ CREATE TABLE IF NOT EXISTS `competencia_usuario` (
   `id_competencia_usuario` int NOT NULL AUTO_INCREMENT,
   `cpf_usuario` varchar(12) DEFAULT NULL,
   `id_competencia` int DEFAULT NULL,
+  `nivel` int DEFAULT NULL,
   PRIMARY KEY (`id_competencia_usuario`),
   KEY `cpf_usuario` (`cpf_usuario`),
   KEY `id_competencia` (`id_competencia`),
   CONSTRAINT `competencia_usuario_ibfk_1` FOREIGN KEY (`cpf_usuario`) REFERENCES `usuario` (`cpf`),
   CONSTRAINT `competencia_usuario_ibfk_2` FOREIGN KEY (`id_competencia`) REFERENCES `competencia` (`id_competencia`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela bartohelp.competencia_usuario: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela bartohelp.competencia_usuario: ~17 rows (aproximadamente)
+INSERT INTO `competencia_usuario` (`id_competencia_usuario`, `cpf_usuario`, `id_competencia`, `nivel`) VALUES
+	(1, '47319366835', 1, 3),
+	(2, '47319366835', 2, 3),
+	(3, '47319366835', 3, 3),
+	(4, '47319366835', 4, 3),
+	(5, '47319366835', 5, 3),
+	(6, '47319366835', 6, 3),
+	(7, '47319366835', 7, 3),
+	(8, '47319366835', 8, 3),
+	(9, '47319366835', 9, 3),
+	(10, '47319366835', 10, 3),
+	(11, '47319366835', 11, 3),
+	(12, '47319366835', 12, 3),
+	(13, '47319366835', 13, 3),
+	(14, '47319366835', 14, 3),
+	(15, '47319366835', 15, 3),
+	(16, '47319366835', 16, 3),
+	(17, '47319366835', 17, 3);
 
 -- Copiando estrutura para tabela bartohelp.competencia_vaga
 CREATE TABLE IF NOT EXISTS `competencia_vaga` (
@@ -73,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `competencia_vaga` (
   CONSTRAINT `competencia_vaga_ibfk_2` FOREIGN KEY (`id_competencia`) REFERENCES `competencia` (`id_competencia`)
 ) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela bartohelp.competencia_vaga: ~27 rows (aproximadamente)
+-- Copiando dados para a tabela bartohelp.competencia_vaga: ~29 rows (aproximadamente)
 INSERT INTO `competencia_vaga` (`id_competencia_vaga`, `id_vaga`, `id_competencia`) VALUES
 	(1, 5, 1),
 	(37, 5, 3),
@@ -122,7 +153,7 @@ CREATE TABLE IF NOT EXISTS `empresa` (
 
 -- Copiando dados para a tabela bartohelp.empresa: ~1 rows (aproximadamente)
 INSERT INTO `empresa` (`cnpj`, `nome`, `gmail`, `senha`, `telefone`, `logo`, `descricao`, `descricaoLinha`, `endereco`, `cep`) VALUES
-	('213-5', 'gustavo batista de oliveira santos ThorfDivine', 'gustavobatistabos.td@gmail.com', 'MTIzNDVHb2pvVVNvbGEkJA==', '93951-8083', '../../contents/logo/dell.png', NULL, NULL, '', '');
+	('213-5', 'Dell', 'gustavobatistabos.td@gmail.com', 'MTIzNDVHb2pvVVNvbGEkJA==', '93951-8083', '', 'Dell, Inc. Dell desenvolve, produz, dá suporte e vende uma grande variedade de computadores pessoais, servidores, notebooks, dispositivos de armazenamento, switches de rede, PDAs, software, periféricos e mais. De acordo com a lista Fortune 500 de 2005, a Dell é a 28ª maior empresa nos Estados Unidos (em vendas).', 'empresa', '', '06535160');
 
 -- Copiando estrutura para tabela bartohelp.escolaridade
 CREATE TABLE IF NOT EXISTS `escolaridade` (
@@ -136,25 +167,29 @@ CREATE TABLE IF NOT EXISTS `escolaridade` (
   PRIMARY KEY (`id_esc`),
   KEY `cpf_cliente` (`cpf_cliente`),
   CONSTRAINT `escolaridade_ibfk_1` FOREIGN KEY (`cpf_cliente`) REFERENCES `usuario` (`cpf`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela bartohelp.escolaridade: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela bartohelp.escolaridade: ~1 rows (aproximadamente)
+INSERT INTO `escolaridade` (`id_esc`, `cpf_cliente`, `instituicao`, `tipo`, `concluido`, `data_inicio`, `data_final`) VALUES
+	(1, '47319366835', 'BARTOLOMEO', 'medioTecnicoIncompleto', 0, '2023', 'Em curso');
 
 -- Copiando estrutura para tabela bartohelp.experiencia
 CREATE TABLE IF NOT EXISTS `experiencia` (
   `id_exp` int NOT NULL AUTO_INCREMENT,
   `cpf_cliente` varchar(12) DEFAULT NULL,
-  `tipo` varchar(255) NOT NULL,
+  `tipo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `instituicao` varchar(255) DEFAULT NULL,
-  `descricao` text,
+  `descricao` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `ano_inicio` varchar(4) DEFAULT NULL,
   `ano_conclusao` varchar(4) DEFAULT NULL,
   PRIMARY KEY (`id_exp`),
   KEY `cpf_cliente` (`cpf_cliente`),
   CONSTRAINT `experiencia_ibfk_1` FOREIGN KEY (`cpf_cliente`) REFERENCES `usuario` (`cpf`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela bartohelp.experiencia: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela bartohelp.experiencia: ~1 rows (aproximadamente)
+INSERT INTO `experiencia` (`id_exp`, `cpf_cliente`, `tipo`, `instituicao`, `descricao`, `ano_inicio`, `ano_conclusao`) VALUES
+	(1, '47319366835', NULL, NULL, 'trabalhei na dell', NULL, NULL);
 
 -- Copiando estrutura para tabela bartohelp.idiomas
 CREATE TABLE IF NOT EXISTS `idiomas` (
@@ -165,25 +200,32 @@ CREATE TABLE IF NOT EXISTS `idiomas` (
   PRIMARY KEY (`id_linguagem`),
   KEY `cpf_cliente` (`cpf_cliente`),
   CONSTRAINT `idiomas_ibfk_1` FOREIGN KEY (`cpf_cliente`) REFERENCES `usuario` (`cpf`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela bartohelp.idiomas: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela bartohelp.idiomas: ~3 rows (aproximadamente)
+INSERT INTO `idiomas` (`id_linguagem`, `cpf_cliente`, `idioma`, `nivel`) VALUES
+	(1, '47319366835', 'Inglês avançado', NULL),
+	(2, '47319366835', 'Espanhou basico', NULL),
+	(3, '47319366835', 'Japonez basico', NULL);
 
 -- Copiando estrutura para tabela bartohelp.interesse
 CREATE TABLE IF NOT EXISTS `interesse` (
   `id_interesse` int NOT NULL AUTO_INCREMENT,
   `id_usuario` varchar(12) DEFAULT NULL,
   `id_vaga` int DEFAULT NULL,
-  `interessado` tinyint(1) DEFAULT NULL,
+  `interessado` int DEFAULT NULL,
   `aprovacao` int DEFAULT NULL,
   PRIMARY KEY (`id_interesse`),
   KEY `id_usuario` (`id_usuario`),
   KEY `id_vaga` (`id_vaga`),
   CONSTRAINT `interesse_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`cpf`),
   CONSTRAINT `interesse_ibfk_2` FOREIGN KEY (`id_vaga`) REFERENCES `vaga` (`id_vaga`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela bartohelp.interesse: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela bartohelp.interesse: ~2 rows (aproximadamente)
+INSERT INTO `interesse` (`id_interesse`, `id_usuario`, `id_vaga`, `interessado`, `aprovacao`) VALUES
+	(2, '47319366835', 1, 1, 0),
+	(5, '47319366835', 4, 1, 1);
 
 -- Copiando estrutura para tabela bartohelp.usuario
 CREATE TABLE IF NOT EXISTS `usuario` (
@@ -203,7 +245,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 -- Copiando dados para a tabela bartohelp.usuario: ~2 rows (aproximadamente)
 INSERT INTO `usuario` (`email`, `senha`, `telefone`, `foto`, `nome`, `cpf`, `nascimento`, `cep`, `bairro_cidade`, `curriculo`) VALUES
 	('ramon', 'MTIzNDVHb2pvVVNvbGEkJA==', '93951-8083', NULL, 'Ramon', '44157522095', '2006-10-03', '06535160', 'Santana de Parnaíba _ Cidade São Pedro - Gleba A _ SP', 0),
-	('gustavobatistabos.td@gmail.com', 'MTIzNDVHb2pvVVNvbGEkJA==', '93951-8083', NULL, 'Gustavo B', '47319366835', '2006-10-03', '06535160', '', 0);
+	('gustavobatistabos.td@gmail.com', 'MTIzNDVHb2pvVVNvbGEkJA==', '93951-8083', NULL, 'Gustavo B', '47319366835', '2006-10-03', '06535160', 'Santana de Parnaíba _ Cidade São Pedro - Gleba A _ SP', 1);
 
 -- Copiando estrutura para tabela bartohelp.vaga
 CREATE TABLE IF NOT EXISTS `vaga` (
