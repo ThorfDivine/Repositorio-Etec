@@ -1,0 +1,83 @@
+.topo{
+    display: flex;
+    margin-top: 5vh;
+    margin-left: 5vw;
+    width: 90%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.titulo{
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+}
+.img{
+    width: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logoEmp{
+    width: 12vh;
+    border-radius: 6vh;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+}
+.contedor{
+    padding-left: 10vh;
+    border-top: 2vh;
+    
+    & div{
+        margin-bottom: 2vh; 
+    }
+}
+.candidatarVaga{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: larger;
+    cursor:pointer;
+    color: rgb(233, 233, 233);
+    border-radius: 1vh;
+    background-color: rgb(52, 52, 200);
+    transition: .7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    & :hover{
+        background-color: rgb(28, 28, 141);
+    }
+
+    
+}
+
+#requisitosCards{
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: left;
+    padding-top: 1vh;
+
+        & button{
+            border: 0;
+            width: 140px;
+            height: 54px;
+            margin: 0 5px;
+            display: flex;
+            cursor: pointer;
+            border-radius: 15px;
+            align-items: center;
+            font-size: .92rem;
+            justify-content: center;
+            color: var(--buttonLocateClr);
+            background-color: var(--buttonLocate);
+            transition: .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+            &:hover{
+                color: var(--buttonLocateClrHvr);
+                background-color: var(--buttonLocateHvr);
+            }
+        }
+        
+}
