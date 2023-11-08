@@ -7,7 +7,7 @@ let LinkIt2
 let item3
 
 let search
-    search = '<div class="search centralize"><input type="text" class="surchInp" name="search" id="search" placeholder="Pesquisar..."><button class="searchBtn"><span class="material-symbols-outlined">search</span></button></div>'
+    search = ''
 
 let logotipo
     logotipo = '../../contents/logo/logo.png'
