@@ -38,7 +38,7 @@
 			
 			<div class="input-group h2">
 			<!-- input para acrescentar método de busca assíncrona por digitação de letra -->
-				<input name="busca" class="form-control" id="search" type="text" placeholder="Pesquisar Itens">
+				<input name="busca" class="form-control" id="search" type="text" placeholder="Pesquisar Itens" onChange="filtro()">
 			<!-- fim input -->	
 			<span class="input-group-btn">
 
@@ -177,6 +177,49 @@
 
 					alert('There was a problem with the request.');
 
+				}
+			}
+		}
+	}
+	filtro(dados)
+	{
+		var xhr;
+        var confirmar= "dados="+document.getElementById("search").value;
+
+        if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+
+            xhr = new XMLHttpRequest();
+
+        } else if (window.ActiveXObject) { // IE 8 and older
+
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+
+        xhr.open("POST", "./filtro.php", true); 
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+        xhr.send(confirmar);  
+        xhr.onreadystatechange = display_data;
+
+		function display_data() {
+
+			function display_data() {
+
+				if (xhr.readyState == 4) {
+
+					if (xhr.status == 200) {
+
+						
+							items = xhr.responseText;
+						
+							document.getElementById('tabelaExibir').innerHTML = items ; 								
+						
+
+					} else {
+
+						alert('There was a problem with the request.');
+
+					}
 				}
 			}
 		}
